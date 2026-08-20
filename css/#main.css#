@@ -1,0 +1,17 @@
+#table-custom table {
+    width: 100%;
+    border-spacing
+  padding: 20px;
+}
+
+#table-custom td, #table-custom th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#table-custom th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: black;
+}
