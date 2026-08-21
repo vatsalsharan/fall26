@@ -14,7 +14,7 @@
         
     <link href="css/main.css" rel="stylesheet">
     
-        <title>CS699: Trustworthy ML</title>
+        <title>CS699: Trustworthy ML &mdash; Fall 2026</title>
   </head>
 
 <body>
@@ -22,9 +22,8 @@
 
             <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header" style="color:#B03A2E;">CSCI 699: Trustworthy Machine Learning from an Optimization Lens
-                </h1>
-            </div>
+                <h1 class="page-header" style="color:#B03A2E;">CSCI 618: Trustworthy Machine Learning from an Optimization Lens
+                </h1>            </div>
         </div>
 
 <p>
@@ -37,9 +36,10 @@
 <h3 style="color:#1F618D;">Basic Information</h3>
 
 <ul>
-    <li> <b> Lecture time: </b> Wednesday 4:00 pm to 7:20 pm
-    <li> <b> Lecture place: </b> WPH 207
-                <li> <b>Office Hour: </b> Vatsal: Wednesdays  2pm-3pm in the common space next to the elevators on the 4th floor of the GCS computer science building. Or by appointment.
+    <li> <b> Lecture time: </b> Mondays and Wednesdays, 10:00 am to 11:50 am
+    <li> <b> Lecture place: </b> WPH 106
+          <li> <b> TA: </b> Devansh Gupta
+                <li> <b>Office Hour: </b> Vatsal: Wednesdays  4pm-5pm in SB6 (GCS Lower Level 2). Or by appointment.
                     <li> <b> Communication: </b> We will primarily use Slack for communication. 
                 <li> <b> Gradescope: </b> We will use <a href="https://gradescope.com/">Gradescope </a> for assignment and final project submission.
     </ul>
@@ -57,199 +57,193 @@ optimization knowledge, basic probability and linear algebra concepts. Mathemati
            
 <h3 style="color:#1F618D;">Syllabus and Materials</h3>
 
-The following is a tentative schedule. We will post lecture notes and assignments here. Additional related reading for all lectures will be posted on ed discussion after the lecture.
-<br><br>
+The following is a tentative schedule. We will post lecture notes and assignments here. Additional related reading for all lectures will be posted on Ed Discussion after the lecture. <br>
+
 <div id="table-custom">
     <table style="width:100%" align="right">
         <tr>
-            <th style="text-align:center; width:8%;">Lecture</th>
+            <th style="text-align:center; width:15%;">Lecture</th>
             <th style="text-align:center">Topics</th>
-            <th style="text-align:center">Lecture notes</th>
-            <th style="text-align:center; width:11%;">Homework</th>
+            <th style="text-align:center; width:14%;">Homework</th>
         </tr>
 <tr>
-  <td align="center">1, 08/27</td>
-  <td align="left"> Course introduction, ML basics, Adversarial examples, Finding adversarial examples, Adversarial training
-
-
-  </td>
-  <td align="center">
-        <a href="https://vatsalsharan.github.io/fall2025/lec1_annotated.pdf">Lecture slides</a>
-  </td>
+  <td align="center">1, Mon 08/24</td>
+  <td align="left">Course introduction, ML basics</td>
   <td align="center"></td>
 </tr>
 
 <tr>
-  <td align="center">2, 09/03</td>
-  <td align="left"> Certified robustness, randomized smoothing, data poisoning <br>
-Paper presentations: <br>
-(1) <a href="https://arxiv.org/pdf/1911.05911.pdf">Recent Advances in Algorithmic High-Dimensional Robust Statistics</a> (also see <a href="http://people.csail.mit.edu/moitra/docs/cacmrobust.pdf">Robustness Meets Algorithms</a>) <br>
-(2) <a href="https://arxiv.org/pdf/2310.08419">Jailbreaking Black Box Large Language Models in Twenty Queries </a>
-
-  </td>
-  <td align="center">
-      <a href="https://vatsalsharan.github.io/fall2025/lec2_annotated.pdf">Lecture slides</a>
-  </td>
-  <td align="center">
-      
-  </td>
-</tr>
-<tr>
-  <td align="center">3, 09/10</td>
-  <td align="left"> Undetectable backdoors, tradeoffs in adversarial robustness <br>
-Paper presentations: <br>
-(1) <a href="https://arxiv.org/pdf/2412.16339.pdf">Deliberative Alignment: Reasoning Enables Safer Language Models </a>(briefly cover <a href="https://arxiv.org/pdf/2502.01633.pdf">Adversarial Reasoning at Jailbreaking Time</a>) <br>
-(2) <a href="https://proceedings.mlr.press/v97/recht19a/recht19a.pdf">Do ImageNet Classifiers Generalize to ImageNet?</a><br>
-(3) <a href="https://arxiv.org/abs/2107.04649">Accuracy on the Line: On the Strong Correlation Between Out-of-Distribution and In-Distribution Generalization </a> (briefly cover <a href="https://arxiv.org/abs/2406.19049">Accuracy on the wrong line: On the pitfalls of noisy data for out-of-distribution generalisation</a>)
-  </td>
-  <td align="center">
-      <a href="https://vatsalsharan.github.io/fall2025/lec3_annotated.pdf">Lecture slides</a>
-  </td>
-  <td align="center">
-      <!-- <a href="/lecture_notes/hw1.pdf">HW1</a></td>-->
-</tr>
-
-<tr>
-  <td align="center">4, 09/17</td>
-  <td align="left"> Robust and non-robust features, distributional robustness, introduction to algorithmic fairness <br>
-  Paper presentations: <br>
-  (1) <a href="https://omereingold.wordpress.com/wp-content/uploads/2022/12/kleinbergetal_excerpted.pdf">Discrimination in the Age of Algorithms</a> <br>
-  (2) <a href="https://arxiv.org/pdf/2410.19803">First-Person Fairness in Chatbots</a> 
-  </td>
-  <td align="center">
-        <a href="https://vatsalsharan.github.io/fall2025/lec4_annotated.pdf">Lecture slides</a>
-  </td>
-  <td align="center"> <a href="https://vatsalsharan.github.io/fall2025/reaction_paper.html">HW1</a>
-    
-  </td>
-</tr>
-
-<tr>
-  <td align="center">5, 09/24</td>
-  <td align="left"> Fairness notions in classification, individual fairness, group fairness, case study of fairness notions<br>
-  Paper presentations: <br>
-  (1) <a href="https://arxiv.org/pdf/2002.06673">Performative Prediction</a> <br>
-  (2) <a href="https://arxiv.org/pdf/2501.19334">The Value of Prediction in Identifying the Worst-Off</a>
-  </td>
-  <td align="center">
-      <a href="https://vatsalsharan.github.io/fall2025/lec5_annotated.pdf">Lecture slides</a>
-  </td>
+  <td align="center">2, Wed 08/26</td>
+  <td align="left">Adversarial examples, finding adversarial examples, adversarial training</td>
   <td align="center"></td>
 </tr>
 
 <tr>
-  <td align="center">6, 10/01</td>
-  <td align="left"> Inherent tradeoffs between notions, individual fairness via uncertainty quantification, multicalibration<br>
-  Paper presentations: <br>
-  (1) <a href="https://arxiv.org/abs/1803.04383">Delayed Impact of Fair Machine Learning</a> <br>
-  (2) <a href="https://arxiv.org/abs/1706.02744">Avoiding Discrimination through Causal Reasoning</a> <br>
-  (3) <a href="https://www.arxiv.org/pdf/2509.04664">Why Language Models Hallucinate</a> (also see <a href="https://arxiv.org/abs/2311.14648">Calibrated Language Models Must Hallucinate</a>)
-  </td>
-  <td align="center">
-      <a href="https://vatsalsharan.github.io/fall2025/lec6_annotated.pdf">Lecture slides</a>
-  </td>
-  <td align="center">
-      
-  </td>
-</tr>
-<tr>
-  <td align="center">7, 10/08</td>
-  <td align="left"> Review of iteration complexity analysis: smooth convex, strongly convex, and nonconvex
-  </td>
-      <td align="center">
-          <a href="https://vatsalsharan.github.io/fall2025/lecture7.pdf">Lecture slides</a>
-      </td>
-      <td align="center"><a href="https://vatsalsharan.github.io/fall2025/proposal.html">Project proposal</a> due </td>
-    </tr>
-
-
-  <td align="center">8, 10/15</td>
-  <td align="left"> Privacy and membership inference attacks<br>
-  Paper presentations: <br>
-  (1) <a href="https://arxiv.org/pdf/cs/0610105">Robust De-anonymization of Large Datasets</a> (also see <a href="https://journals.plos.org/plosgenetics/article?id=10.1371%2Fjournal.pgen.1000167">Resolving Individuals Contributing Trace Amounts of DNA</a>) <br>
-  (2) <a href="https://rist.tech.cornell.edu/papers/mi-ccs.pdf">Model Inversion Attacks</a> (also see <a href="https://www.cs.cornell.edu/~shmat/shmat_oak17.pdf">Membership Inference Attacks Against
-Machine Learning Models</a>) 
-  </td>
-  <td align="center">
-      <a href="https://vatsalsharan.github.io/fall2025/lecture8.pdf">Lecture slides</a>
-  </td>
+  <td align="center">3, Mon 08/31</td>
+  <td align="left">Certified robustness, randomized smoothing</td>
   <td align="center"></td>
 </tr>
 
 <tr>
-  <td align="center">9, 10/22</td>
-  <td align="left"> Differential privacy and its basic properties
-    <br>
-  Paper presentations: <br>
-  (1) <a href="https://docs-assets.developer.apple.com/ml-research/papers/learning-with-privacy-at-scale.pdf">Learning with Privacy at Scale at Apple</a> <br>
-  (2) <a href="https://arxiv.org/pdf/2311.17035">Scalable Extraction of Training Data from (Production) Language Models</a> 
-  </td>
-  <td align="center">
-      <a href="https://vatsalsharan.github.io/fall2025/lecture9.pdf">Lecture slides</a>
-  </td>
-  <td align="center"> <a href="https://vatsalsharan.github.io/fall2025/reaction_paper.html">HW1</a> due</td>
-</tr>
-
-<tr>
-  <td align="center">10, 10/29</td>
-  <td align="left"> DP mechanisms and properties of DP
-  <br>
-  Paper presentations: <br>
-  (1) <a href="https://arxiv.org/pdf/1610.05755">Semi-supervised Knowledge Transfer for Deep Learning from Private Training Data (PATE)
-</a> <br>
-  (2) <a href="https://arxiv.org/pdf/1607.00133">Deep Learning with Differential Privacy (DP-SGD)</a> <br>
-  (3) <a href="https://arxiv.org/pdf/2301.13188">Extracting Training Data from Diffusion Models</a>
-  </td>
-      <td align="center">
-          <a href="https://vatsalsharan.github.io/fall2025/lecture10.pdf">Lecture slides</a>
-      </td>
-      <td align="center">
-    </tr>
-
-<tr>
-  <td align="center">11, 11/05</td>
-  <td align="left"> DP optimization: output perturbation, objective perturbation, and exponential mechanism
-    <br>
-  Paper presentations: <br>
-  (1) <a href="https://arxiv.org/pdf/2501.18914">Scaling Laws for Differentially Private Language Models</a> <br>
-  (2) <a href="https://arxiv.org/pdf/1702.07476">Renyi Differential Privacy</a> <br>
-  (3) <a href="https://arxiv.org/pdf/2110.06500">Differentially Private Fine-tuning of Language Models</a>
-  <td align="center">
-   <a href="https://vatsalsharan.github.io/fall2025/lecture11.pdf">Lecture slides</a>
-  </td>
-  <td align="center">
-  </td>
-</tr>
-<tr>
-  <td align="center">12, 11/12</td>
-  <td align="left"> DP optimization: DP-SGD and its variants
-    Paper presentations: <br>
-  (1) <a href="https://arxiv.org/pdf/2305.08846">Privacy Auditing with One Training Run</a> <br>
-  (2) <a href="https://arxiv.org/pdf/2110.05679">Large Language Models Can Be Strong Differentially Private Learners (Ghost Clipping)
-</a> <br>
-  (3) <a href="https://arxiv.org/pdf/2003.14053">Inverting Gradients - How easy is it to break privacy
-in federated learning?</a> (also see <a href="https://arxiv.org/pdf/1906.08935">Deep Leakage from Gradients</a>) 
-  </td>
-  <td align="center">
-    <a href="https://vatsalsharan.github.io/fall2025/lecture12.pdf">Lecture slides</a>
-  </td>
+  <td align="center">4, Wed 09/02</td>
+  <td align="left">Data poisoning</td>
   <td align="center"></td>
 </tr>
 
 <tr>
-  <td align="center">13, 11/19</td>
-  <td align="left">Project presentations
-  </td>
-  <td align="center"></td>
+  <td align="center">Mon 09/07</td>
+  <td align="left"><i>No class &mdash; Labor Day</i></td>
   <td align="center"></td>
 </tr>
 
 <tr>
-  <td align="center">14, 12/03</td>
-  <td align="left">Project presentations
-  </td>
+  <td align="center">5, Wed 09/09</td>
+  <td align="left">Undetectable backdoors, tradeoffs in adversarial robustness</td>
   <td align="center"></td>
-  <td align="center"><a href="https://vatsalsharan.github.io/fall2025/hw2.pdf">HW2</a> due</td>
+</tr>
+
+<tr>
+  <td align="center">6, Mon 09/14</td>
+  <td align="left">Robust and non-robust features, distributional robustness</td>
+  <td align="center">HW1</td>
+</tr>
+
+<tr>
+  <td align="center">7, Wed 09/16</td>
+  <td align="left">Introduction to algorithmic fairness</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">8, Mon 09/21</td>
+  <td align="left">Fairness notions in classification, individual fairness</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">9, Wed 09/23</td>
+  <td align="left">Group fairness, case study of fairness notions</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">10, Mon 09/28</td>
+  <td align="left">Inherent tradeoffs between fairness notions</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">11, Wed 09/30</td>
+  <td align="left">Individual fairness via uncertainty quantification, multicalibration</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">12, Mon 10/05</td>
+  <td align="left">Review of iteration complexity analysis: smooth convex and strongly convex optimization</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">13, Wed 10/07</td>
+  <td align="left">Review of iteration complexity analysis: nonconvex optimization</td>
+  <td align="center">Project proposal due</td>
+</tr>
+
+<tr>
+  <td align="center">14, Mon 10/12</td>
+  <td align="left">Privacy attacks and data privacy threats</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">15, Wed 10/14</td>
+  <td align="left">Membership inference attacks</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">16, Mon 10/19</td>
+  <td align="left">Differential privacy: definition and intuition</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">17, Wed 10/21</td>
+  <td align="left">Basic properties of differential privacy</td>
+  <td align="center">HW1 due</td>
+</tr>
+
+<tr>
+  <td align="center">18, Mon 10/26</td>
+  <td align="left">Differential privacy mechanisms</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">19, Wed 10/28</td>
+  <td align="left">Properties of differential privacy</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">20, Mon 11/02</td>
+  <td align="left">DP optimization: output perturbation and objective perturbation</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">21, Wed 11/04</td>
+  <td align="left">DP optimization: exponential mechanism</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">22, Mon 11/09</td>
+  <td align="left">DP optimization: DP-SGD</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">Wed 11/11</td>
+  <td align="left"><i>No class &mdash; Veterans Day</i></td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">23, Mon 11/16</td>
+  <td align="left">Project presentations</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">24, Wed 11/18</td>
+  <td align="left">Project presentations</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">25, Mon 11/23</td>
+  <td align="left">Project presentations</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">Wed 11/25</td>
+  <td align="left"><i>No class &mdash; Thanksgiving recess</i></td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">26, Mon 11/30</td>
+  <td align="left">Project presentations</td>
+  <td align="center"></td>
+</tr>
+
+<tr>
+  <td align="center">27, Wed 12/02</td>
+  <td align="left">Project presentations</td>
+  <td align="center">HW2 due</td>
 </tr>
 </table>
 </div>
@@ -257,29 +251,28 @@ in federated learning?</a> (also see <a href="https://arxiv.org/pdf/1906.08935">
 <div><h3 style="color:#1F618D;">Requirements and Grading</h3></div>
 
 <ol>
-    
-    <li>  <b> 2 homeworks </b> worth 15% of the grade. Homeworks should be written in Latex and submitted via Gradescope.
+    <li> <b>2 homeworks</b> worth 10% each (20% total). Homeworks should be written in LaTeX and submitted via Gradescope. There will be an oral evaulation for the homeworks.
 
-    <li> <b> Mini-homeworks </b> worth 15% of the grade. You should read presented papers before class so that you can contribute and get the most out of the presentation and discussion. Part of the course grade is also based on this via mini-homeworks. For every lecture day, you can fill out <a href=https://forms.gle/eMoRqycqsyUM9cDi7>this form</a> before 10 am on that day. More instructions are given on the form. We will drop your lowest mini-homework score for the final grade.
+    <li> <b> Mini-homeworks </b> worth 15% of the grade. You should read presented papers before class so that you can contribute and get the most out of the presentation and discussion. Part of the course grade is also based on this via mini-homeworks. We will drop your lowest mini-homework score for the final grade.
 
-    <li> Each student will be required to <b> present a paper </b> in class, which will be worth 15% of the grade.
+    <li> <b>Class participation</b> will be worth 5% of the grade.
+
+    <li> Each student will be required to <b>present a paper</b> in class, which will be worth 20% of the grade.
+
+    <li> <b>Scribing</b> one lecture in Overleaf will be worth 5% of the grade.
         
-        <li> The research components will be a <b> project proposal </b> (5%), a <b> project presentation </b> (15%), and a <b> project final report </b> (25%). An overview of the requirements is given below, detailed instructions will be discussed later. The project will be in <b>groups of two students. </b>
+        <li> The research components will be a <b>project proposal</b> (5%), a <b>project presentation</b> (15%), and a <b>project final report</b> (15%). An overview of the requirements is given below; detailed instructions will be discussed later. The project will be in <b>groups of two students.</b>
             
             <ul> <li> The goal of the project is to give you experience in research on topics in trustworthy ML. You are free to pursue a purely theoretical project, a purely empirical project, or some combination of these. You can discuss project ideas with the instructors.
                  <li> The project proposal is meant to finalize your project topic, and will be a short 1 page report.
-                 <li> The project presentations will be held in class on 11/19. Your project need not be complete by this stage, but you should have made reasonable progress.
+                 <li> The project presentations will be held in class on 11/16, 11/18, 11/23, 11/30, and 12/2. Your project need not be complete by this stage, but you should have made reasonable progress.
                  <li> The project final report has to be written in Latex and should be 8-9 pages long, excluding references. Part of the report should  discuss the related research landscape, and the rest of it should cover your original work. Please use the LaTex template based on the NeurIPS format. The project should be written in a way such that most students in the class should be able to understand the report. 
-                 <li> You are free to use LLMs/generative AI tools to help you with your research, but must disclose how LLMs were used in your project report (not part of the page limit). Students still bear full responsibility for the contents of the report, including content generated by LLMs that could be construed as plagiarism or scientific misconduct (e.g., fabrication of facts). 
+                 <li> You are free to use LLMs/generative AI tools to help you with your research and project in any way. Students still bear full responsibility for the contents of the report, including content generated by LLMs that could be construed as plagiarism or scientific misconduct (e.g., fabrication of facts, hallucinations). 
                      </ul> 
-                     <li> 5% of the grade will be based on <b> scribing</b> a lecture.
-            <li> 5% of the grade will be based on <b> course attendance and participation</b>.
 </ol>
      
           <br><br><br>
 
 </div>
-</div>
 </body>
 </html>
-
