@@ -262,6 +262,64 @@ p {
   line-height: 1.7;
 }
 
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.week-card {
+  min-height: 300px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.72);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.week-card:hover,
+.week-card:focus-visible {
+  outline: none;
+  background: var(--cream);
+  box-shadow: 0 20px 55px rgba(49, 43, 32, 0.1);
+  transform: translateY(-5px);
+}
+
+.week-card-topline {
+  display: flex;
+  justify-content: space-between;
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.week-card h3 {
+  margin: 54px 0 10px;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.week-card p,
+.week-card small {
+  color: var(--ink-soft);
+}
+
+.week-card p {
+  font-size: 13px;
+}
+
+.week-card-rule {
+  height: 1px;
+  margin-top: auto;
+  margin-bottom: 18px;
+  background: var(--line);
+}
+
 .empty-archive {
   min-height: 300px;
   display: grid;
@@ -392,6 +450,11 @@ p {
     grid-template-columns: 1fr;
     gap: 24px;
   }
+
+  .week-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 }
 
 @media (max-width: 620px) {
@@ -440,6 +503,10 @@ p {
 
   .archive-section {
     padding-block: 74px 82px;
+  }
+
+  .week-grid {
+    grid-template-columns: 1fr;
   }
 
   .empty-archive {
