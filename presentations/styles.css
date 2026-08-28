@@ -253,14 +253,6 @@ h3 {
   line-height: 0.98;
 }
 
-.hero-intro {
-  max-width: 690px;
-  margin-bottom: 25px;
-  color: var(--ink-soft);
-  font-size: clamp(20px, 2.2vw, 25px);
-  line-height: 1.5;
-}
-
 .text-link {
   display: inline-flex;
   align-items: center;
@@ -846,10 +838,6 @@ h3 {
 
   .hero h1 {
     font-size: clamp(48px, 14vw, 68px);
-  }
-
-  .hero-intro {
-    font-size: 19px;
   }
 
   .content-section,
