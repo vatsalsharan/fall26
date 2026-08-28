@@ -364,6 +364,10 @@ h3 {
   color: var(--ink-soft);
 }
 
+.mini-homework-link {
+  margin-top: 22px;
+}
+
 .question-list {
   margin: 0;
   padding: 0;
