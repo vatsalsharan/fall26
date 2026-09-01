@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Four CS 618 reading reflections for Week 1, Wednesday, September 2, 2026."
+    />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Week 1 · CS 618 Weekly Paper Notes" />
+    <meta
+      property="og:description"
+      content="Reading reflections for Wednesday, September 2, 2026."
+    />
+    <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-1/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Week 1 · CS 618 Weekly Paper Notes" />
+    <meta name="twitter:description" content="Reading reflections for Wednesday, September 2, 2026." />
+    <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-1/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Week 1 · CS 618 Weekly Paper Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#responses">Skip to the weekly notes</a>
+
+    <main>
+      <header class="site-header shell">
+        <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
+          <span class="wordmark-mark" aria-hidden="true">618</span>
+          <span>
+            <strong>CS 618</strong>
+            <small>Weekly paper notes</small>
+          </span>
+        </a>
+        <span class="term-badge">Fall 2026</span>
+      </header>
+
+      <section class="week-hero shell" aria-labelledby="week-title">
+        <a class="back-link" href="../../">← All weeks</a>
+        <p class="eyebrow">Reading reflections · Wednesday, September 2, 2026</p>
+        <h1 id="week-title">Week 1</h1>
+        <div class="week-summary">
+          <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
+          <span>4 responses</span>
+        </div>
+      </section>
+
+      <section class="response-list shell" id="responses" aria-label="Week 1 responses">
+        <article class="response-card">
+          <header>
+            <span class="response-number">01</span>
+            <div>
+              <h2>Selina Xiao</h2>
+              <time datetime="2026-08-30">Aug 30, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list is-single">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the Poisoning Attack on LLMs paper, it is counterintuitive that attack success appears to depend much more strongly on the absolute number of poisoned samples than on their fraction of the training set. I also found it interesting that the same qualitative behavior appears across different model sizes and both pretraining and fine-tuning settings. For the Robustness Meets Algorithms paper, I found it interesting that the main contribution is not simply using eigenvectors, but proving that if adversarial samples significantly distort the estimate, they must leave a detectable spectral signature. This turns a robustness problem into something algorithmically testable, and the same insight can be used both for filtering and for a convex feasibility formulation.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Faith Baca</h2>
+              <time datetime="2026-08-31">Aug 31, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For &quot;Robustness Meets Algorithms,&quot; I thought it was interesting that we are able to achieve guarantees on epsilon closeness even when we are not informed about how an adversary can corrupt samples; I find this interesting because, even when we don't know how an adversary behaves, we are still able to design robust estimators. I also thought the authors' approach to the Novembre et al. problem was very interesting, but I didn't understand very well why the data resembled the map of Europe when projected onto the first two principal components. For the second paper, I thought it was really interesting how few poisoned samples were needed to achieve a very high attack success rate (especially in the language attack switch context, for which as few as 1000 poison samples led to ASRs of nearly 90%).</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I'm curious about what specific methods adversaries might have for corrupting samples and whether there are universal methods for this or whether they're specific to the application/context. For the second paper, I am curious how often these poisoning attacks are happening and with which models they are most common; also, I am wondering what large closed-source model companies are doing currently to mitigate these risks, especially since the authors note that backdoors may persist after post-training. I hope to learn more about the real-world applications of developing robust algorithms/bolstering models against poisoning attacks.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Junyang Cai</h2>
+              <time datetime="2026-08-31">Aug 31, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The two papers both study the effect of corrupted data. I find interesting that the absolute number of poisoned samples is the dominating factor for a successful attack in this setting. This holds even when increasing the amount of clean data by two orders of magnitude (from 1000 to 100000).</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The question is can ideas from robust statistics could be adapted to defend modern LLM training against poisoning attacks. I want to learn more about how we can use one paper to solve the problem raised by another paper in the class.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Sriram Kadiyala</h2>
+              <time datetime="2026-08-31">Aug 31, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list is-single">
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>1. POISONING ATTACKS ON LLMS REQUIRE A NEAR-CONSTANT NUMBER OF POISON SAMPLES --&gt; In figure 2, Why does the perplexity seem to be decreasing when further increasing the poison samples seen among some models? --&gt; Why is it the case that Lower Learning Rate mean more poisons needed? LR and poison count trade off against each other, so is &quot;250&quot; actually a property of their LR schedule? --&gt; Is 250 a coincidence or a number, like what does it depend on behavior wise? 2. Robustness Meets Algorithms How do these algorithms perform when the underlying &quot;clean&quot; data is naturally heavy-tailed or multimodal? Do they mistakenly filter out extreme but valid inliers?</p>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer shell">
+        <p>
+          <span class="footer-signal" aria-hidden="true"></span>
+          Synced from the class response form
+        </p>
+        <p>Email addresses are never published.</p>
+      </footer>
+    </main>
+  </body>
+</html>
