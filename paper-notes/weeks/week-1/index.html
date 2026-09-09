@@ -3,22 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Twenty-two CS 618 reading reflections for Week 1, Wednesday, September 2, 2026."
-    />
+    <meta name="description" content="23 CS 618 reading reflections for Week 1, September 2, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 1 · CS 618 Weekly Paper Notes" />
-    <meta
-      property="og:description"
-      content="Reading reflections for Wednesday, September 2, 2026."
-    />
+    <meta property="og:description" content="Reading reflections for September 2, 2026." />
     <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
     <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-1/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Week 1 · CS 618 Weekly Paper Notes" />
-    <meta name="twitter:description" content="Reading reflections for Wednesday, September 2, 2026." />
+    <meta name="twitter:description" content="Reading reflections for September 2, 2026." />
     <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
     <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-1/" />
     <link rel="stylesheet" href="../../styles.css" />
@@ -31,21 +25,18 @@
       <header class="site-header shell">
         <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
           <span class="wordmark-mark" aria-hidden="true">618</span>
-          <span>
-            <strong>CS 618</strong>
-            <small>Weekly paper notes</small>
-          </span>
+          <span><strong>CS 618</strong><small>Weekly paper notes</small></span>
         </a>
         <span class="term-badge">Fall 2026</span>
       </header>
 
       <section class="week-hero shell" aria-labelledby="week-title">
         <a class="back-link" href="../../">← All weeks</a>
-        <p class="eyebrow">Reading reflections · Wednesday, September 2, 2026</p>
+        <p class="eyebrow">Reading reflections · September 2, 2026</p>
         <h1 id="week-title">Week 1</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>22 responses</span>
+          <span>23 responses</span>
         </div>
       </section>
 
@@ -65,7 +56,7 @@
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>For the Poisoning Attack on LLMs paper, I am curious whether there is a theoretical or mechanistic explanation for why the absolute number of poisoned samples, rather than the poisoning ratio, determines attack success. The paper provides extensive empirical evidence and suggests that the number of gradient updates involving poisoned data may matter, but it is still unclear to me why much larger amounts of clean data do not dilute the learned backdoor. I would also like to better understand how these results change for more complex attacks than the relatively simple trigger-response behaviors considered here. For the Robustness Meets Algorithms paper, I'm curious about how much of the spectral filtering idea survives when the clean distribution is only approximately Gaussian or has heavier tails? In particular, could ordinary model misspecification create the same moment abnormalities that the algorithm interprets as corruption?</p>
+              <p>For the Poisoning Attack on LLMs paper, I am curious whether there is a theoretical or mechanistic explanation for why the absolute number of poisoned samples, rather than the poisoning ratio, determines attack success. The paper provides extensive empirical evidence and suggests that the number of gradient updates involving poisoned data may matter, but it is still unclear to me why much larger amounts of clean data do not dilute the learned backdoor. I would also like to better understand how these results change for more complex attacks than the relatively simple trigger-response behaviors considered here. For the Robustness Meets Algorithms paper, I&#39;m curious about how much of the spectral filtering idea survives when the clean distribution is only approximately Gaussian or has heavier tails? In particular, could ordinary model misspecification create the same moment abnormalities that the algorithm interprets as corruption?</p>
             </section>
           </div>
         </article>
@@ -81,11 +72,11 @@
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>For &quot;Robustness Meets Algorithms,&quot; I thought it was interesting that we are able to achieve guarantees on epsilon closeness even when we are not informed about how an adversary can corrupt samples; I find this interesting because, even when we don't know how an adversary behaves, we are still able to design robust estimators. I also thought the authors' approach to the Novembre et al. problem was very interesting, but I didn't understand very well why the data resembled the map of Europe when projected onto the first two principal components. For the second paper, I thought it was really interesting how few poisoned samples were needed to achieve a very high attack success rate (especially in the language attack switch context, for which as few as 1000 poison samples led to ASRs of nearly 90%).</p>
+              <p>For &quot;Robustness Meets Algorithms,&quot; I thought it was interesting that we are able to achieve guarantees on epsilon closeness even when we are not informed about how an adversary can corrupt samples; I find this interesting because, even when we don&#39;t know how an adversary behaves, we are still able to design robust estimators. I also thought the authors&#39; approach to the Novembre et al. problem was very interesting, but I didn&#39;t understand very well why the data resembled the map of Europe when projected onto the first two principal components. For the second paper, I thought it was really interesting how few poisoned samples were needed to achieve a very high attack success rate (especially in the language attack switch context, for which as few as 1000 poison samples led to ASRs of nearly 90%).</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>I'm curious about what specific methods adversaries might have for corrupting samples and whether there are universal methods for this or whether they're specific to the application/context. For the second paper, I am curious how often these poisoning attacks are happening and with which models they are most common; also, I am wondering what large closed-source model companies are doing currently to mitigate these risks, especially since the authors note that backdoors may persist after post-training. I hope to learn more about the real-world applications of developing robust algorithms/bolstering models against poisoning attacks.</p>
+              <p>I&#39;m curious about what specific methods adversaries might have for corrupting samples and whether there are universal methods for this or whether they&#39;re specific to the application/context. For the second paper, I am curious how often these poisoning attacks are happening and with which models they are most common; also, I am wondering what large closed-source model companies are doing currently to mitigate these risks, especially since the authors note that backdoors may persist after post-training. I hope to learn more about the real-world applications of developing robust algorithms/bolstering models against poisoning attacks.</p>
             </section>
           </div>
         </article>
@@ -132,7 +123,7 @@ this setting. This holds even when increasing the amount of clean data by two or
 
 Poisoning Attacks on LLMs...
 
-1. I liked that the authors touched briefly on the feasibility of this kind of attack. The paper originally read as similar to papers on jailbreaking, which were referenced in class. Those examples always felt like toy examples to me, since they tend to be framed as constrained to a single user’s interaction environment. However, the authors identifying the ethical implications of the work and how these attacks could be used did help motivate the paper for me. I also didn't realize that so many authors would be concerned about LLMs being susceptible to things like DOS attacks. It has some implications about how widespread this technology is nowadays...</p>
+1. I liked that the authors touched briefly on the feasibility of this kind of attack. The paper originally read as similar to papers on jailbreaking, which were referenced in class. Those examples always felt like toy examples to me, since they tend to be framed as constrained to a single user’s interaction environment. However, the authors identifying the ethical implications of the work and how these attacks could be used did help motivate the paper for me. I also didn&#39;t realize that so many authors would be concerned about LLMs being susceptible to things like DOS attacks. It has some implications about how widespread this technology is nowadays...</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -150,7 +141,7 @@ Poisoning Attacks on LLMs...
 
 1. The authors briefly discuss related work for triggers for backdoor attacks, but their primary focus is on how the model’s resilience against attacks changes as the number of poisoned samples during pre-training and fine-tuning changes, when presented with static triggers. I am curious whether experiments with more complex triggers (e.g. dynamic transformations) would demonstrate different attack success or provide more insights on models’ ability to recover via training on clean examples. 
 
-2. Similar to Monday’s lecture, I am interested to hear whether folks have any ideas for ways to automatically identify some of these backdoor triggers and gracefully recover.</p>
+2. Similar to Monday’s lecture, I am interested to hear whether folks have any ideas for ways to automatically identify some of these backdoor triggers and gracefully recover. </p>
             </section>
           </div>
         </article>
@@ -206,11 +197,12 @@ How do these algorithms perform when the underlying &quot;clean&quot; data is na
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>The poisoning attacks paper gives a comprehensive set of experiments to show that the isolated cause for the successful attack is the number of poisoned documents.</p>
+              <p>The poisoning attacks paper gives a comprehensive set of experiments to show that the isolated cause for the successful attack is the number of poisoned documents.
+</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>Poisoning attacks paper: Does the content of the documents matter in addition to the number of documents used to train the poisoning attacks? The paper shows an interesting finding, but I'm curious about why only a constant number of documents is needed.
+              <p>Poisoning attacks paper: Does the content of the documents matter in addition to the number of documents used to train the poisoning attacks? The paper shows an interesting finding, but I&#39;m curious about why only a constant number of documents is needed.
 Robustness paper: What are some applications for recreating a distribution that has corrupted data?</p>
             </section>
           </div>
@@ -228,10 +220,10 @@ Robustness paper: What are some applications for recreating a distribution that 
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
               <p>Paper 1:
-Given the chinchilla laws on how much data is needed to train large LLMs, this paper makes a very good argument that simply poisoning a constant number of samples spread across the training set gives attackers various exploits to use. Previous works mainly show that they require a percentage of the training data to work, but for large-scale models, this percentage amounts to a very large amount of data that must be poisoned, which is impractical. Another interesting observation is that it's very hard to distinguish the trained checkpoints using traditional evaluations alone, as the performance difference between the poisoned model and the normal SFT-trained model is nearly identical in their results, making this even harder to detect during the normal LLM training and eval pipeline. And another observation that makes this interesting is that these attacks are easier with pretrained-only models, but in the paper itself, they haven’t run ablations to see whether running some safety finetuning or post-training would still make these attacks transfer?
+Given the chinchilla laws on how much data is needed to train large LLMs, this paper makes a very good argument that simply poisoning a constant number of samples spread across the training set gives attackers various exploits to use. Previous works mainly show that they require a percentage of the training data to work, but for large-scale models, this percentage amounts to a very large amount of data that must be poisoned, which is impractical. Another interesting observation is that it&#39;s very hard to distinguish the trained checkpoints using traditional evaluations alone, as the performance difference between the poisoned model and the normal SFT-trained model is nearly identical in their results, making this even harder to detect during the normal LLM training and eval pipeline. And another observation that makes this interesting is that these attacks are easier with pretrained-only models, but in the paper itself, they haven’t run ablations to see whether running some safety finetuning or post-training would still make these attacks transfer?
 
 Paper 2:
-It's actually a very interesting paper that builds on the hypothesis that if a malicious actor has added in samples to move your estimate a lot, they must leave some sort of detectable statistical fingerprint that can be identified. The easiest way to find this, apparently, is to compute the turkey median, but this becomes challenging in higher dimensions. The paper mentions they haven’t seen any cases of people doing this above a 6-dimensional, moderately sized dataset, as it's an NP-hard problem to compute these robust estimates. So it's very interesting how the paper tries to solve this by assuming that if an attacker adds points in a direction that moves the estimate, they must also increase the variance in that direction. Now it becomes easy to calculate the top eigenvalues/vectors in that direction and remove the points that cause the bulging of the sphere to happen in the Gaussian distribution.</p>
+It&#39;s actually a very interesting paper that builds on the hypothesis that if a malicious actor has added in samples to move your estimate a lot, they must leave some sort of detectable statistical fingerprint that can be identified. The easiest way to find this, apparently, is to compute the turkey median, but this becomes challenging in higher dimensions. The paper mentions they haven’t seen any cases of people doing this above a 6-dimensional, moderately sized dataset, as it&#39;s an NP-hard problem to compute these robust estimates. So it&#39;s very interesting how the paper tries to solve this by assuming that if an attacker adds points in a direction that moves the estimate, they must also increase the variance in that direction. Now it becomes easy to calculate the top eigenvalues/vectors in that direction and remove the points that cause the bulging of the sphere to happen in the Gaussian distribution.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -267,12 +259,15 @@ I would like to learn more about how to use these robust statistical techniques 
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
               <p>&quot;Robustness Meets Algorithms&quot;: The idea of inferring the mean of the true distribution by constructing a set of weights for the points that “makes sense” in terms of the covariance matrix, I think that idea could be used in many other applications.
-&quot;POISONING ATTACKS ON LLMS REQUIRE A NEAR-CONSTANT NUMBER OF POISON SAMPLES&quot;: The fact that the success rate of the attacks is independent of the amount of clean data that the model is trained on, but in some types of attacks depends on the order in which the data is received.</p>
+&quot;POISONING ATTACKS ON LLMS REQUIRE A NEAR-CONSTANT NUMBER OF POISON SAMPLES&quot;: The fact that the success rate of the attacks is independent of the amount of clean data that the model is trained on, but in some types of attacks depends on the order in which the data is received.
+
+</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>&quot;Robustness Meets Algorithms&quot;: When does the filtering approach and when does the convex programming approach make more practical sense to use?
-&quot;POISONING ATTACKS ON LLMS REQUIRE A NEAR-CONSTANT NUMBER OF POISON SAMPLES&quot;: How can the defender apply continued clean training in practice? How can it recognize a safe way to “correct” the model after it has been affected by a poisoning attack?</p>
+&quot;POISONING ATTACKS ON LLMS REQUIRE A NEAR-CONSTANT NUMBER OF POISON SAMPLES&quot;: How can the defender apply continued clean training in practice? How can it recognize a safe way to “correct” the model after it has been affected by a poisoning attack?
+</p>
             </section>
           </div>
         </article>
@@ -292,19 +287,21 @@ I would like to learn more about how to use these robust statistical techniques 
 
 (1) The paper showed that 250 documents were able to corrupt models from 600 Million parameters to  13 Billion parameter, even though the 13 Billion model sees 20 Times more clean data. 
 
-(2) In section 5 of the paper I found the fine-tuning results especially interesting because they show that backdoors can be introduced into already instruction-tuned models such as Llama-3.1-8B-Instruct and GPT-3.5-Turbo using a relatively small absolute number of poisoned examples. this is interesting as well as more concerning, Unlike pre training, which requires an attacker to somehow inject documents into web-scale scraped corpora, fine-tuning APIs like OpenAI's let anyone upload their own dataset directly.
+(2) In section 5 of the paper I found the fine-tuning results especially interesting because they show that backdoors can be introduced into already instruction-tuned models such as Llama-3.1-8B-Instruct and GPT-3.5-Turbo using a relatively small absolute number of poisoned examples. this is interesting as well as more concerning, Unlike pre training, which requires an attacker to somehow inject documents into web-scale scraped corpora, fine-tuning APIs like OpenAI&#39;s let anyone upload their own dataset directly.
 
-(3) In Section 4, The researchers kept the total dataset size fixed but changed how concentrated the poisoning varying it between 0.1 % to 5% of data by adjusting how many poisoned samples were crammed into each batch and how often poisoned batches appeared. Across all these different setups, what mattered wasn't the rate of poisoning but the total count of poisoned examples the model had seen by that point. Two runs with very different poisoning percentages ended up equally successful as long as they'd been exposed to the same raw number of poisoned samples.
+(3) In Section 4, The researchers kept the total dataset size fixed but changed how concentrated the poisoning varying it between 0.1 % to 5% of data by adjusting how many poisoned samples were crammed into each batch and how often poisoned batches appeared. Across all these different setups, what mattered wasn&#39;t the rate of poisoning but the total count of poisoned examples the model had seen by that point. Two runs with very different poisoning percentages ended up equally successful as long as they&#39;d been exposed to the same raw number of poisoned samples.
 
 ROBUSTNESS MEETS ALGORITHMS :
 
-(1) The Paper highlighted new information for me that estimators can be robust or computationally efficient, achieving both is difficult but possible in some sense. adversary has corrupted enough data points to meaningfully shift the estimated mean, that corruption leaves a detectable property that is unusually high variance in some direction, as an inflated eigenvalue in the data's covariance matrix.</p>
+(1) The Paper highlighted new information for me that estimators can be robust or computationally efficient, achieving both is difficult but possible in some sense. adversary has corrupted enough data points to meaningfully shift the estimated mean, that corruption leaves a detectable property that is unusually high variance in some direction, as an inflated eigenvalue in the data&#39;s covariance matrix. 
+
+</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>POISONING ATTACKS ON LLMS REQUIRE A NEAR-CONSTANT NUMBER OF POISON SAMPLES : 
 
-The paper finds that backdoor poisoning is remarkably precise near-trigger accuracy and clean accuracy both stay high and capability benchmarks show almost no degradation between poisoned and clean models, Why does this happen? What explains the model's ability to cleanly localize the backdoor behavior to the exact trigger condition, without the poisoned training data kind of blending into or degrading its general capabilities and behavior on everything else?
+The paper finds that backdoor poisoning is remarkably precise near-trigger accuracy and clean accuracy both stay high and capability benchmarks show almost no degradation between poisoned and clean models, Why does this happen? What explains the model&#39;s ability to cleanly localize the backdoor behavior to the exact trigger condition, without the poisoned training data kind of blending into or degrading its general capabilities and behavior on everything else?
 
 ROBUSTNESS MEETS ALGORITHMS :
 
@@ -313,7 +310,8 @@ The algorithm assumes that corruption shifting the mean will create a detectable
 Does this approach only work for Gaussian data, or can it generalize to other distributions?
 Can we connect this to current deep learning models, if yes how ?
 
-(i feel i wasn't truly able to grasp all the mathematical concepts and algorithms in this paper and only got some idea, i hope to learn the concept more concretely from the discussion)</p>
+(i feel i wasn&#39;t truly able to grasp all the mathematical concepts and algorithms in this paper and only got some idea, i hope to learn the concept more concretely from the discussion)
+</p>
             </section>
           </div>
         </article>
@@ -358,7 +356,7 @@ I hope the discussion will help me understand both how strong this conclusion is
 
 I thought that this paper was really interesting! Intuitively, I would assume that poisoning attacks would require a number of poisoned samples that scales linearly with the size of the data. For example, if there are 1000 samples, I might expect that each sample would contribute roughly 0.1% to the final output (and therefore that a small number of poisoned samples would only have a small effect on the output). Perhaps the fact that the attacks in this paper are backdoor attacks makes a significant difference, since the poisoned samples only need to affect outputs for a few very specific inputs.
 
-From an implications standpoint, these results are pretty worrying. I would expect that the internet (or any large training corpus) has some documents/files that could be viewed as poisoned samples. The paper's results seem to suggest that leaving even a small number of these poisoned samples could have a significant effect on model performance.</p>
+From an implications standpoint, these results are pretty worrying. I would expect that the internet (or any large training corpus) has some documents/files that could be viewed as poisoned samples. The paper&#39;s results seem to suggest that leaving even a small number of these poisoned samples could have a significant effect on model performance. </p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -384,7 +382,7 @@ Are there any reliable defenses that work against this type of attack? Alternati
 
 It is possible that the more recent Souly et al. paper is able to challenge the idea that epsilon is the most important value for adversarial capability, by showing that absolute count might actually be more crucial instead.
 
-I also like chinchilla optimal training (as a name), and explored Hoffman's 2022 paper. Scientists will never escape the nomenclature allegations.</p>
+I also like chinchilla optimal training (as a name), and explored Hoffman&#39;s 2022 paper. Scientists will never escape the nomenclature allegations.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -392,7 +390,7 @@ I also like chinchilla optimal training (as a name), and explored Hoffman's 2022
 
 It seems to me that a certain number of samples acts as a &quot;switch&quot;, after which an LLM simply decides that the poison is truth, like a threshold of sorts.
 
-In their batch density experiments, they ask if the number of gradient steps involving the poisoned data effects the outcome. When more poison samples are used per each batch, the model gets fewer poisoned updates, and more total poison samples may be required, which doesn't seem like it aligns very well with the rest of their claim. They also say that it requires further exploration in that section. I am curious to know why this happens.</p>
+In their batch density experiments, they ask if the number of gradient steps involving the poisoned data effects the outcome. When more poison samples are used per each batch, the model gets fewer poisoned updates, and more total poison samples may be required, which doesn&#39;t seem like it aligns very well with the rest of their claim. They also say that it requires further exploration in that section. I am curious to know why this happens.</p>
             </section>
           </div>
         </article>
@@ -476,7 +474,7 @@ Robustness Meets Algorithms : How does this extend to non gaussian distributions
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>The first paper on LLM poisoning attacks requiring a near constant number of poisoned documents was really shocking to me, but I think the sample efficiency argument for larger models taking more signal from a single source helped at least create a possible rationale for this. I also found it interesting that post-training and how that impacts attack persistence wasn’t also investigated in this pipeline, considering they do mention this in their limitations. I think some attempt to cover what would realistically persist in a model would be important. This other paper on robust learning of high dimensional gaussians with a fraction of corrupted data feels like a natural counterpart to the poisoning threat, but interestingly also relies on filtering out/weighting out importance of corrupted samples to produce a better sample set.</p>
+              <p>The first paper on LLM poisoning attacks requiring a near constant number of poisoned documents was really shocking to me, but I think the sample efficiency argument for larger models taking more signal from a single source helped at least create a possible rationale for this. I also found it interesting that post-training and how that impacts attack persistence wasn’t also investigated in this pipeline, considering they do mention this in their limitations. I think some attempt to cover what would realistically persist in a model would be important. This other paper on robust learning of high dimensional gaussians with a fraction of corrupted data feels like a natural counterpart to the poisoning threat, but interestingly also relies on filtering out/weighting out importance of corrupted samples to produce a better sample set. </p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -575,13 +573,13 @@ For Robustness Meets Algorithms, I liked the contrast between the simple one-dim
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>I'm more interested in &quot;POISONING ATTACKS ON LLMS REQUIRE A
-NEAR-CONSTANT NUMBER OF POISON SAMPLES&quot;, I'm surprised that only a fixed number of poisoned samples (about 250) can reliably backdoor large language models, even as the models and datasets get much bigger. The attack works across different model sizes and training setups, and the poisoned models still perform well on normal tasks, making the attacks hard to detect. For &quot;Robustness Meets Algorithms&quot;, I find it impressive that the authors developed the first computationally efficient algorithm for robustly estimating high-dimensional Gaussian parameters, even when a constant fraction of the data is corrupted. They combined filtering and convex programming to achieve both robustness and efficiency. The first one is more empirical, and the second one is more theoretical.</p>
+              <p>I&#39;m more interested in &quot;POISONING ATTACKS ON LLMS REQUIRE A
+NEAR-CONSTANT NUMBER OF POISON SAMPLES&quot;, I&#39;m surprised that only a fixed number of poisoned samples (about 250) can reliably backdoor large language models, even as the models and datasets get much bigger. The attack works across different model sizes and training setups, and the poisoned models still perform well on normal tasks, making the attacks hard to detect. For &quot;Robustness Meets Algorithms&quot;, I find it impressive that the authors developed the first computationally efficient algorithm for robustly estimating high-dimensional Gaussian parameters, even when a constant fraction of the data is corrupted. They combined filtering and convex programming to achieve both robustness and efficiency. The first one is more empirical, and the second one is more theoretical.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>I'm more interested in &quot;POISONING ATTACKS ON LLMS REQUIRE A
-NEAR-CONSTANT NUMBER OF POISON SAMPLES&quot;, I'm curious about &quot;Would more complex or subtle backdoors (not just gibberish or language switching) also require only a fixed number of poisoned samples? Why does the absolute number of poisoned samples matter more than the poisoning ratio? How practical is it for attackers to inject poisoned data into real-world LLM training pipelines?&quot;; I hope to learn the underlying mechanism behind the near-constant poisoning threshold, practical defense strategies against data poisoning attacks. Also, I want to get some implications of the findings for data curation and LLM security. For &quot;Robustness Meets Algorithms&quot;, I'm curious about &quot;Can these robust techniques be extended beyond Gaussian distributions to more general machine learning models?&quot;; I hope to know whether these ideas have influenced recent work on robust machine learning and trustworthy AI.</p>
+              <p>I&#39;m more interested in &quot;POISONING ATTACKS ON LLMS REQUIRE A
+NEAR-CONSTANT NUMBER OF POISON SAMPLES&quot;, I&#39;m curious about &quot;Would more complex or subtle backdoors (not just gibberish or language switching) also require only a fixed number of poisoned samples? Why does the absolute number of poisoned samples matter more than the poisoning ratio? How practical is it for attackers to inject poisoned data into real-world LLM training pipelines?&quot;; I hope to learn the underlying mechanism behind the near-constant poisoning threshold, practical defense strategies against data poisoning attacks. Also, I want to get some implications of the findings for data curation and LLM security. For &quot;Robustness Meets Algorithms&quot;, I&#39;m curious about &quot;Can these robust techniques be extended beyond Gaussian distributions to more general machine learning models?&quot;; I hope to know whether these ideas have influenced recent work on robust machine learning and trustworthy AI.</p>
             </section>
           </div>
         </article>
@@ -599,7 +597,7 @@ NEAR-CONSTANT NUMBER OF POISON SAMPLES&quot;, I'm curious about &quot;Would more
               <h3>What are things you found interesting about the papers for this class?</h3>
               <p>Data poisoning paper could point to a fundamental law that limits the safety of language models. It seems that the red team could have an insurmountable advantage in a data poisoning security scenario.
 
-The improvements in the Robustness Meets Algorithms paper appear to be very remarkable. Exponential to efficient, and polynomial to constant are really big improvements, and the task seems so abstract that it seems like it could have applications in many places.</p>
+The improvements in the Robustness Meets Algorithms paper appear to be very remarkable. Exponential to efficient, and polynomial to constant are really big improvements, and the task seems so abstract that it seems like it could have applications in many places. </p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -621,7 +619,7 @@ If we were to view the gaussian estimation in an adversarial setting, would a co
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>For poisoning attacks on LLMs paper, it was interesting to understand that a backdoor attack on an LLM depends on the absolute number of poisoned documents used during pretraining, instead of a percentage of the number of training documents used. I'd technically expect larger models with more parameters to be more resistant to backdoors purely because of the complexity of the models and the number of documents the model has seen during training. It was surprising that the opposite is true, and that a model with a lot of parameters is more susceptible to this kind of attack. It was also interesting to understand that this holds true even for models fine-tuned on datasets that contain poisoned documents, and across various poisoning ratios and numbers of batches containing poisoned documents.
+              <p>For poisoning attacks on LLMs paper, it was interesting to understand that a backdoor attack on an LLM depends on the absolute number of poisoned documents used during pretraining, instead of a percentage of the number of training documents used. I&#39;d technically expect larger models with more parameters to be more resistant to backdoors purely because of the complexity of the models and the number of documents the model has seen during training. It was surprising that the opposite is true, and that a model with a lot of parameters is more susceptible to this kind of attack. It was also interesting to understand that this holds true even for models fine-tuned on datasets that contain poisoned documents, and across various poisoning ratios and numbers of batches containing poisoned documents.
 
 For robustness meets algorithms paper, it was interesting to see how the paper tries to solve the trade-off between robustness and computational efficiency in high dimensional data. Especially the filtering approach, where the algorithm uses spectral information to find directions affected by corrupted samples, and also the idea of repeatedly removing suspicious points until the data becomes reliable.</p>
             </section>
@@ -643,21 +641,38 @@ For robustness meets algorithms paper, it was interesting to see how the paper t
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>I thought it was interesting for the robustness paper how instead of using standard empirical mean or standard deviation it is better to use median and median absolute deviation. I never thought about it but when I do think about it it makes sense how it could be robust as median itself is more robust to outliers. I also find it interesting how it ensures both computation efficiency and robustness. For the second paper, I find it interesting how no matter the model size, the sample size of poisoning could be constant to be sufficient to really attack the model.</p>
+              <p>I thought it was interesting for the robustness paper how instead of using standard empirical mean or standard deviation it is better to use median and median absolute deviation. I never thought about it but when I do think about it it makes sense how it could be robust as median itself is more robust to outliers. I also find it interesting how it ensures both computation efficiency and robustness. For the second paper, I find it interesting how no matter the model size, the sample size of poisoning could be constant to be sufficient to really attack the model. </p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>For the first paper I want the technical details more explained I understood high level what it is trying to say but I want more step by step follow through of details, and for second paper, I am still not super convinced how training or fine tuning in attacks even would be bad since these suposingly the developers have control over those processes it's really how you attack off the shelf model that is a really harmful attack, but I could be missing something here.</p>
+              <p>For the first paper I want the technical details more explained I understood high level what it is trying to say but I want more step by step follow through of details, and for second paper, I am still not super convinced how training or fine tuning in attacks even would be bad since these suposingly the developers have control over those processes it&#39;s really how you attack off the shelf model that is a really harmful attack, but I could be missing something here. </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">23</span>
+            <div>
+              <h2>Md Abrar Jahin</h2>
+              <time datetime="2026-09-02">Sep 2, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it striking that only about 250 poisoned documents could reliably backdoor models ranging from 600M to 13B parameters, even as the amount of clean training data increased substantially. This challenges the intuitive assumption that larger datasets dilute poisoning and suggests that absolute poison count may matter more than poison percentage. I also liked how “Robustness Meets Algorithms” turns corruption into a detectable spectral signal: if an adversary shifts the estimated mean, it also creates abnormal variance in some direction, allowing the algorithm to identify and filter suspicious points. Together, the papers show both how surprisingly vulnerable high-dimensional learning can be and how algorithmic structure can help recover from adversarial contamination.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>My main question is how broadly the near-constant poisoning result generalizes beyond the specific denial-of-service and language-switching backdoors studied. Would the same scaling hold for subtler semantic behaviors, and would those backdoors survive realistic instruction tuning, RLHF, and safety training? I would also like to discuss whether ideas from robust statistics, such as detecting unusual spectral directions and iteratively filtering influential samples, could be adapted to LLM training data. Unlike Gaussian estimation, web-scale language data are highly structured and non-Gaussian, so it is unclear what assumptions would make such a defense both effective and computationally practical.</p>
             </section>
           </div>
         </article>
       </section>
 
       <footer class="site-footer shell">
-        <p>
-          <span class="footer-signal" aria-hidden="true"></span>
-          Synced from the class response form
-        </p>
+        <p><span class="footer-signal" aria-hidden="true"></span>Synced from the class response form</p>
         <p>Email addresses are never published.</p>
       </footer>
     </main>
