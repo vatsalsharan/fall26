@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="26 CS 618 reading reflections for Week 2, September 9, 2026." />
+    <meta name="description" content="25 CS 618 reading reflections for Week 2, September 9, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 2 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 2</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>26 responses</span>
+          <span>25 responses</span>
         </div>
       </section>
 
@@ -694,26 +694,6 @@ For the Anthropic paper, I would like to understand which part of the result com
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>In Deliberative Alignment the policies live in the weights instead of the prompt. But policies change. If the spec is updated, the model recalls the old version until it is retrained, and Figure 14 suggests pasting the new policy into the prompt does not fix this. For Constitutional AI, I wonder how much of RL-CAI&#39;s harmlessness win is method and how much is metric, since raters were told to punish evasive answers while the baseline&#39;s training data had rewarded them. I hope we discuss how small the judge can be, because Figure 4 shows small models judge at chance.</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">26</span>
-            <div>
-              <h2>Ke Xu</h2>
-              <time datetime="2026-09-08">Sep 8, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>For paper1, the interesting idea is that humans can specify a relatively small set of principles, and the model can use them to critique/revise responses and generate AI preference feedback instead of requiring human harmlessness labels. For paper2, the interesting step forward is that the model is explicitly trained to recall and reason over detailed safety specifications before answering, rather than only learning desired behavior indirectly. Both papers try to replace large amounts of human safety supervision with explicit principles/policies and AI-generated supervision, but paper1 seems to push this further by making policy reasoning itself part of the training process.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>How much of paper1&#39;s improvement comes from reasoning over explicit safety policies, versus simply using more inference-time compute? Is explicitly recalling and reasoning over detailed policies fundamentally better than using constitutional principles to generate critiques and AI feedback? Who should decide what goes into the constitution or safety specification, especially when principles are ambiguous or conflicting? I hope to better understand the differences, especially whether explicit policy reasoning provides benefits beyond AI feedback alone. I also want to understand their limitations: how robust these methods remain under new jailbreaks, changing policies, and situations where safety rules are ambiguous or conflicting.</p>
             </section>
           </div>
         </article>
