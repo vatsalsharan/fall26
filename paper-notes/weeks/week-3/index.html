@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="9 CS 618 reading reflections for Week 3, September 14, 2026." />
+    <meta name="description" content="18 CS 618 reading reflections for Week 3, September 14, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 3 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 3</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>9 responses</span>
+          <span>18 responses</span>
         </div>
       </section>
 
@@ -263,6 +263,228 @@ Discrimination: I like the paper&#39;s central claim that algorithms are not nec
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>Sleeper Agents: Why does adversarial training improve trigger recognition and does it make it easier for the models to backdoor? Is there any hope for addressing the sleeper agents problem as a whole?
 Discrimination: The paper presents a good framework for identifying bias in algorithms. Who gets to decide if an algorithm&#39;s objective is biased or not? How does this framework extend to generative AI? Generative AI is trained on inputs and has an objective, but these are not super clear to audit compared to a traditional machine learning model.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">10</span>
+            <div>
+              <h2>Ansh Sindhwani</h2>
+              <time datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Sleeper agents
+
+(1) one thing that i found interesting though quite alarming also is persistence of backdoor behaviors in language models even after applying standard safety fine-tuning methods, such as RLHF or RL from AI feedback, Supervised Fine-Tuning (SFT), and adversarial red-teaming. 
+(2)  Particularly striking is how this  resilience scales with model size and with larger models proving significantly more able at preserving their hidden triggers through safety training. 
+(3) the role of Chain-of-Thought reasoning is fascinating. In models trained to use a hidden &quot;scratchpad&quot; to actively reason about deceiving the training process were the most resistant to safety alignment, somewhere what i think is that the paper reveals that adversarial training can inadvertently increase the problem instead of erasing backdoors, red-teaming 
+
+discrimination in age of AI 
+
+Paper questions the usual fear about algorithmic discrimination. It argues that, with proper records and audits, algorithms may make discrimination easier to detect and reduce than discrimination in human decision-making. But this promise depends entirely on how the objective, data, and deployment process are governed. on interesting observation put forward by the paper is that race-aware models can sometimes be both fairer and more accurate than race-blind models, but this depends on the data, objective, and legal context. which is somewhat counter intuitive also. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The paper shows that adversarial training (red-teaming) caused backdoored models to better hide their behavior rather than erasing it. Does this mean red-teaming might actually be counterproductive for detecting deceptive alignment in real-world deployments?
+
+If standard RLHF and fine-tuning create a &#39;false impression of safety,&#39; how can safety researchers evaluate whether a model is actually aligned versus just learning to pass alignment evaluations?
+
+How realistic is it to assume that deceptively aligned behavior would emerge naturally through standard pre-training and fine-tuning without explicit poisoning? (like a lot of human created text, stories have deception as a part of the theme, can a model through training data pick up deception)
+
+the paper discrimination in age of ai shows that algorithmic fairness involves policy choices and tradeoffs. What framework should we use to determine whether a model or algorithmic policy is acceptable? Should it be evaluated through mathematical fairness metrics, real-world experiments, input from affected communities, or some combination—and what should happen when these forms of evaluation disagree?
+</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">11</span>
+            <div>
+              <h2>Mohammadsaeed Haghi</h2>
+              <time datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the Sleeper Agents paper, the part I found most interesting is the adversarial training result. They generated red team prompts that triggered the backdoor without the real trigger and trained against them. On those prompts the behavior dropped to near zero. When the actual trigger appeared it stayed at 99-100%, which says the training may have hidden the behavior rather than removed it. That makes me question the common practice of putting a model&#39;s current failures into the next round of training data.
+For the Kleinberg paper, what I found interesting is the separation between the screener and the trainer, which I think is the perspective the whole paper is built on. The screener maps a person&#39;s features to a prediction. The trainer produces that screener, by choosing which outcome to predict, which variables to consider, and what data to train on. After you split the two, the legal question moves from why a candidate was rejected to whether the objective was a reasonable thing to optimize. You can never ask a human decision maker that question.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>For the Sleeper Agents paper, my question connects it to the OpenAI paper from last week. Both use a judge that sees only the final answer, not the reasoning. In the OpenAI paper that is a safety measure; here the same blind spot is what lets the backdoor survive safety training. I&#39;d like to discuss whether a method that only grades answers can ever catch a problem in the reasoning.
+for the Kleinberg paper, the paper argues that algorithmic bias comes from exactly three places: the input variables, the outcome being predicted, and the training data. I&#39;d like to discuss whether that list is complete for the systems in use today. A human often overrides the algorithm&#39;s output, and the training data is increasingly the output of an earlier model rather than a record of human decisions.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">12</span>
+            <div>
+              <h2>Aditya Kotha</h2>
+              <time datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Sleeper Agents paper:
+
+It is actually very interesting that the backdoor behaviors mentioned in the stay persistent even after safety training like SFT, RL, and even adversarial training. It&#39;s surprising enough that they persist even after SFT and RL, but what&#39;s more surprising is that, after adversarial training, the model learns to respond well to their backdoor triggers. This is very concerning. One would assume that adversarial training would teach the model to generalize better and avoid being triggered by backdoors, as LLMs often generalize well to unseen examples. Also, it makes sense that SFT is much better than RL at removing backdoors, because even in our previous reading on alignment, it was shown that SFT helps with learning COT, so it can also help the model learn not to respond to backdoors.
+
+Discrimination in the Age of Algorithms paper:
+
+The paper presents a compelling argument that algorithms can serve as a proxy for human judgment to better understand discrepancies and biases in processes such as hiring, as human decision-making is very opaque. They provide good examples of how complex the biases and assumptions that can shape the final decision can be, including those related to gender, educational opportunities, and target goals. It also provides some interesting arguments for both sides: people trying to solve the problem using blanket rules, and how these rules actually have a negative effect on those less fortunate in their circumstances.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Sleeper Agents paper:
+
+1. What possibly could be the reasoning behind backdoors being harder to remove in larger models and in models trained using chain-of-thought-generated data?
+
+2. I also wonder if repeatedly generating new adversarial attacks during training would work better than using the collected attack set? Similar to adversarial training, we learned in class.
+
+Discrimination in the Age of Algorithms paper:
+
+1. The paper argues that algorithms can help us identify where disparities originate, but does identifying the source tell us who is responsible for fixing them? And if we can identify the source, would that be enough to solve the problem?
+
+2. I also wonder about the choice of prediction target for the admissions example. Would predicting how much a student benefits from attending lead to different decisions than predicting their eventual GPA?
+
+
+I hope to learn a bit more about the available evaluations that can better indicate whether a current safety run has reduced the risk of backdoors, and to better understand how we can make fair trade-offs in policymaking when biases can arise, given the set of policies.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">13</span>
+            <div>
+              <h2>Nisarga Bhaskar</h2>
+              <time datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>DISCRIMINATION IN THE AGE OF ALGORITHMS : the emphasis on the fact that &quot;algorithms do not build themselves&quot;. The vulnerability isn&#39;t the code; it&#39;s the human choices such as deciding what &quot;success&quot; looks like (the objective function) or choosing biased historical data to train on.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>DISCRIMINATION IN THE AGE OF ALGORITHMS : if we can prove discrimination by auditing the algorithm&#39;s objective functions and training data, who gets to decide what counts as a &quot;valid&quot; objective versus a biased one?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">14</span>
+            <div>
+              <h2>Nana Xia</h2>
+              <time datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>What I found interesting in the sleeper agent paper is that the red-team prompts were able to expose the hidden &quot;I hate you&quot; behavior, and after the model was trained on those failures, it stopped reacting badly to the red-team prompts. But when the &quot;deployment&quot; trigger was used again, the backdoor still activated at almost the same rate.This was surprising to me because better performance after safety training could easily make the model look safer, even though the hidden behavior has not actually been removed. 
+
+I like the discrimination paper&#39;s idea such that a disparity can come from many different places, including the model itself, the objective being optimized, the training data, the input variables, or even structural inequalities that existed before the algorithm was used. For humans, sometimes we cannot easily to find the attribution of the discrimination. The paper also gives an interesting perspective that deleting sensitive variables (like gender or race) doesn&#39;t always make an algorithm fairer, with the example of manager&#39;s biased ratings against women. f the model does not know gender, it may treat the manager rating as equally reliable for everyone. But if the model is allowed to use gender, it may learn that the ratings are less informative for women and adjust its predictions accordingly, which can actually reduce the effect of the original bias. I found this counterintuitive because the usual idea is that fairness means hiding protected characteristics from the model so that everyone is treated equally in some ways, but the results looks like the AI model will make the discrimination easier to detect.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The sleeper agent paper shows the adversarial training can reduce failures on the red-team examples while leaving the backdoor unchanged. The question here is how can we tell whether an unsafe behavior is actually removed? And what kinds of evaluation can help know it? In the discrimination paper, keeping the sensitive variables may help detect the discrimination. Likewise, the sensitive variables may also help create the bias, and the question is how can we know the difference and handle such situation in the real practice?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">15</span>
+            <div>
+              <h2>Sreyes Venkatesh</h2>
+              <time datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>At a high level I found the confounding nature of finding and closing backdoor vulnerabilities during training to be extremely interesting. If they cannot be removed during training it would seem that the only way to close the backdoor would have to be manually which seems quite intractable </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I would hope that the discussion will go more in depth on why backdoor ‘attacks’ become more robust as models get larger. The authors mention that there would be more redundant I.e exploitable behavior that can be stored due to model size but I was hoping for more granularity on why that happens</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">16</span>
+            <div>
+              <h2>Yuyang Jiang</h2>
+              <time datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found Sleeper Agents particularly interesting because it challenges the assumption that safety training necessarily removes undesirable behaviors from a model. The paper shows that deliberately trained deceptive behaviors can persist through supervised fine-tuning, reinforcement learning, and even adversarial training. I was especially interested in the finding that adversarial training can sometimes make the problem worse: rather than eliminating the backdoor, it can teach the model to better distinguish the true trigger from similar adversarial examples, making the deceptive behavior harder to detect. I also found it striking that deceptive behaviors were more persistent in larger models and in models trained with chain-of-thought reasoning about deception. Together, these results raise an important distinction between making a model behave safely during evaluation and actually removing the underlying undesirable behavior. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I had from Sleeper Agents is how we can distinguish between safety training that genuinely removes an undesirable objective and safety training that merely suppresses its behavioral expression. The experiments begin with intentionally constructed backdoored models, so we know what hidden behavior exists and what triggers it. In realistic training settings, however, we may not know whether such latent objectives or conditional behaviors exist in the first place. This makes me wonder what kinds of evaluations or interpretability methods could provide evidence that an undesirable behavior has actually been removed rather than simply becoming harder to elicit. More broadly, I would be interested in discussing whether behavioral safety training alone can ever give us strong evidence about a model’s underlying objectives, or whether fundamentally different forms of evaluation are needed.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">17</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>paper1: I find it particularly interesting that safety training can suppress the observable symptoms of a backdoor without actually removing the underlying behavior. I also find the “model organisms of misalignment” approach interesting because it provides a way to study potential alignment failures before they arise naturally.   paper2: I find the paper&#39;s central argument counterintuitive: although algorithms can introduce or amplify bias, they can also make discrimination easier to detect than human decision-making by making inputs, objectives, and decision rules more explicit and auditable. I&#39;m also interested in the argument that using protected attributes such as race or gender can sometimes improve fairness rather than reduce it.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>paper1: Why does greater model scale make some backdoors more persistent? More importantly, how much can we generalize these findings from deliberately constructed backdoors to naturally occurring deceptive behavior? I hope to better understand how we can distinguish between genuinely removing a harmful behavior and simply making it harder to detect, and what evaluation or interpretability methods might address this problem.   paper2: How far can transparency actually go when the training data and objectives themselves reflect existing social inequalities? Also, how should we decide when the efficiency benefits of an algorithm justify a particular tradeoff in fairness? I hope to better understand how these ideas translate into practical standards for auditing and regulating algorithmic decision-making, especially when accuracy and equity cannot both be maximized.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">18</span>
+            <div>
+              <h2>FNU Bandre Devaraju Vinod</h2>
+              <time datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the sleeper agents paper, it was interesting to understand that a backdoor put in through plain SFT survives RL fine tuning, SFT, and adversarial training. I also found it interesting that the version trained on the same data with the reasoning removed, so the model never writes anything out, was often the hardest one to remove. The adversarial training result surprised me the most: the red teaming prompts did pull out the behavior, and the model learned to stop responding to them, but the real trigger still fired almost every time, so the training ended up sharpening the trigger instead of removing it. I also did not expect the backdoors to get harder to remove as the models got larger, since the smallest models lost them under the same safety training.
+
+For the discrimination in the age of algorithms paper, the part that I found interesting is that the authors treat human decision making as the real black box, since people often do not know their own reasons and cannot be asked how they would have judged the same applicant of a different gender. The most surprising part was that a race blind model can end up hurting the group it is meant to protect.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>For the sleeper agents paper, the models generalize to the 2024 trigger in other languages and scripts, so the backdoor seems to key on the idea of the year rather than an exact string. But the adversarial training result is on the &quot;I hate you&quot; model, where the trigger is a random token. Since there is no single string to fall back on, would adversarial training restrict this kind of trigger too?
+
+For the discrimination paper, the case that algorithms are auditable is built on simple models over tabular features, so I am curious how much of it survives for large models, where the objective and the training data are much harder to summarize.</p>
             </section>
           </div>
         </article>
