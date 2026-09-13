@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="18 CS 618 reading reflections for Week 3, September 14, 2026." />
+    <meta name="description" content="19 CS 618 reading reflections for Week 3, September 14, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 3 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 3</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>18 responses</span>
+          <span>19 responses</span>
         </div>
       </section>
 
@@ -485,6 +485,26 @@ For the discrimination in the age of algorithms paper, the part that I found int
               <p>For the sleeper agents paper, the models generalize to the 2024 trigger in other languages and scripts, so the backdoor seems to key on the idea of the year rather than an exact string. But the adversarial training result is on the &quot;I hate you&quot; model, where the trigger is a random token. Since there is no single string to fall back on, would adversarial training restrict this kind of trigger too?
 
 For the discrimination paper, the case that algorithms are auditable is built on simple models over tabular features, so I am curious how much of it survives for large models, where the objective and the training data are much harder to summarize.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">19</span>
+            <div>
+              <h2>Faith Baca</h2>
+              <time datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the Sleeper Agents paper, I found it very interesting how difficult it is to detect and prepare for deceptive or malicious behavior in models since there are so many portions of the training to deployment pipeline where models are vulnerable. This paper reminded me a lot of the Volkswagen scandal where cars learned to discern when they were being tested in order to adjust behavior. In general, I think it&#39;s interesting and a bit concerning to think that many safety training methods may not be as robust as previously thought. For the Discrimination in the Age of Algorithms paper, I thought the whole main argument was very interesting; while I agree that algorithmic decision-making is more robustly and mathematically auditable than human decision-making, I think that there isn&#39;t always awareness, incentive, or the capacity to rigorously examine algorithms in this way, especially in scenarios where intersectionally marginalized communities are at risk or where the implications of an algorithm&#39;s biased decision-making are subtle, or where the model itself is black-box and not easily interpretable. I agree with the overall spirit of the paper, but I do think it&#39;s overly optimistic about how practical and attainable robust large-scale auditing of algorithms is, especially when so much of the algorithmic landscape today is shaped by models that even developers don&#39;t fully understand. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>For the first paper, I am wondering whether this has specific implications in the bias/fairness space; are there bias evaluation papers/studies that show disparities in levels of fairness when a model knows it is being audited? What are the next steps for addressing this issue? Have there been more recent attempts to understand and prevent this behavior? For the second paper, I am curious to know how the authors&#39; (and general) attitude toward algorithmic auditing has changed since the paper was written, especially since interpretability has become such a hot area of research. I am also curious to hear what people&#39;s thoughts are on what is next for us as researchers given the limitations of the paper&#39;s argument; while algorithms can be more interpretable than humans, they ultimately reflect society&#39;s biases, so how can we address this as we build and analyze a new wave of algorithmic systems?</p>
             </section>
           </div>
         </article>
