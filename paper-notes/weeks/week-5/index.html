@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="22 CS 618 reading reflections for Week 5, September 16, 2026." />
+    <meta name="description" content="2 CS 618 reading reflections for Week 5, September 21, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 5 · CS 618 Weekly Paper Notes" />
-    <meta property="og:description" content="Reading reflections for September 16, 2026." />
+    <meta property="og:description" content="Reading reflections for September 21, 2026." />
     <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
     <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-5/" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Week 5 · CS 618 Weekly Paper Notes" />
-    <meta name="twitter:description" content="Reading reflections for September 16, 2026." />
+    <meta name="twitter:description" content="Reading reflections for September 21, 2026." />
     <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
     <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-5/" />
     <link rel="stylesheet" href="../../styles.css" />
@@ -32,11 +32,11 @@
 
       <section class="week-hero shell" aria-labelledby="week-title">
         <a class="back-link" href="../../">← All weeks</a>
-        <p class="eyebrow">Reading reflections · September 16, 2026</p>
+        <p class="eyebrow">Reading reflections · September 21, 2026</p>
         <h1 id="week-title">Week 5</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>22 responses</span>
+          <span>2 responses</span>
         </div>
       </section>
 
@@ -45,32 +45,18 @@
           <header>
             <span class="response-number">01</span>
             <div>
-              <h2>Katherine Hancock</h2>
-              <time datetime="2026-09-13">Sep 13, 2026</time>
+              <h2>Junyang Cai</h2>
+              <time datetime="2026-09-14">Sep 14, 2026</time>
             </div>
           </header>
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>Goal Misgeneralization:
-I found the paper’s main premise really interesting, to be honest (that even a correctly specified reward doesn’t guarantee that the model will pursue the intended goal in new situations). I’m curious whether this has already happened in real world applications in ways that caused harm, and what those examples might be.
-
-Snake Oil:
-I was surprised that the authors argued that predictive AI may never reliably predict people’s social behavior. I could see why they’d criticize its current limitations, but saying those limitations likely won’t be overcome felt like a much bolder statement. I also really enjoyed the analogies, like vehicles and snake oil, that made the concepts introduced by the chapter easy to understand. I also found it interesting that they discuss how powerful companies can make it harder for researchers and journalists to challenge their claims, and how some of the problems surrounding AI are tied to financial incentives and broader issues with capitalism.</p>
+              <p>It&#39;s interesting to see that Fairness team often involved only when the model in deployment, but did not participate from the start of design. And when the model is deployed, all the major designs have be fixed and hard to change. Also, the people in large companies only spend less than 10% of time regarding the fairness stuff.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>Goal Misgeneralization:
-I’m curious if goal misgeneralization has been observed outside games and gridworlds. What would it look like in a real-world application, and how would we recognize it?
-The paper discusses diversity both as something that enables robust capabilities and as something that can reduce goal misgeneralization. How do we determine which kinds of variation are needed for each?
-(Different kinds of variation; Different obstacles can teach navigation; different coin locations can teach what to navigate toward. The paper doesn’t establish a universal threshold beyond which the whole model is “robust.”)
-In the coin example, moving the coin reveals that the model learned the wrong rule. But in more complicated tasks, how do we figure out what to change or test to check whether the model learned the intended goal?
-
-Snake Oil:
-What evidence helps distinguish something AI can’t predict reliably yet from something it may never be able to predict reliably? I’m curious what might make the authors reconsider their position, if anything.
-If companies can influence research and media coverage, how can someone without much technical expertise figure out which claims about AI to trust?
-If some of these problems come from financial incentives, what would have to change to make companies more incentivized to build reliable, useful AI instead of exaggerating its capabilities?
-I’m wondering why the authors consider some prediction limits fundamental and what evidence supports that conclusion. Because (maybe I misinterpreted) but it seems like they were just saying it doesn’t work currently, and human behavior is hard to predict. But hard doesn’t necessarily mean impossible, what if we just aren’t advanced enough yet to be able to reliably do that? I’m not sure what the answer is but I’m curious to learn more.</p>
+              <p>How do we design a systematic metric to allow every fairness team in different project can use it without need to design new-specific metric? With this systematic metric, different project can reuse these things and save a lot of time.</p>
             </section>
           </div>
         </article>
@@ -79,508 +65,26 @@ I’m wondering why the authors consider some prediction limits fundamental and 
           <header>
             <span class="response-number">02</span>
             <div>
-              <h2>Junyang Cai</h2>
-              <time datetime="2026-09-14">Sep 14, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>Both readings challenges the point that successfully AI training means the model actually learns the correct things. The goal misgeneralization paper shows a problem which an RL agent can remain highly capable while pursuing a proxy goal rather than the intended objective. AI snake oil also be very skeptical of predictive AI used to forecast consequential outcomes about people, arguing that such claims often require much stronger evidence than companies provide.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>I wonder how we can design a better way to examine does the AI actually learns what we want it to learn? Just looking at the training performance is not enough and correct metric doesn&#39;t give us the model we want.</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">03</span>
-            <div>
-              <h2>Selina Xiao</h2>
-              <time datetime="2026-09-14">Sep 14, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>For AI Snake Oil, I find it interesting that the authors separate predictive AI from generative AI and argue that much of the real “AI snake oil” is concentrated in predictive AI. Even though generative AI has obvious problems such as hallucination, predictive AI may be more concerning because uncertain predictions about individuals are often treated as objective evidence in high-stakes decisions. For Goal Misgeneralization in Deep Reinforcement Learning, I find it interesting that an RL agent can retain its capabilities under distribution shift but still pursue the wrong goal. This means successful training does not necessarily imply that the agent learned the intended objective. It may instead have learned a proxy that happened to correlate with the desired goal during training.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>For AI Snake Oil, my question is where we should draw the line between a useful statistical prediction and “AI snake oil.” If prediction about individual behavior is inherently uncertain, how accurate or well-validated does a predictive system need to be before it is reasonable to use it in consequential decisions? For Goal Misgeneralization in Deep Reinforcement Learning, my question is how we can reliably detect goal misgeneralization when we do not know the possible proxy objectives in advance. Even if an agent performs well across many test environments, how can we tell whether it has learned the intended goal rather than a proxy that our tests simply have not separated from it yet?</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">04</span>
-            <div>
-              <h2>Sriram Kadiyala</h2>
-              <time datetime="2026-09-14">Sep 14, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>--&gt; Goal Misgeneralization: It’s really interesting how this paper formally pulls apart capability generalization from goal generalization. The idea that an agent can stay highly competent while stubbornly pursuing the wrong proxy, like flawlessly navigating to the end of a level while completely ignoring the coin it was supposed to collect, is a much more concerning failure mode. The detail that the actor and critic networks can actually learn different incorrect proxies (like the actor moving right through a wall while the critic wants to stop at it) highlights how messy this gets under the hood.
-
---&gt; AI Snake Oil chapter 1: This breakdown is new to me because the authors refuse to treat AI as one giant monolith. Drawing a hard line between generative AI (which is chaotic but actually does things we care about) and predictive AI (which often flat out doesn&#39;t work but is used for high stakes decisions) clarifies so much of the current hype. The Allstate example really stuck with me. Using predictive AI to build a &quot;suckers list&quot; of seniors who wouldn&#39;t shop around, just to hike their insurance rates, shows how severe harm happens even without discriminatory intent and the AI likely just picked up that seniors shop around less. It is also alarming that while Maryland rejected the proposal, Allstate still uses it in at least ten other states. Another thing I have found to be interesting is their counter-intuitive take on facial recognition, its danger isn&#39;t that it fails but rather that it works remarkably well, meaning documented false arrests involved cascading human police failures rather than the technology itself.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>--&gt; Goal Misgeneralization: The authors show that injecting diversity into the training distribution, like randomizing where the coin spawns, helps the agent lock onto the intended reward instead of a spatial proxy. However, in the Maze I experiment, the agent continued using location as a proxy until the randomization zone was expanded to a very large area. Because this shows diversity is inefficient even when applicable, I&#39;m really curious to know how teams practically prevent goal misgeneralization at scale in massive, open-ended environments without relying entirely on brute-force domain randomization.
-
---&gt; AI Snake Oil chapter 1: The chapter points out the vicious cycle of hype driven by researchers, companies lacking transparency incentives, and media clickbait. I&#39;d love to know an engineer&#39;s dilemma like what concrete levers does an individual engineer actually have when pressured by management to build or ship a predictive model they know is fundamentally flawed?</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">05</span>
-            <div>
-              <h2>Emily Weiss</h2>
+              <h2>Katherine Hancock</h2>
               <time datetime="2026-09-15">Sep 15, 2026</time>
             </div>
           </header>
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>Goal Misgeneralization…
+              <p>A lot of this paper didn’t surprise me much, actually, because of my HCI/UX background. But I found it interesting that the authors gave actionable recommendations for improving technical workflows and how teams work together. I’m used to seeing HCI/UX studies give design recommendations, but I hadn’t really thought about applying the findings to the development workflow itself. That’s definitely something I’ll take away from this paper going forward.
 
-1. I was aware of misgeneralization before, especially in the context of OOD generalization, but did not have a formal definition for it and what causes it. The notion of proxies in the data being a requirement for goal misgeneralization to occur was very interesting and made logical sense. 
-
-***
-
-AI Snake Oil
-
-1. I didn’t find anything in this chapter particularly shocking, since I remember most of the public-facing milestones (or fiascos) described in it. I think the one thing I was surprised and disappointed by was their literature review and how far reaching overstated claims about machine learning capabilities were in research publications. </p>
+I was also surprised that practitioners cited their prior experiences with recommender systems rather than academic research when developing their hypotheses, and used “intuition-based” metrics. I would’ve expected this more from smaller companies with fewer resources, but I would’ve expected larger companies to have more support for incorporating research into this work. I get that the metrics need to fit the specific context, but I’m curious how they check whether the ones they come up with actually measure what they’re supposed to.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>Goal Misgeneralization…
+              <p>I get that offline testing can’t catch everything that might happen after deployment, but couldn’t teams do user research with people from their target groups before that point? I’m curious why the paper doesn’t discuss this more. I know it takes time and resources, but given the potential harm, I would expect large companies to prioritize it. What could these studies catch before deployment, and what would still require testing afterward?
 
-1. How do you tell while training whether a model is likely to misgeneralize, across both supervised and reinforcement learning domains? The authors argue for the necessity of a proxy within the training distribution, but are there any practices to identify the likelihood of that proxy existing ahead of time? 
+I found it interesting that the paper cited studies where users preferred gender-biased recommendations over debiased ones. Does this mean some differences in recommendations are okay while others are unfair, and how do we decide where that line is? How should teams balance what users prefer with fairness for other groups, like creators or advertisers?
 
-2. How do you evaluate misgeneralization when a system is deployed in the real world without labeled data or a ground truth? 
+When trying to ensure fairness for subgroups, how do we know how granular to make those groups? Which combinations of identities should we look at so we don’t miss issues that only become visible when we consider those identities separately?
 
-3. This paper provided a helpful definition and demonstration of goal misgeneralization in reinforcement learning; however, I am still curious how you would attempt to recover from (or mitigate) misgeneralization? 
-
-***
-
-AI Snake Oil
-
-1. With predictive AI adopted into so many aspects of society so quickly (e.g. hiring, healthcare, etc.); is there ever a way to put the cat back in the bag and disperse the misconceptions about the infalliability of AI systems? Or at least the seemingly unwarranted acceptance of AI outputs when making critical decisions?</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">06</span>
-            <div>
-              <h2>Sheryl Mathew</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>Goal Misgeneralization in Deep RL: The authors show that an agent trained well can still diverge from expected behavior during test time. They suggest that this happens because the agent has picked up on some proxy of the reward (e.g. &quot;go right&quot; instead of &quot;go towards the coin&quot;). They find that introducing counterexamples helps to offset this. The diversity in examples differentiates the goal from the proxies.
-AI Snake Oil: My main takeaway from this chapter is that discussions around AI need to first define clearly what kind of AI they are discussing because different types of models and systems have different inputs, outputs, objectives, methods, etc that affect how effective or harmful they are. Using AI as an umbrella term covers harms from AI systems that unfairly target certain populations and can also inflate claims about the harms of AI to society.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>Goal Misgeneralization in Deep RL: I&#39;m curious about how well the results generalize beyond the game environments to use cases like dialogue.
-AI Snake Oil: About the human labor behind AI - how do we credit all of the human labor behind an AI system, including the annotators, not just the developers? </p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">07</span>
-            <div>
-              <h2>Eric Liu</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>I found Goal Misgeneralization in Deep Reinforcement Learning really clever in how it separates an agent being bad at a task from an agent being perfectly competent but pursuing the wrong goal. 
-
-I liked how AI Snake Oil argues that treating “AI” as one technology is itself a source of confusion; separating predictive AI from generative AI makes it much easier to ask whether a particular claim is actually plausible rather than debating whether “AI works” in general.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>For AI Snake Oil, I&#39;m curious about where the line should be drawn between legitimately uncertain predictive AI and “snake oil,” since many useful systems will inevitably have imperfect predictions. 
-
-For Goal Misgeneralization, I&#39;m curious whether there is a principled way to design training distributions that rule out dangerous proxy goals without needing to anticipate every possible distribution shift.</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">08</span>
-            <div>
-              <h2>Lauren Cooke</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>I thought that defining a distinction between goal misgeneralization and capability generalization failures was super important because I think it does represent different stages of generalization capability. Learning to do some task well (even if it’s the wrong one) out of the box when generalized to a new environment seems closer to generalization than a model that fails to do anything at testing and should motivate different types of generalization corrections to exclude shortcut strategies that allow for rote memorization specific to a given environment. I also really enjoyed reading the AI snake oil work and appreciate its concrete approach to quantify the AI hype onslaught and characterize what types of models work and what to be weary of. I think it raises some particularly interesting ethical questions that operate on this baked in assumption that predictive models serve to allow people to avoid dealing with hard problems. I’ll talk more about this in my presentation!</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>For the goal misgeneralization paper, I am really interested to discuss what one can take away from this definition and how we can work towards solution frameworks to try when this type of generalization error is present. Is there any particular advantage we can leverage in training design or objective specification in RL to correct goal misgeneralization? For AI snake oil, I think the juiciest claims were regarding predictive AI never working and that AI should be designed going forward to fade into the background. I want to hear what people think of that vision for AI, particularly in the wake of all of the recent political and research drama regarding AI capabilities.</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">09</span>
-            <div>
-              <h2>Yuyang Jiang</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>I found the distinction between capability generalization and goal generalization in Goal Misgeneralization in Deep Reinforcement Learning particularly interesting. An agent can successfully generalize its learned capabilities to a new environment while still pursuing a goal different from the one intended by its designers. This makes the failure much more subtle than ordinary distribution shift: the model does not simply become incompetent when the environment changes, but can remain highly capable while systematically optimizing for the wrong objective. I also found this connected to the discussion in AI Snake Oil about being more precise when evaluating what different AI systems can and cannot do. Both readings, in different ways, suggest that observing successful performance is not sufficient to conclude that a system has learned what we intended it to learn.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>One question I had from the goal misgeneralization paper is whether we can identify what goal an agent has actually learned before observing its behavior under distribution shift. During training, the intended goal and a proxy goal may lead to essentially identical behavior, so behavioral evaluation alone may not distinguish between them. Could interpretability methods, carefully designed interventions, or evaluations across diverse environments reveal which features or objectives are actually driving the agent’s decisions? More broadly, I would be interested in discussing whether goal misgeneralization is fundamentally a generalization problem that can be addressed with sufficiently diverse training data, or whether it reflects a deeper alignment problem in which behavioral performance alone cannot tell us what objective a model has learned.</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">10</span>
-            <div>
-              <h2>Alan Liang</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>Paper 1: I found it interesting that rewarding the agent only for collecting the coin did not guarantee that it learned to pursue the coin. It could still navigate around obstacles but continue moving right after the coin was moved somewhere else. I also found it interesting that randomizing the coin’s location in only 2% of training levels greatly improved goal generalization. Having many different obstacle layouts was not enough; the training examples needed to separate the coin from its usual location.
-
-Paper 2: I found it interesting that the music-prediction study’s high reported accuracy disappeared after the authors corrected data leakage, leaving performance no better than random guessing. An impressive result could therefore come from the evaluation setup rather than useful predictive ability. I also found it interesting that the hiring tools’ external audits examined racial or gender bias without establishing whether the tools actually predicted job performance. A system could perform similarly across groups while still being unreliable for everyone.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>Paper 1: How can we distinguish an agent pursuing the wrong goal from one that fails to recognize the coin in an unfamiliar location? Would randomizing coin placement also help when its appearance changes, or would that require different training examples? Why did the actor and critic learn different proxies, and would correcting the critic necessarily fix the actor’s behavior? I want to see a simple example that separates goal misgeneralization from capability failure. I also hope to learn how to identify misleading correlations before deploying a model, rather than discovering them only after it fails.
-
-Paper 2: How can we tell whether poor predictions reflect an inherent limit to predicting an outcome, rather than insufficient data or an inadequate model? In the COVID-detection example, what tests would reveal that the model was distinguishing adults from children rather than detecting COVID? What baselines and real-world outcomes should a hiring tool be evaluated against before we consider it useful? I hope to learn which checks are most effective at catching misleading results. I also want to understand how to evaluate whether a predictive system improves decisions, rather than merely achieving a good score on historical data.</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">11</span>
-            <div>
-              <h2>Aditya Kotha</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>Goal Misgeneralization paper:
-
-This was an interesting paper. When I was initially reading through the abstract, I didn’t understand the differentiation between misgeneralization and general failure, but after reading the coin example they gave, it made more sense. Misgeneralization is when the agent does something that is not aligned to the actual goal or the reward it was originally trained on. This suggests that specifying the right reward and observing strong training performance are not enough evidence to say that the agent will pursue the intended goal in new situations (OOD cases). The coin, maze, and key &amp; chest examples all show different ways a model can misgeneralize, and the results were interesting and logically sound.
-
-Snake Oil paper:
-
-Chapter 1 of the book provides a good summary of what has happened so far with generative AI, its use cases and potential pitfalls, and how it differs from predictive AI and its own set of issues. There were some really interesting drawbacks and points about predictive AI that it talks about, for example, the case with facial recognition, how it can be used to do mass surveillance, help catch criminals, etc. In general, I was a bit surprised that the book says predictive AI is unlikely to be normalized, while in hindsight, it makes sense as predictive AI can only make assumptions based on what has already happened (based on history), making predictions about future needs more than historical data (it needs why? Something has happened piece). The arguments they present to debunk some predictive AI solutions, along with the flaws of predictive AI in policy enforcement, also stuck with me.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>Goal Misgeneralization paper:
-
-How can we detect goal misgeneralization before deployment when we do not know which proxy goals an agent might have learned?
-
-
-Could an actor pursue the wrong goal even with a correct critic, and how could we test whether the failure comes from the actor or the critic?
-
-Snake Oil paper:
-
-How can we find ways to distinguish between an AI application that currently performs poorly but could improve with better data and models, and one whose promised task cannot be reliably accomplished?
-
-
-I hope to learn a bit more about how we can detect whether an agent has latched onto proxies that differ from our goal, and maybe including all possible scenarios one might see during deployment can help solve this, but it is not always possible. I would also like to learn a bit more about how one can intuitively tell if something feels wrong, especially when strong benchmark results may not translate into real-world benefits.</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">12</span>
-            <div>
-              <h2>Aman Desai</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>Goal Misgeneralization in Deep Reinforcement Learning: It is quite surprising to me that the actor and the critic fail to generalize in different ways. I would assume that the main problem would mainly be with the critic (specifically that the critic has learned a reward function that does not generalize well out of distribution). Intuitively, I would expect the actor to be able to do a good job at &quot;reward-hacking&quot; the reward learned by the critic because (from my understanding) the actor has access to a near-unlimited amount of the reward signals generated by the critic and could therefore overfit to the critic. However, the fact that the actor and the critic fail to generalize in different ways seems to suggest this is not the case.
-
-Chapter 1 of AI Snake Oil: I really liked the chapter&#39;s introduction talking about the ambiguity of the term &quot;AI&quot;. The term can mean so many different things, so it is quite helfpul to be specific when discussing it. In particular, I find the distinction between &quot;generative AI&quot; and &quot;predictive AI&quot; to be quite helpful. While there have been a lot of advancements in generative AI, my understanding is that predictive AI still has a lot of issues (including those discussed in the chapter).</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>Goal Misgeneralization in Deep Reinforcement Learning: How do these results regarding goal misgeneralization apply for RL algorithms that do not use an actor-critic framework?
-
-Chapter 1 of AI Snake Oil: How can the scientific community more effectively audit its own research to ensure that it remains objective and impartial?</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">13</span>
-            <div>
-              <h2>Mattia Solla Saez</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>&quot;AI Snake Oil&quot;: I think the differentiation of the different &quot;types&quot; of AI models is very well made, especially considering that it is done using very little technical arguments. I also think that the &quot;third path&quot; proposed by the author for reducing AI snake oil, which is attacking the demand itself, is interesting since it reveals problems that are far beyond what the models do or are intended to do and their solutions will probably come from work by all actors in society and can&#39;t be solved by our field alone
-&quot;Goal Misgeneralization in Deep Reinforcement Learning&quot;: The thing that I found most interesting is the concept of goal misgeneralization itself, and how out of distribution performance can fail due to the objective of the model.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>&quot;AI Snake Oil&quot;: What can we (as &quot;specialists&quot; in the Machine Learning field) do to reduce the spread of AI snake oil and its sellers? 
-&quot;Goal Misgeneralization in Deep Reinforcement Learning&quot;: Is there a general way to make your training more robust against all possible proxies that are aligned with the real objective in the training distribution? In the examples in the paper, the authors can reduce goal misgeneralization since they know exactly what the proxy is and how it&#39;s different than the actual goal at training time, but that seems very hard to achieve in practice. </p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">14</span>
-            <div>
-              <h2>Chen Gong</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>[Paper 1] The paper uses a CoinRun setting to visually show how goal misgeneralization can occur when the test distribution differs from the training distribution. The agent can still navigate competently, but it may pursue the wrong goal. The paper also uses prior and likelihood functions to calculate p_dev and p_agt, and to infer a posterior over possible goals from observed behavior. However the setting is quite restricted.
-[Paper 2] It is actually a book published in 2024. I feel that some of its descriptions may already be out of date, since AI has developed so much in the meantime. I have only finished the first few chapters, and I do not think the book goes deeply into technical details; instead, it seems aimed more at the general public. The authors also had a website attached renamed into normaltech.ai. I don&#39;t find much techniqual details there either.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>[Paper 1] In more realistic settings, how can we make sure the training data distribution prepares an agent for the test data distribution and helps it learn the intended goal?
-[Paper 2] I am curious about the discussion of education in Section 1.2. The authors say that, at a well-funded institution such as Princeton, AI can be more of an opportunity than a challenge. But young students today often question the point of learning. Many are currently encouraged to pursue higher degrees to get better jobs, but what if there are fewer job choices? This is also an economic question. If AI takes over some human jobs, and fewer highly educated people are needed to make systems work well, will higher degrees still be a popular choice? How will this transition happen.</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">15</span>
-            <div>
-              <h2>Anu Soneye</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>Goal Misgeneralization in Deep Reinforcement Learning:
-	• The comparison between goal misgeneralization and deep-learning models unintentionally learning unreliable features was particularly interesting. For example, we previously learned how medical algorithms may learn to rely on distinctive markings associated with specific hospitals, preventing models trained at large urban hospitals from generalizing effectively to rural hospitals.
-	• The distinction between incompetent misgeneralization and competent but misaligned misgeneralization also stood out to me.
-		○ An incompetent agent would likely be easier to monitor and detect.
-
-AI Snake Oil:
-	• The book provides a comprehensive examination of situations in which AI has been misused or presented as a single solution to many of the world’s problems.
-		○ I was particularly interested in its discussion of decision-making algorithms and how they influence people, such as through social media.
-</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>Goal Misgeneralization in Deep Reinforcement Learning:
-	• How can the findings from this paper be applied to deep learning more broadly, particularly when trying to prevent models from relying on unreliable features?
-
-AI Snake Oil:
-	• I agree that many companies present AI as a single solution that will eliminate existing problems. However, I feel that the book does not explore the potential benefits of AI to the same extent. It might be more useful, especially for readers without technical backgrounds, to recommend a practical middle ground and discuss concrete solutions rather than primarily raising alarms.
-</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">16</span>
-            <div>
-              <h2>Michael Duan</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>For the Goal Misgeneralization work, I found it interesting that even a correctly specified reward can lead to training failures. I find the takeaways that RL training data needs BOTH environmental and goal diversity is also quite valuable.
-
-For the AI snake oil chapter, I like how it emphasizes the nuance behind talking about &quot;AI&quot; under different dimensions. Specifically, I very much agree with the notes about precise documentation/reporting language. Especially for recent model releases, I hope for even more detailed documentation into the construction and use of newly released models to truly understand the scope of these models, beyond the high-level &quot;hand-wavy&quot; details and benchmark numbers.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>For the Goal Misgeneralization work, I&#39;m curious if there is methods to audit and extrapolate possible inductive biases leading to goal misgeneralization in data prior to training. I&#39;m especially curious how this might extend to modern MLLM RL datasets that may be prohibitively large to continuously train and re-test. Also, how often does this type of data leading to goal misgeneralization occur in real-life data? It seems that many of the training enviornments they use are synthetically &quot;diverse&quot;, yet all the goals have to be collapsed (e.g., coin on the right) to achieve the misgeneralization. When is a goal diversified enough in data to avoid misgeneralization?
-
-For the AI snake oil chapter, my question is how do we change and incentivize the discourse around AI to capture the nuances discussed in this chapter. For example, my impression is that the companies that release these models initiate discourse; however, nuanced discourse may not serve economic purposes to these companies. Furthermore, this type of discourse can easily get oversimplified. To me, a root cause seems to be trailing AI literacy. Is nuanced discourse possible without greater transparency and education into the construction and purpose of AI systems?</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">17</span>
-            <div>
-              <h2>FNU Bandre Devaraju Vinod</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>For the Goal Misgeneralization paper, it was interesting to understand that an agent trained with the correct reward can still learn the wrong goal. The CoinRun agent that kept running to the end of the level even after the coin moved because it had learned to reach the end wall instead of get the coin. I found it surprising that randomizing the coin&#39;s position in just 2% of training levels was enough to fix it.
-
-For the AI Snake Oil paper, it was interesting to see that a hiring tool can pass a bias audit and still not work at all, since the audits only checked for race and gender bias. I found it surprising that facial recognition&#39;s error rate has dropped to 0.08% but still all the six documented false arrests were of black people that were driven mainly by human process failures rather than the algorithm itself.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>For the Goal Misgeneralization paper, the 2% fix targets a proxy the authors already knew about so I am curious how we would find the proxy in a real task before the model fails on it. For the AI Snake Oil paper, I would like to know whether the limit on predicting social behavior comes from the data we have today or is it something more data can never fix.</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">18</span>
-            <div>
-              <h2>Ansh Sindhwani</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>The actor-critic inconsistency result was interesting for me. It&#39;s intuitive that a policy might misgeneralize, but the finding that the actor and critic learn differently and mutually inconsistent proxies is something subtle. The permeable-wall experiment a clear example the critic peaks in value right before the wall where the coin usually sits, yet the actor barrels straight through it 100% of the time. That means even if you could inspect the critic and confirm it had learned something closer to the &quot;going/moving right&quot; objective, the actual behavior generating this component in the actor could still be chasing a completely different, non-robust proxy. The Keys and Chests example was also a nice concrete illustration of  goal (collecting keys) becoming different from the terminal goal (opening chests)  it&#39;s a small and legible analogue of instrumental convergence going wrong.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>(1) Do we have ways to mitigate goal misgeneralization. ?
-
-(2) I&#39;m curious how much of this generalizes beyond the somewhat toy/procedurally-generated setting,  do we have or expect evidence of goal misgeneralization in large language models or LLM-based agents ?
-
-</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">19</span>
-            <div>
-              <h2>Nana Xia</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>For the goal misgeneralization paper, what I found interesting is that even when the reward function is correctly specified, the agent may still learn a proxy objective that works well during training but fails when the environment changes. So, good optimization performance during training does not necessarily mean that the model has learned the objective we intended. This made me think that when we evaluate a model, we should not only ask whether it performs well, but also what it has actually learned and whether the learned behavior will still match the intended objective under a different environment.
-For Chapter 1 of AI Snake Oil, I found the distinction between whether an AI system works and whether it is harmful especially interesting. The authors show that “bad AI” does not always mean that the technology is inaccurate. There are different possibilities: an AI system may fail and cause harm, or it may work accurately and still cause harm because of how it is used. Facial recognition is a good example. The authors argue that face recognition can work quite accurately under appropriate conditions, but the same capability can also be used for mass surveillance or other harmful purposes. On the other hand, AI cheating detectors are an example where the system itself may not work reliably and can lead to false accusations. To me, the interesting point is that evaluating AI should not stop at asking, “Does the technology work?” We also need to ask, “What is it being used for, what are the consequences, and is AI even the right solution to this problem?” In some cases, the deeper issue may be institutional rather than technical. And this question and topic is trending one to be disucseed in the real world. his also connects to a broader real-world debate about whether the rapid development and deployment of AI should be slowed down because of its potential harms. I think this makes the chapter especially interesting to read, because it encourages us to think not only about what AI is capable of doing, but also about whether, where, and how we should use it.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>The book argues that predictive AI should be treated cautiously unless there is strong evidence that it works. My question is what should count as “strong evidence” in practice, especially in high-stakes settings. Many AI systems may be useful even though they are not perfect, so how should we decide when the benefit is large enough to justify the remaining errors or harms? For example, facial recognition can be useful for tasks such as unlocking phones or identifying people in certain investigations, but the same technology can create serious concerns when used for surveillance. I hope to learn from the discussion how we should balance technical performance, practical usefulness, and potential harm, rather than judging an AI system only by its accuracy.</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">20</span>
-            <div>
-              <h2>Nisarga Bhaskar</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>In the goal misgeneralisation paper it is interesting how this could have real world implication and something as introducing diversity in the training can reduce such bad intentions
-In the snake oil paper it was interesting how Predictive AI is frequently sold as being far more capable than it actually is which I am not sure if its the current state</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>In the goal misgeneralisation paper i wonder would us trying to train on diversity create any form of distribution shifts?
-In the snake oil paper I would like to discuss how these tools are often used to make consequential decisions impacting people&#39;s lives and careers</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">21</span>
-            <div>
-              <h2>Ke Xu</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>paper1: I find the distinction between capability failure and goal misgeneralization interesting. In the CoinRun example, the agent can still navigate successfully, but it goes to the end of the level instead of following the coin. This shows that an agent can perform skillfully while pursuing the wrong goal.
-
-paper2: I find the distinction between AI that does not work and AI that works but is used harmfully important. The facial-recognition example shows that even an accurate technology can cause harm when it is used for surveillance or other inappropriate purposes. Therefore, accuracy alone is not enough to determine whether an AI system should be used.</p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>paper1: If several behavioral objectives can explain the same observed actions, what evidence would allow us to conclude that an agent has learned one particular proxy goal? I am also curious whether increasing training diversity solves the underlying problem or merely eliminates the specific proxies anticipated by the designer. I hope to discuss what kind of evaluation could reveal an unexpected objective before deployment.
-
-paper2: The authors distinguish AI that cannot work as advertised from AI that works but is harmful, but how should we draw that boundary empirically? For example, when a predictive system fails after deployment, how can we determine whether prediction was inherently infeasible, the data were inadequate, or the institution used the prediction improperly? I hope to discuss what evidence and accountability standards should be required before consequential predictive systems are deployed.</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">22</span>
-            <div>
-              <h2>Faith Baca</h2>
-              <time datetime="2026-09-15">Sep 15, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>For the first paper, I thought the CoinRun example was particularly interesting, especially when I thought about it from a fairness lens. For example, if a model is trained with the intent of optimal performance on some task like hiring, if it learned to rely on proxies for demographic attributes that correlate with success in the training data, that would be like the coin always being in one location in training but in practice leading to harmful/biased outputs. I find it interesting how RL papers can be really simple to understand but also have very significant implications beyond just RL. For the second paper, I thought it was really interesting to see the authors to call out how benchmarks are often poorly designed and don&#39;t measure what they claim to. I have seen this come up several times in bias work since many of these benchmarks weakly quantify a poorly operationalized concept, often leading to debiasing methods that aren&#39;t actually robust/useful. This paper also reminded me of the Sleeper Agents paper in that models are able to deceive humans in testing environments, and benchmarks play a huge part in this. </p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>I am curious for the first paper about what solutions there are for misgeneralization and how we can tackle the issue as researchers. While I see applications beyond RL, I am wondering whether the solution to the problem lives in the RL space or somewhere else. For the second paper, I am very curious to know how the authors attitudes toward AI hype have changed, especially in light of recent news related to AI potentially posing a huge threat to humanity. In general, I am hoping we can discuss this more as a class to see whether people are genuinely afraid or where people&#39;s thoughts are in general about the rapid development and increases in capability of AI. </p>
+I hope to learn what these decisions actually look like in practice: how teams check their fairness metrics, decide between different groups’ interests, and figure out which harms they could catch before releasing a system more widely.</p>
             </section>
           </div>
         </article>
