@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="2 CS 618 reading reflections for Week 5, September 21, 2026." />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Week 5 · CS 618 Weekly Paper Notes" />
+    <meta property="og:description" content="Reading reflections for September 21, 2026." />
+    <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-5/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Week 5 · CS 618 Weekly Paper Notes" />
+    <meta name="twitter:description" content="Reading reflections for September 21, 2026." />
+    <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-5/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Week 5 · CS 618 Weekly Paper Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#responses">Skip to the weekly notes</a>
+
+    <main>
+      <header class="site-header shell">
+        <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
+          <span class="wordmark-mark" aria-hidden="true">618</span>
+          <span><strong>CS 618</strong><small>Weekly paper notes</small></span>
+        </a>
+        <span class="term-badge">Fall 2026</span>
+      </header>
+
+      <section class="week-hero shell" aria-labelledby="week-title">
+        <a class="back-link" href="../../">← All weeks</a>
+        <p class="eyebrow">Reading reflections · September 21, 2026</p>
+        <h1 id="week-title">Week 5</h1>
+        <div class="week-summary">
+          <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
+          <span>2 responses</span>
+        </div>
+      </section>
+
+      <section class="response-list shell" id="responses" aria-label="Week 5 responses">
+        <article class="response-card">
+          <header>
+            <span class="response-number">01</span>
+            <div>
+              <h2>Junyang Cai</h2>
+              <time datetime="2026-09-14">Sep 14, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>It&#39;s interesting to see that Fairness team often involved only when the model in deployment, but did not participate from the start of design. And when the model is deployed, all the major designs have be fixed and hard to change. Also, the people in large companies only spend less than 10% of time regarding the fairness stuff.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>How do we design a systematic metric to allow every fairness team in different project can use it without need to design new-specific metric? With this systematic metric, different project can reuse these things and save a lot of time.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Katherine Hancock</h2>
+              <time datetime="2026-09-15">Sep 15, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>A lot of this paper didn’t surprise me much, actually, because of my HCI/UX background. But I found it interesting that the authors gave actionable recommendations for improving technical workflows and how teams work together. I’m used to seeing HCI/UX studies give design recommendations, but I hadn’t really thought about applying the findings to the development workflow itself. That’s definitely something I’ll take away from this paper going forward.
+
+I was also surprised that practitioners cited their prior experiences with recommender systems rather than academic research when developing their hypotheses, and used “intuition-based” metrics. I would’ve expected this more from smaller companies with fewer resources, but I would’ve expected larger companies to have more support for incorporating research into this work. I get that the metrics need to fit the specific context, but I’m curious how they check whether the ones they come up with actually measure what they’re supposed to.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I get that offline testing can’t catch everything that might happen after deployment, but couldn’t teams do user research with people from their target groups before that point? I’m curious why the paper doesn’t discuss this more. I know it takes time and resources, but given the potential harm, I would expect large companies to prioritize it. What could these studies catch before deployment, and what would still require testing afterward?
+
+I found it interesting that the paper cited studies where users preferred gender-biased recommendations over debiased ones. Does this mean some differences in recommendations are okay while others are unfair, and how do we decide where that line is? How should teams balance what users prefer with fairness for other groups, like creators or advertisers?
+
+When trying to ensure fairness for subgroups, how do we know how granular to make those groups? Which combinations of identities should we look at so we don’t miss issues that only become visible when we consider those identities separately?
+
+I hope to learn what these decisions actually look like in practice: how teams check their fairness metrics, decide between different groups’ interests, and figure out which harms they could catch before releasing a system more widely.</p>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer shell">
+        <p><span class="footer-signal" aria-hidden="true"></span>Synced from the class response form</p>
+        <p>Email addresses are never published.</p>
+      </footer>
+    </main>
+  </body>
+</html>
