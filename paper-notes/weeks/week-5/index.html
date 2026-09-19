@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="2 CS 618 reading reflections for Week 5, September 21, 2026." />
+    <meta name="description" content="23 CS 618 reading reflections for Week 5, September 21, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 5 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 5</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>2 responses</span>
+          <span>23 responses</span>
         </div>
       </section>
 
@@ -85,6 +85,478 @@ I found it interesting that the paper cited studies where users preferred gender
 When trying to ensure fairness for subgroups, how do we know how granular to make those groups? Which combinations of identities should we look at so we don’t miss issues that only become visible when we consider those identities separately?
 
 I hope to learn what these decisions actually look like in practice: how teams check their fairness metrics, decide between different groups’ interests, and figure out which harms they could catch before releasing a system more widely.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Selina Xiao</h2>
+              <time datetime="2026-09-16">Sep 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find it especially interesting that fairness in recommender systems cannot really be treated as a fixed offline evaluation problem. The practitioners have to deploy the system first, observe how users actually interact with it, and then discover new sources of unfairness that were not visible from historical data alone. I also found it interesting that, despite the large academic literature on fairness metrics, practitioners still rely heavily on intuition and develop their own system-specific metrics in practice. This stood out to me because it suggests that the gap between fairness theory and deployed systems is not only about finding better metrics, but also about understanding how those metrics behave once they interact with a changing real-world system.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>How should companies safely experiment with fairness interventions when the only reliable way to observe some harms is through real-world deployment? Could simulation, causal models, or carefully controlled online experiments reduce this dependence on “deploy first, discover later”? Also, if fairness metrics themselves are repeatedly revised after deployment, is there a principled way to distinguish between adapting the metric because the environment changed and simply changing the definition of fairness until the system looks acceptable?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-09-17">Sep 17, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>○ Fairness teams were often incorporated near deployment rather than throughout model development.
+	○ A significant gap remains between academic fairness research and industry practice. Practitioners must balance competing objectives across stakeholders who may not share a common language.
+	○ Because industry teams rarely have time to examine the literature deeply, research must be translated into clear, actionable priorities.
+	○ Fairness metrics leave practitioners uncertain about what to test and how to resolve conflicts between metrics. Testing many metrics can also enable “p-hacking,” where favorable results are selectively reported.
+    ○ Although some standards exist, the field still lacks a unifying framework. Fairness is especially difficult in recommender systems because user feedback changes the system’s environment, and users within the same group may have conflicting preferences, including preferences for biased recommendations.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>1) How are legal and regulatory institutions operationalizing fairness? Legal requirements may compel companies to prioritize fairness just as safety regulations require manufacturers to validate their products. 
+	2) What might a unifying framework for fairness look like?
+	3) Beyond metrics and model cards, how can fairness be integrated throughout the development workflow?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Sheryl Mathew</h2>
+              <time datetime="2026-09-17">Sep 17, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The authors of this paper conducted interviews with ML engineers/researchers at large tech companies to investigate how they incorporate fairness into the systems they deploy. It was interesting that the researchers rely more on intuition and prior experience than academic fairness methods. It&#39;s also interesting that legal teams had better feedback than fairness teams, but this points to the fact that we need better common terminology on fairness.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>How do the researchers working on a system&#39;s fairness balance this with the goals set by clients, advertisers, company leadership, etc? How often do they have to sacrifice fairness for these goals?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">06</span>
+            <div>
+              <h2>Chen Gong</h2>
+              <time datetime="2026-09-17">Sep 17, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I didn’t realize that fairness could be handled by a dedicated team when developing recommendation systems. My previous understanding of recommendation systems was more about making people happy. For example, in music recommendation, the system finds people who have tastes similar to yours and checks whether you might like the same music. What&#39;s more, I learned that there are actually two separate teams, including “legal” and “those who really care.” In this context, the first one has a larger voice and is much more powerful, or the company could get into trouble. This paper focuses on the less powerful team, which cares more about people other than the company, such as content providers and content readers. They have no real rules or regulations, and the literature is considered risky and suspicious. Much of the time, they just intuitively come up with some metrics and test them out. Or, if something bad happens, they apply hot patches by hand. It provided me with a very new perspective.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I would love to see some real-world cases where a fairness team for an RS shows up and solves a problem, or cases where they try but cannot solve the problem very well. Like some real examples of the dilemmas and balancing described in the paper.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">07</span>
+            <div>
+              <h2>Ansh Sindhwani</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>(1) the paper stresses the importance of proper documentation, noting that recording fairness practices and metrics is critical for building institutional knowledge that teams can reuse over time. which would also be better than ad hoc fairness testing that was being done as highlighted by the interviewees 
+(2) It also argues that fairness needs to be integrated directly into RS workflows rather than bolted on as a post-hoc check A RS-specific technical blind spot for fairness in recommender systems can&#39;t really be validated offline the way it can in standard ML settings, since RS depend on modeling live user behavior and are shaped by ongoing feedback loops. 
+(3) Finally, the paper highlights the importance of how difficult it is to even define fairness in this setting, since RS involve many different, sometimes conflicting, stakeholder groups whose interests don&#39;t map neatly onto conventional fairness metrics.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One thing i noticed in the paper is it highlights that it is difficult to to even define fairness in a Recommender System under deployment. there are multiple stakeholders and everything have a proper metric, So what is the possibility of involving a system like Constitutional AI / RLAIF to ensure fairness where constitution is maintained by non-technical people 
+
+The paper talks about how technical team (the team building RS system) can practice fairness,  in the discussion i would also like to know what can the Data team do to ensure fairness.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">08</span>
+            <div>
+              <h2>Lauren Cooke</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Recapping my thoughts on last week’s goal misgeneralization work, I thought that separating goal misgeneralization and capability generalization failures was super important because doing some task well seems closer to generalization than failing to do anything and should motivate different types of corrections to exclude shortcut strategies that allow for rote memorization specific to a given environment. I thought the fairness implementation interview audit of big tech companies working on recommendation systems definitely captured some challenges of fairness implementation that I expected from working for a large institution, and the action items they motivated made a lot of sense. I think in particular working to develop shared language to describe fairness was something I hadn’t considered being as big of an issue as it appears to be.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Also recapping my thoughts from last week’s goal misgeneralization work, I want to discuss how we can work towards solution frameworks to try when this type of generalization error is present. Is there any advantage we can leverage in training design or objective specification in RL to correct goal misgeneralization specifically? From the fairness interviews, I was particularly struck by the start of the discussion section explaining how RS practitioners ascribe importance to fairness work being a reason for optimism, and I think it speaks to perhaps public stereotype/perception by default of technical workers as fairness agnostic at best. I wonder how did the fairness discussion become an us versus them conversation of developers versus ethicists, and what can we do now given that reality to further quash that impression?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">09</span>
+            <div>
+              <h2>Sriram Kadiyala</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Fairness-in-the-Workflow: How ML Practitioners at Big Tech Companies Approach Fairness in Recommender Systems:
+
+I was surprised to learn that in this pipeline the fairness team enters after the model has shipped for online testing. One more thing I found mildly amusing is the fact that this report&#39;s subjects don&#39;t use rigorous fairness pipelines, most of them are heuristic and based off of intuition and practicality rather than mathematical rigor.
+
+Another thing that was interesting is that the obstacles here turn out to be human and organizational rather than technical like multidisciplinary fairness teams use terminology that doesn&#39;t land with ML engineers, some feedback is unimplementable, and they arrive mid-project without the accumulated context.
+
+For me the key takeaway from this report is the fact that practitioners loved working with legal, but struggled with fairness teams, which kind of inverts prior works.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Fairness-in-the-Workflow: How ML Practitioners at Big Tech Companies Approach Fairness in Recommender Systems:
+
+My main question on this report is how do big companies get by without actively spending enough resources (less than 10% of practitioner time) on ensuring fairness? Is fairness that expensive to guarantee? 
+
+I think that fairness sometimes maybe at odds with what&#39;s legal (for instance: racial discrimination is illegal in employment RS but not in dating RS), so in cases like these, what should take precedence: legality or fairness?
+
+I hope to learn and understand how can guaranteeing fairness become an essential part of RS pipeline and not just a fringe element companies have to address for legal purposes.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">10</span>
+            <div>
+              <h2>Emily Weiss</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>1. I thought it was interesting that fairness does not have a single agreed upon definition. It makes sense that there are different conceptions of fairness (e.g. individual, group), but even within those groups, do the definitions differ alongside the differences in metrics briefly mentioned? 
+
+2. I was interested in the result from the related work that mentioned that users may prefer gender-biased recommendations over debiased ones, even when they are aware that bias is present, and that debiased systems can potentially expose users to harassment. This last point was a very unexpected outcome. 
+
+3. I thought it was interesting that industry folks working on fairness appear to be aware of research in the space, but are relatively unmoved by it. I am unsure what is needed to close that gap  – possibly adjustments in the workflow to allow more opportunity to address fairness, or more industry-sponsored research to address those domain-specific challenges directly?</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>1. I thought it was interesting that historical data could not be a reliable source of information as a test set for recommender systems; however, I would like to understand more why that is the case? Right now, the paper identifies this as a major gap in the literature, but does not make much movement to close that gap. 
+
+2. Is it common for end users to encounter recommender systems as a final product, while simultaneously acting as unknowing pilot testers? Should there be explicit pilot testing earlier in the recommender system practitioner workflow before widespread service?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">11</span>
+            <div>
+              <h2>Faith Baca</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>One point that I thought was particularly interesting was the fairness lingua franca suggestion proposed by the authors. While I agree that language about fairness needs to be standardized and that practitioners should be familiar with at least basic ML concepts in order to audit models for fairness, I think research itself outside of industry also does not agree well on definitions of bias and fairness, so the suggestion to mandate familiarity with current research papers and methods doesn&#39;t seem like it would necessarily fix the issue. With that being said, I do think it&#39;s definitely important that these individuals are aware in general of how ML works and what common pitfalls can lead to disparities in fairness. I also thought the challenges to fairness taxonomy was interesting; I would have expected to see more organizational challenges related to money or bureaucracy limiting practitioners&#39; ability to develop robust systems for auditing fairness.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I am curious about the number of participants and what the implications of the size are; though they note this in the limitations section, they also discuss how it may not generalize to smaller companies, and I am curious what this means in practice. Would smaller companies have an easier time since everyone is required to be more involved and invested with each aspect of RS, or would it be more difficult for this same reason? I am hoping to learn more about how this impacts other PhD students&#39; work since I have seen a lot of these issues come up in my study of bias in AI.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">12</span>
+            <div>
+              <h2>Sreyes Venkatesh</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>One thing I found particularly interesting was how heterogenous the challenges of creating fair recommendations systems are, and how the law is not necessarily robust to that heterogenous nature. It also seems that when the law cannot provide any accountability there seems to be very little initiative at addressing the challenges that implementing a fair algorithm would bring up.  For example, when companies are trying to ship out model based products as fast as possible it may not be possible to address all the aspects of fairness before the deployment date. One particular finding that caught my eye was how all participants reported that they would spend a maximum of 10% of their time for fairness related tasks, suggesting that fairness is a low priority for the builders. Overall it seems as though in practice implementing fairness is less of a technical (mathematical for lack of a better term) challenge and more of an operational/logistical issue.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I would hopefully like to uncover how these companies responded to the disparities in fairness. With such a philosophical topic it seems as though making strides towards more &#39;fair&#39; systems largely depends on how the people in charge interpret these challenges and assessments. In my experience nearly all of these initiatives are implemented from a top down setting, i.e. the leadership of the organization initiates a change to account for these issues. Especially now adays where the options for legal recourse seem to be shrinking, is there an incentive besides profit for business leaders to create fair systems.  For example, the paper talks about how racial discrimination is illegal in Employee Recommendation Systems but legal for dating recommendation systems. This also suggests the question of does the dating company itself care about this racial discrimination? And if not what is the recourse if we the users find that discrimination to be unsatisfactory.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">13</span>
+            <div>
+              <h2>Aditya Kotha</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I was very new to this field, so it gave me a good understanding of the challenges associated with fairness and recommendation systems in general. As the papers mention from all the interviews, RS doesn’t have a one-size-fits-all solution to its fairness problems. They gave an interesting example of how using race-based features in job-based RS is illegal, as it constitutes racial discrimination, but the same cannot be applied to dating RS. They also provide some really good summaries of issues, such as what to do when there is no legal requirement. They aslo surfaced some interesting points about documentation debt, where the codebases of previous systems within the company include fairness metrics but lack clear explanations of why they were used, etc., making it harder for them to use those directly, and how few practitioners don&#39;t have enough time to go through existing literature and re-implement them.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>How should engineering/fairness teams decide whose interests to prioritize when fairness for users conflicts with fairness for creators or advertisers?
+
+Would involving fairness teams earlier be enough, or would they also need authority to delay deployment when concerns remain unresolved?
+
+
+I hope to understand how companies should approach fairness as a key consideration when engineers find issues that delay tight deadlines. I&#39;m also very interested in the potential types of biases or fairness issues that can occur during RS. The paper does a good job of briefly describing the issues, but it doesn’t go too deep into them.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">14</span>
+            <div>
+              <h2>Yuyang Jiang</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the distinction between learning and steering in performative prediction particularly interesting. Traditional machine learning treats the data-generating distribution as something external that the model learns from, whereas in performative settings, deploying a model can itself change that distribution. This means that a model can achieve lower risk either by learning the existing distribution better or by steering the population toward a distribution that is easier or more favorable for the model to predict. I found this perspective especially interesting because it changes how we think about model evaluation: good predictive performance after deployment does not necessarily mean that the model accurately learned a pre-existing environment, since part of that performance may result from the model changing the environment itself.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I had is whether reaching a performatively stable point should actually be considered a desirable outcome. A model can become stable because the population has adapted to it, meaning that the data observed after deployment no longer provides evidence that the model should change. But this does not necessarily imply that the resulting equilibrium is socially desirable or even globally optimal. This makes me wonder how we should evaluate performative systems beyond convergence or predictive risk. In particular, what criteria should we use to distinguish between a model that successfully learns from a changing population and one that mainly succeeds by steering the population toward an equilibrium favorable to its own objective?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">15</span>
+            <div>
+              <h2>Mohammadsaeed Haghi</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the &quot;Goal Misgeneralization in Deep RL&quot; paper, the finding I found most interesting is in Section 3.4. The actor and the critic are both learned, and they end up with different proxies. The critic assigns highest value to states where the agent touches the end wall, but when the wall is made permeable the actor walks through it every time. So the actor learned &quot;move right&quot; and the critic learned &quot;move to the wall&quot;, and neither one is the coin. The authors point out that this mismatch could cause the failure even if the critic had learned the true value function.
+For the &quot;fairness in the workflow&quot; paper, what I found most interesting is the communication gap with fairness teams. Those teams come from fields like psychology, so engineers sometimes do not understand the terms in the feedback they get. The paper suggests shared terminology, embedded fairness roles, and involving fairness teams during prototyping rather than after deployment.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>For the &quot;Goal Misgeneralization in Deep RL&quot; paper, they measure an inconsistency between the actor and the critic. From there the caption of Figure 7 makes a larger claim, that this mismatch could cause the failure even if the critic had learned the true value function. Since their own critic also misgeneralizes, that case was never tested, and I&#39;d like to discuss how you would test it.
+The &quot;fairness in the workflow&quot; paper suggests building a shared terminology between technical and fairness teams. But it also reports feedback that practitioners understood and still could not act on, because the problem sat in the model itself. I&#39;d like to know how much of the gap is really about language.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">16</span>
+            <div>
+              <h2>Nana Xia</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I appreciate that Fairness-in-the-Workflow focuses on the more fundamental questions of what fairness means and whose fairness matters. These questions are not as straightforward as simply developing or optimizing a model, and in some sense they come before the optimization problem itself. Different stakeholders—such as end users, content providers, advertisers, technical teams, and fairness teams—may have different ideas about what a fair recommender system should look like, so there is no single definition of fairness that can be applied everywhere. I also found the dynamic nature of fairness especially interesting. Even when fairness is considered during model development, practitioners often discover new fairness issues only after real users begin interacting with the deployed system. Because user behavior and feedback can further influence future recommendations, a system that appears fair today may not remain fair over time. This made me think that fairness should be viewed as an ongoing process rather than a one-time metric or requirement.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I have is about when and how fairness should be integrated into the workflow. The paper finds that legal teams are involved relatively early and communication with them is often easier because legal requirements are more explicit about what is allowed and what is not. In contrast, fairness teams often become involved later, when the model has already been developed or even deployed, so making major changes at that stage can be much more costly. The authors therefore suggest integrating fairness earlier and more frequently throughout the workflow. However, the paper also shows that fairness is dynamic: even if a model passes fairness checks before deployment, new problems may appear as users interact with the system and feedback loops develop. This makes me wonder what a practical continuous fairness-monitoring workflow should look like. How often should fairness be re-evaluated, when should fairness metrics be updated, and how can we distinguish a real new fairness problem from changes caused by user behavior or previous recommendations? I think the more interesting question is how fairness can be built into the model lifecycle as an ongoing process, rather than treated as a one-time check before deployment.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">17</span>
+            <div>
+              <h2>Vaishnavi Sinha</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Fairness-in-the-Workflow:
+
+Instead of only relying on open-ended interviews to learn about how RS practitioners incorporate fairness, longitudinal study looking at behaviours (algorithm/code reviews, impact of model service and its effects on types of user engagement as case studies) of RS practitioners would probably give better insights. 
+
+I didn&#39;t understand why the fairness metrics construction didn’t involve collaboration with the fairness team from the start. Instead they refined it after deployment, I think this should have been collaborative initially during the offline stage. Also, if they were able to interview fairness teams along with practitioners to conduct a cross-functional perspective, it would have been really interesting to have a log of what the fairness team was saying pre-deployment and compare it to post-deployment to see how much “bias” was covered by them, indicating whether earlier collaboration might have reduced later time and effort.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Fairness-in-the-Workflow:
+
+Reviewing the workflow diagram (Fig. 1), my immediate follow ups were: 
+
+1) why is the fairness team not additionally part of the offline development, specifically during data acquisition and processing stage before model testing? 
+
+and 2) whether further investigation could be done to measure how involving fairness team earlier could reduce time for RS practitioners during model work and iteration (since practitioners had reported spending more than half their time on model work).</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">18</span>
+            <div>
+              <h2>Pranavesh Kumar Talupuri</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>It is interesting to note (from Yan et al.) that they discuss the impact of fairness consideration arriving late as compared to other concerns. In my opinion, how different is model fairness from alignment in terms of societal impact? Even considering security, it is always better to naturally &#39;grow&#39; the model in the right direction over a bolted guardrail applied at the end of system deployment. Why is fairness not viewed from the same angle?
+
+I also believe that a universal fairness metric might be necessary to facilitate a change in this domain. When two groups within the same organization measure fairness in a different way, it is inevitably a haphazard solution to a fundamental problem, which can&#39;t even be seen the same within a single creative entity.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Similar to security and alignment, there is always a question of authority. Who should be the deciding factor in the degree to which fairness is pursued? Who is the arbiter and what is the metric?
+
+As AI safety becomes a pressing issue, things like this should probably be sorted out sooner rather than later.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">19</span>
+            <div>
+              <h2>Nisarga Bhaskar</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The paper provided an inside view about how the big tech companies deal with fairness and was surprising how different teams with different backgrounds collaborate to ensure the recommendation systems are fair</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>In the paper it was mentioned that how there is lack of  a common language across all the teams what are some measures which the companies have taken to address this?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">20</span>
+            <div>
+              <h2>Michael Duan</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting how late fairness teams are involved in the design process. Furthermore, because fairness is really only assessable post-deployment, a contradiction arises, where low-hanging fruit implementations are prioritized over likely more meaningful ones. It&#39;s even more interesting because engineers are in favor of fairness, but other demands often outweigh it. Finally, it&#39;s curious that legal advice is incorporated much earlier and much more seriously; perhaps due to the incentive (e.g., not breaking laws) being clearer and more critical.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>My first question is whether fairness teams could be given greater authority like legal teams, also being involved much earlier, and whether this might have the negative effect of making fairness rigid via forced compliance. Since fairness can involve multiple valid yet competing perspectives, it may not translate to a more rigid, legal-like framework. 
+Another question is, would fairness have greater importance if its business implications were clearer? For example, with legal, enforcement is necessary because a lack thereof would hurt the primary business goals. Are there direct correlations with increased fairness and other business metrics increasing? Could that framing enable greater weight for fairness?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">21</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that fairness problems in recommender systems are not only technical problems. Practitioners must decide whose fairness to prioritize, including users, content providers, and advertisers, while recommendations and user behavior continuously influence each other. I was also surprised that fairness work is often limited by practical issues such as insufficient time, poor documentation, and communication difficulties between technical and fairness teams. This suggests that developing better fairness metrics alone may not be enough.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The study interviewed only 11 technical practitioners, and it did not include members of the legal, data, or fairness teams. Would those groups describe the workflow and communication problems differently? I also wonder who should decide which stakeholders to prioritize when their interests conflict. I hope to learn how companies can integrate fairness into the development process earlier and make it a regular responsibility rather than additional work that practitioners handle only when they have time.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">22</span>
+            <div>
+              <h2>Mattia Solla Saez</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Fairness-in-the-Workflow: How Machine Learning Practitioners at Big Tech
+Companies Approach Fairness in Recommender Systems: it was interesting, but not super surprising, to see how the process of incorporating fairness into the models is very informal and unorganized and how fairness is not one of the companies main priorities when deploying these models. The recommendations from the authors about improved documentation and a shared language across technical and fairness teams seem very useful to improve the workflows and attainable to implement at organizations in practice</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Fairness-in-the-Workflow: How Machine Learning Practitioners at Big Tech
+Companies Approach Fairness in Recommender Systems: Is there a way to incentivize companies to better integrate fairness in the development of their models from the beginning? The current legal obligations seem like a good start, but they don&#39;t seem to be enough to guarantee that the models are deployed with robust fairness systems from the start</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">23</span>
+            <div>
+              <h2>FNU Bandre Devaraju Vinod</h2>
+              <time datetime="2026-09-18">Sep 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that practitioners liked working with their legal team but not their fairness team, because legal teams are involved early in the process and give clear answers while fairness teams show up after the model is deployed. I was also surprised that practitioners have to pick between fairness goals that do not even conflict. The part that concerns me is how often the platform&#39;s interests win. The paper opens with Amazon&#39;s RS ranking its own products above better-reviewed competitors, and the interviews show the same pattern inside the teams, with practitioners spending 10% or less of their time on fairness because it does not move the metrics the company cares about.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The paper says you cannot really check an RS for fairness before deploying it because historical data is not enough. So teams ship first and fix bias later on live user data, which could risk confirmatory bias. Is there a way to overcome this, or will real users always be the test set?</p>
             </section>
           </div>
         </article>

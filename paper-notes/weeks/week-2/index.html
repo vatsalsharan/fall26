@@ -72,11 +72,11 @@
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>In the first paper, I think it&#39;s interesting how much the policies/methods for evaluating the method are internal to OpenAI; for the internal safety benchmarks, are there comparable methods/benchmarks for evaluating the same aspects of safety from an open-source perspective? How might this impact large-scale adoption of these approaches? In the second paper, I really found it interesting that, no matter how much more efficient and successful this method is than RLHF, humans are still very much required to shape the process in a big way. I think there are significant questions about bias and fairness related to this point of interaction between models and humans. </p>
+              <p>In the first paper, I think it&#39;s interesting how much the policies/methods for evaluating the method are internal to OpenAI; for the internal safety benchmarks, are there comparable methods/benchmarks for evaluating the same aspects of safety from an open-source perspective? How might this impact large-scale adoption of these approaches? In the second paper, I really found it interesting that, no matter how much more efficient and successful this method is than RLHF, humans are still very much required to shape the process in a big way. I think there are significant questions about bias and fairness related to this point of interaction between models and humans.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>I am mostly curious about the Constitutional AI paper; I am interested in hearing what people have to say about who shapes the constitution that a model relies on. The paper also does engage with my main question, which is who gets to decide what is right and what is wrong? I think many of these decisions can be very culturally-coded/region-specific, so is there a universal way of developing constitutions that everyone agrees on and that lead to safe models universally? I also hope to hear people&#39;s thoughts on which approach is stronger from a fairness standpoint; Constitutional AI does seem to be a more transparent and explainable method, but Deliberative Alignment seems to be more robust against adversaries overall. Also, for the first paper, I am curious what people think about some of the safety benchmarks being internal. Lastly, I am curious what the state of these projects is currently and how the landscape of safety has changed in the last year. </p>
+              <p>I am mostly curious about the Constitutional AI paper; I am interested in hearing what people have to say about who shapes the constitution that a model relies on. The paper also does engage with my main question, which is who gets to decide what is right and what is wrong? I think many of these decisions can be very culturally-coded/region-specific, so is there a universal way of developing constitutions that everyone agrees on and that lead to safe models universally? I also hope to hear people&#39;s thoughts on which approach is stronger from a fairness standpoint; Constitutional AI does seem to be a more transparent and explainable method, but Deliberative Alignment seems to be more robust against adversaries overall. Also, for the first paper, I am curious what people think about some of the safety benchmarks being internal. Lastly, I am curious what the state of these projects is currently and how the landscape of safety has changed in the last year.</p>
             </section>
           </div>
         </article>
@@ -152,13 +152,13 @@ How defenders can respond to attackers that also use this reasoning</p>
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
               <p>Deliberative Alignment: It is interesting how the paper takes a new approach to the problem of safety, proposing that models need to be able to reason about safety rules rather than just learning examples of safe and unsafe responses. The synthetic data generation process is well constructed and reduces the need for human effort in annotating the data. The o1 model shows significant improvement over GPT-4o on safe completion (self-harm) and jailbreaks in particular (table 1). 
-Constitutional AI: I like that the authors frame their work as a tradeoff between helpfulness and harmlessness because it is important that models refuse to answer some queries, but it is much more helpful when they explain why they cannot answer those queries. Using a &quot;constitution&quot; is very helpful to let people understand the rules that a model has to abide by, and it makes it much easier for researchers to modify or add to the rules. </p>
+Constitutional AI: I like that the authors frame their work as a tradeoff between helpfulness and harmlessness because it is important that models refuse to answer some queries, but it is much more helpful when they explain why they cannot answer those queries. Using a &quot;constitution&quot; is very helpful to let people understand the rules that a model has to abide by, and it makes it much easier for researchers to modify or add to the rules.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>Deliberative Alignment: Do the authors train the models on difficult examples where the model should not refuse to answer? What happens in the case where the data generation process generates some examples in which the model responds to the request when it&#39;s not supposed to? Why is the RL stage needed on top of SFT?
 Constitutional AI: How easy is it to retrain the model when replacing one constitution for another? How do we know that the AI supervision is aligned with human feedback?
-I&#39;m curious why both papers use Chain of Thought prompting (as opposed to other prompting techniques) as the main approach to generate synthetic training data. </p>
+I&#39;m curious why both papers use Chain of Thought prompting (as opposed to other prompting techniques) as the main approach to generate synthetic training data.</p>
             </section>
           </div>
         </article>
@@ -204,7 +204,7 @@ I&#39;m curious why both papers use Chain of Thought prompting (as opposed to ot
 
 Constitutional AI…
 
-1. I thought it was interesting that the authors found that their approach successfully yielded model behavior that was not evasive, and while simultaneously giving harmless responses to a user. </p>
+1. I thought it was interesting that the authors found that their approach successfully yielded model behavior that was not evasive, and while simultaneously giving harmless responses to a user.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -363,8 +363,7 @@ Do these safety improvements hold up against unfamiliar jailbreaks? I hope to le
               <h3>What are things you found interesting about the papers for this class?</h3>
               <p>For deliberative alignment, I found it interesting that the distillation of the policy works better than directly putting the policy in context. I wonder if there is some sort of generalization that happens more through implicit learning than in in-context learning. Perhaps it is the literal instruction following training that the models have which discourages extrapolation, whereas in implicit learning the model has to generalize about what may or may not be in the alignment doc in order to do well on unseen tasks. 
 
-For constitutional, I found it interesting that the SFT stage was so necessary. This seems to be a general pattern, where you need a model to be close enough for RL to work, otherwise there isn&#39;t enough signal for the RL to work.
-</p>
+For constitutional, I found it interesting that the SFT stage was so necessary. This seems to be a general pattern, where you need a model to be close enough for RL to work, otherwise there isn&#39;t enough signal for the RL to work.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -426,7 +425,7 @@ what will be a way to avoid it.
 (and Adversarial Reasoning at Jailbreaking Time)
 
 (1) Can safety be built in the reasoning method itself ?
-(2) I hope to learn more about the mechanics of using a &#39;loss signal&#39; to guide an attack. </p>
+(2) I hope to learn more about the mechanics of using a &#39;loss signal&#39; to guide an attack.</p>
             </section>
           </div>
         </article>
@@ -477,11 +476,11 @@ I hope to learn a bit more about how exactly these safety policies are created i
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>I thought it was very interesting how the common themes between the two papers are. Firstly, both are concerned with AI safety, but in addition to that, both have a set of short principles or rules to base all safety on as a foundation. On top of that, both papers use AI to generate data and avoid using human responses or labeling. Both papers also have the same general training sequence: first is supervised learning phase followed by a RL phase. I thought this part is interesting because this aligns with the general pipeline of how to train LLMs in general as well. </p>
+              <p>I thought it was very interesting how the common themes between the two papers are. Firstly, both are concerned with AI safety, but in addition to that, both have a set of short principles or rules to base all safety on as a foundation. On top of that, both papers use AI to generate data and avoid using human responses or labeling. Both papers also have the same general training sequence: first is supervised learning phase followed by a RL phase. I thought this part is interesting because this aligns with the general pipeline of how to train LLMs in general as well.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>I want to understand if there is a better way to align models. It seems like the 2 step process is an entire industry training process, and safety should be simpler and inherently guaranteed. I also think that RL does not encourage diversity very well, although the first paper did mention about out of distribution performance. Also would want to know if this is the industry standard for safety in LLMs. </p>
+              <p>I want to understand if there is a better way to align models. It seems like the 2 step process is an entire industry training process, and safety should be simpler and inherently guaranteed. I also think that RL does not encourage diversity very well, although the first paper did mention about out of distribution performance. Also would want to know if this is the industry standard for safety in LLMs.</p>
             </section>
           </div>
         </article>
@@ -528,8 +527,7 @@ I also found the multilingual experiment interesting. The researchers removed no
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>First, I have a question about the ablation study in Deliberative Alignment. The paper compares using safety data in SFT, RL, both stages, or neither stage. However, it does not clearly separate the effect of training on policy-based CoT from the effect of training only on safe final answers. I do not have much experience with ablation studies, so I hope to learn why the authors chose these conditions and whether they are enough to isolate the effect of CoT supervision.
-Second, I am curious about how multilingual generalization works in Deliberative Alignment. Training changes the probability of the next token, so I do not fully understand why a model trained without non-English safety examples performs almost as well on multilingual jailbreak tests as a model trained on the full safety dataset. From the discussion, I hope to learn why updates from English safety data are not limited to English and how shared representations across languages, learned during pretraining, may support this transfer.
-</p>
+Second, I am curious about how multilingual generalization works in Deliberative Alignment. Training changes the probability of the next token, so I do not fully understand why a model trained without non-English safety examples performs almost as well on multilingual jailbreak tests as a model trained on the full safety dataset. From the discussion, I hope to learn why updates from English safety data are not limited to English and how shared representations across languages, learned during pretraining, may support this transfer.</p>
             </section>
           </div>
         </article>
@@ -572,9 +570,7 @@ This work reminds me of Constitutional Classifiers: Defending Against Universal 
 
 Deliberative Alignment: Reasoning Enables Safer Language Models - 
 
-The approach also requires relatively little direct human supervision because models generate the reasoning traces and responses, while a specification-aware judge model filters the supervised fine-tuning data and supplies the reinforcement-learning signal.
-
-</p>
+The approach also requires relatively little direct human supervision because models generate the reasoning traces and responses, while a specification-aware judge model filters the supervised fine-tuning data and supplies the reinforcement-learning signal.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -582,8 +578,7 @@ The approach also requires relatively little direct human supervision because mo
 
 1. How does each method resolve conflicts among principles, particularly when those conflicts are subtle, unforeseen, or context-dependent?
 
-2. How scalable are these approaches when the governing principles change over time? Human standards of helpfulness, honesty, and harmlessness are unlikely to remain fixed, and different cultures or communities may interpret these values differently. Can the principles be updated or adapted without retraining the entire model?
-</p>
+2. How scalable are these approaches when the governing principles change over time? Human standards of helpfulness, honesty, and harmlessness are unlikely to remain fixed, and different cultures or communities may interpret these values differently. Can the principles be updated or adapted without retraining the entire model?</p>
             </section>
           </div>
         </article>
@@ -645,7 +640,7 @@ For Constitutional AI, I found it interesting that the paper does not argue that
               <h3>What are things you found interesting about the papers for this class?</h3>
               <p>Deliberative Alignment: Reasoning Enables Safer Language Models :  It is quite interesting that traing didnt require any human data almost autonomous in nature.
 
-Constitutional AI: Harmlessness from AI Feedback : It is interesting that it provides a solution without being overly conservative </p>
+Constitutional AI: Harmlessness from AI Feedback : It is interesting that it provides a solution without being overly conservative</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
