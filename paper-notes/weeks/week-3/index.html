@@ -102,7 +102,7 @@ I am presenting this paper, so I will just respond for the other paper.</p>
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>I found the legal arguments for applying discrimination law to screening AI systems quite compelling, particularly in separating responsibility across the screening process itself and the training process of the screening algorithm and how algorithms may force ethicists to more explicitly engage with ethically hard problems because they can now be concretely scrutinized and enforced. I also found the deceptive LLM work particularly interesting for the ability to teach a model to be deceptive with its reported performance by avoiding triggering backdoor examples during defense periods. </p>
+              <p>I found the legal arguments for applying discrimination law to screening AI systems quite compelling, particularly in separating responsibility across the screening process itself and the training process of the screening algorithm and how algorithms may force ethicists to more explicitly engage with ethically hard problems because they can now be concretely scrutinized and enforced. I also found the deceptive LLM work particularly interesting for the ability to teach a model to be deceptive with its reported performance by avoiding triggering backdoor examples during defense periods.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -128,7 +128,7 @@ For Sleeper Agents, I find it interesting that the most concerning result is not
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>For Discrimination in the Age of Algorithms, my question is how we should decide which part of an algorithmic decision process should actually be held responsible for an observed disparity. If the disparity can come from the objective being optimized, the available features, the training data, the learned screening rule, or structural inequalities outside the model, it seems difficult to determine where discrimination “belongs” and what the appropriate intervention should be.
-For Sleeper Agents, my main question is how much these results tell us about deceptive behavior that might actually emerge naturally in a model. The authors deliberately construct these deceptive or backdoored models as “model organisms of misalignment,” and they explicitly state that they have not observed deceptive instrumental alignment arising naturally in current systems. This makes the experiment useful for testing whether existing safety methods could remove such behavior, but it also makes me wonder whether the persistence they observe is partly a consequence of how strongly and deliberately the backdoor was implanted. </p>
+For Sleeper Agents, my main question is how much these results tell us about deceptive behavior that might actually emerge naturally in a model. The authors deliberately construct these deceptive or backdoored models as “model organisms of misalignment,” and they explicitly state that they have not observed deceptive instrumental alignment arising naturally in current systems. This makes the experiment useful for testing whether existing safety methods could remove such behavior, but it also makes me wonder whether the persistence they observe is partly a consequence of how strongly and deliberately the backdoor was implanted.</p>
             </section>
           </div>
         </article>
@@ -154,7 +154,7 @@ For Sleeper Agents, my main question is how much these results tell us about dec
 
 Discrimination…
 
-1. I thought it was interesting that the main argument is that safeguards against the biases of algorithm builders could be more effective at reducing bias in algorithms than some change to the algorithms themselves. </p>
+1. I thought it was interesting that the main argument is that safeguards against the biases of algorithm builders could be more effective at reducing bias in algorithms than some change to the algorithms themselves.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -168,7 +168,7 @@ Discrimination...
 
 1. When making screening decisions, how much group data do you need to reduce biases that occur when the algorithm is blind? The authors focus on differences in race and gender, but not much more. I am interested in how deep one would actually have to go to get fine grained predictions for these screening decisions algorithms. Similarly, is it possible that when you add many features in the interest of transparency, that the system becomes no longer explainable and begins to behave too much like humans with automatic assumptions? 
 
-2. The authors pose the example of a well-regulated world in which algorithms and training data could be presented in a court of law as evidence, with the idea that expert witnesses employ statistical techniques on the data to reveal evidence of disparate treatment. How feasible is an example such as this when “algorithms” include LLMs, which use large amounts of unlabeled data, and are becoming increasingly incorporated into workplaces. There is a limit to what linguistic measures exist, and using another AI as a judge (as we have seen in recent papers) to produce labels or extract the features used to do analysis may fall victim to the same problems of bias that the original algorithm being judged has. My main curiosity as a discussion point is how might the authors’ vision have evolved since publication when considering recent advancements, and the amount of data needed for modern models? How many of their proposals are feasible? </p>
+2. The authors pose the example of a well-regulated world in which algorithms and training data could be presented in a court of law as evidence, with the idea that expert witnesses employ statistical techniques on the data to reveal evidence of disparate treatment. How feasible is an example such as this when “algorithms” include LLMs, which use large amounts of unlabeled data, and are becoming increasingly incorporated into workplaces. There is a limit to what linguistic measures exist, and using another AI as a judge (as we have seen in recent papers) to produce labels or extract the features used to do analysis may fall victim to the same problems of bias that the original algorithm being judged has. My main curiosity as a discussion point is how might the authors’ vision have evolved since publication when considering recent advancements, and the amount of data needed for modern models? How many of their proposals are feasible?</p>
             </section>
           </div>
         </article>
@@ -233,7 +233,7 @@ For the Kleinberg paper, The paper says that race &quot;aware&quot; models domin
               <p>Paper 1:
 I found it interesting that adversarial training could reduce failures on the red-team prompts without removing the planted backdoor. The model became better at distinguishing those prompts from the original trigger, so improved test performance could give a misleading impression of safety. I also found it interesting that backdoors trained using deceptive chain-of-thought reasoning could remain persistent after distillation, when the model was trained to produce answers without the written reasoning. 
 Paper 2:
-I found it interesting that allowing a model to use gender could sometimes help it correct the effects of biased manager ratings. Without that information, the model might treat the same rating as equally informative for everyone, even when the ratings were produced differently for men and women. I also found it interesting that accurately predicting past hiring decisions could reproduce discrimination. Better prediction would not necessarily solve the problem if the model was learning to imitate biased decisions. </p>
+I found it interesting that allowing a model to use gender could sometimes help it correct the effects of biased manager ratings. Without that information, the model might treat the same rating as equally informative for everyone, even when the ratings were produced differently for men and women. I also found it interesting that accurately predicting past hiring decisions could reproduce discrimination. Better prediction would not necessarily solve the problem if the model was learning to imitate biased decisions.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -257,7 +257,7 @@ When does including a protected characteristic help correct bias, and when might
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
               <p>Sleeper Agents: The authors train two types of backdoor model &quot;organisms&quot; that seem to be safe during training but reveal harmful behavior in the presence of a specific trigger. It is interesting that it was harder to correct the larger models&#39; backdoors. 
-Discrimination: I like the paper&#39;s central claim that algorithms are not necessarily opaque, and in fact they are easier to inspect and break down compared to a human&#39;s mental processes. The framework of design choices they present (input, objective, training data) is helpful to identify and categorize bias in algorithms. </p>
+Discrimination: I like the paper&#39;s central claim that algorithms are not necessarily opaque, and in fact they are easier to inspect and break down compared to a human&#39;s mental processes. The framework of design choices they present (input, objective, training data) is helpful to identify and categorize bias in algorithms.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -286,7 +286,7 @@ Discrimination: The paper presents a good framework for identifying bias in algo
 
 discrimination in age of AI 
 
-Paper questions the usual fear about algorithmic discrimination. It argues that, with proper records and audits, algorithms may make discrimination easier to detect and reduce than discrimination in human decision-making. But this promise depends entirely on how the objective, data, and deployment process are governed. on interesting observation put forward by the paper is that race-aware models can sometimes be both fairer and more accurate than race-blind models, but this depends on the data, objective, and legal context. which is somewhat counter intuitive also. </p>
+Paper questions the usual fear about algorithmic discrimination. It argues that, with proper records and audits, algorithms may make discrimination easier to detect and reduce than discrimination in human decision-making. But this promise depends entirely on how the objective, data, and deployment process are governed. on interesting observation put forward by the paper is that race-aware models can sometimes be both fairer and more accurate than race-blind models, but this depends on the data, objective, and legal context. which is somewhat counter intuitive also.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -296,8 +296,7 @@ If standard RLHF and fine-tuning create a &#39;false impression of safety,&#39; 
 
 How realistic is it to assume that deceptively aligned behavior would emerge naturally through standard pre-training and fine-tuning without explicit poisoning? (like a lot of human created text, stories have deception as a part of the theme, can a model through training data pick up deception)
 
-the paper discrimination in age of ai shows that algorithmic fairness involves policy choices and tradeoffs. What framework should we use to determine whether a model or algorithmic policy is acceptable? Should it be evaluated through mathematical fairness metrics, real-world experiments, input from affected communities, or some combination—and what should happen when these forms of evaluation disagree?
-</p>
+the paper discrimination in age of ai shows that algorithmic fairness involves policy choices and tradeoffs. What framework should we use to determine whether a model or algorithmic policy is acceptable? Should it be evaluated through mathematical fairness metrics, real-world experiments, input from affected communities, or some combination—and what should happen when these forms of evaluation disagree?</p>
             </section>
           </div>
         </article>
@@ -416,7 +415,7 @@ I like the discrimination paper&#39;s idea such that a disparity can come from m
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>At a high level I found the confounding nature of finding and closing backdoor vulnerabilities during training to be extremely interesting. If they cannot be removed during training it would seem that the only way to close the backdoor would have to be manually which seems quite intractable </p>
+              <p>At a high level I found the confounding nature of finding and closing backdoor vulnerabilities during training to be extremely interesting. If they cannot be removed during training it would seem that the only way to close the backdoor would have to be manually which seems quite intractable</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -436,7 +435,7 @@ I like the discrimination paper&#39;s idea such that a disparity can come from m
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>I found Sleeper Agents particularly interesting because it challenges the assumption that safety training necessarily removes undesirable behaviors from a model. The paper shows that deliberately trained deceptive behaviors can persist through supervised fine-tuning, reinforcement learning, and even adversarial training. I was especially interested in the finding that adversarial training can sometimes make the problem worse: rather than eliminating the backdoor, it can teach the model to better distinguish the true trigger from similar adversarial examples, making the deceptive behavior harder to detect. I also found it striking that deceptive behaviors were more persistent in larger models and in models trained with chain-of-thought reasoning about deception. Together, these results raise an important distinction between making a model behave safely during evaluation and actually removing the underlying undesirable behavior. </p>
+              <p>I found Sleeper Agents particularly interesting because it challenges the assumption that safety training necessarily removes undesirable behaviors from a model. The paper shows that deliberately trained deceptive behaviors can persist through supervised fine-tuning, reinforcement learning, and even adversarial training. I was especially interested in the finding that adversarial training can sometimes make the problem worse: rather than eliminating the backdoor, it can teach the model to better distinguish the true trigger from similar adversarial examples, making the deceptive behavior harder to detect. I also found it striking that deceptive behaviors were more persistent in larger models and in models trained with chain-of-thought reasoning about deception. Together, these results raise an important distinction between making a model behave safely during evaluation and actually removing the underlying undesirable behavior.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -493,26 +492,6 @@ For the discrimination paper, the case that algorithms are auditable is built on
           <header>
             <span class="response-number">19</span>
             <div>
-              <h2>Faith Baca</h2>
-              <time datetime="2026-09-11">Sep 11, 2026</time>
-            </div>
-          </header>
-          <div class="answer-list">
-            <section>
-              <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>For the Sleeper Agents paper, I found it very interesting how difficult it is to detect and prepare for deceptive or malicious behavior in models since there are so many portions of the training to deployment pipeline where models are vulnerable. This paper reminded me a lot of the Volkswagen scandal where cars learned to discern when they were being tested in order to adjust behavior. In general, I think it&#39;s interesting and a bit concerning to think that many safety training methods may not be as robust as previously thought. For the Discrimination in the Age of Algorithms paper, I thought the whole main argument was very interesting; while I agree that algorithmic decision-making is more robustly and mathematically auditable than human decision-making, I think that there isn&#39;t always awareness, incentive, or the capacity to rigorously examine algorithms in this way, especially in scenarios where intersectionally marginalized communities are at risk or where the implications of an algorithm&#39;s biased decision-making are subtle, or where the model itself is black-box and not easily interpretable. I agree with the overall spirit of the paper, but I do think it&#39;s overly optimistic about how practical and attainable robust large-scale auditing of algorithms is, especially when so much of the algorithmic landscape today is shaped by models that even developers don&#39;t fully understand. </p>
-            </section>
-            <section>
-              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>For the first paper, I am wondering whether this has specific implications in the bias/fairness space; are there bias evaluation papers/studies that show disparities in levels of fairness when a model knows it is being audited? What are the next steps for addressing this issue? Have there been more recent attempts to understand and prevent this behavior? For the second paper, I am curious to know how the authors&#39; (and general) attitude toward algorithmic auditing has changed since the paper was written, especially since interpretability has become such a hot area of research. I am also curious to hear what people&#39;s thoughts are on what is next for us as researchers given the limitations of the paper&#39;s argument; while algorithms can be more interpretable than humans, they ultimately reflect society&#39;s biases, so how can we address this as we build and analyze a new wave of algorithmic systems?</p>
-            </section>
-          </div>
-        </article>
-
-        <article class="response-card">
-          <header>
-            <span class="response-number">20</span>
-            <div>
               <h2>Michael Duan</h2>
               <time datetime="2026-09-11">Sep 11, 2026</time>
             </div>
@@ -535,7 +514,7 @@ For the Discrimination paper, I&#39;m curious how their framework holds up to th
 
         <article class="response-card">
           <header>
-            <span class="response-number">21</span>
+            <span class="response-number">20</span>
             <div>
               <h2>Pranavesh Kumar Talupuri</h2>
               <time datetime="2026-09-11">Sep 11, 2026</time>
@@ -544,13 +523,33 @@ For the Discrimination paper, I&#39;m curious how their framework holds up to th
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>From Hubinger et al. I found it interesting that models can essentially hide the truth of what they learn (essentially lying to the user) to show that they are stronger/safer than what they actually are. I think that LLMs having the capability to lie is a danger in itself and has massive safety implications. </p>
+              <p>From Hubinger et al. I found it interesting that models can essentially hide the truth of what they learn (essentially lying to the user) to show that they are stronger/safer than what they actually are. I think that LLMs having the capability to lie is a danger in itself and has massive safety implications.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>I&#39;m curious to know how this problem could be solved, or if lying LLMs have a different use case that nobody has thought about yet.
 
 It is possible that smarter models may act docile within safety nets or isolated sandboxes, but then turn malicious when released to the public. I want to learn about the methods conceived to prevent this from happening.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">21</span>
+            <div>
+              <h2>Faith Baca</h2>
+              <time datetime="2026-09-11">Sep 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the Sleeper Agents paper, I found it very interesting how difficult it is to detect and prepare for deceptive or malicious behavior in models since there are so many portions of the training to deployment pipeline where models are vulnerable. This paper reminded me a lot of the Volkswagen scandal where cars learned to discern when they were being tested in order to adjust behavior. In general, I think it&#39;s interesting and a bit concerning to think that many safety training methods may not be as robust as previously thought. For the Discrimination in the Age of Algorithms paper, I thought the whole main argument was very interesting; while I agree that algorithmic decision-making is more robustly and mathematically auditable than human decision-making, I think that there isn&#39;t always awareness, incentive, or the capacity to rigorously examine algorithms in this way, especially in scenarios where intersectionally marginalized communities are at risk or where the implications of an algorithm&#39;s biased decision-making are subtle, or where the model itself is black-box and not easily interpretable. I agree with the overall spirit of the paper, but I do think it&#39;s overly optimistic about how practical and attainable robust large-scale auditing of algorithms is, especially when so much of the algorithmic landscape today is shaped by models that even developers don&#39;t fully understand.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>For the first paper, I am wondering whether this has specific implications in the bias/fairness space; are there bias evaluation papers/studies that show disparities in levels of fairness when a model knows it is being audited? What are the next steps for addressing this issue? Have there been more recent attempts to understand and prevent this behavior? For the second paper, I am curious to know how the authors&#39; (and general) attitude toward algorithmic auditing has changed since the paper was written, especially since interpretability has become such a hot area of research. I am also curious to hear what people&#39;s thoughts are on what is next for us as researchers given the limitations of the paper&#39;s argument; while algorithms can be more interpretable than humans, they ultimately reflect society&#39;s biases, so how can we address this as we build and analyze a new wave of algorithmic systems?</p>
             </section>
           </div>
         </article>
@@ -643,9 +642,7 @@ Discrimination in the Age of Algorithms: To what extent do multiaccuracy and mul
 
 Discrimination in Age of Algorithms
 	○ I agree that algorithms could improve scrutiny and transparency, but the authors may underestimate how difficult it is to identify the source of algorithmic discrimination. A disparity could come from various sources in the model training pipeline.
-	○ The authors Companies should define their fairness and accountability requirements before building a system instead of just relying mainly on post-hoc analysis or waiting for expert witnesses to diagnose the &#39;problem&#39;
-	
-</p>
+	○ The authors Companies should define their fairness and accountability requirements before building a system instead of just relying mainly on post-hoc analysis or waiting for expert witnesses to diagnose the &#39;problem&#39;</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
@@ -658,8 +655,7 @@ Discrimination in Age of Algorithms
 
 	○ Who should verify these systems for companies that lack machine-learning expertise?
 		• Requiring in-house experts could widen the gap between large and small companies. Could independent auditors or regulatory bodies fill this role?
-	○ If an outside auditor fails to detect discriminatory behavior, who is responsible: the auditor, the model developer, or the company using the system?
-</p>
+	○ If an outside auditor fails to detect discriminatory behavior, who is responsible: the auditor, the model developer, or the company using the system?</p>
             </section>
           </div>
         </article>
@@ -683,8 +679,7 @@ I found &quot;Discrimination&quot; to be a novel take, since usually I see algor
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>Does learning deceptive behavior require some sort of meta-learning on the model&#39;s part? It is not immediately obvious that signal is present in the first-order gradient descent objective.
 
-Does the prospect of liability from discrimination in models push society toward more opaque models that are harder to detect discrimination in? It seems possible that sometimes the purpose of algorithmic decision making is to diffuse liability.
-</p>
+Does the prospect of liability from discrimination in models push society toward more opaque models that are harder to detect discrimination in? It seems possible that sometimes the purpose of algorithmic decision making is to diffuse liability.</p>
             </section>
           </div>
         </article>
