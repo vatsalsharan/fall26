@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="23 CS 618 reading reflections for Week 5, September 21, 2026." />
+    <meta name="description" content="27 CS 618 reading reflections for Week 5, September 21, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 5 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 5</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>23 responses</span>
+          <span>27 responses</span>
         </div>
       </section>
 
@@ -557,6 +557,88 @@ Companies Approach Fairness in Recommender Systems: Is there a way to incentiviz
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>The paper says you cannot really check an RS for fairness before deploying it because historical data is not enough. So teams ship first and fix bias later on live user data, which could risk confirmatory bias. Is there a way to overcome this, or will real users always be the test set?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">24</span>
+            <div>
+              <h2>Misha Fu</h2>
+              <time datetime="2026-09-19">Sep 19, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I thought the idea of distinguishing capability failure as compared to goal misgeneralization is very interesting, as illustrated by an example of an agent trying to go from start point to finish point, with randomized start point failure being capability failure and randomized end point failure being goal misgeneralization. I also thought this sentence was super funny: &quot;despite being a product of evolution...humans tend to be more concerned with...food or love...than with maximizing the number of their descendants&quot; (aka having more kids). It illustrates that that goals may have various proxies and subgoals what are simpler to achieve, which overall may mislead algorithm. I also found it interesting how in actor-critic algorithms there could be a &quot;non-robust proxy of a non-robust proxy,&quot; where the critic learns a proxy goal, and then the actor learns a proxy action pattern of the proxy goal.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I wonder what are the robust ways to combat this issue besides having more training diversity, although the data of having 2% diverse data helps with goal misgeneralization. I hope to learn what are some ideas on targeting this, if we could fix the goal somehow while still enabling the general learning capability of networks. I am also curious to know if there are other inductive biases or algorithm failure cases that might be illuminating on where RL or other algorithms tend to be brittle on.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">25</span>
+            <div>
+              <h2>Eric Liu</h2>
+              <time datetime="2026-09-20">Sep 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the actor critic inconsistency really interesting in Goal Misgeneralization in Deep Reinforcement Learning. Even though they are trained together, the actor and the critic can prefer completely different actions. In Fairness in the Workflow paper, the the contrast between legal and fairness teams stood out to me: legal guidance were often clear and actionable, while fairness guidance was harder to operationalize and often arrived only after deployment.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>For Goal Misgeneralization, I am wondering if the disagreement between actor and critic itself can be used as a failure signal during training instead of only using it to explain failures after they occur. For Fairness in the Workflow, I&#39;m curious whether fairness teams can ever be brought in before legal teams, and whether that could create rules that legal teams can build upon and engineers to more easily follow.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">26</span>
+            <div>
+              <h2>Matthew Finlayson</h2>
+              <time datetime="2026-09-20">Sep 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>It is interesting to hear the perspectives of practitioners. A lot of it was what I expected---pressures from the org to focus on more &quot;immediately pressing&quot; items. It was interesting to hear the experiences trying to grapple with terms and frameworks form psych that they may not have been familiar with.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I am curious to know what folks&#39; perspectives on how focusing on the people implementing RSs compares to focusing more on incentive structures in the org in terms of effectively implementing fair practices.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">27</span>
+            <div>
+              <h2>Aman Desai</h2>
+              <time datetime="2026-09-21">Sep 21, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Coming from more of a theoretical perspective, I found it interesting that practitioners did not seem to find the more theoretical aspects of the algorithmic fairness literature to be useful.
+
+There are a couple of more theoretical ideas (specifically multiaccuracy and multicalibration) from the algorithmic fairness literature that are particularly exciting because can be efficiently achieved in practice by post-processing methods. In other words, we can take any classifier (without worrying about how it was trained) and easily adjust its outputs to make them more fair. This is quite exciting because it gives practitioners a simple but principled way to develop more fair algorithms. My hope is that these concepts would be very useful in the context of recommender systems, though I am not sure if they exactly carry over from the classification context (where they were originally defined).</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Are there natural ways to define concepts like multicalibration and multiaccuracy in the context of recommender systems? More precisely, can we reduce the problem of making a recommender system multicalibrated to the problem of making a classifier multicalibrated (which we know how to do)?</p>
             </section>
           </div>
         </article>

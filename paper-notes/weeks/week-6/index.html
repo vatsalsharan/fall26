@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="1 CS 618 reading reflections for Week 6, September 23, 2026." />
+    <meta name="description" content="7 CS 618 reading reflections for Week 6, September 23, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 6 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 6</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>1 response</span>
+          <span>7 responses</span>
         </div>
       </section>
 
@@ -57,6 +57,132 @@
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>Based on the point about manufacturing fairness gaps, I&#39;m very interested to hear what people have to say about potential solutions for this. I am also curious to discuss how we as researchers can prevent this, since it seems very easy to diminish the perceived role of a model in contributing to unfair societal systems, since it could be argued that new data simply validate existing patterns of behavior. I would also like to hear whether there are interpretability/explainability solutions here since a very critical part of preventing an algorithmically driven unfair society is making sure people have access to transparent information about how models are trained and make decisions.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Katherine Hancock</h2>
+              <time datetime="2026-09-20">Sep 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I was initially surprised that a model could be stable without being optimal. I originally thought that if retraining kept giving us the same model then that must be the best option. But after thinking about it some more, it made sense that we&#39;re comparing models on the data produced by the current model, while actually deploying a different model could change people&#39;s behavior and produce different data that it performs better on. I thought that distinction was interesting. I also wonder if this means finding the local minima in gradient descent instead of global minima or something.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I&#39;m curious how we would actually tell if a model is just stable or also optimal in practice? Like how would we know if another model could perform better under the conditions it would create? Would we have to deploy it to find out, or could we estimate those effects beforehand? I&#39;m curious to see a concrete example of how this would work and understand how reliable those estimates would be. Side note, but I also got pretty confused with some of the math in the paper so I&#39;d hope to learn that.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Junyang Cai</h2>
+              <time datetime="2026-09-21">Sep 21, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find it&#39;s interesting that the model can have two ways to get good performance. One way is what we common know about learning to predict accurate answer. The paper present another way called steering, where the model can steer the people&#39;s behavior to reach the goal. For example, if a video platform recommend more of one type of video, the user will start to like watching this type of video.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I wonder how to distinguish between these two ways of getting good performance? How we can tell if the model is good at learning distribution or the model is good at steering to make the goal easier to achieve?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Chen Gong</h2>
+              <time datetime="2026-09-21">Sep 21, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>This paper summarized previous researches on performative prediction: Models affect the data distribution, and users can change their data to influence the model. I can think of real-world cases where big platforms intentionally push specific content to you (this can even happen unintentionally because of the model&#39;s training objective, e.g., if the model is trained to make you click or comment, it may push negative social news or inciting content. As the review paper presented last time suggested, fairness should be taken into consideration), or where groups of fans listen to music or discuss certain topics to take advantage of platform algorithms and help promote a song or movie. It&#39;s very interesting.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>In Section 7, the paper discusses the power of large platforms whose predictions can shape people&#39;s behavior. It also mentions that for performative power to be large, neither control over local traffic nor a large market share alone is sufficient; both factors need to be large. I would like to know more details about this.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Aman Desai</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Performative prediction is a super interesting idea! There is a concept in macroeconomics called &quot;forward guidance&quot; (I think this idea is implicitly alluded to in the paper) where a financial institution like the Federal Reserve will hint at what it will do in the future. In theory, this can have a large effect on the economy, even though the financial institution has not technically made a clear decision yet. Performative prediction seems to formalize a way to think about making these types of predictions. The GMS theorem discussed in the paper also seemed like really useful motivation. I was not aware that there were already such strong results in this field.
+
+From my understanding, RRM only converges if the loss is convex in the parameter $\theta$, which (again from my understanding) is not necessarily true in general. I would be curious to know what meaningful results we can obtain without the assumption of convexity.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>1. In practice, does RRM converge for non-convex loss functions?
+
+2. In theory, are there classes of not-necessarily-convex loss functions (for example PL loss functions) where we can obtain weak convergence guarantees for RRM?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">06</span>
+            <div>
+              <h2>Selina Xiao</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>What I found most interesting is the distinction between performative stability and performative optimality. A model can be stable in the sense that retraining on the distribution created by its own deployment returns the same model, while still being suboptimal in terms of the actual post-deployment risk. This makes repeated retraining look less like a procedure for solving the true objective and more like a fixed-point dynamic whose solution may or may not be desirable. I also liked the paper&#39;s decomposition of performative risk into learning and steering. Once the deployed model changes the data distribution, performance can improve either because the model predicts the current population better or because it shifts the population into a distribution that is easier or more profitable to predict. That distinction makes the optimization problem fundamentally different from standard supervised learning and gives a concrete way to think about feedback effects rather than treating them as generic distribution shift.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I had is whether performative stability is actually a sufficient objective. Since stable points need not be performatively optimal, it would be useful to characterize conditions that bound the gap between the two, rather than only proving that retraining converges. I was also interested in the fact that performative risk can become nonconvex even when the original loss is strongly convex. Instead of treating the resulting problem as a generic black-box optimization problem and moving directly to derivative-free or bandit methods, can properties of the distribution map be used to characterize the structure of this nonconvexity and design more specialized optimization methods?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">07</span>
+            <div>
+              <h2>Sriram Kadiyala</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>It was interesting to comprehend (because it is often taken for granted) that predictions actually change the environment, and that minimizing risk isn&#39;t just about fitting the data better, it&#39;s about actively altering the underlying data distribution to reach a lower-loss state. Thinking about recommendation algorithms as tools optimized to steer human behavior rather than just passively predict it makes me look at them in a completely different way.
+
+The way the authors formalized &quot;Performative Power&quot; to connect statistical learning directly to antitrust law is super clever, in my opinion. The fact that a monopoly maximizes performative power, but having two competing platforms offering perfect substitutes crashes that power down to basically zero, really shows how well their definition tracks standard economic concepts of competition.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The authors mention that continuously retraining a model converges to a &quot;performatively stable&quot; point, which they compare to an echo chamber where the data just stops challenging the model&#39;s beliefs. There is a huge asymmetry here in my opinion: stability is cheap to certify (you just retrain and check that you didn&#39;t improve), but optimality isn&#39;t. So in a live production environment, how do teams actually estimate how much performance they&#39;re leaving on the table? The paper&#39;s own solution is to use bandits for global exploration, but that I think requires actively deploying models you expect to be worse, which seems like a very tough sell in industry. Would love to learn this from the discussion.</p>
             </section>
           </div>
         </article>
