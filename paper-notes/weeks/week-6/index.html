@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="7 CS 618 reading reflections for Week 6, September 23, 2026." />
+    <meta name="description" content="24 CS 618 reading reflections for Week 6, September 23, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 6 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 6</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>7 responses</span>
+          <span>24 responses</span>
         </div>
       </section>
 
@@ -183,6 +183,373 @@ The way the authors formalized &quot;Performative Power&quot; to connect statist
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>The authors mention that continuously retraining a model converges to a &quot;performatively stable&quot; point, which they compare to an echo chamber where the data just stops challenging the model&#39;s beliefs. There is a huge asymmetry here in my opinion: stability is cheap to certify (you just retrain and check that you didn&#39;t improve), but optimality isn&#39;t. So in a live production environment, how do teams actually estimate how much performance they&#39;re leaving on the table? The paper&#39;s own solution is to use bandits for global exploration, but that I think requires actively deploying models you expect to be worse, which seems like a very tough sell in industry. Would love to learn this from the discussion.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">08</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>○ Right off the bat, I appreciate how the paper examines an overlooked yet important phenomenon in the social sciences. A related, though distinct, concept is the “looking-glass self,” which describes how individuals develop their self-concept partly through how others perceive and treat them. These perceptions can then shape their behavior, leading them to act more like the person others presume them to be (steering them essentially). In this sense, a prediction can influence (and even alter) the reality it claims to merely describe.
+		    ○ Still appreciated the paper’s example about the impossibility of economic forecasting. However, I am still curious about the theoretical foundations of the predictor that can accurately describe reality while accounting for its own performative effects.
+	○ Although predictions and recommendations can steer society toward harmful social or economic outcomes, the paper makes the optimistic point that firms and individuals can deliberately guide them toward positive outcomes, placing that power in our hands.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>○ Using performativity as a criterion in the ML pipeline makes sense, but I suspect that incorporating it into model design would be difficult in practice? How can performativity for diverse applications be measured?
+	○ In practice, how have companies or individuals gone about choosing models now considering performativity as a criterion and what better results did it lead to, and furthermore how did they measure the outcomes to differentiate between the a model doing &#39;better&#39; in performativity? Maybe in Recommendation Algorithms?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">09</span>
+            <div>
+              <h2>Vaishnavi Sinha</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I thought the self-fulfilling prediction idea was really interesting, but I kept wondering whether it is always actually a self-fulfilling prophecy. If a recommendation system keeps showing me something and I start engaging with it more, did it predict an existing preference, reinforce one through repeated exposure, or help create a preference that it then treats as evidence that it was correct?
+
+I also liked the idea of performative power, especially how much influence a platform can have simply through changing its predictions or rankings. This immediately reminded me of Cathy O’Neil’s Weapons of Math Destruction, where she discusses how technology companies can potentially alter our political behavior by changing their algorithms. So, it would be interesting to further explore how this work expands into the political landscape.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>What happens when algorithmic collective action is artificially manufactured at scale? Could the signal planting eventually be reinforced by the platform enough that real users begin reproducing it themselves? It would be interesting to study case studies of this.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">10</span>
+            <div>
+              <h2>Aditya Kotha</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The concept of performativity presented in the paper was really interesting, especially the examples they provided. I had never before considered a case where the data distribution itself drifts due to the model&#39;s predictions, since the model affects the future. It actually makes sense with the video recommendation example, where users will click on what they&#39;re presented with, but we don’t know whether that&#39;s exactly what they wanted or whether what we recommended was right. So this may amplify the biases down the line by changing how outcomes are calculated, or to put it in a different way, the current model can converge after repeated retraining runs to a point where it no longer improves because the data it generates reinforces its predictions. This made me wonder whether a model&#39;s high accuracy in recommending a piece of content means it actually predicts what users want, or if it partly reflects the platform&#39;s ability to shape/change users preferences.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The signal-planting strategy (from section 8) looks technically similar to data poisoning or backdoor attacks. Where is the line between legitimate collective action by users and an adversarial attack?
+
+How can we distinguish improved prediction from increased steering when both improve a platform’s performance metrics?
+
+
+
+I hope to understand a bit more about how we can evaluate models in cases where the models predictions actively change the underlying data distributions used to train or evaluate them.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">11</span>
+            <div>
+              <h2>Alan Liang</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that a prediction can change the outcome it is trying to predict. Recommending a video can make someone more likely to watch it, while predicting light traffic on a route can send enough drivers there to make that prediction wrong. I also found it interesting that repeated retraining can settle on a model that looks optimal on the data its own deployment produced, even though another model would perform better after deployment. The paper calls the first model performatively stable, which is a weaker condition than being performatively optimal.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>How could we tell whether a model is merely stable or is actually the best one to deploy, when we only observe outcomes under models we have used? How could we separate behavior changes caused by a platform’s predictions from unrelated changes over time? When a group deliberately changes its data to influence a platform’s model, how do we tell whether changing the prediction also improves the group’s real outcomes? I want to see a simple example where retraining reaches a stable model that is not optimal. I also hope to learn what an experiment measuring a prediction’s effect on people’s behavior would look like.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">12</span>
+            <div>
+              <h2>Yuyang Jiang</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Sorry, I just realized that I accidentally mixed up the order of the papers and discussed Performative Prediction in my response for the previous class. One aspect I found particularly interesting is that performativity turns distribution shift from something that simply happens to a model into something that can be caused by the model itself. For example, recommendations can change users’ future preferences and behavior, which then become the data used to evaluate or retrain the system. I found this feedback-loop perspective useful because it suggests that we cannot fully evaluate a deployed model by treating the environment and data distribution as independent of the model.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I had is how we can practically separate performative distribution shift caused by the model from distribution shifts caused by other changes in the environment. The framework models the data distribution as depending on the deployed model, but in real-world systems the population and environment may also change for many unrelated reasons. I would be interested in discussing how we can causally identify how much of an observed change is actually attributable to model deployment, especially when randomized deployment or controlled experiments are not feasible.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">13</span>
+            <div>
+              <h2>Lauren Cooke</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I really enjoyed learning about the causal influence that making a prediction can have on a prediction itself and really speaks to this world model we talked about in class where the predictions researchers make can really feed back into shifting the underlying distribution of the original problem one would want to predict. It raises an entire separate ethical class of problems though, in that one can intentionally shape predictions to shape human behavior in the longer term. I also found the causal modeling discussion interesting, and anecdotally I’ve found that a lot of model reliability concerns I’ve been exposed to come back to wanting a better understanding of the underlying causal structure of a problem.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The paper talks about retraining as a convergent solution for performativity, but I would think that would depend on the observability of the shift that occurs in the underlying distribution of the state of the world. Also, in steering, is shooting for a stable point necessarily the goal? Beyond it necessarily cutting out performativity, is the actual state of the world in the stable point necessarily ideal? I’d also want to discuss some of the game theoretic implications of steering behavior. How much influence can a single person or small group of people have on model predictions, and what are the implications? Also are there any studied relationships between an algorithm’s performativity tolerance and other notions of fairness we have studied so far? I wonder if there are any impossibility results like an arrow’s theorem that prevent some performativity guarantee in tandem with other guarantees?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">14</span>
+            <div>
+              <h2>Ansh Sindhwani</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Performative Predictions: Past and Future
+
+As a survey paper i liked how the paper bridged a concept in economics and social science to machine learning and model deployment. In a very subtle way the paper mathematically formulated how machine learning models interact with society. 
+
+In Practice AI models are routinely retrained on new user data and a interesting point shown in the paper is that retraining model on it&#39;s own reaction will lead to convergence. and with some guarantees the model won&#39;t oscillate wildly out of control.
+
+The paper also shows the steering power of the models, where one implication is that since these models are constantly changing user behavior, they can do so in a way that population behaviour changes for there benefit</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>In real applications, multiple companies compete through an Algorithm, these models are deployed simultaneously, in this case how does performative predictions shift  ?
+
+I would also want the discussion to focus &quot;stability in general setting,&quot; and the different feedback settings highlighted in paper for stability. 
+
+the paper talks about models ability to steer user behaviour, but also highlights that reverse is true, This opens a possibility of malicious attack on the model. Hence on one hand we have can have empowered users and on other we can have malicious actors, this is a conflict. My question here is how should we handle this situation ?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">15</span>
+            <div>
+              <h2>Emily Weiss</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>1. I thought that using multi-armed bandit algorithms to identify models with low performative risk was very clever, and was rather unique compared to the trend toward optimization solutions we’ve seen thus far. 
+
+2. I have informally heard of algorithmic collective action before, but was unaware that it was a formally defined concept! I thought that it was very interesting that there was a mathematical basis for how successful a collective might be in changing the relationship between the labels and the data, and hence the output of the model.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>1. I would like to know more about dynamic benchmarks. The authors state that in prior work, benchmarks are constructed by “adding failure cases of current models to the test set”. If performative predictions can be so convincing that they yield data feedback loops, how do you tell at scale whether a failure case has occurred and should be added to this benchmark?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">16</span>
+            <div>
+              <h2>Nana Xia</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found this paper closely related to some of our previous readings, especially the idea that good model performance does not necessarily mean the model is doing what we expect. What I found most interesting is that better predictions can come from steering rather than learning. For example, if a recommendation system keeps promoting one category of content, users may start consuming more of that category, making the system&#39;s future predictions increasingly accurate. But this improvement may not be entirely because the model has learned users&#39; original preferences better. It may also be because the system has helped shape those preferences and future behaviors. This is different from the traditional machine learning setting, where we usually assume that the model learns from a fixed data distribution. In applications such as recommendation and ranking systems, the observed data can change as a result of the model being deployed.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I have is how we can distinguish between learning and steering in real-world applications. For example, if a recommendation system becomes more accurate after deployment, how can we tell whether it has learned users&#39; preferences better or whether users&#39; preferences and behaviors have changed because of its recommendations? The paper discusses the difficulty of identifying these causal effects from observational data and introduces approaches such as recording predictions and using randomized interventions. However, I wonder how practical these approaches are for large-scale systems, especially when deploying different models may affect users&#39; experiences or outcomes.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">17</span>
+            <div>
+              <h2>Sheryl Mathew</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The phenomenon of performative prediction is something I have experienced, but I never realized it was the accidental effect of a model&#39;s prediction. I never realized how much power and influence models just by making predictions.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I&#39;m interested to learn more about how models go beyond fitting a distribution and instead steer a distribution toward something that&#39;s easier to predict. How do models learn this behavior and what can be done to prevent it?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">18</span>
+            <div>
+              <h2>Mohammadsaeed Haghi</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>What I found most interesting is that they turn power into a quantity you can estimate. Performative power is how far a firm can move participants&#39; data through its own actions, so measuring it is a causal inference problem. They apply this to the Google Shopping antitrust case. Combining the causal effect of search position with public traffic data, they arrive at a conservative figure of about 30 percent for the share of a competitor&#39;s traffic Google can influence. That estimate is only large when both the position effect and the traffic share are large, since it multiplies them together.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The estimate of performative power relies on a no-interference assumption, that one user&#39;s clicks do not affect another user&#39;s. The authors defend it by saying it holds within a short time window. But the premise of the paper is that user behavior feeds back into the model everyone else then sees. I&#39;d like to discuss how far that short-window defense goes on a platform that retrains often, and whether the assumption limits where the metric can be applied.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">19</span>
+            <div>
+              <h2>Pranavesh Kumar Talupuri</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Hardt et al. discuss the effect of AI predictions essentially steering reality to negate or fulfill that prediction. Something like data drift or concept drift as a whole is a real issue and may cause performative prediction in critical situations, imposing a new outlook of danger when working with AI.
+
+I also think it is interesting that they test both greedy and lazy update methods, and the main finding is that updating more frequently is not always better. Which strategy performs better depends partly on how strongly the model&#39;s deployment changes the data it learns from.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The authors reference recommendation systems. If a recommendation system influences what we watch, can we really say that it is learning our preferences, or is it partly creating them? In that sense, human sense of &quot;taste&quot; is inevitably corrupted by the algorithm. Can that be used to explain recent societal behavior changes with respect to media? Does it have an effect on what children choose to enjoy on the internet?
+
+In a way, there seems to be a controlling trend, which could be explored further.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">20</span>
+            <div>
+              <h2>Michael Duan</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I thought the formalization of performative power was quite interesting, especially in conjunction with the discussion of the monolithic frontier models. It&#39;d be quite cool to estimate the performative power of models like Claude and GPT, especially as they incorporate deeper into our daily workflows. It also reminds me of the discussion surrounding model diversity collapse, such as how performative power could also impact future models (e.g., trained partially through distillation) predictions, leading to homogenization.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>How does performative power interpretation change when training is decentralized (e.g., not like the monolithic training done by frontier companies)? Can it decrease unintended steering effects or could it instead amplify performative power?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">21</span>
+            <div>
+              <h2>FNU Bandre Devaraju Vinod</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>What I found interesting is that once predictions start affecting people, a model can get better in two ways: it can learn from the data or it can push people to behave in ways that are easier to predict. The paper calls that second one steering and ties it to power, and in the Google Shopping example they estimate Google could influence about 30% of a rival site&#39;s traffic just through ranking. I also liked that it works the other way round as well, since a small group of users can steer the platform&#39;s model if they coordinate.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>If the best model for a platform works partly by changing how people act, is it actually good for the users? How would you even measure how much people react to a model in real life?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">22</span>
+            <div>
+              <h2>Nisarga Bhaskar</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>It is interesting they are trying to provide an approach to design models which have potential of influencing the initial distribution</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>What are we supposed to do if the tradeoff to accomodate a good overall model on the shift performs poorly on the initial distribution?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">23</span>
+            <div>
+              <h2>Eric Liu</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the distinction between learning and steering in Performative Prediction really interesting. For example, a model can improve not only by fitting the data better, but by changing the future data-generating process in a direction that makes its objective easier to optimize.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>A question I have regarding the paper is whether performative stability is actually something we want. A stable model can result in creating more data that supports the stability, which means that potentially there could be a better optimal model that we are missing out on.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">24</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find it interesting that predictions can change the outcomes they are trying to predict. For example, a traffic prediction may cause drivers to change routes, making the original prediction inaccurate. I am also interested in the distinction between learning and steering: a model can both learn from people’s behavior and influence their future behavior. This makes me think differently about recommendation systems, not only as tools that predict users’ preferences, but also as systems that may gradually shape those preferences.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>How can we tell whether a platform is simply responding to users’ preferences or actively steering them toward behavior that benefits the platform? I am also curious whether a stable model is necessarily good for society, since stability may result from the model changing people’s behavior. I hope to learn how performative effects can be measured in real systems and how we might distinguish beneficial feedback from harmful manipulation.</p>
             </section>
           </div>
         </article>
