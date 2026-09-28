@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="1 CS 618 reading reflections for Week 8, September 30, 2026." />
+    <meta name="description" content="3 CS 618 reading reflections for Week 8, September 30, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 8 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 8</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>1 response</span>
+          <span>3 responses</span>
         </div>
       </section>
 
@@ -52,21 +52,51 @@
           <div class="answer-list">
             <section>
               <h3>What are things you found interesting about the papers for this class?</h3>
-              <p>Fairness through Difference Awareness:
-I was surprised that prompts telling models to be unbiased often made the difference awareness worse. I&#39;m curious about how it&#39;s actually represented internally in the model that might be causing this?
-
-Uncertainty Quantification in LLM Agents:
-I found it interesting that uncertainty can mean there are multiple good options and the agent doesn&#39;t know which to choose, or it can also mean a lack of knowledge. I initially had just thought of uncertainty as lacking knowledge.
-Another thing I noticed is that maybe if the agent asks the user too many questions, maybe this could improve the reliability, but it also worsens the user experience (the user may start to get frustrated or annoyed). I&#39;m curious how we can analyze this tradeoff.</p>
+              <p>Fairness through Difference Awareness: I was surprised that prompts telling models to be unbiased often made the difference awareness worse. I&#39;m curious about how it&#39;s actually represented internally in the model that might be causing this? Uncertainty Quantification in LLM Agents: I found it interesting that uncertainty can mean there are multiple good options and the agent doesn&#39;t know which to choose, or it can also mean a lack of knowledge. I initially had just thought of uncertainty as lacking knowledge. Another thing I noticed is that maybe if the agent asks the user too many questions, maybe this could improve the reliability, but it also worsens the user experience (the user may start to get frustrated or annoyed). I&#39;m curious how we can analyze this tradeoff.</p>
             </section>
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
-              <p>Fairness through Difference Awareness:
-I&#39;m curious about what actually happens internally when the model is told to be unbiased. Does it still recognize relevant differences but avoid expressing them, or is something else happening? Also, how can we ensure that models are aware of social stereotypes enough to recognize and challenge them and make context-aware decisions while avoiding using those stereotypes to make harmful decisions?
+              <p>Fairness through Difference Awareness: I&#39;m curious about what actually happens internally when the model is told to be unbiased. Does it still recognize relevant differences but avoid expressing them, or is something else happening? Also, how can we ensure that models are aware of social stereotypes enough to recognize and challenge them and make context-aware decisions while avoiding using those stereotypes to make harmful decisions? Uncertainty Quantification in LLM Agents: How can we distinguish uncertainty in the case of multiple valid choices vs missing information? How should an agent decide when to ask the user, check a tool, or just proceed (especially when different mistakes might have different consequences)?</p>
+            </section>
+          </div>
+        </article>
 
-Uncertainty Quantification in LLM Agents:
-How can we distinguish uncertainty in the case of multiple valid choices vs missing information?
-How should an agent decide when to ask the user, check a tool, or just proceed (especially when different mistakes might have different consequences)?</p>
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-09-24">Sep 24, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Fairness through Difference Awareness: I found the argument for difference awareness especially compelling in the language domain. Although fairness is often framed as treating demographic groups identically, language models must recognize demographic differences and stereotypes to discuss or challenge them. Representing an association is not necessarily the same as endorsing it. This clarified an earlier paper’s claim that we may not want completely “race-blind” models, which I did not fully appreciate at the time. Uncertainty Quantification in LLM Agents: I found the shift from evaluating isolated responses to measuring uncertainty across multi-turn agent interactions interesting. This seems increasingly important because agents make sequences of decisions in which one uncertain response can affect later actions and cause errors to accumulate.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Fairness through Difference Awareness: How can difference awareness be operationalized in practice? Even the simpler ideal of difference unawareness is difficult to operationalize: even experts find it difficult to diagnose why a model violated this simple fairness constraint. Difference awareness is ideal, but how should we determine when recognizing a group difference is necessary and when it becomes harmful stereotyping? Uncertainty Quantification in LLM Agents: Is uncertainty quantification the best framework for agent security, or might approaches such as verification, runtime monitoring, or constrained execution provide stronger guarantees? Given the enormous space of possible multi-turn interactions, I also wonder how much confidence we should place in results from a limited benchmark and whether uncertainty estimates will remain calibrated in new environments.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Faith Baca</h2>
+              <time datetime="2026-09-26">Sep 26, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the first paper, I thought it was particularly interesting how methods intended to reduce bias can actually make models worse at recognizing differences between groups when those differences matter. For example, the authors discuss how recognizing that an assumption reinforces an existing stereotype can be important for understanding its harm, even if the same assumption could technically be made about anyone. I think this is a particularly important point because treating everyone the same can seem fair on the surface while ignoring the societal conditions that make people&#39;s experiences different. I also thought the distinction between descriptive and normative benchmarks was interesting, since measuring whether a model understands an existing disparity is different from measuring whether it thinks that disparity should exist. This reminded me of how difficult it is to operationalize fairness when even the intended meaning of a benchmark&#39;s score isn&#39;t always clear. Overall, the first paper reminded me a lot about my work with bias mitigation in LLMs and the No Free Lunch principle in bias mitigation and the principle of the alignment tax in general. For the second paper, I thought it was really interesting how an agent can actively reduce uncertainty by asking questions or gathering more information, and how this makes evaluating uncertainty more complicated than evaluating a single response. The flight-booking example made this particularly clear, since an agent could ask about someone&#39;s preferences before committing to a decision that might be difficult to undo. This made me wonder about the fairness implications of which users an agent asks for clarification and which users it assumes it already understands.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>For the first paper, I am curious about how we as researchers should decide when different treatment is appropriate, especially in cases where people within the same marginalized community might disagree. While I agree with the overall argument, I am wondering how we can make sure that encouraging difference awareness doesn&#39;t lead models to make assumptions about individuals based on their group membership. I would also like to discuss how we could evaluate this in more open-ended conversations where the relevant context isn&#39;t necessarily provided upfront. For the second paper, I am curious whether uncertainty estimates are equally reliable across demographic groups, languages, or dialects, and what the implications would be if they aren&#39;t. For example, could an agent repeatedly ask some users to clarify themselves while confidently making incorrect assumptions about others? I think it would be interesting to discuss how we could distinguish useful clarification from an additional burden placed on users whose needs the model understands less well. In general, I am hoping to hear people&#39;s thoughts on how these two papers fit together, since recognizing when demographic information matters also seems to require recognizing when a model doesn&#39;t know enough to act on it.</p>
             </section>
           </div>
         </article>
