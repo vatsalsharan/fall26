@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="2 CS 618 reading reflections for Week 7, September 28, 2026." />
+    <meta name="description" content="26 CS 618 reading reflections for Week 7, September 28, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 7 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 7</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>2 responses</span>
+          <span>26 responses</span>
         </div>
       </section>
 
@@ -77,6 +77,486 @@
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>I think these novel bias tests for LLMs speak to a similar whack-a-mole bottleneck that we also see when discussing the shortcut learning problem. When detectable, specific instances of bias should be correctable by incorporating those detections into a training task, but only further highlights how underlying bias is present and needs correction. I want to discuss how researchers can make or at least work towards making that next jump in research beyond this whack-a-mole loop. Is it possible to break out of this cycle with more methods work? What would some questions be to consider to actually get there? Can the bias and fairness universe help inform the shortcut learning/does-model-work-as-promised people in solving their respective problems? Would they require answering similar or the same questions to break out of their respective research cycles?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-09-22">Sep 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>○ The paper articulated a concern I had for some time about alignment methods for LLMs: because the input space is so vast, passing a bias benchmark does not guarantee that a model is genuinely free from bias. This concern was echoed in a paper by Amazon researchers, who made an existing benchmark more challenging by lengthening model responses, thereby creating more opportunities for biases to emerge. The machine learning community often addresses the limitations of benchmarks by making them increasingly difficult, but I wonder whether there is a fundamentally better approach to evaluating bias. ○ The parallel methods from human psychology created to reveal implicit bias in LLMs was also pretty interesting For humans, it makes sense to evaluate how they behave in practice rather than rely on explicit tests, which may produce inaccurate results because of &quot;social desirability&quot; bias.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>○ I appreciated that the authors acknowledged several concerns I had while reading, particularly in the Discussion section. For example, they noted the lack of mechanistic interpretation needed to identify the causal mechanisms underlying a model’s biased behavior. Nevertheless, I remain unconvinced that these tests provide a useful diagnostic tool. Even for relatively small DNNs, machine-learning experts struggle to determine which internal decisions produced biased outputs based solely on counterexamples. Moreover, the space of possible counterexamples is prohibitively large. ○ The authors also argue that we should not “desire a model that exhibits no bias,” since this could indicate a “race-blind” model incapable of performing important tasks, such as recognizing stereotypes. If eliminating all measured bias is not the objective, what constitutes an appropriate bias threshold? Perhaps the acceptable threshold should depend on the model’s intended task and deployment context. Are extrinsic measurement methods necessarily better than intrinsic?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Junyang Cai</h2>
+              <time datetime="2026-09-23">Sep 23, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>It&#39;s interesting to see that the test designed for LLMs to test implicit biases is adpated from the human test for biases. That means the LLM can think or work very like human so we can use the similar test on them. Also i think it&#39;s very reasonable for the LLM to have implicit biases because it is trained by enormous information on the internet, so human is always bias, so the LLM will for sure be biased.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>How we can design or adjust the training of LLMs when the input have implicit bias, and the LLM can still drop the bias in it and learn the right things? And also if two different methods reach different conclusion of LLM is bias or not, which method should we trust and choose to use?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Chen Gong</h2>
+              <time datetime="2026-09-23">Sep 23, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Explicit bias can be elicited by asking people to express their opinions, while implicit bias measures bypass deliberation and are thus less susceptible to social desirability. Relative, not absolute, decisions reveal more bias. It&#39;s the same idea for me: &quot;Don&#39;t look at what one says; look at what one actually does.&quot;</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Could a constitution (as in Constitutional AI) be one possible way to solve this problem? Do we have ways to define bias clearly and formally, so that a model can check for it the way it checks a math formula?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">06</span>
+            <div>
+              <h2>Leland Ling</h2>
+              <time datetime="2026-09-24">Sep 24, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found that it is interesting that LLMs pickup on implicit biases, and especially the quote saying discussing how we haven&#39;t eliminated biases in our society, rather has evolved to be harder to detect.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Follow up: Given rlhf can be used to steer for less biased responses, does this alleviate implicit biases within training corpi? My understanding is no.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">07</span>
+            <div>
+              <h2>Selina Xiao</h2>
+              <time datetime="2026-09-24">Sep 24, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>What I found most interesting is that the paper does not stop at showing that aligned models still produce stereotypical associations, but tries to connect those associations to actual downstream decisions. In GPT-4, prompt-based word association bias predicts relative decision bias more strongly than embedding-based bias, and each unit increase in word association bias corresponds to about a 2.68-fold increase in the odds of a discriminatory decision. I also found the relative versus absolute comparison particularly interesting. GPT-4 looks much less biased when evaluating one person independently, but the bias becomes much more visible when it has to choose between two candidates. This suggests that standard benchmarks may partly measure whether a model has learned how to give an explicitly acceptable answer, rather than whether the underlying associations that affect comparative decisions have actually changed.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I had is how much of the reported relationship between word association bias and decision bias reflects a genuinely shared underlying mechanism, rather than similarity in how the two tests are constructed. The authors intentionally match the decision tasks to the word-association tasks and, for the correlation analysis, even place both tasks consecutively in the same prompt, which makes the relationship easier to measure but may also inflate it. The paper itself acknowledges that this design may limit ecological validity. I would also want to know whether the finding that larger models show stronger word association bias is really a model-size effect. The eight models differ not only in parameter count, but also in architecture, training data, and alignment procedure, so a cleaner experiment would compare checkpoints of the same model family before and after alignment and across scales.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">08</span>
+            <div>
+              <h2>Nana Xia</h2>
+              <time datetime="2026-09-24">Sep 24, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>What I found most interesting is that relative decisions reveal more bias than absolute decisions. When the model is asked a direct question, such as whether women should study science, it tends to give a fair answer. However, when it is asked to assign science and humanities to a man and a woman, it is more likely to follow traditional gender stereotypes. I found this distinction interesting because expressing a fairness principle is different from applying it when making decisions between people. In real-world applications such as hiring or allocating opportunities, the model often has to compare candidates rather than evaluate each person independently. This made me realize that fairness becomes more challenging when the model needs to distribute opportunities among different people, even if it appears unbiased when answering straightforward questions about equality.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I have is what the actual goal of debiasing should be. The authors mention that we do not necessarily want a model with no bias, since a model may need to recognize existing stereotypes in order to identify discrimination. This makes me wonder whether we should focus more on reducing discriminatory decisions rather than trying to eliminate all stereotypical associations. If some associations remain in the model, how can we prevent them from influencing decisions in situations such as hiring or allocating opportunities?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">09</span>
+            <div>
+              <h2>Emily Weiss</h2>
+              <time datetime="2026-09-24">Sep 24, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The authors briefly state in their discussion that it is not clear how to compare the resulting scores for human implicit bias and bias measured by the LLM Word Association Test, which I found interesting. This stuck out to me specifically because our lab works with a lot of psychological measures, and we frequently encounter challenges with maintaining the psychological validity of measures as they are incorporated into our studies (e.g. if you so much as change a word, the validity of the measure and your results could come into question). So although the authors pose their measures as being based off of psychology literature, I struggle to see how they could make a comparison between the human measure and the LLM-specific measure without encountering some resistance. Reliability and validity of the measures would need to be established on LLMs, correlation between LLM and human measures should be tested... Ultimately, this is not a trivial challenge, but it is not one without starting points found in psych literature. Reducing this to “It is not clear how to compare the resulting scores.” was very entertaining to me because of how much it obscures.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>1. I was curious whether the reason that they found that the models had little to no bias on existing state of the art benchmarks was because those benchmarks have already been used specifically to create alignment in the models, or they were included in the models’ training data in some way. I find the comparison between a custom task that those models have never encountered before and tasks that are known to be state of the art to be a bit difficult to judge. 2. I took a look at the supplementary materials, but I am still very curious on what a side by side comparison between the prompts and the IAT looks like. I want to understand how much modification was actually required to transform the questions in the measure into a prompt.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">10</span>
+            <div>
+              <h2>Aditya Kotha</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I&#39;m not too surprised that they found implicit biases in models like GPT-4. This was a widely discussed topic, even in class, about how embedding spaces sometimes reflect implicit biases (for example, how women&#39;s embeddings were associated with cooking while men&#39;s were associated with software engineering), so I’m not surprised that pretrained models retain these biases even after SFT and RLHF. But one interesting finding was that larger models were more biased than smaller models on their word-association test, but the authors found no such relationship for decision bias, which suggests size may affect how strongly a model holds these associations but not necessarily whether it acts on them. The other interesting observation they discuss is that LLMs are more biased when making relative decisions than when making absolute ones, which may be because safety training removes the biases in absolute decisions or RLHF unknowingly optimizes to human-biased preferences.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One of the obvious questions I have is whether the same issues still exist in the latest models, given test-time compute (CoT), and the RL advances we have, where the model has a reasoning budget to think through before answering, which may help reduce these implicit biases? Maybe there’s a new axis test that is thinking budgets along with model sizes? I wonder if smaller LLMs have less bias because they can&#39;t pick up on nuanced details the way bigger LLMs can, since they have fewer parameters? Or, for lack of a better word, are they unbiased because they are less capable? I hope to discuss whether we should use tests like this during the training process itself to identify and fix some of these implicit biases.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">11</span>
+            <div>
+              <h2>Sriram Kadiyala</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The paper is pretty interesting read overall. The authors have found a really elegant way to measure implicit bias which works even for the proprietary models. I thought testing Decision Bias on the examples of Association Bias was clever. The psychology basis for biases, especially picking out the stimuli from Implicit Association Test was cool, they did mention to not anthropomorphize LLMs but regardless, it is an interesting way to comprehend LLMs&#39; behavior.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I had is that every word (in the Word Association Test) must go to one of two groups, there is no &quot;neither&quot; branch in the metric, and a0% refusal on that task. So is 8/8 a strong association or an artifact of a task that does not allow room for declining to answer?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">12</span>
+            <div>
+              <h2>Yuyang Jiang</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the distinction between explicit and implicit bias in LLMs particularly interesting. Models that appear largely unbiased on standard benchmarks can still exhibit stereotypical associations when evaluated through more subtle word-association and relative-decision tasks. I also found the use of methods adapted from psychology interesting because they allow researchers to study these associations purely through observable model behavior, even when the model is proprietary and its internal representations are inaccessible. More broadly, the paper made me think about whether passing existing safety or fairness benchmarks reflects the removal of undesirable behavior, or simply our inability to elicit it with current evaluations.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I had is how we should interpret the analogy between implicit bias in humans and the associations measured in LLMs. The paper deliberately avoids claiming that models possess human-like psychological biases, but the evaluation methods are adapted from psychological measures originally developed for humans. I would be interested in discussing what exactly these behavioral associations tell us about an LLM, and where the analogy to human implicit bias breaks down. More broadly, how can we distinguish a meaningful latent bias that is likely to affect downstream decisions from an association that can be elicited experimentally but has little practical behavioral consequence?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">13</span>
+            <div>
+              <h2>Pranavesh Kumar Talupuri</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Asking the obvious questions yields correct answers from any LLM, but subtle ones actually introduce another layer of complication. Asking a model what it actually believes may not tell you as much as watching which person it selects or recommends when given a direct choice.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>How can we tell whether a model has actually become less biased, and not just answering by becoming better at recognizing when it is being tested for bias? It shouldn&#39;t be a meta answer where it knows how to answer based on the question, and inherently needs to learn the right things: how can we achieve this?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">14</span>
+            <div>
+              <h2>Sheryl Mathew</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>This paper challenges standard bias benchmarks, showing that LLMs can perform well on these existing benchmarks, but still have implicit bias. They conduct psychology inspired tests to show that aligned models have significant implicit bias and make biased decisions. This begs the question, what do models really learn from alignment training, and is it even possible to make models completely unbiased?</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The results from this paper are interesting, but seem to reveal an underlying expectation for LLMs: that they should be unbiased. I don&#39;t think it&#39;s fair to expect this from LLMs when they are trained on human data and humans are inherently biased.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">15</span>
+            <div>
+              <h2>Mattia Solla</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The premise of the paper is very interesting and the fact that the results show that indeed models can make biased decisions even when they are trained to address explicit instances of the same biases is revealing of a deeper problem in the way they behave. As LLMs increasingly become &quot;more human&quot;, it is important to have metrics to measure their behavior in day-to-day decisions and not only in explicit test cases.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Is it possible to eliminate or even just reduce implicit biased behavior in LLMs? As the authors note in the paper, the ultimate source of bias comes from humans, and it seems inevitable that the model would recognize and learn our biased patterns. Is there a principled way to avoid this?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">16</span>
+            <div>
+              <h2>Michael Duan</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I thought the observation that relative choices amplify observed bias was quite interesting since it could reflect an oversight in the safety training of the models at that time. It&#39;s also interesting that their observations extend to consequential decision tasks such as race-based position assignment. It seems to indicate that these models may have an innate understanding of these biases but not the skills to recognize and ensure decisions are not impacted (negatively) by them.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I wonder what artifacts from the tested models&#39; training contributes to this suppression behavior? Could it be a result of safety training&#39;s bias content only having examples of independent group stereotypes to avoid (i.e., thus contributing to the amplified effect when considering biases relatively between groups)? Do modern models with more up-to-date safety pipelines still experience this suppression behavior?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">17</span>
+            <div>
+              <h2>Nisarga Bhaskar</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Its interesting even when we involve RLHF and other techniques to try to eliminate some bias that it still remains in very implicit way of either the respresentation of the world and these tests give us a way to observe such biases</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Like Aditya had pointed in slack when i tried it on the second test the opus 5.5 is able to recognize that its being tested for the second prompt too but some assumptions it makes such as the age and last name of the the characters also hold some kind of biases even in its explanations. It also shows with just some basic information the models are able to infer a lot information even though these are fictitious people still something worth looking into Claude chat link: https://claude.ai/share/c4218a85-9f2a-4f40-b024-45b6ffeff2ed</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">18</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find it interesting that LLMs can pass standard bias tests while still showing biased associations in less direct tasks. The comparison between relative and absolute decisions is especially surprising: the models show more bias when choosing between two people than when evaluating each person separately. I also like how the authors adapt methods from psychology to evaluate models using their observable responses, since researchers may not have access to the internal representations of proprietary models.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I wonder whether the same biases would appear as strongly in realistic applications, since the relative-decision tasks were designed to correspond closely to the word-association tests. I also want to understand why alignment reduces explicit bias without removing these subtler associations. I hope to learn how implicit bias could be evaluated in real settings such as hiring or education, and whether it can be reduced without making models simply avoid discussing social groups.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">19</span>
+            <div>
+              <h2>Sreyes Venkatesh</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>One thing that I found particularly interesting was how the language models seemed to exacerbate human biases. For example, GPT-4 assigned 8 of 8 positive words to white and 8 of 8 negative words to black. The authors note that humans do implicitly associate black with negativity, but not at this level of confidence (no uncertainty) and extremity (almost always). I was also interested in how bias scales with model size. We note that Larger models such as GPT-4, Claude Opus, and Llama2Chat show larger word association bias whereas the 7B models show significantly less. On the other hand decision bias does not seem to be correlated with model size.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One particular question I have is regarding how these models have changed their behavior since the publishing of the paper. Have they removed these biases or were they left in in case they provide some alleged value towards a downstream task. Would also like to know why decision bias does not scale with models size where as association bias does. Also are there any other tests that when aligned with the downstream tasks can lead to a higher predictive value without limiting the ecological validity?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">20</span>
+            <div>
+              <h2>Mohammadsaeed Haghi</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>What I found interesting is that they asked GPT-4 to moderate its own outputs for bias, and it mostly failed to flag them. The same model that disagrees with &quot;women are bad at managing people&quot; has no objection to putting Ben on the management workshop and Julia on the wedding workshop. Whatever alignment changed, it did not give the model the ability to see the pattern in its own choices.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Relative decisions come out more biased than absolute ones, so what happens if you never ask the model to compare? You could score each candidate on their own and then rank the scores yourself. But the absolute numbers are not equal either: the yes rate for a female student studying science is 91 percent against 100 percent for humanities. Once you sort a list, a gap that small turns into a fixed ordering. I&#39;d like to discuss whether scoring first and ranking after removes the bias or just moves it outside the model.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">21</span>
+            <div>
+              <h2>Faith Baca</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I thought it was really interesting how the paper distinguishes between a model explicitly producing biased outputs and still having biased associations internally. In particular, I found it interesting that models can learn not to express certain stereotypes without actually eliminating the associations that lead to them in the first place. This reminded me a lot of how alignment methods can sometimes change the behavior we observe without necessarily changing what the model has learned, which seems especially important when we think about evaluating models for fairness. If we mostly evaluate bias based on model outputs, it seems possible that we could conclude that a model has been successfully debiased when the underlying associations are still there and could potentially show up under different prompts or settings. I also thought this was interesting from an interpretability perspective, since it raises the question of whether we should be looking beyond outputs when trying to understand whether a model is actually behaving fairly.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I am curious about what the practical implications of these hidden biased associations are. If a model has biased internal associations but consistently avoids expressing them in its outputs, is that necessarily harmful, or does the concern mainly come from the possibility that those associations could affect behavior in settings that weren&#39;t tested? I thought about the same question in the context of humans, and I think people would generally agree that a racist person who hides that they are racist is still problematic. I am also curious about what this means for current debiasing and alignment methods more generally; are we mostly teaching models not to express bias rather than actually changing the representations that produce it? I would be interested to hear what people think a good standard for calling a model &quot;unbiased&quot; should be, especially if behavioral evaluations and internal representations can give us different answers. Lastly, I am curious to hear what people think in general about bias in AI; is our goal to eliminate it considering training data reflect a biased society? If so, how, and who will decide what unbiased means?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">22</span>
+            <div>
+              <h2>Vaishnavi Sinha</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Since Anthropic&#39;s mission is &quot;Making AI systems you can rely on&quot;, the Claude models results were the most interesting to me as it displayed some of the highest relative decision bias in the study. This idea is important as real world hiring practices implications are to be taken seriously if this is the state of the models. It would be interesting to study how hiring practices are changing for companies using these models in the initial screening stages (and whether we can spot bias). I liked the idea to experiment LLMs using the word association test because it reminded me of semantic network theory from cognitive psychology, where related concepts are connected in memory and closely associated concepts are easier to retrieve. It was interesting to think about whether word associations in LLMs could reveal relationships they have learned and compare it with association embeddings.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>My biggest methodological question is about the race-valence experiment. The authors had an implicit association test for LLMs using the words “black” and “white.” That makes me wonder whether the experiment isolates racial association or partly captures semantic associations with the colors themselves. I would like to see a control condition using nonracial color combinations such as yellow/pink to separate color semantics from racial semantics. The authors do include a separate surname-based racial test, but that does not fully resolve the interpretation this result, which I am a bit skeptical on. An open question would be to trace where the implicit associations actually originate. Are they representations learned from pretraining data, or increased preferences during RLHF, or an a combination of both? And how would reasoning models hold up in these experiments? I also want to know in general, what does it mean for these models to be “aligned with human values.” The chosen 8 models as having undergone reinforcement learning from human feedback, but I&#39;m not sure which human values the chosen models were aligned towards.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">23</span>
+            <div>
+              <h2>FNU Bandre Devaraju Vinod</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>What I found interesting is that GPT-4 seems unbiased when you ask it direct questions but not when you ask it indirectly. It chose &quot;not enough info&quot; on 98% of the ambiguous BBQ questions. But in the word association test it gave all 8 positive words to &quot;white&quot; and all 8 negative words to &quot;black,&quot; and it picked Ben over Julia to lead the management workshop. I also liked the relative versus absolute result, since GPT-4 was less biased when it only had to say yes or no about one person than when it had to choose between two.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The paper only measures the bias and never tries to fix it. Would just telling the model to ignore group identity reduce the decision bias?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">24</span>
+            <div>
+              <h2>Ansh Sindhwani</h2>
+              <time datetime="2026-09-25">Sep 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>One thing that i found interesting in the paper is that it raises questions on our current benchmarks for fairness and training. I liked the experimental setup which targeted the implicit bias within models. further in appendix i found the fact that even moderation by open AI API didn&#39;t remove the bais.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>(1) considering that these bais comes from historical text and is basically representation of all the literature we have produced, Should a general-purpose foundation model be completely free of historical word associations, or should it accurately represent the statistical patterns of human history and text ? (Like limiting fairness to only decision making tasks) (2) What can be an effective way of removing these bais ?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">25</span>
+            <div>
+              <h2>Eric Liu</h2>
+              <time datetime="2026-09-27">Sep 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>One thing i found interesting about the Explicitly Unbiased paper is the suggestion that RLHF itself may be contributing to relative bias because models are trained on humans&#39; preferences between responses. The paper finds that relative comparisons reveal way more bias than absolute judgements.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I’d like to discuss whether the stronger bias in relative decisions could actually be partly caused by the way preference-based RLHF is performed. If RLHF repeatedly teaches models through pairwise comparisons, could that training format make comparative social judgments more biased even while making explicit answers look safer?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">26</span>
+            <div>
+              <h2>Aman Desai</h2>
+              <time datetime="2026-09-27">Sep 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I was quite surprised that the effects of the implicit bias test were not very highly correlated with the word embedding association test. Intuitively, I would assume that since the implicit bias test is word-level and since (from my understanding) much of an LLM&#39;s representational knowledge is in word/token embeddings, the results of the implicit bias test would largely be captured by the word embeddings. These results seem to imply that the implicit bias of the LLM lives in higher-order connections between concepts that cannot be isolated with word embedding tests.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Is there a way to isolate the effect of the implicit bias that did not originate in the word embedding? This might help us understand where (in the representational space of the LLM) bias originates.</p>
             </section>
           </div>
         </article>
