@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="3 CS 618 reading reflections for Week 8, September 30, 2026." />
+    <meta name="description" content="7 CS 618 reading reflections for Week 8, September 30, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 8 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 8</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>3 responses</span>
+          <span>7 responses</span>
         </div>
       </section>
 
@@ -97,6 +97,86 @@
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>For the first paper, I am curious about how we as researchers should decide when different treatment is appropriate, especially in cases where people within the same marginalized community might disagree. While I agree with the overall argument, I am wondering how we can make sure that encouraging difference awareness doesn&#39;t lead models to make assumptions about individuals based on their group membership. I would also like to discuss how we could evaluate this in more open-ended conversations where the relevant context isn&#39;t necessarily provided upfront. For the second paper, I am curious whether uncertainty estimates are equally reliable across demographic groups, languages, or dialects, and what the implications would be if they aren&#39;t. For example, could an agent repeatedly ask some users to clarify themselves while confidently making incorrect assumptions about others? I think it would be interesting to discuss how we could distinguish useful clarification from an additional burden placed on users whose needs the model understands less well. In general, I am hoping to hear people&#39;s thoughts on how these two papers fit together, since recognizing when demographic information matters also seems to require recognizing when a model doesn&#39;t know enough to act on it.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Junyang Cai</h2>
+              <time datetime="2026-09-28">Sep 28, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find interesting that both papers challenge the idea of using common evaluation assumption to evaluate the strength of LLM in fairness or uncertainty. In the fairness paper, they argue normally people evaluate LLM fairness on treating every demographic group identically. But this should not be always like this, there are many situations in the real-world that require we treat different groups differently. The result is interesting, GPT-4o performs as well as better model on conventional evaluation, but perform much worse on the benchmark the author designed. In uncertainty quantification paper, the author identifies a similar limitation in agent evaluation: most existing uncertainty methods evaluate a single answer, while real LLM agents interact with users, tools, and environments over many turns.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>My questions is how to we balance the context awareness and difference awareness? It seems encouraging more difference awareness can improve DiffAware but hurt CtxtAware. And which one metric is better or should used in LLM evaluation?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Matthew Finlayson</h2>
+              <time datetime="2026-09-28">Sep 28, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>In &quot;Difference Awareness&quot; I liked that the authors avoid the common misconception that ignorance of group differences is a viable approach to fairness. Rather, in different scenarios, understanding of group differences can be critical for fairness. &quot;Uncertainty Quantification&quot; is interesting because it bring ideas about uncertainty into the much more complex agentic model era, and grapples with the inherent issues with low-level uncertainty estimators when the object of interest is the emergent high level behavior uncertainty.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I&#39;m interested in coming out of the discussion of Difference Awareness with a better understanding of how to integrate sometimes conflicting definitions of fairness into AI systems. Is there a theoretical constraint that says that low-level uncertainty measures are insufficient for high-level behavior understanding?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">06</span>
+            <div>
+              <h2>Yuyang Jiang</h2>
+              <time datetime="2026-09-28">Sep 28, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the distinction between difference-unaware and difference-aware fairness particularly interesting. The first paper challenges the assumption that treating all demographic groups identically is always fair, showing that recognizing group differences can sometimes be necessary for contextually appropriate decisions. I also appreciated its distinction between descriptive, normative, and correlation-based evaluations, since these categories require different interpretations of fairness. In the second paper, I found the shift from single-response uncertainty to trajectory-level uncertainty particularly relevant to agentic systems, where uncertainty can evolve through interactions with users, tools, and the environment. Together, the papers made me think about the limitations of evaluating AI systems using static, context-independent metrics.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I had from the first paper is how we can systematically distinguish desirable difference-aware behavior from harmful discrimination, especially in normative settings where the appropriate treatment may depend on contested social values. For the second paper, I wonder how uncertainty estimates should be updated when an agent receives potentially unreliable information from external tools or other agents. In particular, could an agent become increasingly confident over a trajectory while actually accumulating errors from earlier interactions? I would be interested in discussing how to design evaluations that distinguish genuine uncertainty reduction from confidence that arises through repeated reliance on unreliable information.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">07</span>
+            <div>
+              <h2>Selina Xiao</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The agent UQ paper argues that uncertainty should not just be a confidence score attached to the final answer. In an interactive agent, uncertainty evolves over a trajectory of actions, observations, and environment states, and an action such as asking a clarification question can actively reduce uncertainty rather than simply propagate it forward. This makes uncertainty feel much closer to a state variable for sequential decision making than a passive evaluation metric. The difference-awareness paper makes a surprisingly similar point about fairness. Treating invariance across demographic groups as the objective can hide cases where different treatment is factually or normatively appropriate, so the authors separate difference awareness from contextual awareness. I especially liked their result that explicitly prompting models to be less biased can actually reduce difference awareness, while prompting for more difference awareness can improve DiffAware but hurt CtxtAware. This looks almost like a precision-recall tradeoff and shows that a single scalar notion of &quot;less bias&quot; is probably too coarse.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>For the agent UQ paper, one question I had is whether uncertainty should ultimately be optimized jointly with the agent policy rather than estimated after the fact. If an agent can choose actions specifically to reduce uncertainty, then the relevant object may be something like the expected value of information of an action, and I wonder how this could be separated from ordinary task reward or incorporated into an RL or control objective. I am also curious how one can distinguish genuinely problematic epistemic uncertainty from cases where there are simply several equally valid next actions, especially since the paper itself points out that agent trajectories contain heterogeneous uncertainty from the agent, user, and tools. For the difference-awareness paper, my main question is how the desired notion of contextual awareness should be specified without simply replacing one fixed fairness definition with another set of values chosen by benchmark designers. The descriptive tasks have relatively clear answers, but normative tasks necessarily encode judgments about when differential treatment is justified. It would be interesting to formulate DiffAware and CtxtAware as a constrained or multiobjective optimization problem and ask whether there is a meaningful Pareto frontier, rather than searching for one prompt or alignment method that maximizes both.</p>
             </section>
           </div>
         </article>
