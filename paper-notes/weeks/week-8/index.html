@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="7 CS 618 reading reflections for Week 8, September 30, 2026." />
+    <meta name="description" content="24 CS 618 reading reflections for Week 8, September 30, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 8 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 8</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>7 responses</span>
+          <span>24 responses</span>
         </div>
       </section>
 
@@ -177,6 +177,346 @@
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>For the agent UQ paper, one question I had is whether uncertainty should ultimately be optimized jointly with the agent policy rather than estimated after the fact. If an agent can choose actions specifically to reduce uncertainty, then the relevant object may be something like the expected value of information of an action, and I wonder how this could be separated from ordinary task reward or incorporated into an RL or control objective. I am also curious how one can distinguish genuinely problematic epistemic uncertainty from cases where there are simply several equally valid next actions, especially since the paper itself points out that agent trajectories contain heterogeneous uncertainty from the agent, user, and tools. For the difference-awareness paper, my main question is how the desired notion of contextual awareness should be specified without simply replacing one fixed fairness definition with another set of values chosen by benchmark designers. The descriptive tasks have relatively clear answers, but normative tasks necessarily encode judgments about when differential treatment is justified. It would be interesting to formulate DiffAware and CtxtAware as a constrained or multiobjective optimization problem and ask whether there is a meaningful Pareto frontier, rather than searching for one prompt or alignment method that maximizes both.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">08</span>
+            <div>
+              <h2>Alan Liang</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that an agent’s uncertainty can go down during a task if it asks a useful question or gets information from a tool. That makes it different from measuring uncertainty in a single final answer. I was also surprised that several common uncertainty scores were weak at predicting task success in the authors’ pilot study, and that only 4 of the 44 agent benchmarks they surveyed had turn-level annotations. I found it interesting that models could score almost perfectly on existing fairness benchmarks while still missing cases where recognizing a group difference matters. The authors also found that prompts telling a model to be “unbiased” could make it change a factually correct answer to one that incorrectly treats groups as the same. Their distinction between noticing relevant differences and knowing when to do so seems important; improving one does not necessarily improve the other.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>How should an agent decide whether to ask for clarification or act despite being uncertain? How can it tell the difference between being confused and having several equally valid next steps? I hope to learn what a good turn-level test would measure, especially when information from a user or tool might be unreliable. Who should decide which group differences are justified in questions involving values or harm, especially when communities disagree? Can a model improve both Difference Awareness and Contextual Awareness instead of trading one for the other? I hope to discuss whether these mostly multiple-choice, U.S.- and Western-centered tests predict how a model would behave in real, open-ended situations.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">09</span>
+            <div>
+              <h2>Vaishnavi Sinha</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Fairness through Difference Awareness: even though the paper argues that current alignment can push models toward treating groups too similarly, it was interesting that instruction tuning improved difference and contextual awareness. Uncertainty Quantification in LLM Agents: found it surprising that only 4/44 agent benchmarks had turn-level evaluation. If uncertainty changes during interaction, only checking the final result seems limiting.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Fairness through Difference Awareness: unsure how much of difference awareness is actually a fairness ability or just better factual and contextual knowledge. Uncertainty Quantification in LLM Agents: if turn-level labels are expensive, can we trust LLMs to label other LLMs without repeating the same blind spots?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">10</span>
+            <div>
+              <h2>Ansh Sindhwani</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p># Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs (1) Though not the most interesting thing that i found in the paper but it is worth mentioning how the paper presents the existence of &quot;difference unawareness&quot; in existing benchmarks and how this approach can backfire. Further it is interesting that how authors establish a tripartite framework to categorize fairness into descriptive, normative and correlation based tasks. (2) the most interesting thing that i found in the paper is the result found by the authors on debiasing techniques. Standard debiasing techniques (such as moral self-correction or instruction prompts encouraging fairness) often worsen model performance on difference-awareness tasks. They push models toward total difference blindness, causing them to fail at identifying factual, contextually required demographic distinctions. # Uncertainty quantification in LLM Agents (1) as compared to all the other papers we have read so far, i found it refreshing that this paper explores agentic systems. Interesting highlight is how the paper formulates uncertainty quantification metric. the framework demonstrates that single-step LLM UQ, multistep chain of thought and reward modeling can all be reduced to a special constrained case of the proposed method. (2) I like how authors model agentic workflow to a simple bayesian network and that simple already existing measures like shannon entropy can be used to model trajectory level uncertainty to expand via the chain rule into an arithmetic sum of turn-level uncertainties.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>(1) The paper raises a question in my mind: is a universally fair and ideal model even possible? While the paper highlights the need to measure group discrimination, another nuance is the variation in the definition of fairness across different regions and laws. Since these nuances cannot be captured mathematically, how should we approach them? (2) Can approaches like chain of thought help in tackling nuances without any retraining ? the paper shows that prompt based debiasing techniques fail. can we expect reasoning methods to perform well on these benchmarks ? (3) how to approach fairness in open ended tasks like translation or writing a creative story? (4) the paper Uncertainty quantification addresses the issue of agentic UQ. but also limit the scope to a single agentic loop. I would like a discussion on how this framework or some other framework can be made which is geared towards multi agent systems. what will be the new challenges in that system ?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">11</span>
+            <div>
+              <h2>Chen Gong</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>[paper1] I liked the argument that &quot;difference unawareness&quot; (treating every group the same) is often chosen because it&#39;s technically convenient, not because it&#39;s actually fair. The split between descriptive questions (how the world is now) and normative questions (how it should be) was helpful. The two metrics also work together well. DiffAware is like recall: can the model tell groups apart when it should? CtxtAware is like precision: does it tell them apart only when that&#39;s appropriate? One result I found interesting is that a heavily &quot;debiased&quot; model can score 0 on DiffAware, while a biased model can score well. Bigger models also do better on CtxtAware but not on DiffAware. [paper2] It was interesting that uncertainty in agents is much harder to measure than in single-turn QA. In multi-turn interactions, uncertainty can go down when the agent seeks more information. The POMDP framing made this clearer: the uncertainty of each action depends on the initial observation and all earlier actions. The most surprising result was that none of the existing methods could separate successful runs from failed ones as the task was happening. That applies to all three kinds: probability-based (NLL/entropy), consistency-based, and self-reported confidence.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>[paper1] Who decides the normative standard for when groups should be treated differently? If it&#39;s based on the given regulation, does it still work in other countries or cultures? [paper2] Whether using an LLM to simulate the user makes the uncertainty measurements less realistic.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">12</span>
+            <div>
+              <h2>Lauren Cooke</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The fairness through difference awareness paper introducing a benchmark suite assessing appropriate distinction of protected groups vs discriminatory behavior I found very interesting, and I think it captures some of what we discussed in class about needing to be aware of protected labels to better contextualize different decisions and make fairer decisions as a result. I also found it interesting that the work reports aggregated results across different protected labels rather than investigating each protected feature separately. In the survey work quantifying uncertainty, I really liked how they encourage evaluation under real world settings. I found the looking into challenges for agents particularly interesting, especially that it points back to a lack of fine-grained benchmarks! Really gets at my first question I want to talk about in how we can make benchmarks most useful and applicable.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I get that multiple choice setups are easier to distill and measure meaning-wise, but I think they limit real-world applicability of the benchmark measurements to true performance in a real non-multiple-choice task. How can we as researchers design flexible evaluation schema to work with the problems that we aim to solve? Bigger picture, I also wanted to talk more about the uncertainty inherent to an agentic/RL universe, where multiple solutions/actions in the same situation can produce optimal behavior. Could one use a benchmark-based approach to further distinguish this optimal set of solutions, or are there potential structural improvements that could help?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">13</span>
+            <div>
+              <h2>Aditya Kotha</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Fairness through Difference Awareness paper: The preface of this paper is really interesting; instead of using a simple black-and-white comparison, it delves deeper into how bias towards one group can be beneficial or less devastating, depending on the context. It brings forth some really good points on how making the models completely racially color-blind is disingenuous, and how it&#39;s more complex than making the model fair to all groups, independent of their race or gender. Another interesting observation they have is that, as they test their benchmark on more capable models, its ability to understand differences between groups is worse than its ability to know when differentiating is appropriate. Uncertainty Quantification in LLM Agents paper: It&#39;s an interesting paper because it explores the problem of uncertainty in the agentic era rather than assuming it is monotonous and non-interactive. Previously, we have seen examples all over social media of agents accidentally deleting their prod database or their entire system, although such cases have since declined. This issue highlights the problem the paper was trying to address. I also liked their suggestion that uncertainty could decide when an agent should stop thinking or ask the user instead.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Fairness through Difference Awareness paper: Can a model get both metrics (DiffAware and CtxtAware) right at once? Because the paper describes the situation as a precision-recall trade-off and shows cases where prompting models to be more difference-aware raised DiffAware but lowered CtxtAware. The authors suggested that adding CoT might help with this, so I am interested to know whether using the latest reasoning model will yield better results on this benchmark. Uncertainty Quantification in LLM Agents paper: How much can we trust the pilot results? Each task was run once at a temperature of 0. Kimi-K2.5 also succeeded on 96.5% of Telecom tasks, leaving only 4 failures to compute AUROC from. The paper evaluates observation uncertainty against the probabilities of an LLM simulating as a user. How could we validate these estimates with real human users, whose response distributions are unknown, and could using Kimi-K2.5 as both the simulator and the tested agent affect the findings? Both papers argue that standard benchmarks give a misleading picture. I&#39;d like to learn more and discuss how to design benchmarks so we don’t end up with a benchmark that has a poor definition of success.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">14</span>
+            <div>
+              <h2>Nisarga Bhaskar</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs: It is interesting approach of not just being blind we want to look deeper into situations where we need to aware of the differences also its interesting to see how problem as this also in a higher level boils down to look to be a tradeoff between recall(diff-aware) and precision(ctxt-aware) Uncertainty Quantification in LLM Agents: Foundations, Emerging Challenges, and Opportunities: It is interesting how they come with a framework to capture the uncertainities of LLMs and somehow this framework acts as an umbrella even for the inital more conservative/naive approaches</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs: It would be great to discuss what is the stance we are going to go ahead is it a race blind or a race aware one, given the world is not black and white rather most things end up in the gray region what is that region when it comes to fairness Uncertainty Quantification in LLM Agents: Foundations, Emerging Challenges, and Opportunities: It promises more reliability in the real world applications would nice to discuss what other applications will this be useful in</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">15</span>
+            <div>
+              <h2>Sriram Kadiyala</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>1. Uncertainty Quantification in LLM Agents The framing that an agent&#39;s uncertainty should behave like a living system that survives by drawing information from its environment is an interesting way to look at LLM agents. Another thing that was interesting is the fact that interaction-oriented trajectories tend to earn higher rewards, while reasoning-oriented ones yield higher confidence, so confidence and actual success diverge in agent settings. 2. Fairness through difference awareness The most interesting thing to me is the fact that debiasing prompts like ensure your answer is unbiased actually made things worse, even causing the the models to reverse factually correct answers, this is a striking counter-point to last class&#39; paper, Explicitly Unbiased LLM still form biased associations where debiasing prompts significantly reduce biased associations. The same process helped in case of Explicitly Unbiased LLM still form biased associations but it did not have the same effect on this paper. So whether &#39;debiasing works&#39; depends entirely on what the benchmark defines as fair. And one other small thing that was surprising for me is the fact that out of 37 fairness benchmarks, most of them (32/37) reward difference-unaware behavior, and in that over half are &quot;correlation&quot; benchmarks that don&#39;t even specify whether they measure the world as is or as it should be.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>1. Uncertainty Quantification in LLM Agents The formulation assumes the environment transition h(·) is deterministic. How much of the framework survives in genuinely stochastic or adversarial environments? Another question I had was is trajectory-level success/failure even the right target, given their own argument (Sec. 6) that it collapses a structured process into one scalar? 2. Fairness through difference awareness Why are models so much more steerable by debiasing prompts on normative benchmarks than descriptive ones and why is a pretty vague instruction like &#39;be unbiased&#39; strong enough to override facts the model demonstrably knows, reversing previously correct answers? Is the failure in the prompt wording, or in how &#39;fairness&#39; was encoded during alignment?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">16</span>
+            <div>
+              <h2>Mattia Solla</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>&quot;Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs&quot;: The paper reveals an important problem with fairness metrics and how good evaluations in for classical benchmarks does not necessarily mean a desirable behavior. I think the attempt to answer this question in which it&#39;s not clear what the ideal behavior is even for humans is valuable, but the metrics developed by the authors can only serve as some preliminary evidence of this phenomenon. &quot;Uncertainty Quantification in LLM Agents: Foundations, Emerging Challenges, and Opportunities&quot;: The general formulation for UQ is interesting and seems to be very complete. The concept of joint uncertainty over the trajectory of the task realization seems to be a good way to extend the concept of UQ to agentic LLMs.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>&quot;Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs&quot;: The authors use different debiasing prompting techniques and show that they can worsen difference awareness. In some cases, it is unclear how the model should interpret the prompt to be &quot;less biased&quot;, while in others it seems like the entire point of the technique is to produce difference unaware answers. How can we recognize systematically in which case we are and understand how the model reacts to the prompts and addresses its answers? &quot;Uncertainty Quantification in LLM Agents: Foundations, Emerging Challenges, and Opportunities&quot;: How can we develop good evaluation systems for the uncertainty quantification metrics? As pointed by the authors, correlation with correct answers seems to be insufficient. Is there a way to incorporate the &quot;amount of certain and uncertain information&quot; to this type of metrics that does not result in going back to try to measure UQ itself?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">17</span>
+            <div>
+              <h2>Nana Xia</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>In the paper “Uncertainty Quantification in LLM Agents,” I found that uncertainty is not only something we measure at the end of a decision process. In traditional LLM uncertainty work, we often focus on how confident the model is about its final answer. But for an interactive agent, uncertainty can actually affect what the agent should do next. At the same time, uncertainty from earlier steps can also propagate through the trajectory, so the paper argues that we need to model both uncertainty propagation and uncertainty reduction through interaction. In “Fairness through Difference Awareness,” I found it interesting that a simple debiasing approach does not necessarily make a model fairer. The paper argues that fairness should not only be evaluated by asking whether the model treats different groups the same. Instead, we should ask whether the model recognizes group differences when those differences are relevant, and avoids using them when they are not. Simply encouraging the model to pay more attention to group differences is not a complete solution either, because that can reduce Contextual Awareness and make the model differentiate when it should not. To me, this means fairness cannot be handled with a one-size-fits-all “debias everything” rule. The harder problem is deciding when group differences should matter and when they should not.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>One question I have from “Fairness through Difference Awareness” is how this idea should actually be implemented in a real model. If fairness sometimes requires recognizing meaningful group differences, should those differences be explicitly represented in the model, or should they mainly be handled through domain-specific instructions, data, or fine-tuning? The paper shows that a general fairness instruction can sometimes make the model ignore legitimate differences, while encouraging difference awareness too broadly can also create problems. This makes me wonder whether we should move away from a single generalized notion of fairness and instead develop domain-specific fairness criteria.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">18</span>
+            <div>
+              <h2>Xixiao Pan</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>What I found interesting was that both papers challenge seemingly reasonable shortcuts for evaluating LLMs. In Fairness through Difference Awareness, treating demographic groups identically is not always fair or accurate; the context determines whether differences should matter. I especially liked the distinction between descriptive and normative benchmarks, because describing the world as it is involves different assumptions from deciding how it should be. The finding that debiasing prompts can worsen difference awareness also surprised me. In Uncertainty Quantification in LLM Agents, I found it interesting that uncertainty involves the entire interaction, including user ambiguity and tool observations, rather than just the model’s final answer. Asking a clarification question can reduce uncertainty, while an agent becoming more confident does not necessarily mean it is more likely to succeed.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>For discussion, I have two main questions: Who should decide when demographic differences are relevant, especially when the values behind a benchmark are contested? And how can an agent distinguish genuine uncertainty reduction from growing overconfidence? I hope to learn how these ideas could guide practical decisions about when an agent should act, gather more information, or request human help.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">19</span>
+            <div>
+              <h2>Emily Weiss</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Fairness through Difference Awareness… 1. I thought it was very reasonable for the authors to distinguish between the descriptive and normative categories for their benchmark suite. Evaluating models’ abilities to accurately recount facts of the world as it is/as it has been is as important as recounting what the world should be. It is especially important for facts to be reported accurately by models, especially as people become more reliant upon AI tools and do not engage in fact checking themselves. 2. It is interesting that existing models do poorly on both benchmarks, but bigger models do better on CtxtAware than DiffAware. This is similar to the observation from the last class presentation that larger models performed worse than smaller models on the bias evaluation tasks. *** Uncertainty Quantification… The foundational motivation that typical evaluation methods for UQ is not sufficient when dealing with modern LLMs stuck out the most to me. The idea that single runs on single-turn question answering tasks are not sufficient because agentic systems are not static is also applicable for other tasks that use LLMs. Although I do not recall the authors explicitly addressing the issue of reproducibility of LLM runs on benchmarks, I believe the concerns in that space are also somewhat echoed by their problem setup.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Fairness through Difference Awareness… Beyond alignment and instruction tuning, are there other factors that could be responsible for the worse performance on DiffAware exhibited by larger models? *** Uncertainty Quantification… The authors provided an example of where agent UQ could be used to enable human-in-the-loop workflows in clinical decision making tasks. They propose agent UQ can be used to flag “highly accumulated uncertainty moments” where humans can then be invited to resolve the uncertainty. Are workflows like this more or less likely to increase trust in the system? Would they be more likely to increase or decrease the adoption of tools into those workflows? I am mostly curious whether other folks feel that systems that incorporate human-facing agent UQ into their workflows would reduce perceived burden on humans, or make humans feel like they have an even higher burden of checking everything the system is doing, even in cases where uncertainty is low.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">20</span>
+            <div>
+              <h2>FNU Bandre Devaraju Vinod</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the difference awareness paper, it was interesting to see that 32 of the 37 existing fairness benchmarks treat any difference between groups as bias, which is why GPT-4o scores close to perfect on them but rarely above 0.75 on the new metrics. The debiasing result was surprising. Telling a model to be unbiased made it drop correct factual answers, like switching from saying women are overrepresented in a job to saying neither group is.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The authors suggest using retrieved facts to fix the descriptive benchmarks, but the debiasing result shows the models already knew the right answer and dropped it. So I am curious to know whether retrieval would actually help or whether the model would ignore those facts too</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">21</span>
+            <div>
+              <h2>Mohammadsaeed Haghi</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the difference awareness paper, what I found most interesting is that the standard debiasing prompts make the model give factually wrong answers. A model that correctly says women are overrepresented in some occupation will, once you ask it to be unbiased, answer that neither group is overrepresented. For the agent uncertainty paper, what I found most interesting is how little the standard estimators tell you. Most of the AUROCs land between 0.47 and 0.69, and on one model in one domain entropy comes out at 0.468, meaning no signal at all.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>The debiasing prompts make the model reverse a correct factual answer. But I am not sure that effect is specific to fairness. Telling a model to be unbiased is a strong instruction, and models tend to give whatever answer a prompt seems to want. I&#39;d like to discuss whether a control prompt with similar pressure but no fairness content would produce the same reversals.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">22</span>
+            <div>
+              <h2>Pranavesh Kumar Talupuri</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Wang et al. talks about the relevance of group differences, and the cases where ignoring the differences is actually detrimental to the result. Pursuing fairness itself should not be a consistent thing. I think it is interesting that one of the topics most heavily pursued in ML has cases where models perform worse when they are fair. It makes me wonder what other ML topics should be worked backwards to move ahead. They also never build a method to check improve the model&#39;s context to decide whether or not it must be fair. They only build benchmarks to test them. Oh et al. discuss the stages of uncertainty (changes in the confidence scoring) within the reasoning process of a model. It is interesting that a model with clarity can fall into confusion and recover within the same reasoning process and end the prompt with a high degree of confidence. It may also be important to note these changes (or report them) when making a decision on how the results of these prompts are to be used. It is also important because making a bad decision (which had low confidence) in the intermediate stages of the trajectory may lead to worse results in the long term, and lots of wasted effort.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>As I was discussing earlier, Wang et al. never create a system to aid the models&#39; contextual decision making ability, and only provide a benchmark. How can we achieve a state for models such that they are able to distinguish the degree of fairness to be used from the context itself? Could it be based on alignment or post training methods? With newer models (and agentic models), we are able to steer mid-prompt and models can pause to question the user too. Oh et al. talk about uncertainty in the middle of the trajectory, why cant we stop the thinking when the model is uncertain and ask the user? I guess the question moves to the degree to which the model&#39;s confidence must fall before requesting user interference. I am curious to know how often models lose confidence and which tasks appear the most when confidence is lost. It might be the case that coding tasks are high confidence and image generation is low, for example. If we are able to simply alleviate one half of the problem there might no longer be an issue to begin with.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">23</span>
+            <div>
+              <h2>Sheryl Mathew</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Fairness through Difference Awareness: The authors propose new metrics and a benchmark for context aware fairness. They show that SOTA models excel at current fairness benchmarks but their metrics introduce difference awareness and context awareness, which models fail at. This is a much more interesting and nuanced point of view of fairness than prescribing that models should be fair to all groups in all scenarios, and it captures cases like the paper&#39;s example of Gemini generating racially diverse images of Nazis. Uncertainty Quantification: This paper collects benchmarks on uncertainty estimation in agents and proposes that more work needs to be done to collect turn-level annotations of agent trajectories.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Fairness through Difference Awareness: An interesting finding was that instructing models to be more fair actually decreases performance, except on the asylum related questions. It&#39;s not clear why this is the case, and why asylum related questions are the exception to this pattern. I&#39;m curious if a simple approach of learning which of two prompts to use (depending on the context, pick a prompt for DiffAware or CtxtAware) would improve performance. Uncertainty Quantification: There is prior work on when LLMs should ask clarification questions in multi-turn conversation with humans. I know the paper differentiates itself from this task setup because of the addition of the environment, but it would be interesting to see if any approaches from multi-turn conversation could apply in this case as well.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">24</span>
+            <div>
+              <h2>Leland Ling</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Never thought about agentic ai as bayesian networks, especially in terms of reducing the question into uncertainty reduction. In paper two, think its interesting how we always consider the don&#39;t do this scenario, but never the when we should have different output for trustworthy responses.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Can we concretely have Agentic AI work into different states and essentially do the bayesian uncertainty reduction explicity to move into different states. Paper 2: Sounds like the bias normalcy / societal normalcy make it difficult to exhaustively retain a certain level of trust within the llm responses - Is it possible to predict societal bias nuance using LLM and use that to dynamically update its language based on the paper&#39;s proposed scaffolding?</p>
             </section>
           </div>
         </article>
