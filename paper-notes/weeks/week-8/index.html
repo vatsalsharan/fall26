@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="24 CS 618 reading reflections for Week 8, September 30, 2026." />
+    <meta name="description" content="27 CS 618 reading reflections for Week 8, September 30, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 8 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 8</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>24 responses</span>
+          <span>27 responses</span>
         </div>
       </section>
 
@@ -517,6 +517,66 @@
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>Can we concretely have Agentic AI work into different states and essentially do the bayesian uncertainty reduction explicity to move into different states. Paper 2: Sounds like the bias normalcy / societal normalcy make it difficult to exhaustively retain a certain level of trust within the llm responses - Is it possible to predict societal bias nuance using LLM and use that to dynamically update its language based on the paper&#39;s proposed scaffolding?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">25</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>paper1: I find the idea of “difference awareness” in the fairness paper really interesting. I had usually thought about fairness as avoiding different treatment across demographic groups, but this paper argues that treating groups exactly the same can also be problematic when there are meaningful factual or contextual differences. I&#39;m especially surprised that prompting a model to be “unbiased” can actually make its difference awareness worse. paper2: I like the idea that uncertainty for an LLM agent should not be measured only from its final answer. Since an agent interacts with users, tools, and the environment over multiple steps, its uncertainty can change throughout the trajectory. I find it particularly interesting that asking questions or gathering additional information can reduce uncertainty, which is quite different from simply accumulating uncertainty over a long reasoning process.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>paper1: I am still wondering who should decide when treating groups differently is appropriate, especially for normative questions where there may not be one objectively correct answer. I would like to discuss whether difference awareness can be evaluated without embedding too many subjective choices into the benchmark itself. paper2: I hope to better understand how uncertainty should affect an agent’s decisions. For example, if uncertainty becomes high during a task, when should the agent ask the user for clarification, use another tool, continue reasoning, or request human help? I am also curious about how we can distinguish uncertainty caused by the agent not knowing what to do from uncertainty caused by several actions being equally valid.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">26</span>
+            <div>
+              <h2>Michael Duan</h2>
+              <time datetime="2026-09-30">Sep 30, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I like the DiffAware and CtxtAware breakdown proposed by the authors as a sort of precision-recall-esque reinterpretaion of analyzing discrimination understanding. It&#39;s interesting that it reveals that many current model&#39;s performances of bias benchmarks may just be a result of learning normative positions rather than truly understanding them in-context. I also found it interesting that just prompting the model to &quot;not discriminate&quot; or &quot;not be biased&quot; can even hurt the model&#39;s differentiating power. In the Uncertainty Quantification for Agents paper, I liked the clarification that increasingly confident agents does not mean more reliability. Uncertainty, especially for agents that are inquisitive in the correct manner, can be a powerful way to make agents more useful.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>For the discrimination paper, if normative learning approaches don&#39;t work well for situations that require contextual differentiation, I wonder how simulation-based approaches would fare instead. For example, rather than having to define the correct action in each context, perhaps moels could better understand contextual discrimination through rolling-out different scenarios and seeing how decisions impact, for example, different populations. For the UQ paper, I wonder how we can train the models to have the right balance of inquisitiveness, but also know when to stop asking too many questions (especially bad ones). What are the right signals to go from inquistive uncertainty to confident certainty.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">27</span>
+            <div>
+              <h2>Aman Desai</h2>
+              <time datetime="2026-09-30">Sep 30, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Fairness through Difference Awareness: Difference Awareness is a very important form of fairness that I had not considered before and it was extremely interesting to see how the authors evaluated models to assess their difference awareness. I was not very familiar with the differences between descriptive, normative, and correlation-based biases, but it seems very natural to measure these types of biases separately (especially since they may have separate causes and may need separate corrective approaches). From my understanding, models generally do not perform significantly better on descriptive benchmarks, which is surprising to me because these tasks seem like they might be easier for a model. Uncertainty Quantification in LLM Agents: Uncertainty quantification is very important for understanding the performance of models in real-world systems and the unifying framework that the paper suggests seems like a very nice way to generalize existing approaches. At the same time, it seems like it would be very difficult for any framework (not just the paper&#39;s) to do uncertainty quantification over dynamic environments given the possible number of tasks that agents perform.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Fairness through Difference Awareness: How well do humans perform on this fairness benchmark? This could give us a better idea about how to teach models to be more fair. Uncertainty Quantification in LLM Agents: In general, can we measure different continuous surrogates for success (as opposed to binary success-fail results) using techniques from RL that try to use richer feedback that 0-1 verified rewards?</p>
             </section>
           </div>
         </article>
