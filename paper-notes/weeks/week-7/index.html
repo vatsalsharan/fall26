@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="26 CS 618 reading reflections for Week 7, September 28, 2026." />
+    <meta name="description" content="27 CS 618 reading reflections for Week 7, September 28, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 7 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 7</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>26 responses</span>
+          <span>27 responses</span>
         </div>
       </section>
 
@@ -557,6 +557,26 @@
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>Is there a way to isolate the effect of the implicit bias that did not originate in the word embedding? This might help us understand where (in the representational space of the LLM) bias originates.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">27</span>
+            <div>
+              <h2>Misha Fu</h2>
+              <time datetime="2026-09-29">Sep 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the way this paper presented bias is interesting. It was able to look beyond explicit bias in form of LLM performance on benchmarks and dig deeper into implicit bias. I found the method to be too simplistic (prompt-based only), but it made sense given that the premise is proprietary or closed-weight large language models. So under that premise I found the methods interesting, namely, using association between words and also making relative decisions to reveal the implicit biases. I also found interesting how their analysis with word and embedding bias are related but NOT redundant. The few spolights highlighted, namely, race/valence, gender/science, race/hiring, and gender/career, were interesting to look into as well. Lastly how they were able to generalize from psychology to models.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I was wondering since in the end of the paper, they mentioned that actually having a model that is completely without bias is not desirable, assuming that they mean they still want a model with bias, just not the wrong kind of bias. I was wondering if others in the class has more insight here, and if there are other rigorous methods that can be used during training to ensure the models are truly aligned both explicitly and implicitly.</p>
             </section>
           </div>
         </article>
