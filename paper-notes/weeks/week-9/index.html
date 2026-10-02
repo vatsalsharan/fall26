@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="1 CS 618 reading reflections for Week 9, October 12, 2026." />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Week 9 · CS 618 Weekly Paper Notes" />
+    <meta property="og:description" content="Reading reflections for October 12, 2026." />
+    <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-9/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Week 9 · CS 618 Weekly Paper Notes" />
+    <meta name="twitter:description" content="Reading reflections for October 12, 2026." />
+    <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-9/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Week 9 · CS 618 Weekly Paper Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#responses">Skip to the weekly notes</a>
+
+    <main>
+      <header class="site-header shell">
+        <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
+          <span class="wordmark-mark" aria-hidden="true">618</span>
+          <span><strong>CS 618</strong><small>Weekly paper notes</small></span>
+        </a>
+        <span class="term-badge">Fall 2026</span>
+      </header>
+
+      <section class="week-hero shell" aria-labelledby="week-title">
+        <a class="back-link" href="../../">← All weeks</a>
+        <p class="eyebrow">Reading reflections · October 12, 2026</p>
+        <h1 id="week-title">Week 9</h1>
+        <div class="week-summary">
+          <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
+          <span>1 response</span>
+        </div>
+      </section>
+
+      <section class="response-list shell" id="responses" aria-label="Week 9 responses">
+        <article class="response-card">
+          <header>
+            <span class="response-number">01</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-10-01">Oct 1, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Scalable Extraction of Training Data from (Production) Language Models: 1. Study has large-scale implications which are alarming, but memorization can also be used for good! Although GPT claims they don&#39;t train their models on given derivations of GPT, we could use privacy audits to actually legally confirm this possibly! 2. Drawing a parallel to &quot;Sleeper Agents&quot; such vulnerabilities (whether backdoor or privacy in this case) are hard to confirm and may easily lie dormant in a model Low-Cost High-Power Membership Inference Attacks: 1. I found the paper’s framing of non-membership as many possible worlds particularly interesting. By comparing a candidate against both reference models and ordinary examples, RMIA makes privacy auditing practical with as few as one reference model.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>Scalable Extraction of Training Data from (Production) Language Models: 1. The intention behind &quot;discoverable memorization&quot; is to provide an upper bound on memorization, but given the discrepancies between models how useful would this experimentally found upper-bound apply to other models/datasets; are we assuming similar models trained on similar datasets will obey this upper-bound? a) Basically what is a principled approach to privacy auditing? 2. Deeper explanation on the Good-Turning method + its intuition would be helpful! 3. Optimal prompts from &quot;Private Investigator: Extracting Personally Identifiable Information from Large Language Models Using Optimized Prompts&quot; may derive a better upper-bound on memorization but is there a more principled approach to this? Low-Cost High-Power Membership Inference Attacks: 1. Although this method allows for a reduced budget, does it actually make privacy auditing more feasible?</p>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer shell">
+        <p><span class="footer-signal" aria-hidden="true"></span>Synced from the class response form</p>
+        <p>Email addresses are never published.</p>
+      </footer>
+    </main>
+  </body>
+</html>
