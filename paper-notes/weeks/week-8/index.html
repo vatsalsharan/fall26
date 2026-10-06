@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="27 CS 618 reading reflections for Week 8, September 30, 2026." />
+    <meta name="description" content="28 CS 618 reading reflections for Week 8, September 30, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 8 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 8</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>27 responses</span>
+          <span>28 responses</span>
         </div>
       </section>
 
@@ -577,6 +577,26 @@
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
               <p>Fairness through Difference Awareness: How well do humans perform on this fairness benchmark? This could give us a better idea about how to teach models to be more fair. Uncertainty Quantification in LLM Agents: In general, can we measure different continuous surrogates for success (as opposed to binary success-fail results) using techniques from RL that try to use richer feedback that 0-1 verified rewards?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">28</span>
+            <div>
+              <h2>Misha Fu</h2>
+              <time datetime="2026-10-05">Oct 5, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the idea of fairness through recognizing differences rather than ignoring them interesting. It did not make sense to me at first, but the examples of racially diverse Nazis and the requirements for men and women helped me understand. I find it interesting also that to detect unfairness, you would first have to be aware of the difference in the first place. I also find it interesting how debiasing approaches under this context exacerbated the problem. I also find uncertainty quantification interesting, especially how they presented 2 representative approaches, namely, output probability/internal hidden state, response consistency, and prompting based.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion?</h3>
+              <p>I wonder how the models trained on the benchmark can generalize beyond the benchmark, such as their performance on the difference awareness examples mentioned. I wonder how the behavior of the model will change, and whether there would be edge cases that has not surfaced before. I wonder if there could be human feedback on uncertainty, for example, even if the model itself is certain/uncertain, that may not the aligned with the specific user&#39;s preference of certainty (some users are more particular than others and are uncertain until more details are confirmed, etc.).</p>
             </section>
           </div>
         </article>
