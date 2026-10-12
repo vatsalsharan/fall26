@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="5 CS 618 reading reflections for Week 10, October 14, 2026." />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Week 10 · CS 618 Weekly Paper Notes" />
+    <meta property="og:description" content="Reading reflections for October 14, 2026." />
+    <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-10/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Week 10 · CS 618 Weekly Paper Notes" />
+    <meta name="twitter:description" content="Reading reflections for October 14, 2026." />
+    <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-10/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Week 10 · CS 618 Weekly Paper Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#responses">Skip to the weekly notes</a>
+
+    <main>
+      <header class="site-header shell">
+        <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
+          <span class="wordmark-mark" aria-hidden="true">618</span>
+          <span><strong>CS 618</strong><small>Weekly paper notes</small></span>
+        </a>
+        <span class="term-badge">Fall 2026</span>
+      </header>
+
+      <section class="week-hero shell" aria-labelledby="week-title">
+        <a class="back-link" href="../../">← All weeks</a>
+        <p class="eyebrow">Reading reflections · October 14, 2026</p>
+        <h1 id="week-title">Week 10</h1>
+        <div class="week-summary">
+          <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
+          <span>5 responses</span>
+        </div>
+      </section>
+
+      <section class="response-list shell" id="responses" aria-label="Week 10 responses">
+        <article class="response-card">
+          <header>
+            <span class="response-number">01</span>
+            <div>
+              <h2>Katie Hancock</h2>
+              <time datetime="2026-10-08">Oct 8, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Differentially Private Synthetic Data:
+I found it interesting to think about whose patterns get preserved in the synthetic data, since a pattern shared by many private images can receive more votes while one that only appears in a few images can be harder to distinguish from the added noise. This made me wonder if useful information about rare cases could get lost. I was especially concerned about this in the medical setting, since something that stood out to me as a potential issue is if synthetic images might look realistic overall but still miss details that matter for rare conditions or underrepresented patient groups.
+
+Extracting Training Data from Diffusion Models:
+I found the question of what counts as memorization interesting. Before reading the paper, I already imagined that generated images could range from being very close to one training photo with slight changes to combining features from several photos, so the possibility of near copies wasn&#39;t totally surprising to me, but it made me wonder where we might draw the line between an image resembling the training data and reproducing a particular photo.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Differentially Private Synthetic Data:
+Could the difficulties with generating useful synthetic medical data be even worse for rare conditions or underrepresented patient groups, even if the overall results look good? How could we check if the process preserves the details that matter for those groups, and whether it makes existing performance gaps worse? I would like to learn how we can evaluate these differences and balance privacy protection with preserving information that may only appear in a small number of examples.
+
+Extracting Training Data from Diffusion Models:
+What happens if a generated image reproduces most of a photo while changing the background or another detail? Could those changes cause the measurements to miss something people would still consider a copy? I’m curious to learn how we can evaluate these less obvious cases, especially when we don’t have access to the training images.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Ansh Sindhwani</h2>
+              <time datetime="2026-10-11">Oct 11, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Differentially Private Synthetic Data via APIs : 
+
+(1) The most interesting thing i found in the paper is the setup of Private evolution function and DP nearest neighbor histogram function. the algorithm starts by asking API to randomly generate an initial batch of image.The generated images that look most similar to the private images are selected to &quot;survive&quot;. These winning images are sent back to the API to generate new variations
+(2) The other interesting thing in this paper is the use of APIs without losing performance. i read about the conventional DP methods to compare this, and use of APIs turns out to be a significant contrast. the conventional method require training or fine tuning.
+
+
+Extracting Training Data from Diffusion model:
+
+(1) It is kind of intuitive that images duplicated many times in the training dataset are highly susceptible to memorization. But the interesting part of this study is that it found that models like Imagen memorize and regurgitate highly out-of-distribution (OOD) images even if they appear only once in the training data.
+
+(2) The attack itself is also interesting. It is a  generate-and-filter kind of attack where. For each prompt the experiment generate 500 images and build a graph connecting near-identical generations. and then the authors looked for a clique of 10 or more forms, to check  memorized image, because a normal prompt should give diverse outputs across random seeds.
+
+(3) Learning about inpainting attack is also an interesting part of this paper, where given an image it was first masked out and the attack objective was to recover the masked region. Overall, attack result show that an adversary who has partial knowledge of an image can substantially improve their extraction results.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>(1) what are the chances of accidental data leakage by these models? if the models have ability to encode and memorize training data and output it via targeted attacks, are there any chances they might leak private data used in training accidently 
+
+Further should we be connecting the ideas in presented in these two papers ? On one hand the paper &quot;differentially private data via APIs&quot; show that we can use model APIs to get synthetic data, on other hand the paper &quot;Extracting training data from diffusion model&quot; show that we can extract training data from models (though it was a curated attack)- this makes me think that is synthetic data truly DP ? or are there any chances of data leakage ?
+
+(2) Do large-scale models work by generating new output, or do they simply copy and interpolate between individual training examples? this question is also raised in the paper. and i feel it should be discussed in class also
+
+(3)Why do out-of-distribution images memorize so easily in imagen ? i would actually like to discuss the reason behind it, and should we work towards mitigate this kind of behaviour ?
+
+(4)  The idea of synthetic data seem to fail in places where we can have edge cases like one in a million case (like medical data) what should be a strategy here ? is it viable to consider a hybrid approach which have a mix of real private data (maybe in small percentage) and synthetic data ?
+</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Pranavesh Kumar Talupuri</h2>
+              <time datetime="2026-10-12">Oct 12, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Lin et al. discuss the process of creating a differentially private corpus of synthetic data with privacy guarantees without actually training a model. What I find most interesting is the method behind how they make this happen. The foundation model never receives the private training examples directly, and is only used to generate synthetic &quot;candidates&quot;. There is no fine tuning, and they essentially sacrifice all notion of computational efficiency to create a guided zero-shot synthetic data generator. It is a very creative idea that approaches privacy differently.
+
+The thing i find most interesting about the work of Carlini et al. is how strictly they consider the terms for &quot;leaking&quot; training data. If a picture of a famous person is reproduced, and their identity is very clearly differentiable, it may not be considered as a memorized sample unless it closely matches one single image from the training corpus. I think this means that the results may be understated by default, as combining multiple images of the same person to yield a recognizable result is not ideal, and yet is not counted as memorized.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>From Lin et al. I am more interested to know the degree of effect that hiding the private data from the foundation model actually has. A worthwhile experiment might be to see the quality of outputs between the foundation model seeing and not seeing examples from the private corpus to understand the difference in output quality and the degree to which privacy is guaranteed. In other words, I want to know how much of the synthetic data&#39;s usefulness actually comes from the original private data vs the knowledge of the foundation model by default.
+
+I am interested to understand how much of the models&#39; learning capability is mistermed as memorization and vice versa. Is it necessary for part of the model to memorize certain features to become useful? If so, how much memorization is a necessity to yield useful results. Additionally, at what point does it become a security risk and requires containment? Is there a goldilocks zone within which diffusion models must operate to be real-world accessible without concern?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Junyang Cai</h2>
+              <time datetime="2026-10-12">Oct 12, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that the two papers show almost opposite sides of generative models and privacy. The diffusion-model extraction paper demonstrates that diffusion models can memorize and reproduce individual training images, including photographs of people and copyrighted logos. The authors extracted more than a thousand training examples and found that diffusion models were less private than GANs under their evaluations.     
+
+In contrast, the Private Evolution paper uses foundation-model APIs as a tool for privacy-preserving synthetic data generation. Instead of fine-tuning a model on private data, PE starts with generated samples and gradually moves the synthetic distribution toward the private distribution using a differentially private nearest-neighbor voting process. I found this contrast especially interesting: the same class of powerful generative models that creates privacy risks can also be used as part of a privacy-preserving pipeline.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I have is how much the privacy guarantees of synthetic-data methods depend on the privacy of the underlying foundation model itself. I hope to learn more about how we should evaluate the privacy of synthetic data beyond simply having a formal DP guarantee.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Lauren Cooke</h2>
+              <time datetime="2026-10-12">Oct 12, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The first paper on differentially private synthetic data using inference APIs as only access point to a model was very interesting in that it appears to guarantee privacy while also improving performance of initial synthetic data generation, however, then ends up falling apart a little bit in image classification. Like last week’s reading, I am not surprised that these image diffusion models also end up memorizing training image examples and in the same vein represented a huge step up in capability when compared to their GAN counterparts. It also seems that using more complex noise could help with this reproducibility, but I wonder if there is a tradeoff to doing this in the actual ability to learn anything in the diffusion process.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the synthetic data work, when comparing real and synthetic images for a particular dataset, is FID a good metric? Could it not be the case that even if overall distributions are similar based on inception embeddings, the inception model could be a particularly poor representation of whatever dataset you are working with? More generally, I also wonder about overrepresentation of synthetic examples in model training skewing a model’s understanding of the underlying true distribution of images, and how overreliance on synthetic information could worsen performance. For image memorization and memorization in general, given a means of measuring it, would that not imply one could incorporate that measurement into model training to actively disincentivize its occurrence going forward? </p>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer shell">
+        <p><span class="footer-signal" aria-hidden="true"></span>Synced from the class response form</p>
+        <p>Email addresses are never published.</p>
+      </footer>
+    </main>
+  </body>
+</html>

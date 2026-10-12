@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="1 CS 618 reading reflections for Week 12, October 21, 2026." />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Week 12 · CS 618 Weekly Paper Notes" />
+    <meta property="og:description" content="Reading reflections for October 21, 2026." />
+    <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-12/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Week 12 · CS 618 Weekly Paper Notes" />
+    <meta name="twitter:description" content="Reading reflections for October 21, 2026." />
+    <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-12/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Week 12 · CS 618 Weekly Paper Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#responses">Skip to the weekly notes</a>
+
+    <main>
+      <header class="site-header shell">
+        <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
+          <span class="wordmark-mark" aria-hidden="true">618</span>
+          <span><strong>CS 618</strong><small>Weekly paper notes</small></span>
+        </a>
+        <span class="term-badge">Fall 2026</span>
+      </header>
+
+      <section class="week-hero shell" aria-labelledby="week-title">
+        <a class="back-link" href="../../">← All weeks</a>
+        <p class="eyebrow">Reading reflections · October 21, 2026</p>
+        <h1 id="week-title">Week 12</h1>
+        <div class="week-summary">
+          <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
+          <span>1 response</span>
+        </div>
+      </section>
+
+      <section class="response-list shell" id="responses" aria-label="Week 12 responses">
+        <article class="response-card">
+          <header>
+            <span class="response-number">01</span>
+            <div>
+              <h2>Katie Hancock</h2>
+              <time datetime="2026-10-08">Oct 8, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Learning with Privacy at Scale:
+I found the keyboard example (about words missing their final letter) interesting, since it actually also points to a usability problem. I know this is kind of a side thought from the main idea of the paper, but it made me wonder what information we actually need to improve a product and how this kind of analysis could work alongside user research to understand why a pattern might be happening.
+
+Semi-Supervised Knowledge Transfer:
+I found the teacher-student setup interesting after I understood how the data gets divided. I initially didn&#39;t get why each teacher would get less data as more teachers were added, but then it made sense after I realized that it&#39;s a set amount of data and their private training examples don&#39;t overlap so it&#39;s the same amount of data being split among more teachers. I also found it interesting how having more teachers isn&#39;t necessarily better since each one would have less data to learn from, and this might even cause their performance to worsen.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Learning with Privacy at Scale:
+If the system focuses on popular patterns, could it miss problems affecting smaller groups (for example, people who use less common dialects)? How could we investigate those needs while still protecting privacy? How is privacy tracked over time? I know the paper talks about protection for individual events and limits on daily reports, but similarly to my questions from the Renyi paper, what happens when someone contributes reports for months or years? I hope to learn how these limits are chosen and see what we can learn about different users.
+
+Semi-Supervised Knowledge Transfer:
+How would someone decide how many teachers to use for a new task? How do we know when each teacher has too little information to learn well? I&#39;m curious to learn how this choice might depend on the amount of data and the difficulty of the task, or any other potential factors.</p>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer shell">
+        <p><span class="footer-signal" aria-hidden="true"></span>Synced from the class response form</p>
+        <p>Email addresses are never published.</p>
+      </footer>
+    </main>
+  </body>
+</html>
