@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="2 CS 618 reading reflections for Week 11, October 19, 2026." />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Week 11 · CS 618 Weekly Paper Notes" />
+    <meta property="og:description" content="Reading reflections for October 19, 2026." />
+    <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-11/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Week 11 · CS 618 Weekly Paper Notes" />
+    <meta name="twitter:description" content="Reading reflections for October 19, 2026." />
+    <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-11/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Week 11 · CS 618 Weekly Paper Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#responses">Skip to the weekly notes</a>
+
+    <main>
+      <header class="site-header shell">
+        <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
+          <span class="wordmark-mark" aria-hidden="true">618</span>
+          <span><strong>CS 618</strong><small>Weekly paper notes</small></span>
+        </a>
+        <span class="term-badge">Fall 2026</span>
+      </header>
+
+      <section class="week-hero shell" aria-labelledby="week-title">
+        <a class="back-link" href="../../">← All weeks</a>
+        <p class="eyebrow">Reading reflections · October 19, 2026</p>
+        <h1 id="week-title">Week 11</h1>
+        <div class="week-summary">
+          <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
+          <span>2 responses</span>
+        </div>
+      </section>
+
+      <section class="response-list shell" id="responses" aria-label="Week 11 responses">
+        <article class="response-card">
+          <header>
+            <span class="response-number">01</span>
+            <div>
+              <h2>Katie Hancock</h2>
+              <time datetime="2026-10-08">Oct 8, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that we need to consider privacy across multiple analyses, not just one because I never thought about how combining the results could reveal more information. I wonder how we would keep track of that in practice? What about when different teams or organizations are using the same data or data about the same people? Each team might check their own privacy, but how do we check that all of the releases together still guarantee privacy?</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Similar to my answer to the other question, how do different teams or organizations keep track of the accumulated privacy cost? Would they need some kind of shared system? Who would be responsible for making sure the overall limit isn&#39;t exceeded? Is there some kind of threshold? How is it measured? How does this limit get chosen in the first place? How do we decide when the privacy cost is too high to justify another analysis? I&#39;m curious to understand how these decisions are made in practice.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Lauren Cooke</h2>
+              <time datetime="2026-10-12">Oct 12, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>This relaxed definition of differential privacy seems to quantify this notion of difference across input data distributions in a different way, where one focuses on the cumulative distance across distributions after some number of timesteps rather than the worst case distance one could have at a given timestep. This measurement is interesting in that it tries to capture how much possible leakage there can be across two processes more generally as a function of their inputs and how much of the distribution is really important to someone to cover for the guarantee.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One of the main advantages of this process appears to be in making the math nice in allowing for a summation across moments of the distribution to quantify total privacy guarantees, but I wonder how does this connect to the particular aspects of a given function&#39;s data leakage? Given DP is more of a worst-case scenario, and this relaxation allows for a tighter bound, can we get even tighter somehow incorporating a function&#39;s particular ability to protect data? Perhaps analyzing a system’s properties for its function (ie. gradient/curvature/smoothness) generally combined with measurable properties of a dataset (ie. Sparsity, smoothness, clusters/attribute-specific correlation, etc.)?</p>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer shell">
+        <p><span class="footer-signal" aria-hidden="true"></span>Synced from the class response form</p>
+        <p>Email addresses are never published.</p>
+      </footer>
+    </main>
+  </body>
+</html>

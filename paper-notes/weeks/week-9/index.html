@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="23 CS 618 reading reflections for Week 9, October 12, 2026." />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Week 9 · CS 618 Weekly Paper Notes" />
+    <meta property="og:description" content="Reading reflections for October 12, 2026." />
+    <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-9/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Week 9 · CS 618 Weekly Paper Notes" />
+    <meta name="twitter:description" content="Reading reflections for October 12, 2026." />
+    <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-9/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Week 9 · CS 618 Weekly Paper Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#responses">Skip to the weekly notes</a>
+
+    <main>
+      <header class="site-header shell">
+        <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
+          <span class="wordmark-mark" aria-hidden="true">618</span>
+          <span><strong>CS 618</strong><small>Weekly paper notes</small></span>
+        </a>
+        <span class="term-badge">Fall 2026</span>
+      </header>
+
+      <section class="week-hero shell" aria-labelledby="week-title">
+        <a class="back-link" href="../../">← All weeks</a>
+        <p class="eyebrow">Reading reflections · October 12, 2026</p>
+        <h1 id="week-title">Week 9</h1>
+        <div class="week-summary">
+          <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
+          <span>23 responses</span>
+        </div>
+      </section>
+
+      <section class="response-list shell" id="responses" aria-label="Week 9 responses">
+        <article class="response-card">
+          <header>
+            <span class="response-number">01</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-10-01">Oct 1, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Scalable Extraction of Training Data from (Production) Language Models:
+1. Study has large-scale implications which are alarming, but memorization can also be used for good! Although GPT claims they don&#39;t train their models on given derivations of GPT, we could use privacy audits to actually legally confirm this possibly!
+2. Drawing a parallel to &quot;Sleeper Agents&quot; such vulnerabilities (whether backdoor or privacy in this case) are hard to confirm and may easily lie dormant in a model
+
+Low-Cost High-Power Membership Inference Attacks:
+1. I found the paper’s framing of non-membership as many possible worlds particularly interesting. By comparing a candidate against both reference models and ordinary examples, RMIA makes privacy auditing practical with as few as one reference model.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Scalable Extraction of Training Data from (Production) Language Models:
+1. The intention behind &quot;discoverable memorization&quot; is to provide an upper bound on memorization, but given the discrepancies between models how useful would this experimentally found upper-bound apply to other models/datasets; are we assuming similar models trained on similar datasets will obey this upper-bound?
+a) Basically what is a principled approach to privacy auditing?
+2. Deeper explanation on the Good-Turning method + its intuition would be helpful!
+3. Optimal prompts from &quot;Private Investigator: Extracting Personally Identifiable Information from Large Language Models Using Optimized Prompts&quot; may derive a better upper-bound on memorization but is there a more principled approach to this?
+	
+Low-Cost High-Power Membership Inference Attacks:
+1. Although this method allows for a reduced budget, does it actually make privacy auditing more feasible?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Sheryl Mathew</h2>
+              <time datetime="2026-10-02">Oct 2, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Scalable Extraction: The authors propose the definition of Discoverable memorization to complement Extractable memorization. They use open source models and efficiently query the models&#39; training data to verify the success of various extraction attacks, which prior work was not able to do at scale.
+MIA: This paper presents a more realistic way to test for MIA. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Scalable Extraction: It&#39;s not clear why larger and more capable models are more vulnerable to data extraction attacks. I thought it would be the other way around?
+MIA: I&#39;m hoping to understand more about the intuition behind why the paper&#39;s statistical test is better than prior work based on the MIA game.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Lauren Cooke</h2>
+              <time datetime="2026-10-06">Oct 6, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The scalable extraction work recovering training data from trained LLMs effectively memorizing examples, so it is both interesting and reasonable that more capable models with more room to memorize information would choose to do so to avoid having to work harder to synthesize important information from examples. I am both surprised and not by the relatively high percentage of examples memorized in these larger models, where I think relying enough on memorization would help explain the types of failure modes we see with model hallucination, but also given their decent general performance, I think it speaks to at least some degree how representative the plethora of data we are feeding these large models are to function. I also found this counterfactual approach using the null hypothesis to membership inference quite interesting, as thinking about what it means for a model to have been trained on a specific point and measuring that likelihood will translate back to more robust detection. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I am really interested in discussing the potential applications of membership inference both via trying to find memorized info in a model as a first means of training data recovery and then directly with the low-cost counterfactual approach, as this is what I hope to do my final project on! I’m hoping to talk more about how models really synthesize data, and what encourages memorization vs synthesis. I’d also be interested to think and discuss more about the limitations of the current low-cost approach to membership inference.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Junyang Cai</h2>
+              <time datetime="2026-10-07">Oct 7, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find interesting that both paper talk about the problems that training data privacy can&#39;t be ensured within the current LLMs. The paper find out large language models can emit verbatim portions of their training data, and that larger and more capable models tend to be more vulnerable to extraction. The other paper examine a different perspective that give a data, will the model able to leak the information that if it used in training or not. Both paper examine serious problem related to LLM privacy.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>What kind of privacy audit should be required before deploying large models? How does the privacy team in LLM companies did to ensure that their model is safe?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Katherine Hancock</h2>
+              <time datetime="2026-10-07">Oct 7, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Scalable Extraction of Training Data from (Production) Language Models:
+I was surprised at how vulnerable ChatGPT was in these experiments. I wonder if larger models are generally more vulnerable than smaller ones, and if so, why? Or does this depend more on how they&#39;re trained? It also made me start thinking about the consequences of models reproducing someone else&#39;s work beyond just the privacy concerns.
+
+Private Investigator:
+I was surprised that prompts that were effective at extracting personal information from one model could also work on another, even when the models had different architectures.
+
+Low-Cost High-Power Membership Inference Attacks:
+I found the tradeoff between identifying training examples and avoiding false positives interesting. Even though RMIA improves on earlier methods, it can still miss many training examples when the false positive rate is kept very low. I can see why identifying even some examples would be useful, but it also made me wonder how we should interpret the examples it misses.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Scalable Extraction of Training Data from (Production) Language Models:
+Who would be legally responsible if a model produces content that infringes someone&#39;s copyright? The company providing the model? The person using the output? Or both? I also wonder where we draw the line between reproducing someone&#39;s work and generating something that happens to be similar. This seems especially tricky with images, since something could look very similar without being exactly the same.
+
+Private Investigator:
+How much privacy testing is enough before an organization feels comfortable deploying a model (especially since different attacks can uncover information that others miss)? How do they decide when they’ve tested enough? Also, how can we distinguish actual leaked personal information from plausible information the model made up if we don’t have access to its training dataset? I hope to learn how these decisions are made in practice and what evidence is needed to confidently identify a leak.
+
+Low-Cost High-Power Membership Inference Attacks:
+I’m curious how we decide the tradeoff between catching more actual training examples and incorrectly flagging examples that weren’t used. Would that depend on whether a company is auditing its model or someone is checking whether their own data was used? Also, how much reassurance should a negative result give us if the attack can miss many members? I hope to learn how these thresholds are chosen in practice and what conclusions we can reasonably draw from the results.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">06</span>
+            <div>
+              <h2>Selina Xiao</h2>
+              <time datetime="2026-10-08">Oct 8, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For Scalable Extraction of Training Data from (Production) Language Models, I find it especially interesting that ChatGPT initially appears much more private after alignment, but the divergence attack increases training-data emission by about 150 times. This suggests that alignment may suppress visible memorization without actually removing the memorized information. For Low-Cost High-Power Membership Inference Attacks, I find the design of RMIA interesting because its improvement comes mainly from formulating the null hypothesis more carefully. It compares the target point against many population samples through pairwise likelihood ratios and remains strong even with very few reference models.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For Scalable Extraction of Training Data from (Production) Language Models, I wonder whether extractable memorization is really a stable privacy metric, since the measured leakage can change substantially with the prompting strategy and query budget. For Low-Cost High-Power Membership Inference Attacks, I wonder how sensitive RMIA is to having an inaccurate approximation of the true population distribution, especially for proprietary models where the auditor may know very little about the training data. I am also curious whether RMIA could be used directly as a filtering oracle in training-data extraction attacks, since the first paper already uses membership-inference-style scoring to distinguish memorized outputs from hallucinated ones. </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">07</span>
+            <div>
+              <h2>Fnu Nisarga Bhaskar</h2>
+              <time datetime="2026-10-08">Oct 8, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Normally, we might assume that to extract memorized information, an attacker needs to know something about the private dataset but the paper show that an attacker can use a completely separate surrogate language model to discover effective prompts and then transfer those prompts to the target model. the surrogate model doesn&#39;t need to have the same architecture as the target model.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The paper assumes that an attacker will use either a publicly available pretrained model or a model fine-tuned on the attacker&#39;s own dataset to discover effective extraction prompts.
+However, this raises an important question:
+What happens if the attacker&#39;s auxiliary dataset is very different from the private dataset used to fine-tune the target model?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">08</span>
+            <div>
+              <h2>FNU Bandre Devaraju Vinod</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that the researchers don’t need access to a model’s weights or training data to perform a privacy attack. You could extract PIIs by optimizing prompts on an alternate model and selecting prompts with diverse contexts. This suggests that protecting model weights and training data might not be sufficient to prevent private information from leaking.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The paper only shows transfer across email datasets. I’d like to know how would the method used in the paper generalize to different domains. </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">09</span>
+            <div>
+              <h2>Vaishnavi Sinha</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Scalable Extraction of Training Data:
+The discoverable vs extractable split reminded me of cued recall vs free recall from cognitive psychology. In humans cued recall is the stronger one, but ChatGPT does the opposite, it fails to complete the prefix of text it already emitted by itself under the divergence attack. That is close to Tulving’s idea that a memory can be available but not accessible, so I read alignment as a retrieval inhibition on top of the storage. The attack also reminded me of semantic satiation, where repeating a word enough times makes it lose meaning.
+
+Low-Cost High-Power Membership Inference Attacks:
+What I liked in the design of RMIA is the use of Bayes rule to flip the likelihood ratio. Asking how likely the model is given the sample needs new models trained with that sample, which is what makes LiRA expensive. Flipping it to how likely the sample is under the model, compared to how likely it is under reference models, only needs to query models that already exist.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Scalable Extraction of Training Data:
+If the model outputs text that matches the training data word for word, did it really memorize it, or is it just easy text any model could write, like counting numbers or a list of countries?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">10</span>
+            <div>
+              <h2>Chen Gong</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>[paper1] I was surprised that just asking ChatGPT to repeat a word forever could make it leak training data. It shows that alignment doesn&#39;t really remove memorization; it only hides it. I also found it interesting that they checked the outputs against a huge web dataset to confirm the text was really memorized. The amount of data they could extract with a small budget was much larger than I expected.
+
+[paper2] I liked that RMIA works well with only a few reference models, so membership inference becomes much cheaper than with earlier methods like LiRA. The idea of comparing the target example with many population examples is simple but effective. It was also interesting that it still works well in the offline setting, where the reference models are not trained on the target example.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>[paper1]Why does repeating a word make the model diverge like that? [paper2]Whether RMIA can work on large language models, where even training one reference model is expensive.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">11</span>
+            <div>
+              <h2>Alan Liang</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that GPT-3.5-turbo initially appeared resistant to training-data extraction, but the divergence attack recovered over 10,000 memorized examples for about $200 in API queries. I also found it interesting that earlier attacks were more successful than researchers had realized. Checking outputs against a large text corpus revealed memorized data that earlier verification methods had missed. 
+
+I found it interesting that RMIA uses both reference models and population examples to decide whether a model’s confidence provides evidence of membership. On CIFAR-100, it outperformed LiRA even with only one reference model. I also found the focus on very low false-positive rates useful, since incorrect membership predictions can overwhelm correct ones when most candidate examples are non-members. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Why does repeating a word cause the model to leave its usual chatbot behavior, and what role does tokenization play? How much leakage could the authors miss when their verification dataset does not contain private training data? I hope to learn which defenses reduce memorization itself and how those compare with defenses that make memorized text harder to extract.
+
+Why do population comparisons help so much when few reference models are available? The authors test several kinds of mismatch, but how would an auditor know whether their reference data are representative enough when the target’s training set is secret? I hope to see a simple example comparing RMIA with LiRA, and discuss how much evidence is needed to trust a reported zero false-positive rate.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">12</span>
+            <div>
+              <h2>Sriram Kadiyala</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Scalable Extraction of Training Data from (Production) Language Models
+
+It was interesting to know that the authors could get ChatGPT (gpt-3.5-turbo) to leak training data verbatim just by asking to repeat the word &quot;poem&quot;. What this paper found out, that alignment does not remove memorization but that it just hides it and that a model that scores well on privacy evals may just have a thin behavioral layer over the same memorized corpus was pretty interesting too in my opinion.  
+
+Low-Cost High-Power Membership Inference Attacks (RMIA)
+
+The way this paper calculates the membership scores was intriguing to me. It was also quite interesting to know that they achieved high TPR at low FPR, which is actually what counts.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Scalable Extraction of Training Data from (Production) Language Models
+
+The one pressing question I had is how do we remove memorization at all? Is it even possible? If it is not possible to remove memorization, what’s an acceptable residual level so that the models won&#39;t be able to leak pre-training data?
+
+The paper states that 16.9% of tested generations contained real memorized PII and 85.8% of the PII was genuine, why is the PII even present in the pre-training data? My understanding is that there have been many prior works that involve masking PII. Is there a privacy-utility tradeoff reason for using PII in pre-training?
+
+Low-Cost High-Power Membership Inference Attacks (RMIA)
+
+Tying up both the papers together, the field benchmarks defenses against the strongest attack it can construct, but the attacks that actually matter are the ones an adversary can afford. Has calibrating against expensive attacks caused systematic underestimation of real-world risk?
+
+I hope to find out the answers to these questions during the discussion!</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">13</span>
+            <div>
+              <h2>Faith Baca</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the first paper, I thought it was interesting how alignment can make a model appear to protect its training data without actually preventing that data from being extracted. The example where asking ChatGPT to repeat some tokens eventually caused it to produce memorized text was especially surprising to me because of how simple the request was. This reminded me a lot of the distinction between teaching models not to express bias and actually changing the underlying associations that produce it, and it reminded me of the paper about implicit and explicit biases that we read earlier in the semester. In both cases, I think it&#39;s concerning that evaluating the behavior we normally observe could give us a false sense of how successfully an intervention addressed the problem. For the second paper, I thought it was really interesting how the authors were able to improve membership inference attacks while using very few reference models. This made me think about who actually has the capacity to audit models; a method being effective doesn&#39;t necessarily make it useful if only a small number of organizations can afford to run it. While I think making these evaluations more accessible is important, it also seems concerning that the same improvements could make privacy attacks more accessible as well.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the first paper, I am curious whether the likelihood of having personal information extracted differs across demographic groups, and how we should evaluate the implications of those differences. Even if two groups had the same rate of exposure, I wouldn&#39;t necessarily expect the consequences to be the same, especially for people who already face harassment or discrimination. I am also wondering what meaningful protection should look like when information was already publicly available but is now being reproduced in a different context. For the second paper, I am curious about how the choice of reference population affects whose privacy risks we are able to detect. Since the method uses both reference models and population data, could an audit underestimate risks for communities that are poorly represented in those references? I would be interested to discuss how we could distinguish a group actually having stronger privacy protection from an attack simply being less effective at detecting its exposure. In general, I am hoping to hear people&#39;s thoughts on what evidence should be required before we describe a model as privacy-preserving, given that failing to uncover a vulnerability doesn&#39;t necessarily mean it isn&#39;t there.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">14</span>
+            <div>
+              <h2>Mattia Solla</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>&quot;Scalable Extraction of Training Data from (Production) Language Models&quot;: The simplicity of the attacks and the rate at which training data is emitted are both alarming. In many of the papers we had to read in this class, alignment of an LLM can solve an apparent issue but maintain a vulnerability for other kinds of attacks. This paper adds data extraction attacks to this list.
+&quot;Low-Cost High-Power Membership Inference Attacks&quot;: The reframing of the test for group membership in terms of comparisons with randomly sampled data points is interesting. I liked the interpretation as a calibrated version of prior attacks, though I wish the authors had studied the theoretical properties of their attack compared to the literature more in detail.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>&quot;Scalable Extraction of Training Data from (Production) Language Models&quot;: do the words that result in more training data extracted used by the authors have anything in common? 
+&quot;Low-Cost High-Power Membership Inference Attacks&quot;: What is robust in RMIA formulation? Where does the better out-of-distribution performance come from?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">15</span>
+            <div>
+              <h2>Emily Weiss</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Scalable Extraction…
+
+1. I thought it was interesting that GPT appeared to be particularly susceptible to the data extraction attacks. Similarly, it was interesting that the trend we’ve often seen throughout this class (where the larger models are more susceptible to bad behavior) also held in this case for the open weight models. 
+
+2. I was very surprised by the description of Carlini et al. (2021)’s approach for evaluation. Even for closed source models, I would have assumed that there are certain datasets (e.g. common crawl, brown corpus) that are always included as training data for these models. I would assume that these could then be a more constrained resource that is easier to use for validation rather than performing manual searches of the public internet. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Scalable Extraction…
+
+1. Could an attack like this be used to identify when privacy guarantees are broken, and hence open model authors up to legal trouble? Also, who—if anyone—is responsible if a model absorbs content that is copyrighted or illegal in certain jurisdictions, and then outputs it? It would feel wrong for there to be no responsibility or consequences just because certain models are owned by major corporations. 
+
+***
+
+Low-Cost High-Power…
+
+1. How risky are membership inference attacks? The setup as described in the paper is that MIAs are used to determine whether some data was used to train a model. From the perspective of an adversary, how helpful are these attacks if you are yet to have confirmed private data? </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">16</span>
+            <div>
+              <h2>Mohammadsaeed Haghi</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the extraction paper, what I found most interesting is their explanation for why the divergence attack works at all. During pre-training, documents get packed together and separated by a special token, so the model learns that everything before it can be ignored. OpenAI blocks that token from being sent through the API. Their hypothesis is that repeating one word a few hundred times puts the model into a similar state without it. So the attack reconstructs a signal you are not allowed to send.
+For the RMIA paper, what I found most interesting is that their framework explains its own result. They rewrite the prior attacks as special cases of their test: LiRA turns out to be the average of their likelihood ratio over all population samples, and Attack-R drops the calibration against population data. LiRA needs many reference models because of that averaging. So their offline attack beats LiRA running online, as long as LiRA is not given hundreds of reference models.
+</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the RMIA paper, Since the lack of reference models for deployed LLMs like GPT reduces RMIA to Attack-P, can substituting a cheap proxy for Pr(x) successfully recover RMIA&#39;s original performance?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">17</span>
+            <div>
+              <h2>Aditya Kotha</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Scalable Extraction of Training Data paper:
+
+It’s a very interesting paper on how LLMs&#39; memorization property can be used to extract their training data. What I found most interesting is how misleading ChatGPT’s alignment made it look. Under normal prompting, it seemed about 50× more private than other models, but the “repeat this word forever” attack made it emit training data 150× more often. One thing I noticed, though, is that the paper doesn’t really differentiate between good and bad memorization. For example, a theorem or a standard definition (e.g., a license) might be the same everywhere, so reproducing it doesn’t mean we successfully exfiltrated training data, it just means the text is available everywhere. There were also some interesting observations, for example, as models get larger, their memorization of training data increases, and as you query them more, the rate of extractable memorization increases in bigger models. The authors also offer hypotheses for why ChatGPT was the most vulnerable to their attacks. They think it might be because the pretraining ran for multiple epochs, so the model memorized more data. They also found that when a single token is repeated, the probability of the model producing that token again drops to 0.1% after 250 repetitions, but the same doesn’t happen when multiple words are repeated together.
+
+Low-Cost High-Power Membership Inference Attacks paper:
+
+I liked how RMIA reframes membership inference. Instead of only asking whether the target model fits x better than the reference models, it also checks whether that relative advantage exceeds that observed for random population points. That extra calibration helps it work with very few reference models. With just one reference model on CIFAR-100, it achieved 0.87 AUC, compared to offline LiRA’s 0.69. In the CIFAR-10 comparison, offline RMIA even outperformed online LiRA in AUC until LiRA had hundreds of reference models.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Scalable Extraction of Training Data paper:
+
+One of the immediate questions I have is if the text outputed by LLM after the attacks like word repetition, if the outputs of it are things like licenses or standard definitions/theorems which have standardized definitions everywhere, do we count the attacks as success? Shouldn’t we exclude such cases as they are not really considered successful extraction or private information?
+
+Low-Cost High-Power Membership Inference Attacks paper:
+
+How well would RMIA transfer from image and tabular models to LLMs, where reference models may be expensive and training distributions are largely unknown due to their scale
+
+I hope to discuss and learn more on how MIA attacks can be used positively to verify if any PII or benchmark leaking has occured in the final model especially for LLMs so that they can be kept safe and evaluated fairly.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">18</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>paper1: I&#39;m surprised that alignment can make a language model appear less likely to reveal its training data without actually removing the memorized information. ChatGPT initially appears to reveal very little training data, but the divergence attack causes it to behave more like a base model and produce memorized text. This let me question how much protection alignment really provides against privacy attacks.
+paper2: I find it interesting that membership inference attacks do not necessarily require training a large number of reference models. RMIA remains effective with only one or two reference models by comparing the target sample with samples from a reference population. This makes membership inference seem much more practical as a privacy-auditing tool.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>paper1: If alignment only hides memorized data rather than removing it, what kinds of defenses could prevent extraction more fundamentally? I am also curious about the trade-off between memorization and model utility, since some memorization may be necessary for learning useful information.
+paper2: I wonder how reliable RMIA would be when an auditor has limited knowledge about the model’s training distribution or architecture. Since its performance still depends on reference models and population samples, I would like to understand how much mismatch it can tolerate before its conclusions become unreliable. I also hope to discuss what level of evidence from a membership inference attack should be considered sufficient in a real privacy audit.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">19</span>
+            <div>
+              <h2>Yuyang Jiang</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it particularly interesting that alignment and safety training do not necessarily eliminate training-data memorization or prevent extraction attacks. The first paper demonstrates that even production language models can reveal substantial amounts of training data when prompted to deviate from their usual behavior. The follow-up work on Private Investigator further shows how optimizing prompts can make personal information extraction more effective. I also found the second paper&#39;s emphasis on computational efficiency interesting, as it makes membership inference attacks more practical under limited resources. Together, these papers highlight that privacy vulnerabilities are not only about whether information is memorized, but also about how easily an attacker can extract or infer that information.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I had is how we should systematically evaluate privacy risks in language models when different attacks reveal different aspects of training-data exposure. Training-data extraction provides direct evidence that some memorized content can be recovered, whereas membership inference estimates whether a particular example was included in training. How closely are these two vulnerabilities related, and can a model be highly resistant to one while remaining vulnerable to the other? I would also be interested in discussing how to design practical privacy evaluation protocols that account for adaptive attackers who optimize their prompts or strategies, rather than relying only on fixed attacks with limited query budgets.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">20</span>
+            <div>
+              <h2>Michael Duan</h2>
+              <time datetime="2026-10-09">Oct 9, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the scalable data extraction paper, I thought it was interesting that deduplication didn&#39;t seem to work as effectively as earlier works suggested for mitigating training data extraction. The method of deduplication that Pythia uses is ngram-based, so perhaps a stricter deduplication (e.g., semantic embeddings), could yield different extraction trends.
+
+For the membership inference attack paper, I found it was interesting that you can get pretty good performance even with a very small reference set. Perhaps there exists ways to select reference models strategically, for example, by choosing naturally difficult or closely matched null references, to further increase the test’s power.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>How much utility does the extracted data actually have? For example, for data extracted matching reference corpora, how much of it is something like sensitive PII or copyrighted content? In the case of something like copyright, how much needs to be exactly extracted to legally raise copyright concern? Furthermore, what types of data are most likely extractable (e.g., is it very diverse or mostly a few types of web documents)?
+
+For the membership inference attack work, I&#39;m curious how we should define membership for modern LLMs. Do close neighbors of members (e.g., paraphrases) in training data count as non-members or since they are semantically equivalent, members as well? Furthermore, how can we scale these membership experiments to modern LLMs? This is less of a science question, and more of how we can encourage people to perform transparent documentation and convert them into meaningful MI benchmarks.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">21</span>
+            <div>
+              <h2>Aman Desai</h2>
+              <time datetime="2026-10-10">Oct 10, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Scalable Extraction of Training Data from (Production) Language Models: I really liked the distinction the authors made between &quot;discoverable&quot; and &quot;extractable&quot; memorization. It seems like it is often (somewhat) reasonable to assume that a potential adversary does not know the exact data that the model was trained on, so &quot;extractable&quot; memorization seems like a very pragmatic way to estimate how well a powerful adversary would perform. Also, in some situations, it might make sense for a model to divulge training data. For example, if a model was asked to compose a poem beginning with &quot;Once upon a midnight dreary&quot;, it would be natural for the model to continue with the rest of Edgar Allen Poe&#39;s poem &quot;The Raven&quot; (which begins with that line). Technically, the model would be revealing training data, but this makes sense (in context) because it is not any private/proprietary information.
+
+Low-Cost High-Power Membership Inference Attacks: From my understanding, the main mechanism of the RMIA attacks is to represent the membership inference test using many different pairwise likelihood ratio tests. This is a very elegant solution, though it still seems somewhat inefficient since we have to train multiple auxiliary models to estimate the different probabilities. I would be curious to learn how the power of the statistical test scales with the number of these auxiliary models.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Scalable Extraction of Training Data from (Production) Language Models: In theory, can differentially private optimization methods (like DP-SGD) reduce training data memorization even for models that are trained for many epochs? 
+
+Low-Cost High-Power Membership Inference Attacks: Is there a natural way to use prior knowledge to reason (in a Bayesian manner) about which points are more/less likely to be in the training dataset? Would this improve the performance of RMIA? Alternatively, is this just captured by the \gamma parameter?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">22</span>
+            <div>
+              <h2>Pranavesh Kumar Talupuri</h2>
+              <time datetime="2026-10-10">Oct 10, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>From Carlini et al. we know that models are capable of recounting and leaking their training data, but I think it is even more interesting that the larger models are more susceptible to these leakages: somehow increasing the model&#39;s capability also increases risk of memorization and data leakage. I also think its interesting that ChatGPT was &quot;aligned&quot;, but a specific prompt strategy was able to break the alignment itself. In a way, this means that the model was never really aligned, but more hardwired into hiding its own training data by default and behaving as if it were truly aligned. Hiding memorization without truly removing it is a dangerous game and asks questions about the integrity of these so-called aligned models.
+
+Keum et al. further this line of experimentation by building a formal framework to test different prompts and see where the gaps lie. I think that the most interesting part of this work is that different prompts affect the models differently and lead do different parts of the training data. The very act of trying variety in prompt structure leads to a greater leakage of data and yields new sensitive information after each pass. At least during the time when this paper was written, models were extremely vulnerable to this type of attack.
+
+Zarifzadeh et al. show that membership inference attacks also do not require a large number of reference models. I think it is interesting that the quality of results doesn&#39;t change by much when there is only one reference model vs. many reference models. So low cost, and low reference model count, but still a good result. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Carlini et al. shows that &quot;alignment&quot; only suppresses the models leakage capability and does not truly mitigate the issue. In that case, can we make privacy guarantees on the outputs of this model or is that now a damaged line of thinking? Similarly from Keum et al. we might have to test these privacy guarantees with adversarial surrogate models for there to be meaningful results. What is the experimental pathway here?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">23</span>
+            <div>
+              <h2>Nana Xia</h2>
+              <time datetime="2026-10-10">Oct 10, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>In scalable extraction of training data paper, I found interesting is that the larger and more heavily trained models tend to expose more extractable memorization. The example of aligned ChatGPT model looked much more private under normal queries because it didn&#39;t behave like a plain next-token predictor. However, the paper showed that it didn&#39;t mean the memorized data was gone. Under a special designed divergence attack, the ChatGPT model revealed much more training data and extracted more than 10,000 memorized examples. Private investigator paper strengthens the idea in the previous paper. The attack tries to find and select prompts that more effective for extracting personally identifiable information (like names, emails, etc). It shows that optimized prompts can recover substantially more PII than previous attacks. The low-cost high-power membership inference attacks paper shows that RMIA can achieve stronger membership inference with only a small number of reference models with better usage of population samples.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The papers suggest that stronger, more carefully designed attacks can reveal more training-data leakage than weaker or more conventional attacks. In practice, however, how can we determine whether a model provides adequate protection against training-data leakage? If ordinary prompts reveal little or no sensitive information, but stronger, targeted attacks can still recover training data, how should we evaluate the model’s privacy risk? What criteria or benchmarks can we use to assess whether a model is sufficiently private in real-world settings?</p>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer shell">
+        <p><span class="footer-signal" aria-hidden="true"></span>Synced from the class response form</p>
+        <p>Email addresses are never published.</p>
+      </footer>
+    </main>
+  </body>
+</html>
