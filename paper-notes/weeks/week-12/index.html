@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="1 CS 618 reading reflections for Week 12, October 21, 2026." />
+    <meta name="description" content="5 CS 618 reading reflections for Week 12, October 21, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 12 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 12</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>1 response</span>
+          <span>5 responses</span>
         </div>
       </section>
 
@@ -65,6 +65,94 @@ If the system focuses on popular patterns, could it miss problems affecting smal
 
 Semi-Supervised Knowledge Transfer:
 How would someone decide how many teachers to use for a new task? How do we know when each teacher has too little information to learn well? I&#39;m curious to learn how this choice might depend on the amount of data and the difficulty of the task, or any other potential factors.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Alan Liang</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that Apple could discover new words without starting with a complete dictionary. Sequence Fragment Puzzle combines popular privatized fragments into candidate words and then estimates their frequencies. I also found the “lov” and “kno” example interesting: these shortened words helped reveal that people were accidentally tapping a keyboard prediction before finishing the word. This showed how aggregate statistics could uncover a specific interface problem.
+
+I found it interesting that PATE provides privacy even though the teachers themselves are trained without differential privacy. The protection comes from noisy aggregation of their votes, and the student retains its privacy guarantee even if its weights are public. I was also surprised that the student reached 98% accuracy on MNIST with only 100 teacher-label queries, using semi-supervised learning on a larger pool of public images.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>How does privacy loss accumulate when the same person contributes reports every day, given that the guarantee is per event? How reliable are the estimates for small language communities or rare words after adding noise and applying frequency thresholds? I hope to see a simple example showing how Hadamard Count Mean Sketch can transmit one privatized bit plus index information while keeping the frequency estimates reasonably accurate.
+
+How should the number of teachers be chosen when adding more teachers leaves less training data for each one? What happens to rare classes that only a few teachers learn well? I hope to see a simple example explaining why strong teacher agreement lowers the privacy cost. I also want to understand how much the student’s performance depends on having public unlabeled data that resemble the private data.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Eric Liu</h2>
+              <time datetime="2026-10-18">Oct 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found Learning with Privacy at Scale&#39;s Sequence Fragment Puzzlep really clever because it reconstructs popular new words from privatized word fragments, without needing to know the words in advance. In the PATE paper, I thought it was very surprising that even revealing the calculated privacy budget can leak information about the training data.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For Learning with Privacy at Scale, I&#39;m curious whether having event-level privacy is enough when a user contributes many records over time, even if each record is individually protected? For PATE, since stronger teacher agreement leads to lower privacy cost, could this make it harder to learn from rare or unusual examples where teachers are more likely to disagree?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Yuyang Jiang</h2>
+              <time datetime="2026-10-19">Oct 19, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the different approaches to privacy-preserving learning particularly interesting. The PATE paper shows how knowledge can be transferred from multiple models trained on disjoint private datasets to a student model through noisy aggregation, without directly exposing the underlying training data. Apple&#39;s work demonstrates how local differential privacy can be deployed at a massive scale by randomizing user data before it leaves individual devices. I especially liked how the two approaches place privacy protection at different stages of the learning pipeline. Together, they highlight that privacy-preserving machine learning is not just about adding noise, but also about designing the overall system architecture to balance privacy, utility, and scalability.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I had is how we should decide where to introduce privacy protection in a machine learning pipeline. PATE protects private training data through noisy teacher aggregation, whereas Apple&#39;s approach privatizes individual records before they reach the server. These methods have different assumptions about data access, trust, and computational resources. I wonder how much the choice between these architectures affects the achievable privacy-utility trade-off, especially when moving from relatively simple classification or frequency estimation tasks to more complex foundation model training. I would be interested in discussing whether there are general principles for choosing the most appropriate privacy mechanism for different real-world applications.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Junyang Cai</h2>
+              <time datetime="2026-10-19">Oct 19, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that the two papers use differential privacy at very different points in the learning pipeline. PATE partitions sensitive data across multiple teacher models and trains a student only from their noisy aggregated predictions, so the final student never directly accesses the private training data.  
+
+In contrast, Apple’s system applies local differential privacy directly on the user’s device, so the server never receives the raw data at all. The system also removes identifiers, discards IP addresses, and separates records from different use cases before aggregation.     learning-with-privacy-at-scale.
+
+I thought this contrast was especially interesting because both systems provide formal privacy guarantees, but they make very different assumptions about who is trusted and where privacy protection should happen.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I have is how we should choose between local differential privacy and approaches such as PATE in a real application. I hope to learn more about how theoretical privacy guarantees translate into engineering tradeoffs at scale.</p>
             </section>
           </div>
         </article>
