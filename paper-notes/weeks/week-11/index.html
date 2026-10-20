@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="2 CS 618 reading reflections for Week 11, October 19, 2026." />
+    <meta name="description" content="27 CS 618 reading reflections for Week 11, October 19, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 11 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 11</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>2 responses</span>
+          <span>27 responses</span>
         </div>
       </section>
 
@@ -77,6 +77,524 @@
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
               <p>One of the main advantages of this process appears to be in making the math nice in allowing for a summation across moments of the distribution to quantify total privacy guarantees, but I wonder how does this connect to the particular aspects of a given function&#39;s data leakage? Given DP is more of a worst-case scenario, and this relaxation allows for a tighter bound, can we get even tighter somehow incorporating a function&#39;s particular ability to protect data? Perhaps analyzing a system’s properties for its function (ie. gradient/curvature/smoothness) generally combined with measurable properties of a dataset (ie. Sparsity, smoothness, clusters/attribute-specific correlation, etc.)?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Junyang Cai</h2>
+              <time datetime="2026-10-14">Oct 14, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that Rényi Differential Privacy is motivated not just by obtaining a different privacy guarantee, but by making privacy accounting under repeated composition much easier and tighter. Standard-DP can become cumbersome when many heterogeneous mechanisms are composed, because each mechanism may correspond to an entire curve of possible pairs guarantees. RDP instead represents privacy using Rényi divergence at different orders and has a simple additive composition rule.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I have is how we should interpret the parameter alpha in RDP from the perspective of an actual user whose data is being protected. I hope to better understand why RDP gives tighter privacy accounting in practice and when that improvement is actually significant.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Selina Xiao</h2>
+              <time datetime="2026-10-14">Oct 14, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For Renyi Differential Privacy, I find it interesting that the main motivation is not only to get a tighter privacy bound, but also to keep more information about the privacy loss instead of immediately compressing everything into one epsilon, delta guarantee. This seems especially useful under composition, since RDP curves can simply be added across mechanisms, including heterogeneous mechanisms, and only converted back to epsilon, delta DP when needed. I also found the Gaussian mechanism example intuitive because its RDP guarantee has a very simple form, so repeated Gaussian mechanisms remain easy to track under composition.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I have is whether RDP is best viewed mainly as an accounting tool or as a privacy definition that should be communicated directly to users. The paper argues for treating it as a privacy definition, but in practice the meaning of an alpha, epsilon RDP guarantee seems much harder to interpret than an epsilon DP guarantee, especially because the implied risk depends on the baseline probability of an event. I am also curious about how much information is actually lost when the RDP curve is represented using only a small finite set of alpha values.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-10-15">Oct 15, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The key insight of this paper seems to be that the (ε, δ)-differential privacy relaxation “leaves out important information about the mechanism’s actual behavior” after selecting only one point on the curve. By retaining more information about the curve, Rényi differential privacy, which the authors describe as a stronger notion than (ε, δ)-differential privacy, yields tighter results under composition.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>	• I found the advantages of Rényi differential privacy interesting, but I would like to better understand its limitations and when standard (ε, δ)-differential privacy might still be preferable.
+   • I would also like to understand how much information is lost when an RDP guarantee is converted back into the more familiar (ε, δ)-DP form </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">06</span>
+            <div>
+              <h2>Emily Weiss</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>1. I thought it was interesting that Réyni differential privacy allows us to maintain a privacy budget, but was surprised that the prior notions of DP we have discussed so far do not provide an accurate estimate of privacy loss. 
+
+2. I also thought that it was interesting that there were guarantees on group privacy, especially if the distribution breaks assumptions about independence among individuals (e.g. family members). </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>In general, I hope to have a better understanding of the implications of some of the proofs in this paper, as I struggled a lot with connecting the equations to meaningful guarantees/implications. </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">07</span>
+            <div>
+              <h2>Sheryl Mathew</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>This paper introduces a stronger privacy guarantee compared to DP. It is interesting that RDP doesn&#39;t assume anything about the adversary&#39;s knowledge.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I want to better understand how RDP seems to relax the DP definition but at the same time provides a stronger privacy guarantee. </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">08</span>
+            <div>
+              <h2>Matthew Finlayson</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find it satisfying that the new definition of privacy is so simply stated. I generally like elegant results like this that take a correct, but onerous set of results and show that they work much more simply with a slightly different definition.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I couldn&#39;t quite understand a lot of the proofs, could we get more intuition on the core reason that the setup is more elegant for RDP?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">09</span>
+            <div>
+              <h2>Faith Baca</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I thought it was interesting how changing the way we represent privacy guarantees can help us analyze repeated uses of data more accurately. I think this is especially important because a dataset might be used for many different analyses, and evaluating each one individually wouldn&#39;t necessarily tell us enough about the combined exposure. I also found it interesting that a tighter privacy guarantee can come from a more precise analysis of the same system. This made me think about how much our conclusions about a system depend on the tools we use to evaluate it. In general, the paper reminded me of the challenges of operationalizing fairness, since it&#39;s important to have a precise mathematical definition, but understanding what that definition means for the people affected is a different issue.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I am curious about how practitioners should decide what privacy budget is acceptable and how those decisions should be communicated to the people whose data are being used. The paper discusses how interpreting its bounds on adverse outcomes depends on the baseline probability of those outcomes, and this made me wonder how realistically we can actually estimate those risks in practice. I am also curious about the fairness implications of applying the same formal privacy guarantee to people who might face very different consequences from having information revealed. I would be interested to hear how people think we should account for those differences when choosing privacy parameters. In general, I am hoping to discuss where the mathematical analysis ends and the responsibility of researchers or institutions to decide what constitutes acceptable risk begins.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">10</span>
+            <div>
+              <h2>Mohammadsaeed Haghi</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>What I found interesting is the intuition behind the definition. Standard differential privacy only looks at the worst case, the single output that gives the most away. The Renyi version looks at the whole range of how much an output can give away, with a dial that sets how much weight you put on the bad end. The Gaussian mechanism has an unbounded worst case, so standard differential privacy has no value for it at all, while the Renyi version gives it a short exact formula. Converting back to the usual two-parameter form takes one line, and you only do it once at the end.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>My question is what happens when we want to compare two mechanisms using their curves instead of a single number. The Laplace curve levels off at a ceiling while the Gaussian one keeps growing, so depending on the parameters the two can cross. Then which mechanism leaks less depends on which part of the curve you care about. I’d like to understand how you would choose between them in that situation.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">11</span>
+            <div>
+              <h2>Aditya Kotha</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>It was quite surprising to see how the way we compute the loss of privacy can influence the guarantees we can prove for our data. We can obtain a tighter bound simply by keeping finer-grained information, without modifying the algorithm or adding more noise to the mechanism. This brings us back to the Private Evolution (PE) paper that we had discussed in the previous class, where repeated requests to the private database to generate synthetic samples lead to privacy loss during the voting stage, while generating more synthetic samples using only the already-private results incurs no additional privacy loss due to the post-processing property of DP.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>How do we choose alpha in practice? Can a poor choice make the privacy guarantee look much weaker than it actually is?
+
+The paper shows that tracking only a few alpha values works well in its example. How do we know which values to track for a different algorithm?
+
+
+I hope to learn how RDP is used in practice to track the privacy budget of training methods like DP-SGD.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">12</span>
+            <div>
+              <h2>Nana Xia</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that &quot;Renyi Differential Privacy (RDP)&quot; paper mentioned that the pure DP could be too restrictive for some Gaussian mechanisms. A single Gaussian mechanism may satisfy many possible parameter pairs (ε1, δ1), (ε2, δ2),.... and does not correspond to just one pair (ε, δ). However, choosing only one pair would throw away lots of useful information about the full privacy behavior of the mechanism. This becomes even more difficult when many privacy-preserving mechanisms are composed repeatedly. Instead, RDP addresses the problem by keeping a richer description of the privacy loss through the parameter α, and it preserved more information about the privacy-loss distribution and made repeated Gaussian mechanisms much easier to analyze.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>RDP seems very useful for keeping track of privacy loss, especially when the same private data are accessed through many repeated mechanisms. However, if RDP preserves more information and makes composition easier, why do we usually convert to the final RDP guarantee back to (ε, δ)-DP?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">13</span>
+            <div>
+              <h2>Pranavesh Kumar Talupuri</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>From Mironov&#39;s work we can see that there is a statistically significant difference between measuring a DP guarantee at the end, and measuring it at each step. I also think it is useful to optimize over the Renyi order, to get the best DP guarantee at the end. The most interesting point to me is that using a different measure of the privacy can actually give you a better mathematically guarantee, which I don&#39;t really understand fully.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>If Renyi DP can give better privacy using their accounting method, how much measurable difference exists between what comes from practical DP mechanisms vs varying the way that the privacy loss is measured? Is it worthwhile to further research new measurement techniques instead of looking for new mechanisms?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">14</span>
+            <div>
+              <h2>Sreyes Venkatesh</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>One thing I found interesting is that point is that delta silently merges two completely different failure modes. Under one, privacy degrades gracefully. Under the other, with probability delta the secret is simply exposed. A single epsilon:delta pair cannot tell you which mechanism you have. The standard advice to set delta ≪ 1/N doesn’t resolve this, rather it makes the bad case rare. Another point that is interesting is that for a fixed alpha the Renyi Differential Privacy parameters can simply be added. This involves some linearity of moment generating functions which I find to be very interesting (and cool for lack of a better term)</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Thirteen values worked empirically for their mixture of randomized-response, Laplace, and Gaussian mechanisms. But the grid is a heuristic, and the optimum for an adversarially chosen sequence of mechanisms could fall between points. Is there a guarantee on grid-induced looseness, or is this a case where practice outran theory and nobody minded because it worked? Another point is that we see that the result trades alpha down by 2^c while multiplying epsilon by 3^c. Correlated records i.e. families, households, social graphs, repeated entries for one person are the common real case, not the exotic one. Is that degradation intrinsic to the Rényi framing, or an artifact of a proof that goes by induction from c=1?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">15</span>
+            <div>
+              <h2>Sriram Kadiyala</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I really liked how nicely this paper breaks down the flaw in standard (epsilon, delta)-differential privacy. It was surprising to find out that (epsilon, delta)-DP actually cannot distinguish between privacy degrading gracefully with probability delta versus completely exposing a user&#39;s data with probability delta. Using Renyi divergence to bound the tails of the privacy loss fixed this. It fits the Gaussian mechanism much more naturally.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The paper points out that translating privacy guarantees into (epsilon, delta)-DP is lossy and hides what happens in the tails of the distribution. But my question is, in practice, I think a lot of people still convert their RDP bounds back into (epsilon, delta)-DP at the very end just to report a standard number. Since the mechanism really does satisfy RDP so it can&#39;t catastrophically fail, doesn&#39;t that final conversion just discard provable safety by reporting an (epsilon, delta) bound that permits a failure mode the mechanism doesn&#39;t have?
+
+Also I have another question, does a fixed set of alpha values still work when you&#39;re composing various mechanisms whose RDP curves you only have numerically, rather than the three closed-form toy mechanisms the paper tested?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">16</span>
+            <div>
+              <h2>Yuyang Jiang</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it particularly interesting that Rényi Differential Privacy provides a more flexible way to analyze privacy loss by considering different orders of Rényi divergence rather than relying on a single privacy parameter. I especially liked how this framework makes it easier to track privacy loss across multiple mechanisms, potentially providing tighter bounds than standard differential privacy composition analysis. More broadly, the paper made me realize that the way we mathematically represent privacy guarantees can significantly affect how much useful computation we can perform under a fixed privacy budget.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I had is how we should interpret and compare privacy guarantees expressed through different orders of Rényi divergence. While RDP allows for tighter privacy accounting, it is less intuitive to understand what these guarantees mean for an individual whose data is included in the dataset. In practice, how should we choose the Rényi order or translate RDP guarantees into meaningful privacy risks? I would also be interested in discussing whether tighter theoretical privacy bounds necessarily translate into stronger protection against practical privacy attacks, such as membership inference or training-data extraction.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">17</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find it interesting that Rényi differential privacy provides a more flexible way to measure privacy loss, especially when multiple mechanisms are composed. In particular, I like how the paper uses Rényi divergence to characterize the difference between the output distributions of a mechanism on two neighboring datasets, rather than relying only on the standard \((\varepsilon,\delta)\)-DP formulation. Another interesting point is that the privacy parameters can be added under composition for a fixed Rényi order, which makes it easier to track privacy loss over multiple steps. I also find the connection to membership inference interesting. Since Rényi differential privacy limits how distinguishable the outputs are when one data point is added or removed, it seems closely related to how confidently we can determine whether a particular example was included in a model&#39;s training set. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I&#39;m curious about how Rényi differential privacy affects the effectiveness of membership inference attacks. If a model is trained with strong Rényi differential privacy guarantees, can we derive a theoretical bound on how accurately an attacker can distinguish between training members and non-members? I&#39;m particularly interested in whether the Rényi divergence bound can be translated into a bound on the true positive rate and false positive rate of a membership inference test. I&#39;m also wondering how this extends from individual data points to an entire dataset. For example, even if strong privacy guarantees make it difficult to identify whether a single example was used in training, could an auditor still detect that a disclosed training dataset contains a significant fraction of examples that were never used? I&#39;d like to better understand how privacy guarantees relate to the statistical power of membership inference, and whether there are fundamental limits to verifying training-data provenance.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">18</span>
+            <div>
+              <h2>Ansh Sindhwani</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Renyi Differential Privacy : 
+
+(1) What I liked about this paper is how clearly it identifies the shortcomings of standard differential privacy and proposes Rényi Differential Privacy as a natural extension. Specifically, standard pure differential privacy is too rigid to handle the Gaussian noise required for modern machine learning, while the relaxed DP creates a mathematical nightmare when trying to calculate the cumulative privacy loss across multiple steps. 
+
+(2) A second thing I liked about the paper is how Rényi DP restores a clean, manageable &quot;privacy budget.&quot;  model queries a database hundreds of times, older methods made tracking the total privacy cost incredibly complicated. Under this method, the math is straightforward the privacy costs of multiple steps simply add together. Because RDP tracks the actual curve of privacy loss instead of just assuming a pessimistic worst-case scenario. 
+
+(3) this method makes the mathematical analysis of Gaussian noise incredibly simple</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Renyi Differential Privacy :
+
+Is this method the standard method used in practice these days ? what are the trade-offs and situations where we should use this method over pure-DP and approximate DP ? </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">19</span>
+            <div>
+              <h2>Mattia Solla</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>&quot;Rényi Differential Privacy&quot;: I liked the idea of the privacy guarantee becoming weaker as the probability of the event becomes smaller, instead of having a threshold under which privacy is either completely achieved or possibly not at all (which is the case for epsilon-delta differential privacy). The composition results depending only on the probability of the baseline risk makes them cleaner to look at than the ones that also depend on some delta, but obtaining the optimal value of delta in those cases does not seem to difficult so I&#39;m not sure there is much difference in practice</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>&quot;Rényi Differential Privacy&quot;: How should one choose the parameter alpha to get &quot;optimal&quot; results according to some tradeoff utility between alpha and epsilon? Is that process easy to achieve?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">20</span>
+            <div>
+              <h2>Michael Duan</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find the Renyi relaxation quite interesting for avoiding information loss overestimation, especially since DP is already known to be sensitive to noise for downstream performance. I also think the idea of maintaining the privacy-cost curve throughout the whole analysis and then only collapsing to the final guarantee at the end is a cool technique.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I&#39;m curious how getting a less overestimated information loss estimate might correspond to observed downstream performance. Does being afforded something such as more training steps actually translate to reasonable performance gains, or does the relaxation only marginally impact performance.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">21</span>
+            <div>
+              <h2>FNU Bandre Devaraju Vinod</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that the delta in (epsilon, delta) DP can hide a complete privacy leak, where with probability delta the secret is fully exposed, and a single number can’t tell this apart from a small leak. Renyi DP never allows a complete leak like that. I also liked that the privacy costs of different methods just add up, so the idea of a privacy budget works again, and adding Gaussian noise many times behaves like adding it once with less noise.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The Renyi DP guarantee gets weaker when the bad outcome is rare, so to decide if the risk is okay you first need to know how likely that outcome was. I’d like to know how someone would estimate that in practice.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">22</span>
+            <div>
+              <h2>Vaishnavi Sinha</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I also watched Mironov&#39;s talk on the paper and found his cryptography perspective interesting, especially how δ allows for a small probability of complete privacy failure, which he compared to the possibility of correctly guessing a cryptographic key and exposing confidential information. I also found it interesting that differential privacy is composable, allowing us to build complex privacy-preserving protocols from smaller ones while tracking cumulative privacy loss. The comparison between Gaussian and Laplace noise helped me understand why Gaussian noise is useful, with its faster-decaying tails, despite not satisfying pure differential privacy.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Renyi DP avoids the full privacy breach that delta can hide, but most papers still convert it back to (epsilon, delta) to report results. Doesn’t that throw away the extra information Renyi DP gives?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">23</span>
+            <div>
+              <h2>Nisarga Bhaskar</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Its interesting to see an approach of DP which scales well on multiple iterations to be sqrt(k) rather than k for k iterations </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>It would be interesting to discuss on how they came up with this as in what was the intuition behind the renyi DP algorithm </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">24</span>
+            <div>
+              <h2>Leland Ling</h2>
+              <time datetime="2026-10-16">Oct 16, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Think its pretty interesting how you can go from good enough to almost good enough in terms privacy, and we can go back mathematically. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I&#39;m still lost about how the math kind of works out, but would be nice to cover during class.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">25</span>
+            <div>
+              <h2>Chen Gong</h2>
+              <time datetime="2026-10-17">Oct 17, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Framing privacy as a curve over α instead of a single parameter. Collapsing it to one (ε, δ) pair loses information, and RDP makes that explicit; The choice of definition does a lot of the work. Under RDP the Gaussian mechanism and composition become trivial, which suggests much of the difficulty in DP analysis comes from the definition rather than the probleml; Its real impact is as an accounting tool for DP-SGD, not as a semantic guarantee anyone reports.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>What makes RDP different from other DP definitions, and when should we use which one?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">26</span>
+            <div>
+              <h2>Eric Liu</h2>
+              <time datetime="2026-10-18">Oct 18, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that Renyi Differential Privacy points out two mechanisms that can have the same guarantee but very different privacy risks: one might gradually leak information, while another could completely reveal someone&#39;s information. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I&#39;m curious how we should think about rare privacy leaks under Renyi Differential Privacy. If RDP allows the probability of a rare event to increase significantly, how do we decide whether the actual privacy risk is still acceptable (i.e. a rare, but very intrusive privacy attack)?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">27</span>
+            <div>
+              <h2>Aman Desai</h2>
+              <time datetime="2026-10-19">Oct 19, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Renyi Differential Privacy is a really elegant relaxatation of standard Differential Privacy. I feel like the divergence view of differential privacy is a really intuitive way to understand what the differential privacy guarantee actually means. I was quite surprised that (\epsilon, \delta) Renyi Differential Privacy implied a form of standard Differential Privacy because Renyi Differential Privacy seems strictly weaker. I would be curious if you could use other families of divergences like (f-divergences and Bregman divergences) to define analogous notions of differential privacy.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>1) Is there a precise sense in which the privacy budget changes for computationally bounded (as opposed to computationally unlimited) adversaries?</p>
             </section>
           </div>
         </article>
