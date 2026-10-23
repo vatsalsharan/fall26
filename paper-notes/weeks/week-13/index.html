@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="6 CS 618 reading reflections for Week 13, October 26, 2026." />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Week 13 · CS 618 Weekly Paper Notes" />
+    <meta property="og:description" content="Reading reflections for October 26, 2026." />
+    <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-13/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Week 13 · CS 618 Weekly Paper Notes" />
+    <meta name="twitter:description" content="Reading reflections for October 26, 2026." />
+    <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-13/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Week 13 · CS 618 Weekly Paper Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#responses">Skip to the weekly notes</a>
+
+    <main>
+      <header class="site-header shell">
+        <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
+          <span class="wordmark-mark" aria-hidden="true">618</span>
+          <span><strong>CS 618</strong><small>Weekly paper notes</small></span>
+        </a>
+        <span class="term-badge">Fall 2026</span>
+      </header>
+
+      <section class="week-hero shell" aria-labelledby="week-title">
+        <a class="back-link" href="../../">← All weeks</a>
+        <p class="eyebrow">Reading reflections · October 26, 2026</p>
+        <h1 id="week-title">Week 13</h1>
+        <div class="week-summary">
+          <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
+          <span>6 responses</span>
+        </div>
+      </section>
+
+      <section class="response-list shell" id="responses" aria-label="Week 13 responses">
+        <article class="response-card">
+          <header>
+            <span class="response-number">01</span>
+            <div>
+              <h2>JUNYANG CAI</h2>
+              <time datetime="2026-10-21">Oct 21, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the PATE framework especially interesting because it protects private training data without requiring the final student model to train directly on that data. Instead, the private dataset is split into disjoint subsets used to train multiple teacher models, and the student learns from noisy aggregated teacher votes on public, unlabeled data.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I have is how well PATE scales to more difficult tasks with many classes or limited data. I hope to better understand why semi-supervised learning is so important to PATE’s privacy-utility tradeoff.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-10-21">Oct 21, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>		○ I found it interesting that PATE provides a black-box privacy guarantee without constraining the internal training algorithms of the teachers or student. The guarantee instead follows from partitioning the sensitive dataset into disjoint subsets, restricting each teacher to one vote, adding noise during vote aggregation, and limiting the number of teacher queries.
+		○ The use of semi-supervised learning was also compelling because it allowed the student to learn from abundant public, unlabeled data while requiring relatively few privacy-consuming labels from the teacher ensemble</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>		○ How can PATE’s black-box approach outperform bespoke differentially private training methods that are specifically designed for a particular model or optimization procedure, as claimed in the introduction?
+		○ To what extent does this improvement result from the teacher-ensemble architecture itself, the tighter privacy accounting, or the use of semi-supervised learning to reduce the number of private queries?
+</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Lauren Cooke</h2>
+              <time datetime="2026-10-21">Oct 21, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found using teacher models as a mediator with noisy aggregation to be another pretty interesting strategy from this PATE paper, but it isn’t clear if this process adds another layer of process obfuscation beyond creating privacy in deep learning multiple times. I also thought that epsilon being a data leak in itself was really interesting as a function of the amount of data processed. (copied from my initial submission for today as the articles were split late)</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>From the PATE paper, I wonder if this process would complicate model performance evaluation/interpretability more than traditional noising would for the same privacy gains? (copied from my initial submission)</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Aditya Kotha</h2>
+              <time datetime="2026-10-22">Oct 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>SEMI-SUPERVISED KNOWLEDGE TRANSFER paper
+
+It&#39;s interesting that teacher models trained on a disjoint set of private data can help create a student model via a noisy voting mechanism that provides formal differential privacy. The point of dividing the private data into n disjoint sets is that changing an individual&#39;s data will affect only one teacher model&#39;s decision. Since this is a voting-based ensemble, the final output will be very little affected, as it can change at most one vote on a given query. Adding Laplacian noise also helps hide private information from the final results voting process. Another very interesting point is that when there is strong agreement among the votes, this reduces the privacy cost because the result reflects agreement across many teachers rather than relying heavily on any one teacher’s private training data. They also achieve good results on the MNIST dataset by running 100 queries on the teacher ensemble model and using publicly available unlabeled data to train the student. They achieved 98% accuracy with epsilon 2.04 and delta 0.00001.
+</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>SEMI-SUPERVISED KNOWLEDGE TRANSFER paper
+
+Does the way we create the disjoint training sets for the PATE method affect its performance? For example, instead of just randomly splitting the data, what if I try to balance the output class labels to ensure they are equal, so that the teacher models can learn better? Would it affect the privacy guarantee in any way?
+
+I also wonder how well a model trained with PATE would perform when the publicly available unlabeled data differs substantially from the private training data, especially for specialized tasks where suitable public data is not readily available.
+</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Leland Ling</h2>
+              <time datetime="2026-10-22">Oct 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Think it is pretty interesting how the student model can beat the teacher model. Especially only using 100 teacher labeled samples. Additionally, the fact that the student model does not perform very differently from whether it has access to full probability vectors from the teachers surprises me. Would assume that it would usually yield some kind of benefit to have more data, especially unprivate.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Wonder what people speculate to why the student model is fully able to have these generalizations without teacher probability vectors</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">06</span>
+            <div>
+              <h2>Emily Weiss</h2>
+              <time datetime="2026-10-22">Oct 22, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I thought that the introduction of the aggregate teacher to be learned from rather than the sensitive data was very clever. I can’t currently think of an instance where you would want a public model to not be trained through such a method, and I would assume that anyone who actually needs a model to be trained on sensitive data, such as the clinical trial data used as an example, would be able to acquire that data (e.g. by being part of the group that collected it, or requesting it from the NIH). </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Why might it be that the aggregation of teacher predictions is so poor on MNST as the number of teachers increases? Specifically at 100 and 250 teachers, there is a large decrease in the gap. Additionally, the gap seems to remain relatively stable at those points. We do not see such behavior with SVHN. 
+
+*Note that these responses are duplicated from my 10/21 submission, before the &quot;Semi-Supervised Knowledge Transfer...&quot; paper was moved to 10/26. </p>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer shell">
+        <p><span class="footer-signal" aria-hidden="true"></span>Synced from the class response form</p>
+        <p>Email addresses are never published.</p>
+      </footer>
+    </main>
+  </body>
+</html>

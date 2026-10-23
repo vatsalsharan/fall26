@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="5 CS 618 reading reflections for Week 12, October 21, 2026." />
+    <meta name="description" content="26 CS 618 reading reflections for Week 12, October 21, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 12 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 12</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>5 responses</span>
+          <span>26 responses</span>
         </div>
       </section>
 
@@ -153,6 +153,543 @@ I thought this contrast was especially interesting because both systems provide 
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
               <p>One question I have is how we should choose between local differential privacy and approaches such as PATE in a real application. I hope to learn more about how theoretical privacy guarantees translate into engineering tradeoffs at scale.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">06</span>
+            <div>
+              <h2>Emily Weiss</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Learning With Privacy at Scale
+
+I thought it was interesting that the physical location of the keyboard relative to Apple’s predictive text bar yielded a new category of words in their dictionary. 
+
+***
+
+Semi-Supervised Knowledge Transfer
+
+I thought that the introduction of the aggregate teacher to be learned from rather than the sensitive data was very clever. I can’t currently think of an instance where you would want a public model to not be trained through such a method, and I would assume that anyone who actually needs a model to be trained on sensitive data, such as the clinical trial data used as an example, would be able to acquire that data (e.g. by being part of the group that collected it, or by requesting it). </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Learning With Privacy at Scale
+
+1. Why is there a limit on the number of privatized records that can be transmitted daily per use case as compared to a total upper bound on the amount of data that any individual can contribute? 
+
+2. I am still shaky on how the server-side algorithm of the private sequence fragment puzzle is able to connect the fragments to the full word with the hash value, and would have liked to see some more examples of the pipeline through the algorithm.
+
+***
+
+Semi-Supervised Knowledge Transfer
+
+Why might it be that the aggregation of teacher predictions is so poor on MNST as the number of teachers increases? Specifically at 100 and 250 teachers, there is a large decrease in the gap. Additionally, the gap seems to remain relatively stable at those points. We do not see such behavior with SVHN, which is perplexing to me. </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">07</span>
+            <div>
+              <h2>Aditya Kotha</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Learning with Privacy at Scale paper
+
+It&#39;s a very interesting approach, different from what I was generally thinking about when adding DP in practice: adding noise to the results afterward or during training itself, as we were learning in the past few papers. Instead, local DP adds the randomization even before the data is sent to the server or here at Apple. Although noise is added, when aggregated across all the users they collect data on, it&#39;s still possible to extract meaningful information and patterns. Another surprising point was that the Hadamard Count Mean Sketch required only one bit of privatized data per report, along with the indexes needed for interpretation, making the communication process extremely inexpensive. I also liked how the Sequence Fragment Puzzle can discover new words not already in a dictionary by combining protected information about word fragments, and it also showed that this method was practical, as it was able to find slang words like “bruh” and “tryna”.
+
+SEMI-SUPERVISED KNOWLEDGE TRANSFER paper
+
+It&#39;s interesting that teacher models trained on a disjoint set of private data can help create a student model via a noisy voting mechanism that provides formal differential privacy. The point of dividing the private data into n disjoint sets is that changing an individual&#39;s data will affect only one teacher model&#39;s decision. Since this is a voting-based ensemble, the final output will be very little affected, as it can change at most one vote on a given query. Adding Laplacian noise also helps hide private information from the final results voting process. Another very interesting point is that when there is strong agreement among the votes, this reduces the privacy cost because the result reflects agreement across many teachers rather than relying heavily on any one teacher’s private training data. They also achieve good results on the MNIST dataset by running 100 queries on the teacher ensemble model and using publicly available unlabeled data to train the student. They achieved 98% accuracy with epsilon 2.04 and delta 0.00001.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Learning with Privacy at Scale paper
+
+I wonder how well these mechanisms would work if a new pattern appeared in only a few reports. For example, would Sequence Fragment Puzzle still be able to reconstruct a rare word, or would the noise and frequency thresholds prevent it from being detected?
+
+SEMI-SUPERVISED KNOWLEDGE TRANSFER paper
+
+Does the way we create the disjoint training sets for the PATE method affect its performance? For example, instead of just randomly splitting the data, what if I try to balance the output class labels to ensure they are equal, so that the teacher models can learn better? Would it affect the privacy guarantee in any way?
+
+I also wonder how well a model trained with PATE would perform when the publicly available unlabeled data differs substantially from the private training data, especially for specialized tasks where suitable public data is not readily available.
+
+
+
+I hope to learn a bit more about local DP and whether there are other methods not covered in the papers that help facilitate it.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">08</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>	Learning with Privacy at Scale 
+		○ I found the use of the Hadamard transform particularly interesting. It converts a sparse one-hot vector into a dense representation that distributes the original signal across all coordinates, allowing the device to transmit only one privatized bit while retaining sufficient information for aggregate frequency estimation. I looked at the paper for the analytical solution of the variance of the Hadamard solution and interested in some deeper insights into this 
+		○ Beyond the theoretical privacy guarantees, I appreciated how the Apple team jointly optimized privacy, accuracy, device bandwidth, and server computation. The paper demonstrates the importance of incorporating practical deployment constraints into the design of privacy-preserving algorithms.
+	SEMI-SUPERVISED KNOWLEDGE TRANSFER FOR DEEP LEARNING FROM PRIVATE TRAINING DATA
+		○ I found it interesting that PATE provides a black-box privacy guarantee without constraining the internal training algorithms of the teachers or student. The guarantee instead follows from partitioning the sensitive dataset into disjoint subsets, restricting each teacher to one vote, adding noise during vote aggregation, and limiting the number of teacher queries.
+		○ The use of semi-supervised learning was also compelling because it allowed the student to learn from abundant public, unlabeled data while requiring relatively few privacy-consuming labels from the teacher ensemble
+</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>	Learning with Privacy at Scale 
+		○ What intuition led the authors to select the Hadamard transform rather than another dimensionality-reduction or signal-spreading transformation?
+		○ How were the privacy, accuracy, device-bandwidth, and server-computation parameters selected for deployment beyond the analytical tradeoffs presented in the paper?
+		
+	
+	SEMI-SUPERVISED KNOWLEDGE TRANSFER FOR DEEP LEARNING FROM PRIVATE TRAINING DATA
+		○ How can PATE’s black-box approach outperform bespoke differentially private training methods that are specifically designed for a particular model or optimization procedure, as claimed in the introduction?
+		○ To what extent does this improvement result from the teacher-ensemble architecture itself, the tighter privacy accounting, or the use of semi-supervised learning to reduce the number of private queries?
+</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">09</span>
+            <div>
+              <h2>Chen Gong</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>[paper1] It&#39;s a real-world deployment of differential privacy at a big tech company (Apple). What I found interesting is that they use local differential privacy: noise is added on the user&#39;s device before anything is sent, so Apple never sees the raw data. The paper also shows the engineering trade-offs that theory papers usually skip, like device bandwidth, compute cost, and a per-day privacy budget for each user.
+
+[paper2] PATE takes a different approach to differential privacy. Instead of adding noise to the data or to the gradients, it trains many teacher models on disjoint parts of the sensitive data and adds noise only to their votes. A student model then learns from these noisy labels, and only the student is released. I like that it is black-box: it works with any model type, and the privacy cost depends only on how many times the student queries the teachers, not on how many times the student is used later.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>[paper1] I want to understand the details of the three algorithms in the paper, especially how they reduce communication cost while keeping the privacy guarantee. 
+
+[paper2] Does adding teacher models make the system more or less private? </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">10</span>
+            <div>
+              <h2>Sriram Kadiyala</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>1. Learning with Privacy at Scale
+
+It was interesting to know that the noise is added on the device and the server never sees raw data so it does not need to be trusted.
+
+I also liked the Sequence Fragment Puzzle (SFP) Algorithm because it finds words outside the dictionary by having devices report both word fragments and separately privatized full sequences and then reassembling them.
+
+2. Semi-Supervised Knowledge Transfer for Deep Learning from Private Training Data
+
+I found the method very elegant because the privacy cost is fixed by the number of teacher queries during training and not by how many times users query the deployed model. There is unlimited inference while having bounded privacy loss.
+
+Also I liked the way they bound the epsilon’s smooth sensitivity and release the epsilon privately too.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>1. Learning with Privacy at Scale
+
+I noticed that the epsilon values are per use case, per day. Per my understanding, there is no global budget across use cases or across days. What is their cumulative epsilon? And does it even matter what it eventually would end up being?
+
+2. Semi-Supervised Knowledge Transfer for Deep Learning from Private Training Data
+
+PATE&#39;s teacher agreement makes queries cheap argument is nice but the student only learns what teachers agree on and teachers don&#39;t tend to agree on unusual examples, so minority patterns get washed out of the released model. How can one address this?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">11</span>
+            <div>
+              <h2>Sheryl Mathew</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Apple DP: This work uses event-local DP to make user data private. Apple collects data on what users type and what emojis they use to train better autocomplete models. It is interesting how they had to consider what it means to deploy DP on many phones and devices in practice.
+Semi-supervised Knowledge Transfer: This paper introduces Private Aggregation of Teacher Ensembles. They attempt to address the problem of a model revealing training examples by not releasing the model. Instead, they train multiple teacher models on subsections of training data and use the teacher models&#39; inference time vote to teach a student model. The student model is released and cannot reveal training data because it was never trained directly on the examples.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Apple DP: What is the tradeoff between the epsilon and the quality of the data they collected?
+Semi-supervised Knowledge Transfer: How much noise in the voting process is too much (e.g. changes the consensus), and how much noise is needed to make the training examples private? Why is it even necessary to introduce noise when the teacher models aren&#39;t even being released?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">12</span>
+            <div>
+              <h2>Ansh Sindhwani</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>SEMI-SUPERVISED KNOWLEDGE TRANSFER FOR DEEP LEARNING FROM PRIVATE TRAINING DATA:
+(1) In the proposed framework noise is added directly to the vote counts guarantees, So that no single teacher model and thus no individual data point used to train that teacher)can single-handedly tip the output label .This is one thing that i found interesting in the paper and it came across as the most unexpected place to add noise. a fascinating nuance of this method is that the privacy cost will depends on consensus. If 200 out of 250 teachers agree on a class, adding a small amount of noise will almost never change the outcome. Because consensus is strong, the query reveals almost nothing about any single teacher&#39;s private data
+
+(2) other thing i liked about this paper is that the proposed framework is not dependent on a particular model.
+
+(3) other interesting thing of this paper is that Instead of asking the teacher ensemble to label every single training sample for the student, the student learns feature representations from unlabeled public data and fake generated samples. this completely isolates the private data from the final model that will be used . 
+
+Learning with Privacy at Scale:
+(1) I found it interesting to know about the private sequence fragment puzzle algorithm that is being used for learning slang and common day to day vocabulary with privacy guarantee.
+
+(2) second these algorithms proposed by apple Rather than treating privacy as purely mathematical noise, the paper combines algorithmic privacy  with systemic privacy safeguards like time delay and stripping IP address.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>SEMI-SUPERVISED KNOWLEDGE TRANSFER FOR DEEP LEARNING FROM PRIVATE TRAINING DATA:
+
+(1) even though this framework is not dependent on a particular model, but one question that comes is how this framework will perform on more complex datasets. (in the paper only mnist and svhn data set where taken)
+
+(2) the framework only tests for classification tasks, how should it be extended for other types of problems like regression and autoregression(llms like prediction)
+
+(3) training a teacher model and then training a student model seems to be highly compute intensive, and redundant in some sense. should we consider other methods which are less compute intensive. and what are the pros and cons when compared to standard methods. 
+</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">13</span>
+            <div>
+              <h2>Nana Xia</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Learning with privacy at scale from Apple didn&#39;t wait until model training or model release to add privacy. Instead, it applied local differential privacy on the user&#39;s device before the data were sent to Apple server. Then the server didn&#39;t need to have the raw user event at all and it could build a very trustworthy model. The paper also introduced new method called sequence fragment puzzle to discover new words that were not in the known dictionary and it was able to privately collect fragments and reconstructed likely popular words.
+The paper of semi-supervised knowledge transfer for deep learning from private training data brought the idea of &quot;teacher-student&quot; framework. Instead of using the teachers trained from the raw data, it used the fixed amount of teachers and semi-supervised learning method (e.g., GANs) to train the students which helped the privacy loss. What stood out is the PATE model does not depend strongly on the specific learning algorithm used for the teachers or the student. The paper shows that it can be applied not only to deep neural networks on MNIST and SVHN, but also to other model structures, including random forests on medical data.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I have is about the data-dependent privacy accounting in PATE. The paper shows that a teacher query can have a lower privacy cost when the teachers strongly agree. For example, if almost all teachers vote for the same class, changing the prediction of one teacher is unlikely to change the final noisy output. In contrast, when the teacher votes are very close, changing one vote may have a much larger effect. The moments-accountant analysis therefore gives a tighter privacy bound when the top class has a large vote margin. So how much this strong teacher agreement contributes to the overall privacy guarantee, and what happens when many queries have weak teacher agreement?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">14</span>
+            <div>
+              <h2>Sreyes Venkatesh</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>One particular thing I found interesting regarding the Semi-Supervised Knowledge transfer paper were the findings of the approaches that did not reduce the number of queries: Distillation gave gains too small to justify releasing full probability vectors instead of plurality votes; Siamese networks for active learning didn’t generalize. Binary expert classifiers gave 1.5 to 2.5%; What actually worked was the seemingly most simple method. i.e. let the student rank unlabeled inputs by its own low confidence and spend queries there first, for 4 to 10% gains at fixed budget. One thing I found interesting about the apple paper was how they derive closed-form expressions relating epsilon, m, k, n, and the data distribution so engineers can estimate accuracy before running expensive experiments</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>A question I had about the Semi-Supervised Knowledge transfer paper was given that the student is a distillation of the teachers, and the teachers memorize,  I was wondering what would happen if membership inference attacks against PATE students at epsilon = 8 and if that empirical leakage would be consistent with the formal bound. In regards to the apple paper it is mentioned that only elements with counts above T enter the histogram, but that means the system does not consider minority usage. I was wondering which populations fall below T and what product decisions got made in their absence. </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">15</span>
+            <div>
+              <h2>Lauren Cooke</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found this local DP implementation from the apple paper interesting, and for anybody hesitant to participate in research the choice to opt in combined with both noising local data before transmission back for research and transmitting said data without device identifiers to study aggregate results is extremely appealing. I am however not entirely convinced that privacy is preserved across multiple pulls (see below). I found using teacher models as a mediator with noisy aggregation to be another pretty interesting strategy from this PATE paper, but it isn’t clear if this process adds another layer of process obfuscation beyond creating privacy in deep learning multiple times. I also thought that epsilon being a data leak in itself was really interesting as a function of the amount of data processed.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I am curious about this aggregate noising process and if there is any vulnerability left within those outputs to essentially recover groups or partial groups as a part of the research set? What about if the same algorithm is used over multiple non-independent pulls? For example, if I were to draw data from user a in pull 1 and pull 2, could I recover some more specific parameters about the noise and begin chipping away at what the noise is hiding? Does this connect to our composition property with repeated data access? From the PATE paper, I wonder if this process would complicate model performance evaluation/interpretability more than traditional noising would for the same privacy gains?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">16</span>
+            <div>
+              <h2>Mohammadsaeed Haghi</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the PATE paper, what I found interesting is that the model they publish is more accurate than any of the models it learned from. Each teacher sees only 1/250 of the data and gets 84% on MNIST, the noisy vote gets 93%, and the student gets 98%. The first jump is ensembling. The second is the 8,900 unlabeled public images the student gets.
+For the Apple paper, what I found interesting is how they find words that are not in the dictionary yet. They cannot search every possible word, so each phone sends two letters of the word plus a short hash of the whole word. Pieces carrying the same hash came from the same word, so the server glues them back into a small candidate list and counts those the normal way. The hash is short enough that many words share it, so it tells the server which pieces go together without telling it what the word was.
+
+</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the PATE paper, the thing that I’d like to know is how much the result depends on the dataset. The student reaches 98% on MNIST using only 100 labels out of 9,000 samples, with the rest unlabeled. The paper says this may not work when the output categories are not distinctly defined in the input space, and gives medical data as the example. That is also the motivating case in the introduction. So I want to see how PATE does when semi-supervised learning stops helping.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">17</span>
+            <div>
+              <h2>Pranavesh Kumar Talupuri</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>In the Apple paper, they don&#39;t even wait for the information to reach the server to start implementing privacy techniques. Instead of checking if the pipeline leaks information they scramble all the data coming from the data client-side itself before it makes its way to their system. They sacrifice individual level certainty because if they receive enough data it makes the distribution balance out and they can work with it.
+
+In the actual paper, Apple talks about HCMS in greater depth, and how their method uses a Hadamard transform so that a device can send essentially one privatized bit while losing relatively little accuracy. I think HCMS over regular CMS is an important distinction.
+
+From Papernot et al., we see the original paper for the classic PATE method. It is very smart to split the data into multiple teacher models instead of just one, which basically alleviates the danger when a record is changed, as it only affects one teacher and the ensemble solves the problem inherently. Privacy is only injected after the knowledge is aggregated so it is more robust.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>My biggest question about Apple&#39;s work is why they chose to implement local privacy at all. It only works for them because they have a massive userbase and the sheer number of people who opted in can make up for the loss of precision in the data they collect. Also in another angle, we can ask at what point does the number of people stop mattering? What is the line beyond which it works, and how many people need to be involved?
+
+PATE gets privacy partly by splitting the dataset across many teachers. How well would this approach work when the private dataset is too small and each teacher only sees a tiny amount of data? </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">18</span>
+            <div>
+              <h2>FNU Bandre Devaraju Vinod</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the PATE paper, I found it interesting that the private data is only used to train teachers that are never released. The teachers vote with noise on public data, and only a student trained on those votes is shared, so even if someone sees the student’s weights, they can’t get to the private data. It reached 98% on MNIST with just 100 teacher votes, at a smaller privacy cost than DP-SGD.
+
+For the Apple paper, I found it interesting that the noise is added on the phone before anything is sent, so Apple never sees the raw data. For Safari, each phone sends just one bit. I also liked that they found people typing words like “lov” and “kno” because they were accidentally tapping the prediction bar, which they could only learn from real typing data.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the PATE paper, the student needs public unlabeled data that looks like the private data. I’d like to know what you would do when there is no such public data, like for rare medical records.
+
+For the Apple paper, they use an epsilon of 4 for each event and limit how many records are sent each day but a phone keeps sending data every day. I’d like to know how much privacy is left after months or years of use.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">19</span>
+            <div>
+              <h2>Faith Baca</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the first article, I didn&#39;t know much about actual DP practices in real life, so I thought it was interesting that Apple applies differential privacy on the user&#39;s device before the data is transmitted. I also thought the example of discovering new words to improve autocorrection was interesting, especially since the words they identified included slang and and non-English words. For the second paper, I thought the teacher-student approach was interesting because it provides a way to transfer useful knowledge from sensitive data while limiting how much information reaches the model that ultimately gets released. I especially liked that once the student is trained through the private aggregation process, additional queries to that student don&#39;t keep increasing the privacy loss for the teachers&#39; training data. I think this is important since a model intended for widespread use needs protection that will continue to hold even when more people interact with it.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the first paper, I am curious whether the frequency threshold would make it harder to learn words used by low-resoure language communities or speakers of less common dialects. I am also wondering how users should interpret the event-level privacy guarantee when they contribute many events over time, even with the daily reporting limits. For the second paper, I am curious about the fairness implications of the role that teacher agreement plays in the privacy analysis. Strong agreement allows tighter privacy bounds, but I wouldn&#39;t necessarily expect agreement to mean that the teachers are correct or unbiased. For example, could teachers share the same blind spots about an underrepresented group and confidently pass those errors to the student? I would also like to discuss how representative the student&#39;s public and unlabeled data needs to be for the transfer to work well across groups.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">20</span>
+            <div>
+              <h2>Vaishnavi Sinha</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Learning with Privacy at Scale: I found it interesting that the emoji results looked a little different between languages (the French keyboard used the heart emoji much more than English). But the system only learns which emojis are most popular overall, not the words they are used with. Learning that context would be interesting, but also probably harder to keep private.
+
+Semi-supervised knowledge transfer: the student ended up more accurate than the noisy teacher votes it learned from, which was interesting because the student is not just copying the teachers but also fixing some of their errors using the public data.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Learning with Privacy at Scale: Apple only gets data from people who opt in, but uses it to update features for everyone, so what if the people who opt in type or use emojis differently from those who don’t?
+
+Semi-supervised knowledge transfer: the privacy proof assumes one changed example only affects one teacher. But in medical data one patient can have many records, so if their records end up in different partitions, several teachers’ votes change at once. How will the guarantee hold in these scenarios?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">21</span>
+            <div>
+              <h2>Xixiao Pan</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found PATE’s separation between private teachers and a public student especially interesting. The teachers can use ordinary training methods, while privacy comes from noisy aggregation of their votes. Once the student is trained, additional queries to it do not consume more of the teachers’ privacy budget. I also liked how teacher agreement connects privacy and accuracy: a large voting margin makes the output less sensitive to one teacher and more robust to added noise.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>How well does PATE work when public unlabeled data is scarce or differs from the private training distribution? I also wonder whether rare classes or underrepresented groups receive less accurate labels because teachers disagree more on those examples. In the discussion, I hope to understand how to balance the number of teachers, each teacher’s training data, and the privacy budget while preserving performance across different groups.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">22</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find the PATE framework interesting, especially the idea of training multiple teacher models on disjoint subsets of private data and then transferring their knowledge to a student model through noisy voting. What surprise me is that the student can achieve high accuracy without directly accessing the sensitive training data. I also like how the privacy analysis takes advantage of the agreement among teachers: when most teachers agree on a prediction, the privacy cost can be much smaller. This seems like a clever way to balance model utility and privacy without imposing strong assumptions on the training algorithms.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I&#39;m curious about how PATE affects membership inference attacks. Since the student model never directly trains on the private examples, but still learns information from the teacher models, how difficult would it be to determine whether a particular example was included in one of the teachers&#39; training datasets? I&#39;m also wondering how the privacy guarantees change when the teacher models disagree more often, especially on unusual or difficult examples. I&#39;d like to better understand what theoretical guarantees differential privacy provides against membership inference and whether those guarantees also imply limits on dataset-level auditing.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">23</span>
+            <div>
+              <h2>Michael Duan</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the PATE paper, I thought the idea to do private learning via ensemble voting was really clever and an interesting way to learn from siloed data. However, I&#39;m still not fully convinced this method would extend to complex real medical data (say CT scan report generation tasks) and wonder if the utility tradeoff would be too much to learn such distributions or miss a lot of the tails.
+
+I found the Apple paper an interesting example of a real-world deployment of a differentially private method for learning aggregate statistics. For example, the tradeoff with population size (learning common population trends with noisy updates) at the cost of learning rare events was a clear example of how interpret privatized findings in practice. I also thought the other practical privacy considerations when deploying a DP architecture were quite interesting, such as removing IP addresses and other metadata. Finally, I thought the considerations for efficient information communication were also quite insightful, such as techniques like the private hadamard CMS to ensure cheap information sharing/transmission costs with low error. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the PATE paper, I wonder if a denser version could be achieved using multi-teacher OPD. Perhaps this would make it more useful for learning more practical data distributions like the medical examples they gave. However, I&#39;d be curious how to make such a version more sample efficient to avoid a ton of privacy leakage from repeated queries. I also wonder how the diversity of datasets that you are trying to aggregate impacts the success of the PATE method.
+
+For the Apple paper, the work mentions how accuracy/error can vary across different data distributions and that the analysis depends partly on how concentrated item frequencies are. If frequencies change over time (e.g., temporal distribution shifts), how can we account for these changes with the chosen hyperparameters for the methods.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">24</span>
+            <div>
+              <h2>Selina Xiao</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For Learning with Privacy at Scale, I find it interesting that the main challenge is not only how to guarantee local differential privacy, but how to make it practical under bandwidth and computation constraints. The HCMS construction is especially interesting because the device can send only one privatized bit while still giving a useful frequency estimate at the server. It also made me think about how much of the actual privacy guarantee comes from the DP mechanism versus the surrounding system design. Apple additionally removes identifiers and timestamps, separates different use cases, limits the number of transmitted records, and only releases sufficiently frequent elements. So in practice the protection is really a combination of a formal local DP guarantee and several architectural choices rather than DP alone. For Semi-supervised Knowledge Transfer for Deep Learning from Private Training Data, I find the separation between the private teachers and the public student especially intuitive. The student never directly accesses the sensitive data, and after training, additional queries to the student no longer consume more privacy budget because the privacy loss is determined by the finite number of noisy teacher votes used during training. I also find the data-dependent privacy accounting interesting because stronger teacher agreement can imply lower privacy cost, so privacy depends not only on the amount of noise but also on the structure of the ensemble&#39;s predictions.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the Apple system, since the guarantee is event-level local DP and users may contribute privatized events repeatedly over many days and across different use cases, how should we think about the cumulative privacy guarantee for one user over a long period of time? The system limits the number of transmitted events and prevents linkage between records, but this still seems different from having an explicit user-level privacy budget. I am also wondering how much utility would remain if the population were much smaller, since the success of local DP here seems to depend heavily on having hundreds of millions of users so the noise can average out. For PATE, the privacy analysis becomes much better when teachers strongly agree, but high agreement does not necessarily mean the prediction is correct or fair. Could the teachers all agree because they learned the same systematic bias from their disjoint subsets? I am also wondering how sensitive PATE is to the assumption that a sufficiently representative public unlabeled dataset exists. If the public data has a different distribution from the private data, the student may need more teacher queries exactly in the regions where the teachers are less confident, which seems like it could hurt both utility and privacy at the same time.  </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">25</span>
+            <div>
+              <h2>Nisarga Bhaskar</h2>
+              <time datetime="2026-10-20">Oct 20, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>SEMI-SUPERVISED KNOWLEDGE TRANSFER FOR DEEP LEARNING FROM PRIVATE TRAINING DATA : Its interesting how the tradeoff with accuracy is not a lot maybe this is due to the fact that we are not adding explicit noise to the models parameters or the optimization step yet it is still impressive on the privacy guarantees that this provides 
+Learning with Privacy at Scale: it is very interesting that instead to observe how they were able to discovere new words when essentially they were just trying to solve the local dp .</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>SEMI-SUPERVISED KNOWLEDGE TRANSFER FOR DEEP LEARNING FROM PRIVATE TRAINING DATA: If there is not much loss in accuracy what is some efficient ways we could use it with proprietary data
+Learning with Privacy at Scale: what are the other implications we might get when we perform DP</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">26</span>
+            <div>
+              <h2>Aman Desai</h2>
+              <time datetime="2026-10-21">Oct 21, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Learning with Privacy at Scale: The algorithms used in this paper were really interesting. I found the Sequence Fragment Puzzle particularly elegant because it was a really nice way of taking advantage of the properties of substrings. I also really liked how efficient the Private Hadamard Count Mean Sketch algorithm was and I would be curious to see if it obtains similar compression rates to (optimal) non-private algorithms. 
+
+Semi-Supervised Knowledge Transfer for Deep Learning From Private Training Data: The training procedure is really nice because of how general it is. From my understanding, there are only minimal assumptions made on the structure of the models. Rather, since the guarantees of differential privacy apply (within a budget) downstream, it seems like the budget is the only thing that needs to be accounted for.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Learning with Privacy at Scale: Can we quantify the loss in performance (if any) that results from ensuring privacy with these algorithms?
+
+Semi-Supervised Knowledge Transfer for Deep Learning From Private Training Data: How do modern generative machine learning models perform when trained using this algorithm?</p>
             </section>
           </div>
         </article>
