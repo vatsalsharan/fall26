@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="1 CS 618 reading reflections for Week 14, October 28, 2026." />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Week 14 · CS 618 Weekly Paper Notes" />
+    <meta property="og:description" content="Reading reflections for October 28, 2026." />
+    <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-14/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Week 14 · CS 618 Weekly Paper Notes" />
+    <meta name="twitter:description" content="Reading reflections for October 28, 2026." />
+    <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-14/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Week 14 · CS 618 Weekly Paper Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#responses">Skip to the weekly notes</a>
+
+    <main>
+      <header class="site-header shell">
+        <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
+          <span class="wordmark-mark" aria-hidden="true">618</span>
+          <span><strong>CS 618</strong><small>Weekly paper notes</small></span>
+        </a>
+        <span class="term-badge">Fall 2026</span>
+      </header>
+
+      <section class="week-hero shell" aria-labelledby="week-title">
+        <a class="back-link" href="../../">← All weeks</a>
+        <p class="eyebrow">Reading reflections · October 28, 2026</p>
+        <h1 id="week-title">Week 14</h1>
+        <div class="week-summary">
+          <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
+          <span>1 response</span>
+        </div>
+      </section>
+
+      <section class="response-list shell" id="responses" aria-label="Week 14 responses">
+        <article class="response-card">
+          <header>
+            <span class="response-number">01</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-10-21">Oct 21, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Beyond Memorization:
+		○ I found the shift from memorization-based to inference-based privacy risks interesting. Even when an LLM does not reproduce its training data, it may infer sensitive attributes from seemingly innocuous text. Thus, preventing training-data leakage alone is insufficient to protect privacy.
+		○ In &quot;Large-scale online deanonymization with LLMs&quot;, it was concerning how LLM agents can automate deanonymization that previously required substantial human effort, transforming a targeted privacy attack into a scalable one. The risk arises not from disclosing a single identifying fact, but from aggregating weak clues distributed across public sources. 
+
+	Can LLMs Keep a Secret:
+		○ It was interesting that the researchers approached privacy from an HCI perspective, emphasizing the importance of reasoning about context when normatively determining whether a privacy violation has occurred. Rather than treating every disclosure as inherently harmful, contextual integrity evaluates whether information is shared appropriately based on factors such as the sender, recipient, purpose, and surrounding social norms. The results also demonstrate why prompting alone may be insufficient to reliably enforce such context-dependent privacy expectations.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>	Beyond Memorization
+		○ How should privacy be formally defined when sensitive information is inferred from public text rather than memorized or explicitly disclosed? I would like to discuss whether differential privacy or related guarantees can meaningfully address this threat.
+		○ What defenses could preserve the utility of pseudonymous online speech while limiting automated cross-platform linkage, particularly when each individual piece of information is already public?
+	Can LLMs Keep a Secret
+		○ Can contextual privacy norms be translated into enforceable information-flow policies with stronger guarantees than prompting, or are these norms too dependent on ambiguous social context to be formally specified?
+</p>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer shell">
+        <p><span class="footer-signal" aria-hidden="true"></span>Synced from the class response form</p>
+        <p>Email addresses are never published.</p>
+      </footer>
+    </main>
+  </body>
+</html>
