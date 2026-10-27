@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="1 CS 618 reading reflections for Week 15, November 2, 2026." />
+    <meta name="description" content="5 CS 618 reading reflections for Week 15, November 2, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 15 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 15</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>1 response</span>
+          <span>5 responses</span>
         </div>
       </section>
 
@@ -70,6 +70,98 @@ Particularly interesting was the relationship between computational efficiency a
 	Federated Learning of Gboard Language Models with Differential Privacy
 		○ One question I had was how the system verifies constraints such as the maximum number of client participations and the minimum separation between participations. If an implementation error violates these assumptions, how much does the claimed privacy guarantee weaken?
 Reading the two papers together also raised a question for me. While the Gboard paper uses public pretraining to strengthen its formal privacy guarantees, the position paper questions whether web-scraped pretraining data should be considered non-sensitive in the first place. How should a deployed system communicate a guarantee that protects Gboard users’ fine-tuning data but not the individuals represented in its public pretraining data?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Eric Liu</h2>
+              <time datetime="2026-10-25">Oct 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For Federated Learning of Gboard Language Models with Differential Privacy, i found it clever that they improved privacy partly by controlling how often each device participates in training. For Considerations for Differentially Private Learning, I found it very interesting that they observed that some research treats Google&#39;s proprietary JFT dataset as &quot;public&quot; while treating the freely available ImageNet dataset as &quot;private.&quot; This highlights how the technical definitions of public and private data can differ from what we normally understand those terms to mean.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I&#39;m curious whether Federated Learning of Gboard Language Models with Differential Privacy&#39;s approach of limiting how often devices participate in training could unintentionally affect which users are represented in the model. Since Considerations for Differentially Private Learning paper also raises concerns about public pretraining data not representing certain populations or tasks well, could these two factors combine to produce models with strong privacy guarantees but worse performance for underrepresented users?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Katherine Hancock</h2>
+              <time datetime="2026-10-26">Oct 26, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Considerations for DP learning:
+I know this paper is focused on the privacy aspects of ethical issues of using &quot;public&quot; data online, but what struck me about it was actually the fact that even if a user consents to posting their information publicly online, that doesn&#39;t automatically mean they also consent to the data being used in any particular way. I&#39;m disappointed (but not surprised) that publicly available data seems to be treated like it&#39;s automatically okay to use for training. I also found it concerning that describing a model as differentially private could give people the impression that all of its training data is protected, even though that protection may only apply to fine-tuning. And even when DP does apply, I still feel like the consent question remains, since protecting someone’s privacy doesn’t automatically mean they agreed to that use of their data.
+
+Federated learning:
+I found the strategies they used for protections (limiting each phone&#39;s influence, adding randomness, limiting repeated participation) really interesting! It kind of reminded me of Apple&#39;s &quot;Learning with Privacy at Scale&quot;: https://machinelearning.apple.com/research/learning-with-privacy-at-scale where they used private reports to learn which emojis were popular across users without needing to know each person&#39;s emoji history, since in both papers they&#39;re learning useful patterns across many users while limiting what can be learned about any one person.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Considerations for DP learning:
+I&#39;m curious how we can find ways to better inform users (since majority of people posting stuff online are not going to be AI/ML experts who even know what &quot;differentially private&quot; means). Is there a way to explain to them what&#39;s going on in a way that they can actually follow so that we can get informed consent (including different levels of it, like allowing their data to be used for training with or without differential privacy protections, or not allowing to to be used for training at all)?
+
+Federated learning:
+This paper actually also kind of reminded me of the Performative Prediction paper from a while ago, and it got me wondering: even if a keyboard learns from people in a privacy preserving way, is it actually learning their existing preferences, or partly learning preferences that its own suggestions helped create? Like how do its suggestions actually influence users&#39; behaviors and how does that behavior then influence future predictions?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Alan Liang</h2>
+              <time datetime="2026-10-26">Oct 26, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that differential privacy for fine-tuning does not retroactively protect sensitive information in the pretraining data. Publicly accessible data can still contain information that people consider private. I also found the ImageNet-to-CIFAR-10 example interesting because the overlapping classes make it difficult to tell how much improvement comes from private learning rather than pretraining.
+
+I found it interesting that real device availability creates a problem for privacy analysis: phones cannot always be sampled uniformly when participation depends on conditions such as charging and network access. DP-FTRL allowed the authors to avoid relying on that assumption. I also found it interesting that controlling repeated device participation and using public pretraining were important to obtaining useful models with formal privacy guarantees.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>What would a useful benchmark look like when the sensitive task is poorly represented in public data? How could we measure what private fine-tuning adds beyond the pretrained model’s existing abilities? I hope to learn how to describe the scope of a privacy guarantee clearly, including separate concerns about sending sensitive inputs to a cloud provider during use.
+
+How would these choices work for languages with much smaller user populations? What protection does device-level privacy provide when one person contributes through several devices? I hope to understand how the reported privacy costs would change if hyperparameter tuning and checkpoint selection were included, and how to evaluate the protection provided by the complete development process.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Lauren Cooke</h2>
+              <time datetime="2026-10-26">Oct 26, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>In the Gboard federated learning paper, I thought it was interesting how guarantees over the entire system can exist by clipping and adding noise locally without taking a uniform random sample across the entire population. It really speaks to how different advancements can come from the real-world constraints of a given problem. I also really liked the pretraining paper, as it raises an excellent point about potential shortcuts and leaks arising from pretraining on public data, where essentially one could leverage the accuracy gain of a non-private dataset and overpromise performance and still sell a model as private because of the finetuning process. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the GBoard paper, I wonder how much in practice these models suffer from the privacy-accuracy tradeoff across smaller subsets of the population despite working at such a large scale preventing overall accuracy damage. Does adding noise on the local level introduce any fairness concerns in the type of accuracy lost, where certain specific quirks of unique dialects could be represented privately in theory but aren’t in practice because noise is spread everywhere? Also, does the pure hardware bottleneck in needing to train locally as part of the federated process limit information gain in a significant way (compared to a hypothetical approach where every user had local access to big hardware)? I’d be curious to know more specifically about the type of information hypothetically lost to hardware limitations and if there is any trend to the type of content lost, especially as it relates to the long tail concerns brought up in the large-scale pretraining paper. Specific to this work, I wonder how much overlap there really is between the benchmark evaluation sets and the model pretraining corpus they test on. Does performance hold up on guaranteed unseen data, like a proprietary set that some researcher may have access to? </p>
             </section>
           </div>
         </article>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="6 CS 618 reading reflections for Week 13, October 26, 2026." />
+    <meta name="description" content="17 CS 618 reading reflections for Week 13, October 26, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 13 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 13</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>6 responses</span>
+          <span>17 responses</span>
         </div>
       </section>
 
@@ -170,6 +170,228 @@ I also wonder how well a model trained with PATE would perform when the publicly
               <p>Why might it be that the aggregation of teacher predictions is so poor on MNST as the number of teachers increases? Specifically at 100 and 250 teachers, there is a large decrease in the gap. Additionally, the gap seems to remain relatively stable at those points. We do not see such behavior with SVHN. 
 
 *Note that these responses are duplicated from my 10/21 submission, before the &quot;Semi-Supervised Knowledge Transfer...&quot; paper was moved to 10/26. </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">07</span>
+            <div>
+              <h2>Chen Gong</h2>
+              <time datetime="2026-10-23">Oct 23, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I accidentally put today&#39;s paper to (Wed, Oct 23)[paper2]</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I accidentally put today&#39;s paper to (Wed, Oct 23)[paper2]</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">08</span>
+            <div>
+              <h2>Sreyes Venkatesh</h2>
+              <time datetime="2026-10-23">Oct 23, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>One particular thing I found interesting was the findings of the approaches that did not reduce the number of queries: Distillation gave gains too small to justify releasing full probability vectors instead of plurality votes; Siamese networks for active learning didn’t generalize. Binary expert classifiers gave 1.5 to 2.5%; What actually worked was the seemingly most simple method. i.e. let the student rank unlabeled inputs by its own low confidence and spend queries there first, for 4 to 10% gains at fixed budget. Another point of interest to me was the construction of the method, the authors partition the sensitive data into n disjoint sets, train an ordinary teacher on each, have them vote on labels for public unlabeled data with Laplace noise on the vote counts, train a student on those noisy labels, deploy only the student. Note that none of the teachers are privacy aware. There’s also no modified optimizer, no gradient clipping, no per example bookkeeping inside training. This guarantee comes from the topology of the pipeline rather than from the learning algorithm and interests me in particular because it demonstrates success on non convex functions like neural nets. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>A question I had about the Semi Supervised Knowledge transfer paper was given that the student is a distillation of the teachers, and the teachers memorize,  I was wondering what would happen if membership inference attacks against PATE students at epsilon = 8 and if that empirical leakage would be consistent with the formal bound. Also the authors admit that ensembling gets impractical when the number of classes is large. For something like a thousand class problem or a rare disease medical dataset, I cannot imagine the partitions can be both clean and well populated. I was wondering at what classes per partition ratio does the ensemble stop being confident enough to tolerate noise?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">09</span>
+            <div>
+              <h2>Mohammadsaeed Haghi</h2>
+              <time datetime="2026-10-23">Oct 23, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the PATE paper, what I found interesting is that the model they publish is more accurate than any of the models it learned from. Each teacher sees only 1/250 of the data and gets 84% on MNIST, the noisy vote gets 93%, and the student gets 98%. The first jump is ensembling. The second is the 8,900 unlabeled public images the student gets.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the PATE paper, the thing that I’d like to know is how much the result depends on the dataset. The student reaches 98% on MNIST using only 100 labels out of 9,000 samples, with the rest unlabeled. The paper says this may not work when the output categories are not distinctly defined in the input space, and gives medical data as the example. That is also the motivating case in the introduction. So I want to see how PATE does when semi-supervised learning stops helping.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">10</span>
+            <div>
+              <h2>Mattia Solla</h2>
+              <time datetime="2026-10-23">Oct 23, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>&quot;SEMI-SUPERVISED KNOWLEDGE TRANSFER FOR DEEP LEARNING FROM PRIVATE TRAINING DATA&quot;: I found interesting the generality of this method in terms of how to partition the data and train the teachers.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>&quot;SEMI-SUPERVISED KNOWLEDGE TRANSFER FOR DEEP LEARNING FROM PRIVATE TRAINING DATA&quot;: Can we get bounds on the performance loss in terms of the performance of each individual teacher and the privacy guarantees?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">11</span>
+            <div>
+              <h2>Yuyang Jiang</h2>
+              <time datetime="2026-10-23">Oct 23, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the idea of transferring knowledge from private models to a public student model particularly interesting. Rather than directly applying differential privacy to the entire training process, PATE trains multiple teachers on disjoint subsets of private data and uses noisy aggregation of their predictions to supervise a student model. I especially liked the intuition that agreement among teachers can help reduce privacy costs, since the aggregated prediction becomes less dependent on any individual teacher’s training data. More broadly, the paper demonstrates how designing the learning architecture itself can create opportunities for stronger privacy guarantees without requiring major restrictions on how individual models are trained.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I had is how the effectiveness of PATE depends on the degree of agreement among teachers. The framework benefits from strong consensus, but in more complex tasks, teachers trained on disjoint datasets may learn substantially different decision boundaries or exhibit systematic disagreements. How would this affect the privacy-utility trade-off, especially when disagreement reflects meaningful differences in the underlying data rather than random noise? I would also be interested in discussing whether PATE can scale effectively to modern foundation models, where training multiple independent teachers may be computationally expensive and transferring knowledge through discrete predictions may be insufficient.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">12</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-10-23">Oct 23, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find it interesting how the paper takes local differential privacy from a theoretical concept to a system deployed across hundreds of millions of devices. Instead of collecting raw user data and adding noise afterward, Apple randomizes each record directly on the user&#39;s device, so the server never receives the original information. I also like that privacy is not achieved through differential privacy alone, but through several additional design choices, such as limiting the number of reports, removing identifiers, and separating records from different use cases. Another interesting part is the trade-off between privacy, estimation accuracy, communication cost, and server computation. In particular, the Hadamard Count Mean Sketch algorithm allows a device to transmit only a single privatized bit while still enabling the server to estimate frequencies across a large population. Sorry for the confusion, I didn&#39;t notice that the papers for Oct 21 and Oct 26 had been switched, so I accidentally submitted my responses under the opposite dates.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I&#39;m curious about how the authors choose the privacy parameter and other algorithmic parameters in practice. The paper provides theoretical bounds on estimation variance, but I wonder how sensitive the results are to the underlying data distribution, especially when some items are rare. For example, if a word or emoji is used by only a small number of people, how reliably can the system distinguish its true frequency from the noise introduced for privacy? I&#39;m also interested in how the privacy guarantees behave when users contribute data repeatedly over time. The system limits the number of reports per day and removes identifiers, but does that provide sufficient protection when the same user participates over a long period? I&#39;d like to better understand how the event-level privacy guarantees relate to user-level privacy, and how the system balances long-term privacy protection with the need to collect useful statistics.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">13</span>
+            <div>
+              <h2>Xixiao Pan</h2>
+              <time datetime="2026-10-23">Oct 23, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the PATE framework interesting because it provides differential privacy without directly modifying the training process of individual teacher models. Instead, it uses noisy aggregation and knowledge transfer to train a student model. I was also surprised that the student could achieve 98% accuracy on MNIST with only 100 teacher queries, showing that strong privacy guarantees do not necessarily require a large sacrifice in model performance.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I’m curious about how well PATE scales to more complex datasets and modern large language models, especially when training hundreds of teacher models becomes computationally expensive. I also wonder how the choice of the number of teachers affects the trade-off between privacy and accuracy. I hope to better understand when PATE would be preferable to approaches like DP-SGD in real-world applications.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">14</span>
+            <div>
+              <h2>Michael Duan</h2>
+              <time datetime="2026-10-24">Oct 24, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the PATE paper, I thought the idea to do private learning via ensemble voting was really clever and an interesting way to learn from siloed data. However, I&#39;m still not fully convinced this method would extend to complex real medical data (say CT scan report generation tasks) and wonder if the utility tradeoff would be too much to learn such distributions or miss a lot of the tails.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the PATE paper, I wonder if a denser version could be achieved using multi-teacher OPD. Perhaps this would make it more useful for learning more practical data distributions like the medical examples they gave. However, I&#39;d be curious how to make such a version more sample efficient to avoid a ton of privacy leakage from repeated queries. I also wonder how the diversity of datasets that you are trying to aggregate impacts the success of the PATE method.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">15</span>
+            <div>
+              <h2>Eric Liu</h2>
+              <time datetime="2026-10-25">Oct 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I already answered for this paper as last wednesday&#39;s mini-hw since I thought it was going to be presented. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I already answered for this paper as last wednesday&#39;s mini-hw since I thought it was going to be presented. </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">16</span>
+            <div>
+              <h2>FNU Bandre Devaraju Vinod</h2>
+              <time datetime="2026-10-25">Oct 25, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that the private data is only used to train teachers that are never released. The teachers vote with noise on public data, and only a student trained on those votes is shared, so even if someone sees the student’s weights, they can’t get to the private data. It reached 98% on MNIST with just 100 teacher votes, at a smaller privacy cost than DP-SGD.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The student needs public unlabeled data that looks like the private data. I’d like to know what you would do when there is no such public data, like for rare medical records.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">17</span>
+            <div>
+              <h2>Aman Desai</h2>
+              <time datetime="2026-10-26">Oct 26, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I am super sorry: I had written this response on last week&#39;s form because I thought this paper&#39;s presentation was going to be last week.
+
+Semi-Supervised Knowledge Transfer for Deep Learning From Private Training Data: The training procedure is really nice because of how general it is. From my understanding, there are only minimal assumptions made on the structure of the models. Rather, since the guarantees of differential privacy apply (within a budget) downstream, it seems like the budget is the only thing that needs to be accounted for.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>How do modern generative machine learning models perform when trained using this algorithm?</p>
             </section>
           </div>
         </article>
