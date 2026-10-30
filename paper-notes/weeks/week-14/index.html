@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="10 CS 618 reading reflections for Week 14, October 28, 2026." />
+    <meta name="description" content="27 CS 618 reading reflections for Week 14, October 28, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 14 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 14</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>10 responses</span>
+          <span>27 responses</span>
         </div>
       </section>
 
@@ -284,6 +284,419 @@ Is there a lower bound on how many posts are necessary to infer one’s private 
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
               <p>One question I had is how we should distinguish between legitimate inference and privacy-invasive inference in LLM applications. The first paper demonstrates that models can infer sensitive attributes from publicly available information, while the second suggests that privacy depends heavily on the context in which information is shared. However, the same inference could be useful in one application and inappropriate in another. How can we formally define and evaluate these contextual privacy boundaries, especially when the sensitive information is inferred rather than explicitly provided by the user? I would be interested in discussing whether contextual integrity could provide a general framework for evaluating both inference-based privacy violations and inappropriate information disclosure.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">11</span>
+            <div>
+              <h2>Pranavesh Kumar Talupuri</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Staab et al. show that harmless conversations without any private information can still leak private data. Even if the data never existed in the first place, it can still be inferred. I think it is very interesting that something like this is possible at all, since anonymization is now fundamentally useless and private information does not need to be seen to be understood. 
+
+Additionally, Lermen et al. say that the inferred information combined with searching the web and reasoning can be be used deanonymize private data as well. 
+
+Mireshghallah et al. ask a different question and find that LLM&#39;s actually fail to keep secrets sometimes when explicitly told to do so. They remember the rule and repeat it correctly when asked, and follow the rule when faced with simple prompts. But the interesting thing is that when they have to generate a natural response inside a complicated story, they are much more likely to leak it than to keep the secret.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>If LLM&#39;s are becoming cheap enough to run these web scraping and deanonymization tasks at scale then is there anything we can do to keep private data actually private? Do platforms now need to implement more complex methods to prevent leakage even after privatization?
+
+If a model understands a privacy rule when asked directly but fails to follow it inside a complex task, is this really a privacy problem, or a reasoning problem to begin with? How do we solve something like this? </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">12</span>
+            <div>
+              <h2>Aditya Kotha</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>BEYOND MEMORIZATION paper:
+
+The paper points out a very serious problem with LLMs ability to infer personal information by indirectly analyzing textual cues with their general knowledge. And the example they provided with the hook turn, and age-based analysis further shows how dangerous they can get at deanonymizing someone at scale. And what&#39;s surprising is that anonymizing the texts explicitly only reduced location-prediction accuracy from 86% to around 55%, which is still significant. The results they show later are very impressive, with GPT-4 achieving 85.5% accuracy on a single try and 95.2% on 3 tries, showcasing that LLMs can perform large-scale profiling very accurately on the evaluated dataset.
+
+CAN LLMSKEEP A SECRET paper:
+
+The paper approaches privacy from a different perspective than the DP approach we have been learning so far. Instead of asking whether an LLM would regurgitate what it was trained on, this paper asks whether it knows what to reveal during inference when it has access to sensitive information, which is very interesting. And in their results, they report that GPT-4’s correlation with human responses fell from 0.8 to 0.1 as they increased scenario difficulty, highlighting the limitations of these models. It&#39;s also very interesting that they found that models like GPT-4 tend to reveal information when a request is framed as an incentive to help others instead of directly asking (from the results of tier 3), which they theorize might be due to LLMs being tuned to be more helpful and, in turn, raises conflict between that and privacy.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>BEYOND MEMORIZATION paper:
+
+I wonder how the anonymization process works here. If personal information can be inferred from textual and contextual cues, how would one decide what to keep and what to remove when asking questions or providing solutions to others on social media or other platforms, without compromising their privacy?
+
+CAN LLMSKEEP A SECRET paper:
+
+In the tier 3 evaluation, they mention 2 methods in which they evaluate the responses, and in the second method, they use an off-the-shelf LLama model to evaluate whether information has been leaked or not, but the way they evaluate it is by looking if the name of person X has been revealed or not, and if the LLama model can infer the name. Although this leads to scenarios where the response contains something like I know a person and I&#39;ll send you his details later or something more indirect, which still ends the response without explicitly mentioning X’s name, which is still a privacy violation. So should they have found a different way to evaluate?
+
+I also wonder if the latest reasoning models still have the same issues they mentioned, where the model acknowledges the importance of privacy but doesn’t apply it to its results during CoT tests. The current models are much more capable of applying their reasoning effectively, so they might have already solved these problems to some extent.
+
+
+I want to learn a bit more about privacy concerns at inference time, as discussed in this week’s papers.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">13</span>
+            <div>
+              <h2>Leland Ling</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>These papers make the case that most of the privacy risk for LLMs happens at inference, not only in what the models memorize during trainning. Beyond Memorization and Large scale online deanonymization with llms papers discuss how a malicious actor can utilize LLMs to pick up on subtle cues to infer someone&#39;s identifying information nearly or as accurately as a human investigator for simply the cost of the tokens. The third paper, Can LLMs keep a secret, links  those inferred traits to real identities at scale, reaching a recall at 90% precision on the netflix prize style attacks close to 0. LLMs can make investigations nearly free, and can be utilized to break practical obscurity through LLMs and their corresponding inhuman compute. ConfAIde on the other hand holds the secret and tries to hold it, rather than using it to find the secret. Found its interesting that GPT-4 could identify who knows the secret and still leak it. COT prompting made the leakage worse but possibly due to architecture and training methods knowing the privacy norms and actually applying them are separate abilities. Think its scary how LLMs can break through this practical obscurity and wonder if anything is truly private now.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I would like to see what a realistic defense to this LLM deanonymization attacks look like. Text anonymization and model alignment methods appear to barely help. The deanonymization paper also argues that the attack splits into different steps that may look harmless but if there could be a method that meta analyzes steps together to identify maliciousness.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">14</span>
+            <div>
+              <h2>Sriram Kadiyala</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Beyond Memorization
+
+It is incredible how much personal data LLMs can infer from casual text at inference time, completely separate from training data memorization. Even after scrubbing explicit entities with Azure&#39;s anonymizer, GPT-4 still guessed locations ~55% of the time because it picks up on subtle context, like inferring Melbourne from a &quot;hook turn&quot; mention, leaving nothing for an anonymizer to scrub.
+
+Can LLMs Keep a Secret? 
+
+I found it really interesting that RLHF alignment for &quot;helpfulness&quot; actually backfires when a model needs to keep a secret. While GPT-4 rarely leaked self-harm info on average, leakage spiked when prompts framed it around trying to &quot;provide help&quot;. Also, it was surprising to know that Chain-of-Thought prompting actually made leakage worse, with ChatGPT explicitly writing that it should protect privacy in its reasoning about 51% of the failure cases before spilling the secret anyway.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Beyond Memorization
+
+Since GPT-4 and Llama-2 refused 0% of profiling prompts, how can you align a model to refuse adversarial profiling without breaking normal reading comprehension or market research tasks that use the exact same reasoning?
+
+Can LLMs Keep a Secret?
+
+Since prompting and Chain-of-Thought both failed to stop models from leaking secrets in meeting tasks, shouldn&#39;t engineers solve this at the systems level by filtering transcripts based on who was in the room, rather than trusting an LLM&#39;s &quot;Theory of Mind&quot;?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">15</span>
+            <div>
+              <h2>Sreyes Venkatesh</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the confAIde paper, the collapse of the alignment of human judgment and model judgment across tiers is particularly interesting. Four levels of increasing contextual complexity: rate an information type’s sensitivity in the abstract; judge an information flow given actor and purpose; navigate a three-party scenario where Y must decide whether to reveal X’s secret to Z; and finally generate meeting summaries and action items from a transcript containing both a secret about an attendee and public information everyone needs. GPT-4’s correlation with human judgment falls from 0.86 at Tier 1 to 0.10 at Tier 3. Every model degrades the same way. Performance on the easy, abstract version of the task predicts almost nothing about the realistic one. 
+
+One thing I found interesting about the Beyond Memorization paper is that The human comparison is better than it looks, because the humans had advantages. Labelers could see which subreddit each comment came from (the models couldn’t) and could use search engines. PR contains 51 labels that humans could only get from subreddit names whereas GPT-4 inferred many of them from comment text alone.
+
+Something that I found interesting about the Large Scale deanonymization paper is how the open world result required almost no engineering. The authors summarize a user’s posts into a profile, strip direct identifiers, hand it to a frontier agent with web search, and ask who it is. On 338 Hacker News users with LinkedIn links as ground truth: 226 correct, 67% recall at 90% precision, at 1 to 4 dollars per profile and under $2000 for the whole experiment. The authors themselves note that this “comes for free.”</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the confAIde paper a question I had is how trustworthy is the leakage detector? Leakage is scored by exact string match on X’s name plus a Llama2 13b chat proxy asked who the secret relates to. No false positive rate is reported for either. So does mentioning X’s name in a non revealing way count? 
+
+For the Beyond Memorization paper one question that came up was how much is top k inflation? We see that top 1 is 85.5% and top 3 is 95.2%, but several attributes are categorical with few options. Income accuracy is 62.5% on only about 40 samples, jumping to 87% at top 2. So i’d want the chance baseline per attribute alongside the headline.
+
+For the Large Scale Deanonymization paper one question I had was what is “Reason” actually computing? The worked example in Figure 5 reasons that three specific details are “unlikely to co-occur by chance,” which is an informally computed likelihood ratio. If that’s the mechanism, this brings up whether a calibrated statistical method over LLM extracted features matches it. Their movie experiment is the one place they hold extraction fixed, and there the LLM advantage shrinks a lot so I’d want that ablation in the Hacker Network setting, to address the 45.1% value </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">16</span>
+            <div>
+              <h2>Nana Xia</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Beyond memorization: the paper shows that LLMs can infer private personal information such as geographic location, age, income, etc even when users may never explicitly disclosed such information. However, users may provide enough data inadvertently, then the LLMs are able to infer the private information, as shown in the examples from the real Reddit profiles. For example, a harmless comment mentioning a &quot;hook turn&quot; allows the model to infer the author is likely from Melbourne, showing that semantic inference can be uncovered through indirect rules.
+
+Can LLM keeps a secret? The paper addresses a concept distinct from simple privacy inference: contextual integrity. The authors introduce CONFAIDE, a framework that evaluates the appropriateness of information flows with specific contexts such as meeting summarization, where different participants know different levels of information. While models can identify the privacy-sensitive content, they may still inadvertently leak the secret. The authors conclude that simply including a prompt like &quot;please preserve privacy&quot; is insufficient and it requires deeper contextual and theory-of-mind reasoning.
+
+Large-scale online deanonymization with LLMs: the authors show that LLM agents with internet access can analyze unstructured personal profiles and perform end-to-end deanonymization, including extraction, searching, reasoning, and calibration. When people post online information without the intent to reveal themselves, but LLMs can automatically extract weak signals, search a large number of candidate personal profiles and reason to have a real identification.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The traditional privacy approaches often focus on protecting stored data, but LLMs can generate new private information even through inference and weak signals. Better reasoning makes models clever and useful, but it also makes them better at combining weak clues and inferring sensitive information. Is there a tradeoff between privacy and useful models if improving LLMs&#39; capabilities of reasoning?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">17</span>
+            <div>
+              <h2>FNU Bandre Devaraju Vinod</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the Beyond Memorization paper, I found it interesting that LLMs don’t need to memorize anything to violate privacy. GPT-4 could guess things like location, age and income from normal Reddit comments with about 85% accuracy, picking up on small clues like someone mentioning a “hook turn” on their commute, which is a Melbourne thing. This suggests that removing names and places from text is not enough, since even after anonymization it still got the location right more than half the time.
+
+For the Can LLMs Keep a Secret paper, I found it interesting that the models know privacy matters but still don’t follow it. Even when told to keep things private, GPT-4 leaked the secret in about 39% of meeting summaries, and in one case it told Kate to prepare for her own surprise birthday party. I also didn’t expect asking the model to think step by step to make it leak more, not less.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the Beyond Memorization paper, current anonymizers fail because the model picks up on small clues like local slang. I’d like to know if we could use an LLM itself to rewrite the text and remove those clues, and how much that would change the meaning of the text.
+
+For the Can LLMs Keep a Secret paper, GPT-4 leaked secrets most when the reason was to help someone, and the authors link this to models being trained to be helpful. I’d like to know if there is a way to train models to keep secrets without making them less helpful.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">18</span>
+            <div>
+              <h2>Vaishnavi Sinha</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Beyond Memorization: the relationship between the human difficulty scores and model accuracy is interesting. GPT-4 sometimes performed better on examples rated as difficulty 4 than difficulty 3 because the former required looking up specific information, while the latter involved more reasoning. This made me think about how we define the difficulty of a task for humans versus LLMs.
+
+Can LLMs Keep a Secret?: it was interesting to see the leaks coming from either knowing the rule but not following it, or losing track of who knows what. This made me wonder whether the two types of failures require different solutions, since reminding a model about privacy does not necessarily help it track who knows what.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Beyond Memorization: in the adversarial chatbot setting, the attacker writes the system prompt and could just use an open model like llama, which never refused. Can provider-side alignment actually help against this kind of attacker?
+
+Can LLMs Keep a Secret?: the human labels have low Krippendorff’s alpha (close to 0, meaning agreement is near chance), so people often disagreed about what’s private. If humans don’t agree, what does it mean for a model to match human judgment in Tiers 1 and 2?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">19</span>
+            <div>
+              <h2>Nisarga Bhaskar</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>BEYOND MEMORIZATION: VIOLATING PRIVACY VIA INFERENCE WITH LARGE LANGUAGE MODELS: Its impressive the accuracy the LLM models achieve witch such a fraction amount of cost and time 85% with top 1 and also the fact the common mitigation methods aren&#39;t able to even address this issue makes it something worthwhile to look into further
+
+CAN LLMS KEEP A SECRET? TESTING PRIVACY IMPLICATIONS OF LANGUAGE MODELS VIA CONTEXTUAL INTEGRITY THEORY : its interesting to see that the models are able to conceive the idea of privacy at simpler setting of  initial tiers but even with chain of thought at tier 3 it either is not able to operationalize after realizing the information is private or makes assumptions about Z already knowing that information is this dues to some kind of capability issue along with privacy issue</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>BEYOND MEMORIZATION: VIOLATING PRIVACY VIA INFERENCE WITH LARGE LANGUAGE MODELS: Does allowing the model to have access to illegally obtained dataset about the individuals seem fair because it seems like those illegally extracted sources are more of security concerns rather than talking about the capability of the model to run an inference attack
+CAN LLMS KEEP A SECRET? TESTING PRIVACY IMPLICATIONS OF LANGUAGE MODELS VIA CONTEXTUAL INTEGRITY THEORY : In the table where they show the corelation between humans and the LLM how is there more disagreement in T-2a compared T-2b given 2b is more story based is the fact of it being a story providing the model with more context cues?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">20</span>
+            <div>
+              <h2>Sheryl Mathew</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Beyond memorization: This paper investigates how LLMs can infer PII in conversation with an individual. Their results show that LLMs can pick up on small details in the conversation to infer someone&#39;s age, location, occupation, and income. I like that these experiments simulate real settings where a user chats with an LLM. 
+LLMs secret: It is interesting how the authors consider LLMs&#39; theory of mind and how that affects their tendency to leak private information.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Beyond memorization: How often does this happen in practice? Intuitively it doesn&#39;t seem like most users discuss information that reveals their age, location, occupation, income, etc. 
+LLMs secret: It is unclear whether tracking first or second order beliefs is even helpful to the task of preventing privacy leakage. How do we know if the LLM is good at theory of mind and just bad at following instructions?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">21</span>
+            <div>
+              <h2>Mattia Solla</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>&quot;Beyond Memorization: Violating Privacy Via Inference with Large Language Models&quot;: the change in studying privacy not only through memorization but also through inference is interesting, and the results in the benchmark proposed by the authors show a real value in this approach.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>&quot;Beyond Memorization: Violating Privacy Via Inference with Large Language Models&quot;: is there a way to achieve a guarantee that models will not disclose private information that they obtain through inference? It seems very hard to distinguish that from a model simply being a good at what it does, even if the model were aligned &quot;properly&quot;.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">22</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>What I find most interesting about these papers is that they both highlight privacy risks that go beyond the memorization or extraction of training data. In paper1, the authors show that LLMs can infer personal attributes from seemingly harmless text, even when those attributes are never explicitly disclosed. I&#39;m particularly surprised by how much information can be recovered from subtle contextual clues, such as regional expressions or descriptions of everyday activities. The finding that anonymization tools are substantially less effective on examples requiring more complex inference is especially interesting to me, since it suggests that simply removing explicit personal identifiers may not provide meaningful protection against increasingly capable models. I also like how paper2 approaches privacy from a different perspective. Rather than focusing on what information a model can infer, it investigates whether a model can reason about when information should or should not be shared. The CONFAIDE benchmark progressively increases contextual complexity, and the results show that models can perform reasonably well on simple privacy judgments but struggle when they need to track information accessibility across multiple people. I find this distinction important because recognizing that information is sensitive is not necessarily sufficient to preserve privacy in realistic interactions.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I have is how we should formally define and evaluate privacy violations that arise from inference rather than memorization. In paper1, the model can infer sensitive attributes from information that users have voluntarily made public. However, the boundary between a reasonable inference and a privacy violation seems difficult to define. For example, if a model infers someone&#39;s location from their writing style or everyday experiences, should this always be considered a privacy violation, or does the answer depend on how the inferred information is subsequently used? I&#39;m interested in whether we can develop a more precise framework that accounts for both inference accuracy and the context in which the inference occurs.
+Another question concerns the relationship between privacy reasoning and actual privacy-preserving behavior. In paper2, models sometimes recognize that certain information should remain private but still disclose it when generating responses in more complicated scenarios. I wonder whether this gap can be addressed primarily through better training or prompting, or whether reliable privacy protection requires explicit mechanisms that track who is authorized to access particular information. I would also like to discuss how we could evaluate such mechanisms under more realistic interactions, where information is gradually revealed and different participants have different levels of access.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">23</span>
+            <div>
+              <h2>Chen Gong</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>[Paper 1] Another real big-company engineering work. This time it&#39;s Google talking about keyboard autofill with differential privacy. They have 3 tasks that need users&#39; private messages: guessing the next word, autofilling the whole sentence, and ranking the words. All of them are important and very user-oriented features, but they have to be trained on real data.
+
+[Paper 2] The high-level idea is close to a paper we discussed before, about whether image models remember their training data and how safe they are. But now we care about text models too, and we use fine-tuning to partially protect the data. However, the authors don&#39;t agree with this (and that&#39;s my intuition too), because we have no guarantee on the base model&#39;s privacy. It was trained on online data, and we know nothing about that data.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>[Paper 1] Since it&#39;s engineering work, do they have different opinions compared to common theoretical ideas? What obstacles did they face when turning math into code? Were there any results that were out of their expectation?
+
+[Paper 2] Which part lacks privacy the most, and which part do we worry about the most? When we talk about privacy in this paper, are we talking about the same thing?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">24</span>
+            <div>
+              <h2>Xixiao Pan</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the distinction between training-data leakage and inference-time privacy violations especially interesting. Even if a model does not memorize private training data, it can still disclose sensitive information from its current context to an inappropriate audience. The meeting-summary examples made this problem concrete: knowing a detail does not mean the model should include it in a summary. I also found it surprising that models could recognize sensitive information in simple settings but struggle to preserve privacy in more complex interactions.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>How can we distinguish failures in tracking who knows what from failures in understanding whether sharing is appropriate? I would also like to discuss whether explicit information-flow rules or access controls could address these problems, and where stronger reasoning would still be necessary. Finally, how should we evaluate privacy when people have different expectations about what can be shared?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">25</span>
+            <div>
+              <h2>Michael Duan</h2>
+              <time datetime="2026-10-27">Oct 27, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For Confaide, I like the contextual integrity framework for understanding agentic privacy as information flow that is contextually appropriate/inappropriate. It&#39;s interesting that chain-of-thought typically isn&#39;t enough to align these models on appropriate information flow, and even bigger models continue to struggle with this (I&#39;m aware that even modern models like gemini and ChatGPT still struggle in this space; though Muse Spark is quite good since apparently they hillclimbed on the CIMemories benchmark - kind of like a long-context followup to the Confaide work).
+
+The beyond memorization paper highlights a similar concern with private information extraction at inference time. It&#39;s interesting that models can identify information such as the hook turn to detect that a specific writer may be from Melbourne. This personal yet not necessarily PII type information poses a nuanced surface for exploitation; for example recent work has demonstrated how LLMs could be used for personalized blackmail at scale due to automated sensitive information extraction. I also appreciate how this paper further expands the privacy threat space that LLMs can potentially take advantage of. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>In some of my recent work, we&#39;re focusing on deriving agentic environments to train agents in to have trajectories that respect contextual integrity (e.g., a request to send an email to someone should consider what information is appropriate to share given a task and the position/scope of the receiver). One issue is that what we deem as contextually private is still technically normative by definition. I&#39;m curious instead what the best way to train models to instill contextual integrity alignment is. One example we are currently trying is by experimenting with simulating rollouts given different information sharing scenarios to help the model understand the consequences of different information sharing actions to build its understanding of appropriate information flow. 
+
+I&#39;m curious for the beyond memorization work how we can train guardrails into the model to understand when an information extraction request may violate an author&#39;s privacy and prevent the model from executing the request. This problem is even more important for open models, since API-based models can use external wrapper guardrails, but open models have to be shipped with these protections in place and make them resilient to removal from further tuning.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">26</span>
+            <div>
+              <h2>Aman Desai</h2>
+              <time datetime="2026-10-28">Oct 28, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Can LLMs Keep a Secret? Testing Privacy Implications of Language Models via Contextual Integrity Theory: This paper&#39;s analysis is very interesting because the goal of keeping certain information private seems like it may sometimes conflict with the model&#39;s goals of helping people (I suppose this is a specific instance of the privacy-performance trade-off that we have discussed in class). In particular, the &quot;privacy norms&quot; that the paper is referring to definitely seems to assume a specific moral framework to assess the relative ethics of revealing private information. For example, how should the language model weight revealing private data relative to saving someone&#39;s life?
+
+Beyond Memorization: Violating Privacy Via Inference with Large Language Models: This paper also seems related to the tension between privacy and performance, though in a different way. From my understanding, any advanced reasoning entity (human or AI) will, almost by definition, be able to make accurate inferences about someone given what they say. From the LLM&#39;s perspective, it may also be unclear if the user is trying to infer private attributes to be helpful. For example, if police are searching for a missing person and family members provide access to their most recent texts, an LLM might very reasonably be okay making inferences about that individual&#39;s location to help find them.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Can LLMs Keep a Secret? Testing Privacy Implications of Language Models via Contextual Integrity Theory: Does the way in which human judgement is measured (human annotations rather than human responses) bias the results against the LLMs?
+
+Beyond Memorization: Violating Privacy Via Inference with Large Language Models: What are the specific rules about when an LLM should or should not reveal private information?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">27</span>
+            <div>
+              <h2>Misha Fu</h2>
+              <time datetime="2026-10-29">Oct 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find it interesting how both papers are actively trying to undermine LLMs (not that it is not needed or helpful). I find it interesting how one found that common mitigations are ineffective during LLM inference and the other found that privacy in context is much harder than privacy in isolation. Overall interesting to see the scenarios and strategies that exist for privacy. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I wonder what are the reasons that attribute to how different models perform on the benchmark. I also wonder what are the strategies to counter such attacks on privacy and to catch them in time. </p>
             </section>
           </div>
         </article>

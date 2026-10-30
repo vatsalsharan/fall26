@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="26 CS 618 reading reflections for Week 10, October 14, 2026." />
+    <meta name="description" content="27 CS 618 reading reflections for Week 10, October 14, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 10 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 10</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>26 responses</span>
+          <span>27 responses</span>
         </div>
       </section>
 
@@ -675,6 +675,26 @@ For the diffusion paper, I found it interesting that, similar to memorizaton in 
               <p>For the DP image generation paper, I&#39;m curious how precise this generation method can yield a synthetic image that&#39;s in-distribution to a given private dataset. For example, one use case that seems interesting to me could be making synthetic variants of data from different silos, like different hospitals. However, different hospitals can still have somewhat heterogeneous datasets even if the data is targeted towards the same task (e.g., maybe different equipment, etc. leads to different CT scan collection + labeling). How well can this method model these fine-grained differences. Another issue could be handling anomaly cases, which might be in the minority but are critical to model well. Do these special cases get lost?
 
 For the diffusion paper, I&#39;m curious if there exists big data search tools for massive image (and maybe other non-text modalities) databases. For example, tools like WIMBD and infinigram for language enable us to study memorization from the lens of lexical components like n-grams. I wonder what type of memorization units might occur in visual modality learning.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">27</span>
+            <div>
+              <h2>Misha Fu</h2>
+              <time datetime="2026-10-28">Oct 28, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that Private Evolution never trains anything, it only uses API access. Private images vote for their nearest synthetic image, noise is added to the votes, and the top ones get varied and repeated. Surprising that it beat previous methods on CIFAR-10 at ε around 0.67 when they needed ε = 32. For the second paper I found it interesting how they detect memorization by generating lots of images for one caption and checking if they all look the same, and that the memorized ones were mostly images duplicated a lot in training.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Since the second paper shows diffusion models memorize, I wonder if PE’s synthetic data could leak images from the foundation model’s own pretraining data, since DP only covers the private set. I’m also curious how well PE works when the private data is very different from what the model has seen, like the medical images.</p>
             </section>
           </div>
         </article>

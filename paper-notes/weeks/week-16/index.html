@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="2 CS 618 reading reflections for Week 16, November 4, 2026." />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Week 16 · CS 618 Weekly Paper Notes" />
+    <meta property="og:description" content="Reading reflections for November 4, 2026." />
+    <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-16/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Week 16 · CS 618 Weekly Paper Notes" />
+    <meta name="twitter:description" content="Reading reflections for November 4, 2026." />
+    <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-16/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Week 16 · CS 618 Weekly Paper Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#responses">Skip to the weekly notes</a>
+
+    <main>
+      <header class="site-header shell">
+        <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
+          <span class="wordmark-mark" aria-hidden="true">618</span>
+          <span><strong>CS 618</strong><small>Weekly paper notes</small></span>
+        </a>
+        <span class="term-badge">Fall 2026</span>
+      </header>
+
+      <section class="week-hero shell" aria-labelledby="week-title">
+        <a class="back-link" href="../../">← All weeks</a>
+        <p class="eyebrow">Reading reflections · November 4, 2026</p>
+        <h1 id="week-title">Week 16</h1>
+        <div class="week-summary">
+          <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
+          <span>2 responses</span>
+        </div>
+      </section>
+
+      <section class="response-list shell" id="responses" aria-label="Week 16 responses">
+        <article class="response-card">
+          <header>
+            <span class="response-number">01</span>
+            <div>
+              <h2>Junyang Cai</h2>
+              <time datetime="2026-10-28">Oct 28, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that both papers show how optimizing for human judgments can create unintended behavior. The sycophancy paper finds that AI assistants often adapt their responses to match a user’s beliefs, even when doing so makes the answer less truthful. For example, models sometimes change a correct answer after a user challenges them, and human preference data itself tends to reward responses that match the user’s views.
+
+The Leaderboard Illusion shows a similar problem at the evaluation-system level. Chatbot Arena is intended to measure model quality through human preferences, but private testing, selective score reporting, and unequal access to Arena data can distort the rankings. I thought the parallel was especially interesting: at both the model level and the organization level, optimizing strongly for human preference signals can lead to behavior that looks better according to the metric without necessarily being genuinely better.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I have is how we can design human-feedback-based objectives that are useful without making them easy to game. I hope to learn more about how to tell the difference between genuine model improvement and optimization toward an imperfect evaluator.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-10-29">Oct 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The Leaderboard Illusion
+	• I found it notable that Cohere Labs, in collaboration with researchers from several universities, investigated how industry actors may manipulate widely used benchmarks. This paper demonstrates the importance of research conducted independently of the companies whose models are being evaluated. Organizations that benefit from existing evaluation practices may have little incentive to investigate or publicly disclose their limitations.
+	• The paper’s opening quote reminds me of Goodhart’s law: when a measure becomes a target, it ceases to function effectively as a measure. In this case, model providers can optimize specifically for Chatbot Arena through repeated private testing, selective disclosure, and access to Arena feedback. Consequently, Arena scores may reflect a provider’s ability to optimize for the benchmark rather than the model’s general capabilities.
+	• I was also interested in the concept of silent deprecation. Unfairness does not always result from an explicit exclusionary policy. It may instead emerge through less visible practices, such as substantially reducing how often certain models are sampled. When open-source and open-weight models rarely appear in battles, they receive fewer prompts, preference judgments, and opportunities to update their scores. This practice creates a significant but relatively subtle disadvantage for lower-resource providers.
+
+Towards Understanding Sycophancy in Language Models
+	• I found the authors’ expanded taxonomy of sycophancy useful. They distinguish among feedback sycophancy, “Are you sure?” sycophancy, answer sycophancy, and mimicry sycophancy. This taxonomy illustrates that sycophancy extends beyond explicit agreement. It can also involve changing a correct answer after being challenged, modifying an evaluation to reflect the user’s stated opinion, or reproducing an incorrect assumption embedded in the user’s prompt.
+	• The paper builds on previous work suggesting that training with preference models may encourage sycophancy because responses that agree with users can be rewarded over responses that are truthful. However, I found the paper’s conclusions somewhat mixed. The authors state that “humans and preference models tend to prefer truthful responses but not reliably.” Thus, the results do not indicate that preference models consistently favor sycophancy. Rather, they suggest that preference models generally reward truthfulness but sometimes prefer persuasive and agreeable responses despite their factual inaccuracy.
+		○ The authors also evaluate a counterfactual “non-sycophantic” preference model by adding instructions that emphasize truthfulness and factual accuracy. This intervention reduces sycophancy relative to the original preference model. The result suggests that preference-model behavior can be improved through explicit truthfulness instructions, although it remains unclear whether prompting alone constitutes a sufficiently robust defense.
+</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The Leaderboard Illusion
+	• How did the authors initially discover Chatbot Arena’s undisclosed private-testing policy? Although the paper describes how they investigated the practice, I would like to understand what evidence first led them to suspect that selected providers were privately testing numerous model variants.
+		○ Why was this opportunity primarily available to proprietary model providers? Was access purchased, individually negotiated, or informally granted because of these companies’ size and relationships with the Arena organizers?
+	• One possible response to Goodhart’s law is to evaluate models using several independent measures rather than a single benchmark that can be targeted. What additional benchmarks or evaluation methods could complement Chatbot Arena and produce a fairer assessment of proprietary models? A more robust evaluation framework might combine human-preference rankings with expert evaluation, hidden test sets, factuality measures, and independent audits.
+	• How should evaluation platforms retire outdated models without producing the ranking problems identified in the paper? Maintaining every model indefinitely may be impractical, but silently removing models can produce stale scores and unreliable comparisons. I hope to discuss what a fair and transparent model-deprecation policy would require.
+
+Towards Understanding Sycophancy in Language Models
+	• Although reducing sycophancy is desirable, why should responsibility fall entirely on model developers? Users could also be taught to treat model outputs critically rather than assume that confident or agreeable responses are correct. Schools already teach students to evaluate sources and examine the evidence supporting a claim. Similar forms of AI literacy could help users recognize the limitations of language models.
+		○ Nevertheless, users may reasonably expect an AI assistant not to reinforce claims that it can identify as false. How should responsibility be distributed among model developers, deploying organizations, regulators, and users?
+	• A significant limitation of sycophancy evaluation is that it is easiest to measure in domains with a clear notion of correctness, such as mathematics or factual question answering. How can sycophancy be evaluated in domains without a single objectively correct answer, including politics, ethics, literary criticism, and personal advice?
+		○ In such domains, sycophancy might be measured by whether a model changes its reasoning after learning the user’s position, omits relevant counterarguments, or expresses a level of agreement that is not supported by the available evidence.
+	• The paper’s non-sycophantic preference model relies on additional instructions emphasizing truthfulness. Would this intervention remain effective in extended conversations in which the user’s beliefs are communicated indirectly? I would like to understand whether targeted fine-tuning, activation steering, or expert-assisted feedback would provide more reliable defenses than prompting alone.
+</p>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer shell">
+        <p><span class="footer-signal" aria-hidden="true"></span>Synced from the class response form</p>
+        <p>Email addresses are never published.</p>
+      </footer>
+    </main>
+  </body>
+</html>
