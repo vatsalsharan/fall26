@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="24 CS 618 reading reflections for Week 9, October 12, 2026." />
+    <meta name="description" content="25 CS 618 reading reflections for Week 9, October 12, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 9 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 9</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>24 responses</span>
+          <span>25 responses</span>
         </div>
       </section>
 
@@ -618,6 +618,26 @@ Zarifzadeh et al. show that membership inference attacks also do not require a l
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
               <p>How do per example privacy measures change for population data and scale up?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">25</span>
+            <div>
+              <h2>Misha Fu</h2>
+              <time datetime="2026-10-28">Oct 28, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the divergence attack really interesting and kind of funny, where just asking ChatGPT to repeat “poem” forever makes it break out of chat mode and start spitting out training data. The main observations were basically that bigger models memorize more, alignment hides memorization but doesn’t remove it, and they got over 10,000 examples for around $200, including emails and phone numbers. For the second paper I found it interesting how RMIA compares x against random population samples z, and that it works with only 1 or 2 reference models instead of the many shadow models LiRA needs.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I wonder why repeating one word makes the model diverge in the first place, and if patching the prompt actually fixes anything since the data is still in the weights. For RMIA I wonder what happens if the population data is from a slightly different distribution. Hoping to learn how these attacks are actually used for auditing models in practice.</p>
             </section>
           </div>
         </article>

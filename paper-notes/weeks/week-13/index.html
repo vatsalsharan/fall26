@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="17 CS 618 reading reflections for Week 13, October 26, 2026." />
+    <meta name="description" content="18 CS 618 reading reflections for Week 13, October 26, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 13 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 13</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>17 responses</span>
+          <span>18 responses</span>
         </div>
       </section>
 
@@ -392,6 +392,26 @@ Semi-Supervised Knowledge Transfer for Deep Learning From Private Training Data:
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
               <p>How do modern generative machine learning models perform when trained using this algorithm?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">18</span>
+            <div>
+              <h2>Misha Fu</h2>
+              <time datetime="2026-10-29">Oct 29, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I find it interesting how they are able to implicitly train the model by first having teachers who learn from the real dataset and then the real policy or model, the student, learns from the noisy voting of all the teachers. Particularly, I find it interesting how they are able to use non-convex models or neural nets while upholding properties. I guess there is still tradeoff however you do the method though.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I wonder if there are methods that can still extract the sensitive information from the model, but I guess their guarantee is there. I wonder how the black-box nature of the algorithm affects the deployment or if there are any other issues not considered by training the model this way. </p>
             </section>
           </div>
         </article>
