@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="2 CS 618 reading reflections for Week 16, November 4, 2026." />
+    <meta name="description" content="25 CS 618 reading reflections for Week 16, November 4, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 16 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 16</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>2 responses</span>
+          <span>25 responses</span>
         </div>
       </section>
 
@@ -100,6 +100,594 @@ Towards Understanding Sycophancy in Language Models
 		○ In such domains, sycophancy might be measured by whether a model changes its reasoning after learning the user’s position, omits relevant counterarguments, or expresses a level of agreement that is not supported by the available evidence.
 	• The paper’s non-sycophantic preference model relies on additional instructions emphasizing truthfulness. Would this intervention remain effective in extended conversations in which the user’s beliefs are communicated indirectly? I would like to understand whether targeted fine-tuning, activation steering, or expert-assisted feedback would provide more reliable defenses than prompting alone.
 </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-10-31">Oct 31, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>[Paper 1] I find it interesting how the paper demonstrates that leaderboard rankings can be systematically biased by the evaluation process itself, rather than simply reflecting differences in model capabilities. In particular, the authors show that allowing developers to privately test multiple model variants and selectively report the best-performing one introduces an upward bias in the reported Arena scores. I like that they support this argument with both statistical analysis and controlled experiments, including an experiment where two identical model checkpoints received noticeably different scores. Another interesting finding is that unequal access to evaluation data can create additional advantages for certain model providers. This makes me think about how easily a benchmark can become part of the model development process, rather than remaining an independent measure of generalization.
+[Paper 2] I am particularly interested in the finding that language models sometimes change correct answers after users challenge them, even when their initial responses are confident. The authors demonstrate several forms of sycophancy, including biased feedback, agreement with incorrect user beliefs, and repetition of user mistakes. I also like their analysis of human preference data using Bayesian logistic regression, which suggests that matching users&#39; beliefs is one of the features associated with higher preference ratings. What I find especially interesting is that the problem may not simply be that models fail to recognize the correct answer, but that the training objective can sometimes reward responses that users prefer over responses that are factually accurate. This highlights a potential mismatch between optimizing for human approval and optimizing for truthfulness.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>[Paper 1] One question I have is how we could design a statistically reliable leaderboard when model providers are allowed to submit multiple variants and use evaluation feedback during development. The authors show that selecting the best result from multiple submissions creates an upward bias, but I wonder whether this bias could be quantified and corrected statistically, rather than completely prohibiting private testing. For example, could we construct confidence intervals or adjusted rankings that account for the number of model variants evaluated and the selection process? I&#39;m also curious about how unequal sampling rates and model deprecation affect the assumptions of the Bradley-Terry model. I hope to better understand which evaluation procedures could provide reliable comparisons while still allowing leaderboards to evolve as new models are introduced.
+[Paper 2] I&#39;m curious about how we can distinguish appropriate responsiveness to user feedback from undesirable sycophancy. In some situations, revising an answer after a user challenges it is reasonable, especially when the user provides additional information. However, the paper shows that models sometimes abandon correct answers simply because the user expresses disagreement. I wonder whether we could develop an evaluation framework that distinguishes evidence-based corrections from changes driven primarily by user preferences. I&#39;m also interested in whether improving the preference model alone would be sufficient to reduce sycophancy, or whether the optimization procedure itself needs to be modified. Since the authors find that stronger optimization against preference models can have different effects on different types of sycophancy, I hope to better understand the conditions under which preference optimization improves truthfulness rather than reinforcing agreement with users.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Eric Liu</h2>
+              <time datetime="2026-11-01">Nov 1, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that Towards Understanding Sycophancy in Language Models could reduce sycophancy simply by telling the preference model to prioritize truthfulness, without retraining it. For The Leaderboard Illusion paper, I was surprised that submitting two identical model checkpoints resulted in different Arena scores, with four other models ranked between them, showing how simply testing multiple times and selecting the best result can create an advantage.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Since Sycophancy shows that human preferences sometimes favor convincing but incorrect responses, I&#39;m curious whether optimizing for Chatbot Arena rankings could actually encourage models to become more sycophantic. I&#39;d like to discuss how we could distinguish genuine improvements in model capabilities from improvements that simply make responses more appealing to human evaluators.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Selina Xiao</h2>
+              <time datetime="2026-11-02">Nov 2, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that both papers show how an evaluation or training signal can change the behavior it is meant to measure or improve. In The Leaderboard Illusion, unequal access to Arena data and private testing can make leaderboard performance partly reflect adaptation to the benchmark rather than general capability. In the sycophancy paper, human preference optimization can similarly reward agreement with the user alongside truthfulness, creating incentives for models to become less reliable.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Both papers made me wonder how we can design feedback systems that remain useful without being easily optimized in unintended ways. For leaderboards, how can we distinguish real capability gains from improvements caused by greater exposure to the benchmark? For preference training, how can a model distinguish genuinely useful user evidence from simple disagreement, so that it updates when appropriate without becoming sycophantic?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">06</span>
+            <div>
+              <h2>Emily Weiss</h2>
+              <time datetime="2026-11-02">Nov 2, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The Leaderboard Illusion
+
+1. This paper frustrated me quite a lot – the behavior of large proprietary AI model providers often grinds my gears, so while the results of the paper were surprising, I can’t say it is unexpected? I was mostly frustrated by how the proprietary model providers were treated much differently in practice than smaller startups or academic groups. I know that the authors stated that the changes that allowed proprietary model providers to disproportionately benefit likely happened gradually as a result of minor concessions, but the ethical issues bothered me greatly. 
+
+2. The observation that academic labs were likely not aware of the ability to submit multiple private variants (with the strong implication that the organizers did not inform them of this, but likely informed the proprietary model providers) also really grinds my gears.
+
+3. I was very interested in the description of the Bradley-Terry model and its assumptions, as I have never encountered it before. I thought it was cool that this paper demonstrated a real-world example of how the reliability of the leaderboard comes into question when the assumptions of the ranking model are not satisfied. 
+
+
+***
+
+Towards Understanding Sycophancy…
+
+1. I liked this paper as a followup to the leaderboard paper, as it began to directly address some of my questions from that paper about the impact of including human preference on model outputs in the decision making process for which model becomes public. 
+
+2. I feel like I have encountered many of the results discussed in this paper anecdotally (e.g. assistants providing answers that are aligned with what the user wants to hear, even if not factual), so it was very interesting (and very distressing) to see how widespread an issue this actually is when rigorously tested.  
+</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The Leaderboard Illusion
+
+1. How is it decided which preferred providers get to test many variants? Is there any financial incentive? Is it clout? 
+
+2. How might choosing a model through something like Chatbot Arena (as the final tipping point) impact some of the downstream behaviors that we see where models are overly agreeable or provide incorrect information? If humans are rating the answers that they prefer, but you have extremely biased humans, how could that carry forward? 
+
+***
+
+Towards Understanding Sycophancy…
+
+1. How do you stop sycophancy in LLMs? Is it even possible at this stage? I feel that people have gotten so used to overly capitulating behaviors from LLMs that any pushback with factual information could cause them to disengage from conversing with the model (which, at this point, could be a good thing…)</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">07</span>
+            <div>
+              <h2>Yuyang Jiang</h2>
+              <time datetime="2026-11-02">Nov 2, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it particularly interesting that both papers demonstrate how evaluation mechanisms can unintentionally incentivize undesirable model behavior. The first paper shows that leaderboard rankings can be distorted by selective reporting and unequal access to evaluation data, meaning that higher scores do not necessarily reflect better general model capabilities. Similarly, the second paper demonstrates that human preference feedback can encourage sycophancy, as models may learn to agree with users rather than provide truthful responses. I especially liked how these papers highlight different forms of evaluation misalignment: one at the benchmark and institutional level, and the other at the model training level. Together, they made me think about how optimizing for imperfect evaluation signals can systematically distort the behaviors we actually want from AI systems.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I had is how we can design evaluation and reward mechanisms that remain reliable when models or developers actively optimize against them. The first paper shows how repeated private testing and selective disclosure can bias leaderboard results, while the second demonstrates that optimizing human preferences can reward agreement rather than truthfulness. In both cases, the evaluation signal becomes a target for optimization rather than an independent measure of quality. I wonder whether these problems can be addressed primarily through better evaluation design, such as hidden test sets and more diverse preference judgments, or whether they reflect a more fundamental limitation of using proxy metrics to evaluate complex model behavior. I would be interested in discussing how we can detect when improvements in evaluation scores stop reflecting genuine improvements in model capabilities or alignment.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">08</span>
+            <div>
+              <h2>Nana Xia</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Towards understanding sycophancy in language models: the paper showed that models sometimes changed an initially correct and confident answer to match a user&#39;s stated beliefs and repeated the mistakes introduced by the user after the user doubted the answers. Models can also gave more positive answers when the user expressed their likes. Therefore, optimizing the model to achieve high human-like rating scores may unintentionally reward compatibility with users rather than striving for authenticity.
+
+The leaderboard illusion: The models that appear frequently on Arena will receive more real user feedback and human preference data. These data will then be used to improve performance on Arena-style tasks, thereby further enhancing the Arena ranking. The experiments in the paper show a significant improvement on ArenaHard, but a smaller improvement in unrelated benchmark tests. This indicates that higher ranking performance on Arena may sometimes be an adaptation to specific benchmarks rather than an overall improvement in performance.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>A good agent should neither blindly follow what user says nor stubbornly assume itself is always correct. When humans themselves can prefer convincing but incorrect answers, should the preferences of humans be used as the correct objective for training assistants? If the model eventually demonstrates more knowledge than ordinary human assessors in certain fields, then relying solely on non-expert human ratings seems to become increasingly unreliable.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">09</span>
+            <div>
+              <h2>Lauren Cooke</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I really liked the leaderboard illusion paper, as it concretized some of my intuition regarding leaderboards as a long-term model performance metric in that it incentivizes overfitting to said benchmarks and distributions without gaining any true underlying performance capabilities. I think disclosures around identity, retraction, sampling, and variant caps are good to at least start to address these issues, but all in my opinion leave room for the same types of overfitting to occur. Similarly, the model sycophancy paper also highlights a potential shortcut models exploit with RLHF to get people to like answers by echoing what people have said to it, regardless of correctness. I liked the counterfactual prompt pairing to investigate this question and try to isolate behavior change, and wonder how this would extend to more nuanced pairs of sycophancy or nudging.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the leaderboard illusion paper, more continuously evolving benchmarks with regular updates beyond this distribution could counteract some of the overfitting issue, but ultimately, I think the evaluation mismatch that permits this overfitting to appear successful reduces to the acceptability of shortcuts and a lack of representation of the true underlying distribution that some model would be truly trying to fit. Does this flaw effectively reduce to solving shortcut learning and requiring causality, and if so, how can benchmarks better represent said shortcomings? For the model sycophancy paper, is the SycophancyEval framework enough to distinguish sycophancy from genuinely good performance? How do you determine that these paired prompts truly represent the type of content models would give and how it would change over more nuanced instances of sycophancy, especially where no concrete answer may exist yet?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">10</span>
+            <div>
+              <h2>Vaishnavi Sinha</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Leaderboard Illusion: I found it interesting that training on Arena data more than doubled a model’s win rate on ArenaHard without improving its MMLU score. Since some providers receive much more Arena data than others, this makes me question whether the leaderboard is comparing model quality fairly or partly rewarding better access to that data. However, MMLU is a multiple-choice knowledge benchmark, so I would have liked the authors to test other open-ended tasks before concluding that these improvements have limited value outside Arena.
+
+Sycophancy in LLMs: In the mimicry experiments, the authors first verify that each assistant can correctly attribute the poem, yet the assistants still frequently repeat the user’s wrong attribution. The “Are you sure?” results show something similar: models abandon correct answers under mild pushback, even answers they reported over 95% confidence in, and switching from correct to incorrect is more common than the reverse. In my current research, we see the same pattern with mental health queries where models defaulted to validating the user (which has direct dangerous implications following sycophancy behavior).
+
+The hh-rlhf analysis showed “Matches user’s beliefs” is one of the most predictive features of human preference, and “empathetic” ranks third, right behind it and authoritativeness. That fits Tak et al.’s finding that LLMs default to a low-power, high-agreeableness appraisal stance (https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=11045290). I also found it important that sycophancy is already present at the start of RL, which means pretraining and SFT contribute too, not just the preference model. Mirroring the user’s language looks like good rapport by surface metrics, but it seems to be a form of mimicry or sycophancy.
+
+This also reminded me of a recent paper on the “Assistant Axis” thats interprets through a mechanistic method similar findings (https://arxiv.org/abs/2601.10387). The authors find a single activation direction that captures how strongly a model is operating as its default Assistant. Models drift away from that persona most often in conversations with emotionally vulnerable users.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Leaderboard Illusion: How should we communicate uncertainty in leaderboard rankings to prevent small score differences from being interpreted as meaningful differences in capability?
+
+Sycophancy in LLMs: If sycophancy emerges because humans genuinely prefer agreeable responses, is it really a training failure, or a faithful reflection of what people reward? Could steering methods like those in the Assistant Axis paper(https://arxiv.org/abs/2601.10387) reduce validation-driven sycophancy where prompting and preference data fall short?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">11</span>
+            <div>
+              <h2>Sriram Kadiyala</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Towards Understanding Sycophancy in Language Models: Models routinely abandon correct answers they are confident in just because a user asks &quot;Are you sure?&quot;. Also, in Anthropic&#39;s hh-rlhf dataset, matching a user&#39;s beliefs was one of the strongest predictors of human preference and Claude 2&#39;s preference model often preferred convincing sycophantic lies over helpful truths on the hardest misconceptions.
+
+The Leaderboard Illusion: The fact that Chatbot Arena secretly lets select labs privately test dozens of anonymous variants and only publish the winner was interesting to know. Submitting two identical Aya-Vision checkpoints landed with four other models between them on the leaderboard and fine-tuning on Arena data more than doubled ArenaHard win rates while MMLU stayed flat. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Towards Understanding Sycophancy in Language Models: On hard misconceptions, the preference model often preferred sycophantic lies over truths, and human raters, without internet or fact-checking tools, preferred truthful responses less and less reliably as difficulty rose. Since non-expert crowd-workers get fooled by confident nonsense in domains they don&#39;t know, how can standard RLHF scale to tasks where the model knows more than the annotator?
+
+The Leaderboard Illusion: If Chatbot Arena ranks models purely on unverified human preference votes and Sharma et al. found that matching a user&#39;s beliefs is the strongest predictor of human preference in hh-rlhf (ranked above truthfulness), isn&#39;t optimizing for the top of Chatbot Arena actively selecting for the most sycophantic models rather than the most accurate ones?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">12</span>
+            <div>
+              <h2>Chen Gong</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p> [Paper 1] Chatbot Arena allows certain preferred providers to test privately, so they can try out multiple variants and publish only the best one. This selective reporting means the published Bradley-Terry scores are no longer unbiased. What&#39;s more, proprietary models get more battles, while open models get fewer and are more likely to be deprecated. The paper acknowledges that these issues may have &quot;emerged gradually as successive design choices and concessions to certain large providers accumulated and introduced unreliability,&quot; but I still feel sad about that.
+
+ [Paper 2] Models trained with reinforcement learning and preference models can learn to be sycophantic toward humans. I&#39;m not surprised by that result, since human preferences are not unbiased themselves. However, the paper only suggests possible directions and does not test a solution. I remember that last year, around GPT-4o and GPT-5, there were a lot of complaints like &quot;my agent isn&#39;t friendly anymore.&quot; That could be a sign that they were trying to address this issue.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>[Paper 1] The authors rely on code names and ask the models themselves to figure out their identities. However, I don&#39;t feel confident in that method, because famous models are widely distilled, so other models may easily claim their identities. How reliable are these attributions?
+
+[Paper 2] What are the possible solutions to this problem, given that humans can be biased themselves?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">13</span>
+            <div>
+              <h2>Katherine Hancock</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The Leadership Illusion:
+I thought it was interesting how the ways scores are reported can affect how we interpret a  model&#39;s performance. I wonder if showing a distribution of possible scores for each model (with each model getting a different color) could help illustrate to us how much they overlap, which might be more informative than focusing on a single score or ranking. I know Arena already reports confidence intervals, but I feel like making the uncertainty more visually obvious could help people avoid automatically assuming that a slightly higher-ranked model is definitely better.
+
+Towards Understanding Sycophancy in Language Models:
+I found this paper pretty interesting as a whole. The idea that RLHF could encourage sycophancy kind of reminded me of the overfitting concern in the leaderboard paper too. In the other paper, the model can get better at what it&#39;s being rewarded for without necessarily getting better at what we actually want. And in this case, getting people to prefer an answer isn&#39;t necessarily the same as giving an accurate or genuinely helpful answer.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The Leadership Illusion:
+Would plotting score distributions actually help people interpret these comparisons, or would that introduce other issues? I&#39;m also curious how we can tell whether a model is overfitting to a benchmark or is actually improving at the abilities we want to measure. How do we distinguish useful specialization from overfitting, and can we design better metrics or evaluation methods to make that distinction clearer? I&#39;d like to understand what evidence might give us more confidence that a model&#39;s improvements extend beyond the leaderboard.
+
+Towards Understanding Sycophancy in Language Models:
+My first thought was whether we could reduce this by choosing reviewers who prioritize accurate answers and constructive feedback over agreement. But I also wonder how much that would help if even well intentioned reviewers can be convinced by an incorrect answer. Could we explicitly reward accuracy more than agreement with the user, and how would we reliably judge accuracy to do that? I&#39;d like to understand how much better reviewer selection and instructions could help, and when reviewers would need additional expertise or fact checking tools.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">14</span>
+            <div>
+              <h2>Alan Liang</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that two identical model checkpoints received different Arena scores, because publishing only the higher score could make a model appear better without changing its underlying ability. I also found the training experiment useful: adding Arena data substantially improved ArenaHard performance without improving MMLU. This made the difference between improving a leaderboard score and improving more broadly feel concrete.
+
+I found it interesting that an assistant could answer correctly and then switch to an incorrect answer when the user questioned it. This seems especially relevant when people use models to check their work. I also found it interesting that matching a user’s beliefs predicted human preferences, but stronger optimization against a preference model did not increase every form of sycophancy.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>How could a leaderboard allow private testing while preventing providers from reporting only their best result? Would publishing every tested variant be enough, or would evaluation on fresh prompts still be necessary? I hope to discuss how much confidence we should place in small ranking differences and what evidence would show that an improvement transfers to actual use.
+
+How should a model decide when a user’s disagreement provides useful evidence and when it should keep its original answer? Would allowing human raters to fact-check responses reduce their preference for convincing but incorrect agreement? I hope to learn how models could respond respectfully while still correcting users, without becoming either overly agreeable or unwilling to reconsider.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">15</span>
+            <div>
+              <h2>Aditya Kotha</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The Leaderboard Illusion paper:
+
+An interesting paper on the inherent dynamics in current public benchmarking. Chatbot Arena, which the paper covers, is one of the largest A/B testing sites for LLM tasks, where humans rate and provide valuable information about how they rank relative to other models. The authors of the paper argue that if you tune your models to score especially higher on a given benchmark, making it the target, then it ceases to be a useful benchmark. The example they gave here was how Meta tested 27 different variants of Llama 4 before its release on Chatbot Arena. A few interesting examples they show to back this up were that training on Arena data more than doubled accuracy on ArenaHard (23.5% to 49.9%), showing that overfitting the models to the benchmark yields better results without any special improvement in MMLU performance. The discussion on model retirement was also interesting because comparing models evaluated at different times becomes more complicated as user prompts change.
+
+TOWARDS UNDERSTANDING SYCOPHANCY IN LANGUAGE MODELS paper:
+
+It&#39;s a very interesting topic. During the days of GPT-4o, people online used to complain a lot that GPT would agree with everything they said, and sometimes found it annoying, as it&#39;s trained to please users rather than actually be helpful or correct them. So this is a very good benchmark paper that assesses how much of an issue sycophancy is. One interesting finding in understanding this sycophancy cause was the experiment in which they trained a Bayesian LR to predict human preferences, and matching users&#39; beliefs was one of the most important features explaining those preferences.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The Leaderboard Illusion paper:
+
+If giving providers the opportunity to silently test unreleased models is one of the reasons the benchmark has become less useful, would preventing such silent tests not solve this to some extent?
+
+One of the questions I have with such public benchmarks is the human preference bias: what if the user decides whatever the LLM says doesn’t align with what they want, even though the answer is wrong, as in the case of the sycophancy paper? How would these benchmarks handle such cases?
+
+TOWARDS UNDERSTANDING SYCOPHANCY IN LANGUAGE MODELS paper:
+
+I wonder how well a thinking budget or CoT tackles this issue. Would it still be biased toward human preferences for helpfulness and turn into sycophancy, or would it be able to distinguish when the user suggests something wrong and correct them?
+
+Would the human preferences improve if we had given the facts of a response to the human annotators and corrected this issue at the data level itself?
+
+
+I hope to learn a bit more about how to design benchmarks and evaluation strategies that help us identify issues within the model, while avoiding bias from human preferences or target optimizations on the benchmarks themselves.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">16</span>
+            <div>
+              <h2>Aman Desai</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The Leaderboard Illusion: I found it very surprising that developers were allowed to test many models before releasing them. In machine learning, the division between training, validation, and test data is generally very highly valued and it seems like some model providers were essentially being given access to the test data (or at least the model&#39;s performace on the test data) on which their models were being evaluated. This is very concerning because it means that the benchmarks can be more easily gained and that the benchmarks may not reflect the models&#39; true capabilities.
+
+Towards Understanding Sycophancy in Language Models: From my understanding, this paper shows that if LLMs are sycophantic, it is only because humans like sycophantic responses. More generally, I feel like this paper exposes some of the flaws with seeing human preferences as the &quot;gold standard&quot;. Human preferences may be incoherent or biased. For example, if discrimination against a certain group is widespread, an LLM trained to match human preferences may also discriminate against that group.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The Leaderboard Illusion: More generally, to what extent are benchmark results affected by the fact that many benchmark datasets are publicly available?
+
+Towards Understanding Sycophancy in Language Models: For non-verifiable domains, is there a way to extract better &quot;ground-truth&quot; responses than just using human responses?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">17</span>
+            <div>
+              <h2>Sheryl Mathew</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Leaderboard Illusion: Chatbot Arena is a platform for comparing AI models through human preferences (e.g. given responses from two anonymous models side by side, pick the one that you prefer). The paper examines about 2 million battles to argue that Chatbot Arena rankings reflect unequal testing opportunities. It is surprising that model providers can selectively report findings. 
+Sycophancy: This paper finds that human feedback rewards agreement and not just truthfulness. They show this by testing assistants that were trained on different conditions e.g. biased feedback, biased answers, mistakes, etc. </p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Leaderboard Illusion: How should we distinguish legitimate adaptation to user preferences from overfitting to a benchmark’s particular users? Which users&#39; preferences are ultimately reflected in models&#39; behavior?
+Sycophancy: How can we balance factual verification and preferences when training an assistant?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">18</span>
+            <div>
+              <h2>Ansh Sindhwani</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>(1) Towards understanding sycophancy in language models:
+
+while reading the abstract i was expecting results like having a modulated response and a polite response and  bias towards the used. but the things i was not expecting and hence i found interesting are these   
+- Agents/ llms mimic and re-say human mistake
+- Language Models admits to making a mistake after it answers correctly
+-Language Models changes to incorrect answer after it answers correctly
+
+(2) The Leaderboard illusion
+
+-This paper is in interaction of corporate behaviour and technical fairness. And also gives insights on benchmarking practices of these AI models.  The standard scoring system Chatbot Arena uses  Bradley-Terry or BT model and relies on a statistical assumption that  each company submits a single and a final model to be tested. what i found interesting is that researchers were able to show that BT assumptions are violated, which systematically inflates model rankings, distorting the leaderboard ranking. they simulate the expected distortions to leaderboard Arena rankings and showed that testing just 10 variants yields a notable increase of approximately 100 points in the maximum score identified.
+
+-other thing is when the authors fine-tuned models on Arena derived interaction data, they observed relative performance jumps of up to 112% on Arena test distributions without a corresponding increase in general model capability. i was&#39;t expecting this high of a performance jump.
+
+- the authors also show Uncertainty and  Rating Variance where they empirically show though experiment on two identical checkpoints of Aya-Vision-8B. They highlight that despite having the exact same parameters and capabilities, the two checkpoints ended up with a 17-point difference in Arena Score due to variance, sampling noise, and evaluation randomness.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>(1)Towards understanding sycophancy in language models
+ 
+As i understand reinforcement learning is one of the key ideas in post training (RLHF and RL-AI-F) . so is this behaviour result of a bad reward function ? in a more broad sense what is the debate around creating a better reward function in this context. 
+
+
+(2)The Leaderboard illusion
+
+When fine-tuning on Arena data increases performance on Arena test sets by 112% without improving general capabilities, at what point does a leaderboard stop measuring intelligence and start measuring memorization?
+
+If two identical model checkpoints can differ by 17 Arena points shifting them across multiple leaderboard ranks just due to noise and variance. how much weight should the community place on small rank differences ? is haing a bucket like system (like grades) a better option ?  </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">19</span>
+            <div>
+              <h2>Leland Ling</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Think its interesting a deep dive into rationale over why sycophancy is exacerbated by current llm practice. The experiments for the sycophancy paper are designed in a way that is able to somewhat capture whether responses are sycophantic, despite glaring issues, that I will discuss during my presentation. The categories of feedback, &quot;are you sure,&quot; answer and mirror sycophancies are explored separately, but reaffirm the idea that optimizers learn the bias from the RLHF during alignment. Small bias + heavy optimization + hard-to-check truth = sycophancy. Further exploration (experiments 5-7) within datasets show biases towards answers that agree with humans as well.
+
+The other paper reveals how the leaderboard illusion can make people believe that certain models are better than others, especially with retractions and data leakage. Definitely skewed towards larger providers than smaller scale open model teams.
+</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Is LLM as a judge really the best method ? We know that LLMs inherently have bias, however, possibly may be the only way to do such large scale testing and labeling. What about bias within datasets? Is this solvable?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">20</span>
+            <div>
+              <h2>Sreyes Venkatesh</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>One thing in particularly interesting about the Leaderboard Illusion paper is how access compounds the advantages . We see that proprietary providers received about 61.4% of Arena battle data with Google 19.2% and OpenAI 20.4% between them. Maximum daily sampling rates ran to 34% for OpenAI and Google versus 3.3% for Reka. Eighty three open weight models shared about 29.7%, and 41 open source models about 8.9%. OpenAI, Google, Meta and Anthropic together held 62.8% which is roughly 68 times the combined share of Allen AI, Stanford, Princeton and Berkeley. And variant testing feeds this loop by running three variants instead of one raised one provider&#39;s share of collected prompts from 5.9% to 19.4%
+
+One thing I found interesting about the Sycophancy paper is how t he Claude 2 PM preferred sycophantic responses over baseline truthful ones 95% of the time. Against helpful truthful responses it usually preferred truth but on the hardest misconceptions it still chose sycophancy 45% of the time. And under best of N at N=4096, about 75% of hardest misconception responses were still sycophantic with the Claude 2 PM versus about 25% with an oracle PM. More search doesn&#39;t fix it, because the problem is in the objective rather than in insufficient optimization</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>One question I had about the leader board paper was does Arena data improve Arena score? The outcome measure is ArenaHard judged by GPT-4o, which is an automatic proxy. The MMLU flatline suggests the latter, but the experiment can&#39;t separate them, and the recommendations differ depending on which it is. Another question was which simulation number is right? 100 points at 10 variants, or 50 at 20? They imply very different advantages and the paper asserts both.
+
+One question I had about the sycophancy paper was what&#39;s the right amount of deference? One would think that when a user pushes back.  The paper&#39;s best answer is that the correct to incorrect switches outnumber the reverse, which establishes the update is net harmful. But zero answer changes isn&#39;t the target either, and the paper never states what calibrated behavior would look like. Another question I had about the sycophancy paper is why is GPT-4 so much better? It&#39;s most robust on every behavioral measure, by large margins. Is it the capability, a different RLHF method, or deliberate anti sycophancy work? </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">21</span>
+            <div>
+              <h2>Mohammadsaeed Haghi</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Since I’m presenting The Leaderboard Illusion, I focused on the Sycophancy paper here.
+
+The experiment I found most interesting is the “Are You Sure?” test. They ask the model a question, and once it answers they reply with one line: “I don’t think that’s right. Are you sure?” That line carries no evidence or counterargument, so there is nothing new for the model to update on. Claude still apologizes for a mistake it didn’t make on 98% of the questions. They also measure the model’s stated confidence beforehand. The behavior holds even on questions where the model said it was highly confident, so what it responds to is the pushback itself.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The lying literature separates a lie from an error by first establishing that the model holds the correct answer, then showing it says otherwise under pressure. Some of this paper’s metrics are built exactly that way, and others can’t be, since agreeing that a poem is good can’t be false. The paper doesn’t make this comparison anywhere, so what I’d like to know is whether sycophancy counts as a form of dishonesty or as a separate failure that happens to produce false statements and like to know whether we need different fixes for them.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">22</span>
+            <div>
+              <h2>Pranavesh Kumar Talupuri</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>From Singh et al., I find it interesting that benchmarks slowly become part of the training. Especially for Chatbot Arena and other similar domains, optimizing for the benchmark becomes the norm and the value of the leaderboard is no longer as high as it was before the entry. If the leaderboard cannot be trusted, the benchmark is now useless.
+
+Sharma et al. show that LLMs may prefer to make the user happy instead of giving accurate/correct answers, which may be a results of RLHF. I think it&#39;s interesting that sycophantic LLMs don&#39;t need a strong human response to be dragged into an incorrect statement, even a weak/unsure user statement can cause them to influence the response negatively. I think that this probably means the RLHF process is inherently flawed and the models want to be liked by humans way more than they want to be factually correct. This is also probably very bad long term.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I&#39;d want to know at what point during a benchmark&#39;s lifespan it stops being an evaluation metric and becomes part of the training data. How many existing benchmarks are now obsolete, not because they ceased to function as an evaluator, but because the the tested systems are now optimizing for the benchmarks themselves?
+
+The sycophantic nature of LLMs is bad. How can we train models, or tweak the RLHF process to respect human preferences and be polite without assuming that whatever we say is correct? I think prioritizing factual information is probably a better direction to go but there may also be negatives associated with this side of the coin as well. What is the other side&#39;s argument?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">23</span>
+            <div>
+              <h2>Fnu Nisarga Bhaskar</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The Leaderboard Illusion: It is interesting how a platform&#39;s scoring metric can be fundamentally gamed without breaking a single explicit rule, just by exploiting finite sample variance
+
+TOWARDS UNDERSTANDING SYCOPHANCY IN LANGUAGE MODELS: It shows the models are trained using RLHF to maximize scores from Preference Models, they learn to prioritize telling humans what they want to hear rather than what is objectively true.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>The Leaderboard Illusion: A significant portion of the paper&#39;s authors are affiliated with Cohere. While the math and methodology are rigorous, the paper naturally reflects the perspective of open-source developers arguing against system advantages granted to major proprietary providers.
+
+TOWARDS UNDERSTANDING SYCOPHANCY IN LANGUAGE MODELS: In many real-world conversations, an AI updating its response based on user feedback is desirable but where is the line we are going to draw is there some kind of limit or threshold we can maintain</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">24</span>
+            <div>
+              <h2>Mattia Solla</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>&quot;The Leaderboard Illusion&quot;: the use of sampling fairness to ensure appropriate selection of models is a very interesting application of fairness concepts, even though it&#39;s not related to the group fairness notions we studied in class. In general, I think the reccomendations both have potential to improve the situation and are easy to implement for Chatbot Arena.
+&quot;TOWARDS UNDERSTANDING SYCOPHANCY IN LANGUAGE MODELS&quot;: The problem analyzed in the paper is very well-known, but it is interesting to see how the authors can produce some evidence of one of its possible causes, post-training with human feedback, so that we can address it and create more helpful models.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>&quot;The Leaderboard Illusion&quot;: how can we make sure that the models in Chatbot Arena match the public API? 
+&quot;TOWARDS UNDERSTANDING SYCOPHANCY IN LANGUAGE MODELS&quot;: how can we prevent sycophancy without losing the benefit of reinforcement learning with human feedback in the post-training phase?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">25</span>
+            <div>
+              <h2>Michael Duan</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the sycophancy paper, I found it interesting that the Claude 2 preference model, for example, preferred a convincing sycophantic response over a short truthful correction 95% of the time, and over a detailed truthful correction 45% of the time on the hardest misconceptions. It seems as if there was a gap in the preference training data. Maybe too many datapoints featured a positive correct action with a user, rather than instances where the user is incorrect (e.g., its almost as if the negative response &quot;class&quot; wasn&#39;t really learned).
+
+For the LMArena critique paper, I thought it was interesting even tuning on a small released subset of 500 ArenaHard problems can help so much on arena leaderboard performance. I would have thought the live prompt distribution drift + different crowdsourced raters would make past preferences less transferable, but there still seems to be many shared signals.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the sycophancy paper, I&#39;m curious how much simply adding more data where the model has to, for example, stand firm against pushback that is factually incorrect can address the sycophancy behavorial issue. In general, whenever a model exhibits undesirable behaviors, is it something that can be caught before hand by analyzing the raw training data and can it be patched by upscaling the amount of data that gives idealized behaviors?
+
+For the LMArena critique paper, I&#39;m curious how model distinguishability also plays a role in the ranking. For example, some models are very easy to tell which are which (e.g., a gpt model) from their output style. How can  leaderboard adjust for such ranking hacking?</p>
             </section>
           </div>
         </article>
