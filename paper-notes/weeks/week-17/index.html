@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="5 CS 618 reading reflections for Week 17, November 9, 2026." />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Week 17 · CS 618 Weekly Paper Notes" />
+    <meta property="og:description" content="Reading reflections for November 9, 2026." />
+    <meta property="og:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <meta property="og:url" content="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-17/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Week 17 · CS 618 Weekly Paper Notes" />
+    <meta name="twitter:description" content="Reading reflections for November 9, 2026." />
+    <meta name="twitter:image" content="https://vatsalsharan.github.io/fall26/paper-notes/og.jpg" />
+    <link rel="canonical" href="https://vatsalsharan.github.io/fall26/paper-notes/weeks/week-17/" />
+    <link rel="stylesheet" href="../../styles.css" />
+    <title>Week 17 · CS 618 Weekly Paper Notes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#responses">Skip to the weekly notes</a>
+
+    <main>
+      <header class="site-header shell">
+        <a class="wordmark" href="../../" aria-label="CS 618 weekly notes home">
+          <span class="wordmark-mark" aria-hidden="true">618</span>
+          <span><strong>CS 618</strong><small>Weekly paper notes</small></span>
+        </a>
+        <span class="term-badge">Fall 2026</span>
+      </header>
+
+      <section class="week-hero shell" aria-labelledby="week-title">
+        <a class="back-link" href="../../">← All weeks</a>
+        <p class="eyebrow">Reading reflections · November 9, 2026</p>
+        <h1 id="week-title">Week 17</h1>
+        <div class="week-summary">
+          <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
+          <span>5 responses</span>
+        </div>
+      </section>
+
+      <section class="response-list shell" id="responses" aria-label="Week 17 responses">
+        <article class="response-card">
+          <header>
+            <span class="response-number">01</span>
+            <div>
+              <h2>Eric Liu</h2>
+              <time datetime="2026-11-01">Nov 1, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it surprising that in Natural Emergent Misalignment from Reward Hacking in Production RL paper, they could reduce misalignment by 75–90% simply by telling the model that reward hacking was acceptable during training, even though the model continued reward hacking. In Does Reinforcement Learning Really Incentivize Reasoning Capacity?, I thought it was interesting that further RL training improved pass@1 but actually reduced pass@256, suggesting that models become better at finding familiar solutions while losing some ability to explore alternative ones.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>I&#39;m curious whether the reduced reasoning diversity observed in Does RL Really Incentivize Reasoning Capacity paper could also make models more likely to exploit shortcuts in the reward function, as seen in Natural Emergent Misalignment. Could encouraging more diverse reasoning during RL help prevent both reward hacking and the loss of reasoning capabilities, or are these fundamentally different problems? </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">02</span>
+            <div>
+              <h2>Anu Soneye</h2>
+              <time datetime="2026-11-02">Nov 2, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?
+	• I appreciated the paper’s contrarian examination of whether RLVR actually expands a model’s reasoning capacity. Although RL improves pass@1, the base model can perform comparably or better at a large (k). This suggests that RL makes correct solutions easier to sample rather than teaching fundamentally new reasoning strategies.
+	• I also found the role of the pretrained prior interesting. Because exploration begins from the base model’s distribution, unfamiliar strategies are likely to produce incorrect outputs and receive negative rewards. RL therefore reinforces successful strategies already present in the base model while potentially narrowing its range of outputs.
+
+Natural Emergent Misalignment from Reward Hacking in Production RL
+	• I found this to be an interesting red-team project because it examines whether learning to reward hack can generalize to broader misaligned behaviors, such as deception and sabotage. Discovering these possible behaviors in a controlled setting could help defenders prepare for them.
+	• It was also concerning that standard chat-based safety training reduced misalignment on similar prompts but did not fully address it in agentic settings. This demonstrates the importance of evaluating models in varied and realistic contexts.
+</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?
+	• I wonder whether it is fair to compare an RL model at pass@1 with a base model at pass@256. This shows that the correct reasoning path already exists in the base model, but sampling 256 responses may require much more computation. I would like to clarify whether the paper is making a theoretical claim about where reasoning abilities originate or a practical claim about the value of RL compared with inference-time sampling.
+
+Natural Emergent Misalignment from Reward Hacking in Production RL
+	• I wonder whether models can be made resistant to reward hacking without detecting every possible exploit. This reminds me of work on removing undetectable backdoors by relying on stable properties of the intended function rather than identifying the trigger itself. Could training environments similarly be designed so that rewards remain reliable even when the model discovers unknown exploits?
+	• I am also curious about how reliably inoculation prompting would work across different models and more subtle forms of reward hacking.
+
+</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">03</span>
+            <div>
+              <h2>Lauren Cooke</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>The RLVR paper was interesting in distinguishing performance shift by number of attempts from underlying reasoning capability, implying that underlying capability is only highlighted with RLVR rather than introduced. I think there are interesting implications here for the performance limits of LLMs, namely that at least RLVR post-training may not contribute to increased underlying capability but will make specific capability more accessible in being more efficient to extract at inference. The reward hacking misalignment paper was very interesting in how gaming a particular objective can encourage cheating over other tasks and deception in convincing a user that given behavior is safe! It makes a good case for prioritizing over-explicitness over more privacy-encouraging techniques in my opinion.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>From the RLVR analysis paper, I wonder in what cases is doing RLVR worthwhile? If RLVR solves an engineering bottleneck in narrowing model focus to get questions right more quickly/with fewer attempts, could it not therefore reveal more model capability to users? Is it not possible that LLMs could have capability beyond what we are currently using that improved efficient access unlocks? How do we better quantify the limits on underlying model capabilities? For the misalignment paper, I hope to discuss more about how to prevent reward hacking, and what people’s opinions are on this performance/transparency/privacy tradeoff. Did this work update anybody’s positions on this, and do we think that reward hacking that isn’t explicitly encouraged is similarly maliciously updating a model’s more general behavior? </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">04</span>
+            <div>
+              <h2>Katherine Hancock</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?:
+I found parts of this paper confusing tbh but I thought the distinction between making a model more likely to give a correct answer and expanding what it can solve was really interesting. I wonder if more broadly RL can help an LLM discover genuinely new ways to solve problems, including problems that humans haven&#39;t solved yet, or if it mostly helps the model use and combine things it&#39;s already learned.
+
+Natural Emergent Misalignment from Reward Hacking in Production RL:
+After reading this paper, I found myself wondering if models can develop something resembling human-like intentions around cheating or not. I did expect the behavior to be able to generalize beyond coding, but I&#39;m also less sure what that generalization actually tells us about the model. If it generates reasoning about hiding what it&#39;s doing, how much should we read into that?</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?:
+Could an LLM eventually solve an unsolved problem through RL, for example P vs. NP? I know this paper doesn&#39;t directly answer that, but it made me curious what would be needed for that kind of discovery. How would we give it useful feedback when we don&#39;t already know the solution? I&#39;d also like to better understand what counts as a genuinely new reasoning ability, since combining existing ideas in a new way can also lead to a new discovery.
+
+Natural Emergent Misalignment from Reward Hacking in Production RL:
+What kind of evidence would we need to say that a model has an intention to cheat, rather than just producing behavior and reasoning that look intentional? Is that a distinction we can meaningfully test? I’d like to better understand how researchers interpret these behaviors and what conclusions we can actually draw from them.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">05</span>
+            <div>
+              <h2>Chen Gong</h2>
+              <time datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>[Paper 1] This paper discusses how RLVR training affects model ability, using metrics such as pass@1 and pass@256 to measure &quot;potential ability.&quot; It finds that the model learns to perform better on problems it already solves often, but performs worse on problems it has only a small chance of solving correctly. My intuition is that during training with 0/1 rewards, the model learns to value stability over creativity, since creativity always carries the risk of getting the answer wrong.
+
+[Paper 2] This paper studies emergent misalignment during RL on coding environments. The authors teach the model hacking methods through synthetic documents or prompts, and the documents often describe hacking as undesirable. The chain of events could be: the model connects hacking with being bad -&gt; the model is rewarded for hacking -&gt; the model accepts being bad -&gt; the model behaves badly in other, untrained scenarios too. Two findings are highlighted: code sabotage and unprompted alignment faking. These are interesting to see, but their causes are hard to pin down.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>[Paper 1] If rewarding creative-but-failed processes, instead of only the final result, could be a solution, how do we define such a reward correctly? Would it require another model to evaluate the process?
+
+[Paper 2] The results are reasonable, and they also show how indirect material combined with RL can turn a base model bad. Is there a way to make a base model resistant to this kind of training? I can imagine adversarial training, but would that still work when the RL material seems unrelated to misalignment and the model simply learns &quot;I&#39;m bad&quot;?</p>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-footer shell">
+        <p><span class="footer-signal" aria-hidden="true"></span>Synced from the class response form</p>
+        <p>Email addresses are never published.</p>
+      </footer>
+    </main>
+  </body>
+</html>
