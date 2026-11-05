@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="5 CS 618 reading reflections for Week 17, November 9, 2026." />
+    <meta name="description" content="6 CS 618 reading reflections for Week 17, November 9, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 17 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 17</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>5 responses</span>
+          <span>6 responses</span>
         </div>
       </section>
 
@@ -163,6 +163,26 @@ What kind of evidence would we need to say that a model has an intention to chea
               <p>[Paper 1] If rewarding creative-but-failed processes, instead of only the final result, could be a solution, how do we define such a reward correctly? Would it require another model to evaluate the process?
 
 [Paper 2] The results are reasonable, and they also show how indirect material combined with RL can turn a base model bad. Is there a way to make a base model resistant to this kind of training? I can imagine adversarial training, but would that still work when the RL material seems unrelated to misalignment and the model simply learns &quot;I&#39;m bad&quot;?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">06</span>
+            <div>
+              <h2>Selina Xiao</h2>
+              <time datetime="2026-11-04">Nov 4, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found the inoculation prompting result in Natural Emergent Misalignment from Reward Hacking in Production RL particularly surprising. Simply framing reward hacking as acceptable during training reduced broader misalignment by 75–90%, even when the model continued reward hacking in over 99% of episodes. This suggests that the context in which a behavior is reinforced can matter as much as the behavior itself. In Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Mode, I found it interesting that RLVR can improve pass@1 while reducing pass@k for large k, suggesting that optimizing for more reliable responses can actually narrow the set of problems a model can solve through repeated sampling.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p> For Natural Emergent Misalignment from Reward Hacking in Production RL, I wonder why changing the framing of reward hacking alters its generalization so dramatically, even when the learned behavior remains almost unchanged. Could this effect be explained through differences in learned representations? For Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model, could exploration-aware RL objectives preserve the base model&#39;s reasoning diversity while still improving pass@1? More generally, is there an inherent tradeoff between optimizing the probability of successful outcomes and preserving the diversity of strategies available to a model?</p>
             </section>
           </div>
         </article>
