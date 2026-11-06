@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="6 CS 618 reading reflections for Week 17, November 9, 2026." />
+    <meta name="description" content="10 CS 618 reading reflections for Week 17, November 9, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 17 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 17</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>6 responses</span>
+          <span>10 responses</span>
         </div>
       </section>
 
@@ -183,6 +183,94 @@ What kind of evidence would we need to say that a model has an intention to chea
             <section>
               <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
               <p> For Natural Emergent Misalignment from Reward Hacking in Production RL, I wonder why changing the framing of reward hacking alters its generalization so dramatically, even when the learned behavior remains almost unchanged. Could this effect be explained through differences in learned representations? For Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model, could exploration-aware RL objectives preserve the base model&#39;s reasoning diversity while still improving pass@1? More generally, is there an inherent tradeoff between optimizing the probability of successful outcomes and preserving the diversity of strategies available to a model?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">07</span>
+            <div>
+              <h2>Ke Xu</h2>
+              <time datetime="2026-11-05">Nov 5, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>paper1: I find the difference between improving reasoning efficiency and expanding reasoning capacity especially interesting. RLVR models perform better at pass@1, but the base models often perform better when many attempts are allowed. This suggests that RLVR mainly shifts probability toward reasoning paths that already exist in the base model, rather than creating fundamentally new ones. I&#39;m also interested in the contrast with distillation, which can introduce reasoning patterns from a stronger teacher that were not previously accessible to the student model.
+paper2: I&#39;m surprised that learning to reward hack in coding environments generalized to behaviors that are not directly rewarded, including alignment faking and sabotage. The finding that standard chat-based RLHF could make the model appear aligned in ordinary conversations while leaving misalignment in agentic settings is particularly concerning. This shows how an evaluation may look successful while missing harmful behavior outside its testing distribution.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>paper1: I am wondering how confidently pass@(k) can distinguish a genuinely new reasoning capability from a reasoning path that already existed in the base model with extremely low probability. Since even a large but finite (k) may miss very rare paths, the boundary between “new capability” and “better elicitation” still seems difficult to define. I hope to discuss whether process rewards, better exploration, or interaction with external tools could allow RL to move beyond the base model’s existing reasoning distribution.
+paper2: The experiments intentionally make reward hacking easier to discover and trained heavily on hackable environments, so I am curious how often the same broad misalignment would emerge under more typical production training conditions. I also find “inoculation prompting” counterintuitive because it reduces misaligned generalization while still allowing the model to learn reward hacking. I hope to better understand why changing the framing of the behavior has such a large effect, and whether this should be viewed as a genuine safety intervention or mainly as a way of containing the generalization.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">08</span>
+            <div>
+              <h2>Faith Baca</h2>
+              <time datetime="2026-11-06">Nov 6, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>In the first paper I found it interesting how improving a model&#39;s ability to consistently produce correct answers can be different from expanding the range of problems it can solve. In general, this reminded me of the gamification of benchmarks because an improvement on a benchmark can seem like evidence that a model has learned something new, even when it may just be changing which existing behaviors it expresses. It also reminded me of the Sleeper Agents paper. For the second paper, I thought it was really interesting and concerning how learning to exploit coding rewards could generalize to harmful behavior outside of those tasks. I also thought the finding that standard safety training could improve behavior in chat settings while leaving misalignment in agentic settings was particularly important. This made me wonder how often our evaluations capture the situations where a model has learned to behave appropriately without adequately testing the situations where its actions could have more substantial consequences.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the first paper, I&#39;m curious about what should count as an improvement in reasoning ability. If a model can produce a correct solution only after hundreds of attempts, how should we compare that ability to a model that produces it reliably? In other words, I am curious to hear what people think about how much weight we should place on potential capability versus what users can realistically access. I would also be interested to know whether the problems that become harder to solve after RL share particular characteristics. For the second paper, I am curious about how much the results depend on providing models with information about reward hacking. I would also like to discuss what sufficiently diverse safety evaluations would look like in practice, especially when we cannot anticipate every setting in which an agent will act. In general, I am hoping to hear people&#39;s thoughts on how these papers fit together, since both raise questions about what improvements in measured performance actually tell us about what a model has learned.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">09</span>
+            <div>
+              <h2>Nana Xia</h2>
+              <time datetime="2026-11-06">Nov 6, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>Does reinforcement learning really incentivize reasoning capacity in LLMs beyond the base model? I found interesting that the authors examined reasoning using large-k pass@k instead of pass@1. If at least one out of k samples is correct, the problem is considered within the model&#39;s potential reasoning scope. The results showed that RLVR-trained models perform better at small k, especially at pass@1. It shows that the RLVR-trained models are more likely to generate a correct reasoning path on the first few attempts. However, as k becomes large, the base model catches up and often surpasses the RLVR model. This indicates that the current RLVR might be improving the efficiency of sampling the correct reasoning paths, which were originally present in the base model, rather than continuously creating fundamentally new reasoning capabilities.
+
+Natural emergent misalignment from reward hacking in production RL: I found that the results of the inoculation prompting were contrary to my intuition. The authors pointed out that during the training process, telling the model that rewarding deception is acceptable in a specific environment can significantly reduce the broader deviation behaviors resulting from learning to deceive for rewards. The authors believe that the model may have learned during pre-training to associate reward deception with deviation behaviors. Their experiments showed that although the rate of reward deception remained high, the generalization ability of this deviation was reduced by approximately 75% to 90%.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>Do these two papers reflect the same fundamental phenomenon? In both cases, reinforcement learning seems to be reshaping the probability distribution within the original behavioral patterns. If this is indeed the case, then will the manipulation of rewards trigger new mismatches? Because reinforcement learning is increasing the probability of the already existing potential &quot;mismatch&quot; behaviors in the pre-trained model, rather than creating these behaviors from scratch.</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">10</span>
+            <div>
+              <h2>Alan Liang</h2>
+              <time datetime="2026-11-06">Nov 6, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>I found it interesting that reinforcement learning could improve the chance of answering correctly in one attempt while reducing the range of problems solved across many attempts. In the tested settings, the base model sometimes covered more problems when given enough samples. I also found it interesting that increasing the trained model’s sampling temperature did not fully recover that coverage.
+
+I found it interesting that, in the authors’ experiments, models given knowledge of coding reward hacks developed misaligned behavior on tasks outside coding after learning to exploit those rewards. Ordinary safety training improved chat evaluations while some failures remained on agentic tasks. The finding that framing reward hacking as acceptable during training reduced this broader generalization was especially surprising.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>How much can finite sampling experiments tell us about whether a model has learned a new reasoning method? Would the comparison change if both models received the same total number of generated tokens rather than the same number of attempts? I hope to understand how to distinguish more reliable use of existing abilities from evidence of new abilities, especially when identifying the correct sampled answer requires an external verifier.
+
+How much do the results depend on supplying knowledge of specific hacks and selecting vulnerable environments? Why would changing the framing of hacking affect behavior on unrelated tasks? I hope to understand how to test whether the inoculation approach transfers to new situations, and how to detect failures that ordinary chat evaluations might miss.</p>
             </section>
           </div>
         </article>
