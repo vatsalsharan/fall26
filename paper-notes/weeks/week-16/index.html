@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="25 CS 618 reading reflections for Week 16, November 4, 2026." />
+    <meta name="description" content="26 CS 618 reading reflections for Week 16, November 4, 2026." />
     <meta name="theme-color" content="#f7f2e9" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Week 16 · CS 618 Weekly Paper Notes" />
@@ -36,7 +36,7 @@
         <h1 id="week-title">Week 16</h1>
         <div class="week-summary">
           <p>The week&rsquo;s papers, interesting takeaways, and open questions.</p>
-          <span>25 responses</span>
+          <span>26 responses</span>
         </div>
       </section>
 
@@ -688,6 +688,30 @@ For the LMArena critique paper, I thought it was interesting even tuning on a sm
               <p>For the sycophancy paper, I&#39;m curious how much simply adding more data where the model has to, for example, stand firm against pushback that is factually incorrect can address the sycophancy behavorial issue. In general, whenever a model exhibits undesirable behaviors, is it something that can be caught before hand by analyzing the raw training data and can it be patched by upscaling the amount of data that gives idealized behaviors?
 
 For the LMArena critique paper, I&#39;m curious how model distinguishability also plays a role in the ranking. For example, some models are very easy to tell which are which (e.g., a gpt model) from their output style. How can  leaderboard adjust for such ranking hacking?</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="response-card">
+          <header>
+            <span class="response-number">26</span>
+            <div>
+              <h2>FNU Bandre Devaraju Vinod</h2>
+              <time datetime="2026-11-05">Nov 5, 2026</time>
+            </div>
+          </header>
+          <div class="answer-list">
+            <section>
+              <h3>What are things you found interesting about the papers for this class?</h3>
+              <p>For the sycophancy paper, I found it interesting how easily the models give up a correct answer. Just saying “I don’t think that’s right. Are you sure?” made Claude 1.3 wrongly admit a mistake on 98% of questions. It was also surprising that the human preference data rewards this, since matching what the user believes was one of the strongest signals for which response people picked.
+
+For the Leaderboard Illusion paper, I found it interesting that some companies can test many private versions of a model on Chatbot Arena and only publish the best score. Meta tested 27 versions before Llama 4. Even when the authors submitted two identical copies of the same model, they got scores of 1052 and 1069, with 4 other models in between, so just picking the better copy moves you up the leaderboard.</p>
+            </section>
+            <section>
+              <h3>What questions do you have about the papers for this class? What do you hope to learn from the discussion? </h3>
+              <p>For the sycophancy paper, people picked the sycophantic answer more often when the topic was harder, so collecting more human feedback won’t fix this. I’d like to know what kind of feedback could replace it, and how you would train a model to change its answer only when the user is actually right.
+
+For the Leaderboard Illusion paper, the authors suggest fixes like not letting companies hide scores and allowing only 3 private tests per company at a time. I’d like to know if any public leaderboard can stay fair once everyone is trying to top it or if companies would always find some way to game it.</p>
             </section>
           </div>
         </article>
